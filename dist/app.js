@@ -111,7 +111,7 @@ function renderArmy(){
   $('#selectedList').innerHTML=units.length?units.map(u=>`<div class="selected-entry"><span class="number">${count(u)}×</span><div class="summary"><strong>${escapeHtml(localizedName(u))}</strong><small>${u.pointsCost*count(u)}점 · COM ${(u.command||0)*count(u)}${data.wtsFogIds.includes(u.id)&&state.mode==='wts'?' · 출전 불가':''}</small></div><button type="button" data-remove="${escapeHtml(u.id)}" aria-label="${escapeHtml(u.name)} 제거">−</button></div>`).join(''):'<div class="empty">아직 추가한 유닛이 없습니다.<br />왼쪽 목록에서 부대를 구성하세요.</div>';
 }
 function cardIcon(name,kind,label){
-  return `<svg class="card-icon ${kind}" viewBox="0 0 40 40" role="img" aria-label="${escapeHtml(label)}"><use href="./icons.svg#${name}" /></svg>`;
+  return `<svg class="card-icon ${kind}" viewBox="0 0 40 40" role="img" aria-label="${escapeHtml(label)}"><use href="./icons.svg?v=9#${name}" /></svg>`;
 }
 function tattooistShowcase(){
   return `<article class="showcase-card" aria-label="타투이스트 한국어 카드 예시">
@@ -174,9 +174,9 @@ function sourceProfile(u,profile){
   return `<header class="auth-profile ${hasStats?'':'auth-profile-simple'}" style="--ribbon-color:${ribbonColors[u.faction]||'#988d78'}"><div class="auth-ribbon"><strong>${escapeHtml(u.pointsCost)}</strong></div>${portrait}<div class="auth-profile-main"><div class="auth-titlebar"><h2>${escapeHtml(name)}</h2></div>${stats}<p>${escapeHtml(tags.join(' · ')||u.name)}</p></div></header>`;
 }
 function sourceCombat(rows){
-  return rows.map((row,index)=>`<section class="auth-combat-row" aria-label="전투 방식 ${index+1}"><div class="auth-combat-bar"><span class="${row.badge?'auth-range':'auth-range-empty'}">${row.badge?escapeHtml(row.badge):''}</span><span class="auth-bar-icon">${row.first?.length?cardIcon('ranged-mark','icon-combat','첫 공격 방식 기호'):''}${row.distance?`<b>${escapeHtml(row.distance)}</b>`:''}</span><span class="auth-bar-icon">${row.second?.length?cardIcon('melee-mark','icon-combat','두 번째 공격 방식 기호'):''}</span><span class="auth-bar-icon">${row.defense?.length?cardIcon('armor','icon-combat','방어 기호'):''}</span><span class="auth-stress">${cardIcon('stress-seal','icon-combat','스트레스 수치')}${row.stress!==null&&row.stress!==undefined?`<b>${escapeHtml(row.stress)}</b>`:'<b class="auth-stress-unknown">·</b>'}</span></div><div class="auth-combat-dice"><span></span><span>${row.first?.length?sourceDice(row.first):''}</span><span>${row.second?.length?sourceDice(row.second):''}</span><span>${row.defense?.length?sourceDice(row.defense):''}</span><span></span></div>${row.effect?`<div class="auth-combat-effect">${row.effect}</div>`:''}</section>`).join('');
+  return rows.map((row,index)=>`<section class="auth-combat-row" aria-label="전투 방식 ${index+1}"><div class="auth-combat-bar"><span class="${row.badge?'auth-range':'auth-range-empty'}">${row.badge?escapeHtml(row.badge):''}</span><span class="auth-bar-icon">${row.barFirst||`${row.first?.length?cardIcon('ranged-mark','icon-combat','첫 공격 방식 기호'):''}${row.distance?`<b>${escapeHtml(row.distance)}</b>`:''}`}</span><span class="auth-bar-icon">${row.second?.length?cardIcon('melee-mark','icon-combat','두 번째 공격 방식 기호'):''}</span><span class="auth-bar-icon">${row.barDefense||`${row.defense?.length?cardIcon('armor','icon-combat','방어 기호'):''}`}</span><span class="auth-stress">${cardIcon('stress-seal','icon-combat','스트레스 수치')}${row.stress!==null&&row.stress!==undefined?`<b>${escapeHtml(row.stress)}</b>`:'<b class="auth-stress-unknown">·</b>'}</span></div>${row.hideDice?'':`<div class="auth-combat-dice"><span></span><span>${row.first?.length?sourceDice(row.first):''}</span><span>${row.second?.length?sourceDice(row.second):''}</span><span>${row.defense?.length?sourceDice(row.defense):''}</span><span></span></div>`}${row.effect?`<div class="auth-combat-effect">${row.effect}</div>`:''}</section>`).join('');
 }
-function sourceAbility(paragraph,index){
+function sourceAbility(paragraph,index,iconOverride){
   const lines=paragraph.split('\n').map(x=>x.trim()).filter(Boolean);
   const first=lines.shift()||'';
   const split=first.indexOf(' · '),period=first.indexOf('. ');
@@ -184,9 +184,16 @@ function sourceAbility(paragraph,index){
   const unreadable=/[A-Za-z]{2}|[§®°<>]/.test(rawTitle);
   const title=unreadable?`능력 ${index+1}`:rawTitle;
   const detail=split>0&&split<65?first.slice(split+3):period>0&&period<65?first.slice(period+2):first.length<45&&!unreadable?'':first;
-  const body=[detail,...lines].filter(Boolean).join('\n').replace(/LoS가 없습니다/gi,'시야선 불필요').replace(/LoS/gi,'시야선');
-  const kind=/치유|회복|약초|heal/i.test(paragraph)?'heal':/주문|마법|영혼|토템|spell/i.test(paragraph)?'magic':'ability';
+  const body=[detail,...lines].filter(Boolean).join('\n').replace(/LoS가 없습니다/gi,'시야선 불필요').replace(/LoS/gi,'시야선').replace(/당신은 두려움을 얻습니다/g,'공포 무시 특성을 얻습니다');
+  const kind=iconOverride||(/치유|회복|약초|heal/i.test(paragraph)?'heal':'magic');
   return `<section>${cardIcon(kind,'icon-skill',`${title} 능력 기호`)}<div><h3>${escapeHtml(title)}</h3>${body?`<p>${escapeHtml(body)}</p>`:''}</div></section>`;
+}
+function sourceEnhancement(u,enhancement,rows,abilities){
+  const name=localizedName(u),art=localCardUrl(u);
+  const stats=enhancement.stats||[];
+  const statHead=stats.length?`<div class="auth-enhancement-stat-head">${stats.map(stat=>`<span>${escapeHtml(stat.label)}</span>`).join('')}</div>`:'';
+  const statValues=stats.length?`<div class="auth-enhancement-stat-values">${stats.map(stat=>`<span>${stat.dice?.length?`+${sourceDice(stat.dice)}`:stat.value?escapeHtml(stat.value):'—'}</span>`).join('')}</div>`:'';
+  return `<section class="auth-enhancement" aria-label="${escapeHtml(name)} 강화 카드"><header class="auth-enhancement-profile"><div class="auth-enhancement-portrait" role="img" aria-label="${escapeHtml(name)} 인물 그림" style="background-image:url('${escapeHtml(art)}')"></div><div class="auth-enhancement-title">${escapeHtml(name)}</div>${statHead}${statValues}</header><div class="auth-enhancement-body">${rows.length?`<div class="auth-combat">${sourceCombat(rows)}</div>`:''}${abilities?`<div class="auth-abilities">${abilities}</div>`:''}</div></section>`;
 }
 function tattooistSourceCard(u){
   const effect=`${cardIcon('crit','icon-status','공격 효과 기호 1')}${cardIcon('crit','icon-status','공격 효과 기호 2')}<span>대상에게 둔화 상태를 부여합니다.</span>`;
@@ -194,15 +201,32 @@ function tattooistSourceCard(u){
   const front=[['약초와 연고','12보폭 이내 모든 아군 유닛을 대상으로, 원하는 상태를 제거하고 피해 1을 회복합니다. 의지 판정의 성공 기호 하나마다 대상별로 피해 1을 추가 회복합니다.','heal'],['환각 버섯','지속 · 시야 불필요 · 모든 아군 주문 시전자. 마법 오염·주문 방어 판정에서 주사위를 원하는 만큼 다시 굴릴 수 있습니다. 두 판정에 원본 카드에 표시된 추가 기호를 적용합니다.','magic'],['토템의 숨결','지속 · 시야 불필요 · 모든 아군 바랑크 유닛이 파란 주문 해제 주사위를 얻습니다.','magic']];
   const back=[['치유 문신','활성화당 1회, 피해를 받기 직전 의지 판정에 성공하면 피해 1을 무시할 수 있습니다.','magic'],['고래 바늘','무장 해제·둔화·취약 상태에 면역입니다.','magic']];
   const abilities=(items)=>items.map(([title,body,icon])=>`<section>${cardIcon(icon,'icon-skill',`${title} 능력 기호`)}<div><h3>${title}</h3><p>${body}</p></div></section>`).join('');
-  return `<article class="showcase-card showcase-authentic" aria-label="타투이스트 한국어 카드">${sourceProfile(u,{mov:'4-3[10]',w:2,wpDice:['yellow','yellow'],mor:1})}<div class="auth-content"><div class="auth-heading">전투 <span>COMBAT</span></div><div class="auth-combat">${combat}</div><div class="auth-heading">능력 <span>ABILITIES</span></div><div class="auth-abilities">${abilities(front)}</div><div class="auth-heading">강화 · 사기 +1 <span>ENHANCEMENT</span></div><div class="auth-abilities">${abilities(back)}</div><div class="auth-footer">영문 원본 카드의 수치·주사위·효과를 대조한 한글 카드</div></div></article>`;
+  const enhanced=sourceEnhancement(u,{stats:[{label:'MOR',value:'+1'}]},[{first:[],defense:[],stress:0,hideDice:true}],abilities(back));
+  return `<article class="showcase-card showcase-authentic showcase-authentic-draft" aria-label="타투이스트 한국어 카드">${sourceProfile(u,{mov:'4-3[10]',w:2,wpDice:['yellow','yellow'],mor:1})}<div class="auth-content auth-front-content"><div class="auth-combat">${combat}</div><div class="auth-abilities">${abilities(front)}</div></div>${enhanced}<div class="auth-footer">영문 원본 카드의 수치·주사위·효과를 대조한 한글 카드</div></article>`;
 }
 function draftSourceCard(u,translated,profile){
   const name=localizedName(u);
-  const rows=(profile?.combat||[]).map(row=>({first:row.attacks?.[0]||[],second:row.attacks?.slice(1).flat()||[],defense:row.defense||[],stress:null}));
+  const asRows=(items)=>(items||[]).map(row=>({first:row.attacks?.[0]||[],second:row.attacks?.slice(1).flat()||[],defense:row.defense||[],stress:null}));
+  let rows=asRows(profile?.combat),enhancement=profile?.enhancement,enhancementRows=asRows(enhancement?.combat).map(row=>row.first.length||row.second.length||row.defense.length?row:{...row,hideDice:true,barFirst:cardIcon('ranged-mark','icon-combat','공격 기호'),barDefense:cardIcon('armor','icon-combat','방어 기호')});
   const paragraphs=cardAbilityParagraphs(translated);
   const boxes=cardAbilities[u.cardKey]||[];
-  const abilities=boxes.length?boxes.map((box,i)=>sourceAbility(box.korean||box.english,i)).join(''):Object.hasOwn(cardAbilities,u.cardKey)?`<section>${cardIcon('magic','icon-skill','정보 기호')}<div><h3>인쇄된 능력 없음</h3><p>원본 카드에 별도의 능력 상자가 없습니다.</p></div></section>`:paragraphs.length?paragraphs.map(sourceAbility).join(''):`<section>${cardIcon('magic','icon-skill','정보 기호')}<div><h3>상세 능력 미확보</h3><p>원본 카드 이미지가 제공되지 않아 편성 정보만 표시합니다.</p></div></section>`;
-  return `<article class="showcase-card showcase-authentic showcase-authentic-draft" aria-label="${escapeHtml(name)} 한국어 카드">${sourceProfile(u,profile)}<div class="auth-content"><div class="auth-heading">전투 <span>COMBAT</span></div><div class="auth-combat">${rows.length?sourceCombat(rows):'<p class="auth-empty">전투 수치가 없는 카드이거나 원본 판독이 필요합니다.</p>'}</div><div class="auth-heading">능력 <span>ABILITIES</span></div><div class="auth-abilities">${abilities}</div><div class="auth-footer">자동 변환 초안 · 주사위 기호와 문구는 아래 영문 원본에서 대조하세요.</div></div></article>`;
+  const cutoff=enhancement?.top;
+  const frontBoxes=cutoff?boxes.filter(box=>box.top<cutoff):boxes;
+  const backBoxes=cutoff?boxes.filter(box=>box.top>=cutoff):[];
+  if(u.cardKey==='wisemane'){
+    const bolt=cardIcon('surge','icon-combat','원본의 번개 기호'),red=cardIcon('rune-red','icon-combat','빨간 기호');
+    const attack=`${cardIcon('ranged-mark','icon-combat','원거리 공격 기호')}${bolt}<b>4+</b>${red}${cardIcon('white-crit','icon-combat','추가 효과 기호')}`;
+    const defense=`${cardIcon('armor','icon-combat','방어 기호')}${bolt}<b>4+</b>${red}`;
+    rows=[{first:['red','orange','orange','yellow'],defense:['blue','blue','black-shield'],stress:0,barFirst:attack,barDefense:defense,effect:`${cardIcon('crit','icon-status','취약 효과 기호')}${cardIcon('crit','icon-status','취약 효과 기호')}<span>대상에게 취약 상태를 부여합니다.</span>`}];
+    enhancement={...enhancement,stats:[{label:'WP',dice:['yellow']},{label:'MOR',value:'+1'}]};
+    enhancementRows=[{first:[],defense:[],stress:'+0',barFirst:attack,barDefense:defense,hideDice:true}];
+  }
+  const renderBoxes=(items,offset=0)=>items.map((box,i)=>sourceAbility(box.korean||box.english,i+offset,u.cardKey==='wisemane'&&i===0&&offset===0&&items===backBoxes?'experience':undefined)).join('');
+  const missing=`<section>${cardIcon('magic','icon-skill','정보 기호')}<div><h3>${Object.hasOwn(cardAbilities,u.cardKey)?'인쇄된 능력 없음':'상세 능력 미확보'}</h3><p>${Object.hasOwn(cardAbilities,u.cardKey)?'원본 카드에 별도의 능력 상자가 없습니다.':'원본 카드 이미지가 제공되지 않아 편성 정보만 표시합니다.'}</p></div></section>`;
+  const frontAbilities=frontBoxes.length?renderBoxes(frontBoxes):!cutoff?(boxes.length?'':Object.hasOwn(cardAbilities,u.cardKey)?missing:paragraphs.length?paragraphs.map(sourceAbility).join(''):missing):'';
+  const backAbilities=backBoxes.length?renderBoxes(backBoxes,frontBoxes.length):'';
+  const frontCombat=rows.length?`<div class="auth-combat">${sourceCombat(rows)}</div>`:!cutoff?'<p class="auth-empty">전투 수치가 없는 카드이거나 원본 판독이 필요합니다.</p>':'';
+  return `<article class="showcase-card showcase-authentic showcase-authentic-draft ${u.cardKey==='wisemane'?'auth-wisemane':''}" aria-label="${escapeHtml(name)} 한국어 카드">${sourceProfile(u,profile)}<div class="auth-content auth-front-content">${frontCombat}${frontAbilities?`<div class="auth-abilities">${frontAbilities}</div>`:''}</div>${cutoff?sourceEnhancement(u,enhancement,enhancementRows,backAbilities):''}<div class="auth-footer">자동 변환 초안 · 주사위 기호와 문구는 아래 영문 원본에서 대조하세요.</div></article>`;
 }
 function visualCard(u,translated,profile){
   const name=localizedName(u),faction=factionNames[u.faction]?.[0]||u.faction;
@@ -261,4 +285,4 @@ $('#availableOnly').addEventListener('change',e=>{state.availableOnly=e.target.c
 $('#commanderSelect').addEventListener('change',e=>{state.commander=e.target.value;renderValidation()});
 $('#saveButton').addEventListener('click',saveList);$('#exportButton').addEventListener('click',exportList);
 $('#loadButton').addEventListener('click',showSaved);$('#resetButton').addEventListener('click',reset);
-Promise.all(['./app-data.json','./card-ko.json','./card-profiles.json','./card-abilities.json'].map(url=>fetch(url).then(response=>{if(!response.ok)throw Error(`${url} 요청 실패`);return response.json()}))).then(([units,translated,profiles,abilities])=>{data=units;translations=translated;cardProfiles=profiles;cardAbilities=abilities;$('#sourceVersion').textContent=`유닛 자료 v${data.version} · 한국어 카드 초안`;render()}).catch(()=>{toast('유닛 자료를 불러오지 못했습니다.');$('#unitList').innerHTML='<div class="empty">자료를 불러올 수 없습니다. 페이지를 새로고침하세요.</div>'});
+Promise.all(['./app-data.json','./card-ko.json','./card-profiles.json','./card-abilities.json'].map(url=>fetch(`${url}?v=9`).then(response=>{if(!response.ok)throw Error(`${url} 요청 실패`);return response.json()}))).then(([units,translated,profiles,abilities])=>{data=units;translations=translated;cardProfiles=profiles;cardAbilities=abilities;$('#sourceVersion').textContent=`유닛 자료 v${data.version} · 한국어 카드 초안`;render()}).catch(()=>{toast('유닛 자료를 불러오지 못했습니다.');$('#unitList').innerHTML='<div class="empty">자료를 불러올 수 없습니다. 페이지를 새로고침하세요.</div>'});
