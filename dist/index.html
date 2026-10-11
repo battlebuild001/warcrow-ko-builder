@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#111a23" />
+  <meta name="description" content="워크로우 한국어 아미 빌더 초안. 진영을 고르고 공식 편성 규칙에 따라 부대를 구성하세요." />
+  <title>워크로우 한글 아미 빌더 · 초안</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark">W</div><div><strong>WARCROW</strong><small>한국어 아미 빌더 <span>초안</span></small></div></div>
+    <div class="top-actions"><span class="source-version" id="sourceVersion">자료 불러오는 중</span><a href="https://experience.corvusbelli.com/en/warcrow" target="_blank" rel="noopener noreferrer">공식 자료 ↗</a></div>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero" aria-labelledby="pageTitle">
+      <div><p class="eyebrow">YOUR COMPANY · YOUR STORY</p><h1 id="pageTitle">나만의 부대를<br /><em>편성하세요.</em></h1><p class="hero-copy">진영을 선택하고 유닛을 모아 전장으로 떠날 준비를 하세요. 공식 편성 규칙과 WTS 시즌 2 제한을 함께 확인할 수 있습니다.</p></div>
+      <div class="hero-stamp" aria-hidden="true"><span>W</span><small>ARMY<br />BUILDER</small></div>
+    </section>
+
+    <section class="setup-panel" aria-label="편성 설정">
+      <div class="setup-heading"><div><span class="section-kicker">01 / 전장 준비</span><h2>편성 설정</h2></div><span class="draft-tag">검토용 초안</span></div>
+      <div class="setup-controls">
+        <fieldset class="mode-control"><legend>게임 방식</legend><div class="segmented"><label><input type="radio" name="mode" value="standard" /><span>일반전</span></label><label><input type="radio" name="mode" value="wts" checked /><span>WTS 시즌 2</span></label></div></fieldset>
+        <label class="points-control">점수 상한<span><input id="pointsLimit" type="number" min="50" max="1000" step="5" value="250" inputmode="numeric" /> <b>점</b></span></label>
+        <p class="setup-note" id="modeNote">대회 규칙 적용 · 출전 불가 유닛 제외 · 용병 최대 1개</p>
+      </div>
+      <div class="faction-heading"><span class="section-kicker">02 / 소속 선택</span><span>진영을 선택하세요</span></div>
+      <div class="faction-grid" id="factionGrid" role="group" aria-label="진영"></div>
+    </section>
+
+    <div class="builder-grid">
+      <section class="catalog panel" aria-labelledby="catalogTitle">
+        <div class="panel-head"><div><span class="section-kicker">03 / 병력 모집</span><h2 id="catalogTitle">유닛 목록 <span id="unitCount"></span></h2></div><div class="view-badge" id="currentFactionName"></div></div>
+        <div class="catalog-toolbar"><label class="search"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="유닛 이름, 특성, 규칙 검색" autocomplete="off" /></label><label class="sort-control"><span class="sr-only">정렬</span><select id="sortSelect"><option value="points">낮은 점수순</option><option value="points-desc">높은 점수순</option><option value="name">이름순</option></select></label></div>
+        <div class="filter-row"><label class="filter-select"><span class="sr-only">유닛 종류</span><select id="typeFilter"><option value="all">모든 종류</option><option value="Character">캐릭터</option><option value="Troop">일반 유닛</option><option value="Companion">동반자</option></select></label><label class="check-filter"><input id="availableOnly" type="checkbox" /><span>추가 가능한 유닛만</span></label></div>
+        <div class="unit-list" id="unitList" aria-live="polite"></div>
+      </section>
+
+      <aside class="army panel" aria-labelledby="armyTitle">
+        <div class="panel-head"><div><span class="section-kicker">04 / 나의 부대</span><h2 id="armyTitle">편성표</h2></div><span class="army-count" id="armyCount">0개 유닛</span></div>
+        <div class="score-card"><div><span>총 편성 점수</span><strong id="scoreValue">0 <small>/ 250점</small></strong></div><div class="score-meter"><i id="scoreMeter"></i></div><p id="scoreRemaining">250점 남음</p></div>
+        <div class="command-strip"><span>지휘 토큰 <b id="commandValue">0</b></span><span>용병 <b id="mercenaryValue">0 / 1</b></span></div>
+        <label class="commander-select">지휘관 <span>Officer 캐릭터 중 지정</span><select id="commanderSelect"><option value="">지휘관 선택</option></select></label>
+        <div class="validation" id="validation" aria-live="polite"></div>
+        <div class="selected-list" id="selectedList"></div>
+        <div class="army-actions"><label class="list-name">목록 이름<input id="listName" type="text" maxlength="60" placeholder="예: 북방의 선봉대" /></label><div class="button-row"><button id="saveButton" class="button button-gold" type="button">목록 저장</button><button id="exportButton" class="button button-ghost" type="button">JSON 내보내기</button></div><div class="button-row quiet"><button id="loadButton" type="button">저장 목록 불러오기</button><button id="resetButton" type="button">새 목록</button></div></div>
+        <p class="data-note">유닛 이름과 카드 문구는 영문 원본을 유지한 검토용 자료입니다. Officer/Support 구분과 최신 프로필은 공식 CorvuSphere 확인이 필요합니다.</p>
+      </aside>
+    </div>
+    <footer><span>비공식 한국어 빌더 초안</span><span>Warcrow™ is a trademark of Corvus Belli S.L.</span></footer>
+  </main>
+
+  <dialog id="cardDialog" class="card-dialog"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form><h2 id="dialogTitle">유닛 카드</h2><img id="dialogImage" alt="" /><p>카드 이미지: Warcrow Army Builder 출처. 수치와 문구는 공식 최신 프로필과 대조하세요.</p></dialog>
+  <dialog id="loadDialog" class="load-dialog"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form><h2>저장한 목록</h2><div id="savedList"></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js" defer></script>
+</body>
+</html>
