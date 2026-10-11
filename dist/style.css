@@ -36,16 +36,37 @@
 .skill-sigil.defense{background:#54766B;border-color:var(--sage)}
 .skill-chip{background:#E5D9F0;color:var(--card-accent)}
 
-/* Exact card glyphs, displayed from the official Tattooist card image. */
-.source-glyph{display:inline-block;flex:none;overflow:hidden;vertical-align:middle;pointer-events:none}
-.source-die{width:27px;height:27px;clip-path:polygon(50% 1%,99% 50%,50% 99%,1% 50%);filter:drop-shadow(1px 2px 0 #241F2E55)}
-.source-combat-icon{width:28px;height:28px}
-.source-status-icon{width:56px;height:37px}
-.source-skill-icon{width:32px;height:32px;border-radius:50%}
-.source-inline-icon{width:22px;height:23px;margin:0 3px;vertical-align:-6px}
-.showcase-stats .source-die{width:27px;height:27px}
-.showcase-combat .source-die{width:25px;height:25px}
+/* Vector game icons redrawn from the card's visual language. */
+.card-icon{display:inline-block;flex:none;vertical-align:middle;overflow:visible}
+.icon-die{width:27px;height:27px;filter:drop-shadow(1px 2px 1px #120d18a0)}
+.icon-combat{width:29px;height:29px}
+.icon-status{width:29px;height:29px}
+.icon-skill{width:32px;height:32px}
+.icon-inline{width:21px;height:21px;margin:0 2px;vertical-align:-5px}
+.showcase-stats .icon-die{width:27px;height:27px}
+.showcase-combat .icon-die{width:25px;height:25px}
 .showcase-combat .showcase-dice{gap:2px}
-.showcase-status{align-items:center}
-@media(max-width:650px){.showcase-stats .source-die{width:18px;height:18px}.showcase-combat .source-die{width:23px;height:23px}.source-combat-icon{width:25px;height:25px}.source-skill-icon{width:26px;height:26px}}
+.status-icons{display:inline-flex;gap:0;flex:none}
 .showcase-top:after{content:none}
+@media(max-width:650px){.showcase-stats .icon-die{width:18px;height:18px}.showcase-combat .icon-die{width:23px;height:23px}.icon-combat{width:25px;height:25px}.icon-skill{width:26px;height:26px}.icon-status{width:25px;height:25px}}
+
+/* Shared visual card for every unit. */
+.showcase-generic .showcase-top{min-height:166px}
+.showcase-generic .showcase-identity h2{font-size:clamp(22px,3vw,31px);line-height:1.2}
+.visual-portrait{background-size:565px auto;background-position:-62px -13px;background-repeat:no-repeat}
+.portrait-fallback{display:grid;place-items:center;background:linear-gradient(135deg,var(--surface2),var(--card-accent));font:700 55px Georgia,serif;color:var(--text)}
+.showcase-generic .showcase-badges{max-height:57px;overflow:hidden}
+.showcase-generic .showcase-stats strong:has(.showcase-dice){display:block;line-height:1}
+.showcase-generic .showcase-stats .showcase-dice{gap:2px}
+.stat-unknown{font:700 10px/1.3 'Noto Sans KR',sans-serif;color:var(--card-muted)}
+.visual-combat{display:grid;gap:7px}
+.visual-combat-row{display:grid;grid-template-columns:29px 1fr 1fr;align-items:stretch;gap:5px}
+.visual-combat-row>div{display:flex;align-items:center;gap:6px;min-width:0;padding:8px 10px;border-radius:4px;background:var(--surface);color:var(--text);font-size:11px;font-weight:800}
+.visual-combat-row .showcase-dice{margin-left:auto;gap:2px;flex-wrap:wrap;justify-content:flex-end}
+.attack-dice-group{display:inline-flex;align-items:center;gap:2px}
+.attack-dice-group+.attack-dice-group{border-left:1px solid #b6a0de80;padding-left:5px;margin-left:3px}
+.combat-number{display:grid;place-items:center;background:var(--card-accent);color:var(--text);border-radius:4px;font:700 15px Georgia,serif}
+.visual-empty{margin:0;padding:12px 14px;border:1px dashed var(--card-line);border-radius:5px;color:var(--card-muted);font-size:12px}
+.showcase-generic .showcase-skill p{white-space:pre-line;overflow-wrap:anywhere}
+.showcase-generic .showcase-skill h3{overflow-wrap:anywhere}
+@media(max-width:650px){.showcase-generic .showcase-top{padding-right:55px}.showcase-generic .showcase-badges{max-height:42px}.visual-portrait{background-size:350px auto;background-position:-39px -8px}.visual-combat-row{grid-template-columns:23px 1fr;grid-template-rows:auto auto}.visual-combat-row .combat-number{grid-row:1/3}.visual-combat-row>div{min-height:37px;padding:5px 8px}.showcase-generic .showcase-stats strong:has(.showcase-dice){min-height:20px}}

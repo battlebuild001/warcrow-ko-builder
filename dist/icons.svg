@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <symbol id="die-red" viewBox="0 0 40 40">
+      <path d="M20 1 39 20 20 39 1 20Z" fill="#7d222b" stroke="#69222b" stroke-width="1.5"/><path d="M20 3 36 20 20 36 4 20Z" fill="#cf3d48" stroke="#f16d70" stroke-width="1"/>
+      <path d="m15 27 3-14 5 1-1 5 5-1-2 7-4-1 1-3-4 1-1 5Z" fill="#f7ebdf" stroke="#70323a" stroke-width=".8"/>
+      <path d="M12 29h16" stroke="#832831" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="die-yellow" viewBox="0 0 40 40">
+      <path d="M20 1 39 20 20 39 1 20Z" fill="#a98208" stroke="#765f0a" stroke-width="1.5"/><path d="M20 3 36 20 20 36 4 20Z" fill="#f8dc25" stroke="#fff46a" stroke-width="1"/>
+      <path d="m19 8-5 13 6-2-2 12 8-15-6 2 2-8Z" fill="#fff8c6" stroke="#705715" stroke-width="1.1" stroke-linejoin="round"/>
+      <path d="m14 25 5 2M23 13l3 2" stroke="#6d5516" stroke-width="1.7" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="die-orange" viewBox="0 0 40 40">
+      <path d="M20 1 39 20 20 39 1 20Z" fill="#99500e" stroke="#6e390a" stroke-width="1.5"/><path d="M20 3 36 20 20 36 4 20Z" fill="#ee8a20" stroke="#ffbd57" stroke-width="1"/>
+      <path d="M13 24c2-7 5-11 7-11s5 4 7 11c-3 3-11 3-14 0Z" fill="none" stroke="#72411a" stroke-width="2.3"/><circle cx="20" cy="19" r="2.6" fill="#f7d69a" stroke="#794516" stroke-width="1.2"/>
+    </symbol>
+    <symbol id="die-green" viewBox="0 0 40 40">
+      <path d="M20 1 39 20 20 39 1 20Z" fill="#34852a" stroke="#266920" stroke-width="1.5"/><path d="M20 3 36 20 20 36 4 20Z" fill="#70d54d" stroke="#a2ef6d" stroke-width="1"/>
+      <path d="M27 15c-2-3-10-3-13 2-3 5 0 11 6 11 4 0 7-2 7-6h-5" fill="none" stroke="#26782e" stroke-width="3" stroke-linecap="round"/><path d="m21 17 4-4 4 4" fill="none" stroke="#e6ffe0" stroke-width="1.5"/>
+    </symbol>
+    <symbol id="die-blue" viewBox="0 0 40 40">
+      <path d="M20 1 39 20 20 39 1 20Z" fill="#2c7896" stroke="#175d79" stroke-width="1.5"/><path d="M20 3 36 20 20 36 4 20Z" fill="#53c7e3" stroke="#9be9f8" stroke-width="1"/>
+      <path d="M14 27c3-4 4-9 4-14l4 2-1 8 5-5-1 7-6 3Z" fill="#e8fbff" stroke="#1c6584" stroke-width="1.2"/>
+    </symbol>
+    <symbol id="die-black" viewBox="0 0 40 40"><path d="M20 1 39 20 20 39 1 20Z" fill="#050608" stroke="#3e4144" stroke-width="1.4"/><path d="m9 20 11-11 11 11-11 11Z" fill="#171c1f" stroke="#44484c" stroke-width="1"/></symbol>
+    <symbol id="bow" viewBox="0 0 40 40"><path d="M11 5c14 9 14 21 0 30M10 5c-6 10-6 20 0 30" fill="none" stroke="#d9b260" stroke-width="2.4" stroke-linecap="round"/><path d="M10 5v30M4 21h31m-9-5 9 5-9 5" fill="none" stroke="#f3d989" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="m8 13 6 6-6 6" fill="none" stroke="#a97837" stroke-width="1.5"/></symbol>
+    <symbol id="sword" viewBox="0 0 40 40"><path d="m8 6 19 19-3 3L5 9 4 4Z" fill="#f2e6b5" stroke="#987843" stroke-width="1.4"/><path d="M22 26 31 35m-4-12 8 8M19 29l10-10" fill="none" stroke="#d0a75b" stroke-width="2.8" stroke-linecap="round"/><path d="m29 35 4-3 2 3-3 3Z" fill="#8c622d"/></symbol>
+    <symbol id="armor" viewBox="0 0 40 40"><path d="M10 8h5v5h4V8h5v5h4V8h4v10l-4 2-1 15H12L11 20l-4-2V8Z" fill="#eac677" stroke="#865f2d" stroke-width="1.4" stroke-linejoin="round"/><path d="M16 18h8l2 13H14Z" fill="#151821"/><path d="M12 17h16" stroke="#fff2bd" stroke-width="1.5"/></symbol>
+    <symbol id="crit" viewBox="0 0 40 40"><path d="M20 0 40 20 20 40 0 20Z" fill="#08080a"/><path d="m20 8-3 16h5l3-16Z" fill="#fff"/><circle cx="19" cy="30" r="2.5" fill="#fff"/></symbol>
+    <symbol id="star" viewBox="0 0 40 40"><path d="m20 2 5.2 12.3L39 15.5 28.5 24l3.3 13.2L20 29.5 8.2 37.2 11.5 24 1 15.5l13.8-1.2Z" fill="#0d0d11" stroke="#363342" stroke-width="1"/></symbol>
+    <symbol id="shield" viewBox="0 0 40 40"><path d="M20 3 34 8v11c0 10-5 15-14 19C11 34 6 29 6 19V8Z" fill="#f6f4ed" stroke="#201b25" stroke-width="2.3"/><path d="M20 7v26" stroke="#a89cb3" stroke-width="1.5"/></symbol>
+    <symbol id="damage" viewBox="0 0 40 40"><path d="M20 2C16 11 7 22 7 28a13 13 0 0 0 26 0C33 22 24 11 20 2Z" fill="#08090b"/><path d="M15 26c0 5 3 7 7 7" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="spell" viewBox="0 0 40 40"><path d="m7 5 26 30M33 5 7 35" stroke="#16121c" stroke-width="3.3" stroke-linecap="round"/><path d="M7 13 13 7m14 26 6-6M27 7l6 6M7 27l6 6" stroke="#16121c" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="heal" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#073f38" stroke="#bf9955" stroke-width="2.6"/><circle cx="20" cy="20" r="14" fill="none" stroke="#73ac7c" stroke-width="1.3"/><path d="m20 6 4.2 9.8L35 20l-10.8 4.2L20 35l-4.2-10.8L5 20l10.8-4.2Z" fill="#e9dfab" stroke="#b99d61" stroke-width="1.3"/><path d="m20 10 2.6 7.4L30 20l-7.4 2.6L20 30l-2.6-7.4L10 20l7.4-2.6Z" fill="#0d5a50"/></symbol>
+    <symbol id="magic" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#8f612d" stroke="#cfad6d" stroke-width="2.7"/><circle cx="20" cy="20" r="14" fill="none" stroke="#f1d995" stroke-opacity=".5" stroke-width="1"/><path d="M20 10c-4 4-4 8 0 10 4-2 4-6 0-10Zm-10 17c1-5 4-8 10-7 0 5-3 8-10 7Zm20 0c-7 1-10-2-10-7 6-1 9 2 10 7Z" fill="none" stroke="#f1d995" stroke-width="2.1" stroke-linejoin="round"/><circle cx="20" cy="20" r="2" fill="#f1d995"/></symbol>
+    <symbol id="ability" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#45345e" stroke="#b6a0de" stroke-width="2.5"/><path d="m20 7 4 9 9 4-9 4-4 9-4-9-9-4 9-4Z" fill="#e8dbf6"/><circle cx="20" cy="20" r="3" fill="#654b84"/></symbol>
+  </defs>
+</svg>
