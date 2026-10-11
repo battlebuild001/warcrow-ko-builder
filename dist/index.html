@@ -12,7 +12,7 @@
   <link rel="manifest" href="./manifest.json" />
   <link rel="icon" href="./pwa-icon-192.png" sizes="192x192" type="image/png" />
   <link rel="apple-touch-icon" href="./pwa-icon-192.png" />
-  <link rel="stylesheet" href="./style.css?v=16" />
+  <link rel="stylesheet" href="./style.css?v=17" />
 </head>
 <body>
   <header class="topbar">
@@ -43,6 +43,7 @@
         <div class="panel-head"><div><span class="section-kicker">03 / 병력 모집</span><h2 id="catalogTitle">유닛 목록 <span id="unitCount"></span></h2></div><div class="view-badge" id="currentFactionName"></div></div>
         <div class="catalog-toolbar"><label class="search"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="유닛 이름, 특성, 규칙 검색" autocomplete="off" /></label><label class="sort-control"><span class="sr-only">정렬</span><select id="sortSelect"><option value="points">낮은 점수순</option><option value="points-desc">높은 점수순</option><option value="name">이름순</option></select></label></div>
         <div class="filter-row"><label class="filter-select"><span class="sr-only">유닛 종류</span><select id="typeFilter"><option value="all">모든 종류</option><option value="Character">캐릭터</option><option value="Troop">일반 유닛</option><option value="Companion">동반자</option></select></label><label class="check-filter"><input id="availableOnly" type="checkbox" /><span>추가 가능한 유닛만</span></label></div>
+        <p class="model-coverage" id="modelCoverage">공식 스토어 모델 사진 확인 중</p>
         <div class="unit-list" id="unitList" aria-live="polite"></div>
       </section>
 
@@ -68,9 +69,10 @@
     </div>
     <div class="card-source-wrap"><details class="card-source"><summary>영문 원문과 카드 이미지 대조</summary><pre id="dialogEnglish"></pre><img id="dialogImage" alt="" loading="lazy" /></details></div>
   </dialog>
+  <dialog id="modelDialog" class="model-dialog" aria-labelledby="modelDialogTitle"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form><p class="section-kicker">CORVUS BELLI · OFFICIAL MODEL</p><h2 id="modelDialogTitle"></h2><figure><img id="modelDialogImage" alt="" /><figcaption><strong id="modelDialogKind"></strong><span id="modelDialogProduct"></span></figcaption></figure><a id="modelDialogSource" href="https://store.corvusbelli.com/en/warcrow/wargame" target="_blank" rel="noopener noreferrer">공식 스토어에서 상품 확인 ↗</a></dialog>
   <dialog id="loadDialog" class="load-dialog"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form><h2>저장한 목록</h2><div id="savedList"></div></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="./app.js?v=15" defer></script>
+  <script src="./app.js?v=17" defer></script>
   <script src="./pwa.js?v=16" defer></script>
 </body>
 </html>

@@ -1,0 +1,699 @@
+{
+  "source": "Corvus Belli official Warcrow store",
+  "checked": "2026-10-11",
+  "units": {
+    "feudom-archers": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/feudom-archers",
+      "productName": "Feudom Archers",
+      "kind": "product",
+      "image": "./model-art/feudom-archers.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/feudom-archers.webp"
+    },
+    "feudom-foot-knights": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/feudom-foot-knights",
+      "productName": "Feudom Foot Knights",
+      "kind": "product",
+      "image": "./model-art/feudom-foot-knights.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/feudom-foot-knights.webp"
+    },
+    "feudom-guisarmiers": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/feudom-guisarmiers",
+      "productName": "Feudom Guisarmiers",
+      "kind": "product",
+      "image": "./model-art/feudom-guisarmiers.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/feudom-guisarmiers.webp"
+    },
+    "feudom-knights": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/feudom-knights",
+      "productName": "Feudom Knights ",
+      "kind": "product",
+      "image": "./model-art/feudom-knights.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/feudom-knights.webp"
+    },
+    "genevieve-countess-of-silem": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/genevieve-countess-silem",
+      "productName": "Geneviéve, Countess of Silem",
+      "kind": "product",
+      "image": "./model-art/genevieve-countess-silem.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/genevieve-countess-silem.webp"
+    },
+    "guardians-of-the-mounds": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/guardians-mounds",
+      "productName": "Guardians of the Mounds",
+      "kind": "product",
+      "image": "./model-art/guardians-mounds.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/guardians-mounds.webp"
+    },
+    "instructor": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/instructor",
+      "productName": "Instructor",
+      "kind": "product",
+      "image": "./model-art/instructor.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/instructor.webp"
+    },
+    "pierre-besson-grand-magister": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/pierre-besson-grand-magister",
+      "productName": "Pierre Besson, Grand Magister",
+      "kind": "product",
+      "image": "./model-art/pierre-besson-grand-magister.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/pierre-besson-grand-magister.webp"
+    },
+    "roland-loussier-and-whitetrail": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/roland-loussier-whitetrail",
+      "productName": "Roland Loussier and Whitetrail",
+      "kind": "product",
+      "image": "./model-art/roland-loussier-whitetrail.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/roland-loussier-whitetrail.webp"
+    },
+    "aggressors": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/aggressors",
+      "productName": "Aggressors",
+      "kind": "product",
+      "image": "./model-art/aggressors.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/aggressors.webp"
+    },
+    "black-angels": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/black-angels",
+      "productName": "Black Angels",
+      "kind": "product",
+      "image": "./model-art/black-angels.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/black-angels.webp"
+    },
+    "black-legion-arquebusiers": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/black-legion-arquebusiers",
+      "productName": "Black Legion Arquebusiers",
+      "kind": "product",
+      "image": "./model-art/black-legion-arquebusiers.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/black-legion-arquebusiers.webp"
+    },
+    "black-legion-bucklermen": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/black-legion-bucklermen",
+      "productName": "Black Legion Bucklermen",
+      "kind": "product",
+      "image": "./model-art/black-legion-bucklermen.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/black-legion-bucklermen.webp"
+    },
+    "bulwarks": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/bulwarks",
+      "productName": "Bulwarks",
+      "kind": "product",
+      "image": "./model-art/bulwarks.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/bulwarks.webp"
+    },
+    "marhael-the-refused": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/marhael-refused",
+      "productName": "Marhael the Refused",
+      "kind": "product",
+      "image": "./model-art/marhael-refused.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/marhael-refused.webp"
+    },
+    "mounted-hetman": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/mounted-hetman",
+      "productName": "Mounted Hetman",
+      "kind": "product",
+      "image": "./model-art/mounted-hetman.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/mounted-hetman.webp"
+    },
+    "strategos": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/strategos",
+      "productName": "Strategos",
+      "kind": "product",
+      "image": "./model-art/strategos.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/strategos.webp"
+    },
+    "war-rig": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/war-rig",
+      "productName": "War Rig",
+      "kind": "product",
+      "image": "./model-art/war-rig.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/war-rig.webp"
+    },
+    "mounthaven-militia": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/mounthaven-militia",
+      "productName": "Mounthaven Militia",
+      "kind": "product",
+      "image": "./model-art/mounthaven-militia.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/mounthaven-militia.webp"
+    },
+    "unrelenting": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/unrelenting",
+      "productName": "Unrelenting",
+      "kind": "product",
+      "image": "./model-art/unrelenting.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/unrelenting.webp"
+    },
+    "waljan-the-last-of-the-first": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/waljan-last-first",
+      "productName": "Waljan, the Last of the First",
+      "kind": "product",
+      "image": "./model-art/waljan-last-first.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/waljan-last-first.webp"
+    },
+    "battle-scarred": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/battle-scarred",
+      "productName": "Battle-Scarred",
+      "kind": "product",
+      "image": "./model-art/battle-scarred.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/battle-scarred.webp"
+    },
+    "darkmaster": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/darkmaster",
+      "productName": "Darkmaster",
+      "kind": "product",
+      "image": "./model-art/darkmaster.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/darkmaster.webp"
+    },
+    "ice-archers": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/ice-archers",
+      "productName": "Ice Archers",
+      "kind": "product",
+      "image": "./model-art/ice-archers.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/ice-archers.webp"
+    },
+    "mounted-wrathmane": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/mounted-wrathmane",
+      "productName": "Mounted Wrathmane",
+      "kind": "product",
+      "image": "./model-art/mounted-wrathmane.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/mounted-wrathmane.webp"
+    },
+    "orc-hunters": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/orc-hunters",
+      "productName": "Orc Hunters",
+      "kind": "product",
+      "image": "./model-art/orc-hunters.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/orc-hunters.webp"
+    },
+    "revenant": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/revenant",
+      "productName": "Revenant",
+      "kind": "product",
+      "image": "./model-art/revenant.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/revenant.webp"
+    },
+    "rock-troll": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/rock-troll",
+      "productName": "Rock Troll",
+      "kind": "product",
+      "image": "./model-art/rock-troll.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/rock-troll.webp"
+    },
+    "tundra-marauders": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/tundra-marauders",
+      "productName": "Tundra Marauders",
+      "kind": "product",
+      "image": "./model-art/tundra-marauders.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/tundra-marauders.webp"
+    },
+    "warg-riders": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/warg-riders",
+      "productName": "Warg Riders",
+      "kind": "product",
+      "image": "./model-art/warg-riders.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/warg-riders.webp"
+    },
+    "wrathmane": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/wrathmane",
+      "productName": "Wrathmane",
+      "kind": "product",
+      "image": "./model-art/wrathmane.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/wrathmane.webp"
+    },
+    "gitmalu-the-perfect-one": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/gitmalu-perfect-one",
+      "productName": "Gitmalu, the Perfect One",
+      "kind": "product",
+      "image": "./model-art/gitmalu-perfect-one.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/gitmalu-perfect-one.webp"
+    },
+    "husks": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/husks",
+      "productName": "Husks",
+      "kind": "product",
+      "image": "./model-art/husks.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/husks.webp"
+    },
+    "intact": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/intact",
+      "productName": "Intact",
+      "kind": "product",
+      "image": "./model-art/intact.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/intact.webp"
+    },
+    "kipleacht": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/kipleacht",
+      "productName": "Kipleacht",
+      "kind": "product",
+      "image": "./model-art/kipleacht.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/kipleacht.webp"
+    },
+    "liberated": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/liberated",
+      "productName": "Liberated",
+      "kind": "product",
+      "image": "./model-art/liberated.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/liberated.webp"
+    },
+    "marked": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/marked",
+      "productName": "Marked",
+      "kind": "product",
+      "image": "./model-art/marked.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/marked.webp"
+    },
+    "mornmab": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/mornmab",
+      "productName": "Mórnmab",
+      "kind": "product",
+      "image": "./model-art/mornmab.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/mornmab.webp"
+    },
+    "aileen-cethir-wynn": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/aileen-cethir-wynn",
+      "productName": "Aileen Cethir Wynn",
+      "kind": "product",
+      "image": "./model-art/aileen-cethir-wynn.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/aileen-cethir-wynn.webp"
+    },
+    "clouded": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/clouded",
+      "productName": "Clouded",
+      "kind": "product",
+      "image": "./model-art/clouded.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/clouded.webp"
+    },
+    "grove-curtailers": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/grove-curtailers",
+      "productName": "Grove Curtailers",
+      "kind": "product",
+      "image": "./model-art/grove-curtailers.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/grove-curtailers.webp"
+    },
+    "moss-hermit": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/moss-hermit",
+      "productName": "Moss Hermit",
+      "kind": "product",
+      "image": "./model-art/moss-hermit.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/moss-hermit.webp"
+    },
+    "neakail-oen-fhiahra": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/neakail-oen-fhiahra",
+      "productName": "Neakail Oen Fhiahra",
+      "kind": "product",
+      "image": "./model-art/neakail-oen-fhiahra.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/neakail-oen-fhiahra.webp"
+    },
+    "protectors-of-the-forest": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/protectors-forest",
+      "productName": "Protectors of the Forest",
+      "kind": "product",
+      "image": "./model-art/protectors-forest.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/protectors-forest.webp"
+    },
+    "sprigs": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/sprigs",
+      "productName": "Sprigs",
+      "kind": "product",
+      "image": "./model-art/sprigs.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/sprigs.webp"
+    },
+    "syena-wardens": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/syena-wardens",
+      "productName": "Sÿenann Wardens",
+      "kind": "product",
+      "image": "./model-art/syena-wardens.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/syena-wardens.webp"
+    },
+    "hearthguard": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/hearthguards",
+      "productName": "Hearthguards ",
+      "kind": "product",
+      "image": "./model-art/hearthguards.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/hearthguards.webp"
+    },
+    "harvester": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/harvesters",
+      "productName": "Harvesters",
+      "kind": "product",
+      "image": "./model-art/harvesters.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/harvesters.webp"
+    },
+    "eachann": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/eachann-great-centaurelf",
+      "productName": "Eachann, the Great Centaurelf",
+      "kind": "product",
+      "image": "./model-art/eachann-great-centaurelf.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/eachann-great-centaurelf.webp"
+    },
+    "samara-dithean": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/samara-dithean-divergent",
+      "productName": "Samara Dìthean, Divergent",
+      "kind": "product",
+      "image": "./model-art/samara-dithean-divergent.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/samara-dithean-divergent.webp"
+    },
+    "gunnery-corporal": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/gunnery-corporal-and-engineer",
+      "productName": "Gunnery Corporal & Engineer",
+      "kind": "model",
+      "image": "./model-art/gunnery-corporal-and-engineer-2.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/gunnery-corporal-and-engineer-2.webp"
+    },
+    "engineer": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/gunnery-corporal-and-engineer",
+      "productName": "Gunnery Corporal & Engineer",
+      "kind": "model",
+      "image": "./model-art/gunnery-corporal-and-engineer-3.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/gunnery-corporal-and-engineer-3.webp"
+    },
+    "wisemane": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/northern-tribes-action-pack",
+      "productName": "Northern Tribes Action Pack",
+      "kind": "model",
+      "image": "./model-art/northern-tribes-action-pack-4.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/northern-tribes-action-pack-4.webp"
+    },
+    "alborc": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/northern-tribes-action-pack",
+      "productName": "Northern Tribes Action Pack",
+      "kind": "model",
+      "image": "./model-art/northern-tribes-action-pack-12.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/northern-tribes-action-pack-12.webp"
+    },
+    "evoker": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/northern-tribes-action-pack",
+      "productName": "Northern Tribes Action Pack",
+      "kind": "model",
+      "image": "./model-art/northern-tribes-action-pack-2.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/northern-tribes-action-pack-2.webp"
+    },
+    "njord-the-merciless": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/northern-tribes-action-pack",
+      "productName": "Northern Tribes Action Pack",
+      "kind": "model",
+      "image": "./model-art/northern-tribes-action-pack-8.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/northern-tribes-action-pack-8.webp"
+    },
+    "skin-changers": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/northern-tribes-action-pack",
+      "productName": "Northern Tribes Action Pack",
+      "kind": "model",
+      "image": "./model-art/northern-tribes-action-pack-9.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/northern-tribes-action-pack-9.webp"
+    },
+    "frostfire-herald": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/hegemony-action-pack",
+      "productName": "Hegemony Action Pack",
+      "kind": "model",
+      "image": "./model-art/hegemony-action-pack-2.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/hegemony-action-pack-2.webp"
+    },
+    "lady-telia": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/hegemony-action-pack",
+      "productName": "Hegemony Action Pack",
+      "kind": "model",
+      "image": "./model-art/hegemony-action-pack-3.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/hegemony-action-pack-3.webp"
+    },
+    "dragoslav-bjelogric-drago-the-anvil": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/hegemony-action-pack",
+      "productName": "Hegemony Action Pack",
+      "kind": "model",
+      "image": "./model-art/hegemony-action-pack-4.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/hegemony-action-pack-4.webp"
+    },
+    "war-surgeon": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/hegemony-action-pack",
+      "productName": "Hegemony Action Pack",
+      "kind": "model",
+      "image": "./model-art/hegemony-action-pack-5.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/hegemony-action-pack-5.webp"
+    },
+    "pioneers": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/hegemony-action-pack",
+      "productName": "Hegemony Action Pack",
+      "kind": "model",
+      "image": "./model-art/hegemony-action-pack-6.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/hegemony-action-pack-6.webp"
+    },
+    "amaury-boissonade": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/beyond-the-song-dormant",
+      "productName": "Beyond The Song of the Dormant",
+      "kind": "model",
+      "image": "./model-art/beyond-the-song-dormant-3.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/beyond-the-song-dormant-3.webp"
+    },
+    "mace-escort": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/beyond-the-song-dormant",
+      "productName": "Beyond The Song of the Dormant",
+      "kind": "model",
+      "image": "./model-art/beyond-the-song-dormant-4.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/beyond-the-song-dormant-4.webp"
+    },
+    "irkalla-the-maw": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/beyond-the-song-dormant",
+      "productName": "Beyond The Song of the Dormant",
+      "kind": "model",
+      "image": "./model-art/beyond-the-song-dormant-6.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/beyond-the-song-dormant-6.webp"
+    },
+    "anointed": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/beyond-the-song-dormant",
+      "productName": "Beyond The Song of the Dormant",
+      "kind": "model",
+      "image": "./model-art/beyond-the-song-dormant-7.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/beyond-the-song-dormant-7.webp"
+    },
+    "verena-de-aurtigard": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/warcrow-battle-pack-the-song-dormant",
+      "productName": "Warcrow Battle Pack The Song of the Dormant ",
+      "kind": "model",
+      "image": "./model-art/warcrow-battle-pack-the-song-dormant-8.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/warcrow-battle-pack-the-song-dormant-8.webp"
+    },
+    "morgane-de-jauffret": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/warcrow-battle-pack-the-song-dormant",
+      "productName": "Warcrow Battle Pack The Song of the Dormant ",
+      "kind": "model",
+      "image": "./model-art/warcrow-battle-pack-the-song-dormant-3.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/warcrow-battle-pack-the-song-dormant-3.webp"
+    },
+    "syzigian": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/warcrow-battle-pack-the-song-dormant",
+      "productName": "Warcrow Battle Pack The Song of the Dormant ",
+      "kind": "model",
+      "image": "./model-art/warcrow-battle-pack-the-song-dormant-3.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/warcrow-battle-pack-the-song-dormant-3.webp"
+    },
+    "knight-of-the-sacred-relic": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/warcrow-battle-pack-the-song-dormant",
+      "productName": "Warcrow Battle Pack The Song of the Dormant ",
+      "kind": "model",
+      "image": "./model-art/warcrow-battle-pack-the-song-dormant-9.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/warcrow-battle-pack-the-song-dormant-9.webp"
+    },
+    "master-uruk": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/warcrow-battle-pack-the-song-dormant",
+      "productName": "Warcrow Battle Pack The Song of the Dormant ",
+      "kind": "model",
+      "image": "./model-art/warcrow-battle-pack-the-song-dormant-10.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/warcrow-battle-pack-the-song-dormant-10.webp"
+    },
+    "breath": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/warcrow-battle-pack-the-song-dormant",
+      "productName": "Warcrow Battle Pack The Song of the Dormant ",
+      "kind": "model",
+      "image": "./model-art/warcrow-battle-pack-the-song-dormant-16.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/warcrow-battle-pack-the-song-dormant-16.webp"
+    },
+    "needle": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/warcrow-battle-pack-the-song-dormant",
+      "productName": "Warcrow Battle Pack The Song of the Dormant ",
+      "kind": "model",
+      "image": "./model-art/warcrow-battle-pack-the-song-dormant-12.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/carrousel/xl/warcrow-battle-pack-the-song-dormant-12.webp"
+    },
+    "royal-falconer": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/feudom-supports",
+      "productName": "Feudom Supports",
+      "kind": "pack",
+      "image": "./model-art/feudom-supports.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/feudom-supports.webp"
+    },
+    "armelle-of-northsby": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/feudom-supports",
+      "productName": "Feudom Supports",
+      "kind": "pack",
+      "image": "./model-art/feudom-supports.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/feudom-supports.webp"
+    },
+    "magister": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/feudom-officers",
+      "productName": "Feudom Officers",
+      "kind": "pack",
+      "image": "./model-art/feudom-officers.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/feudom-officers.webp"
+    },
+    "commander": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/feudom-officers",
+      "productName": "Feudom Officers",
+      "kind": "pack",
+      "image": "./model-art/feudom-officers.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/feudom-officers.webp"
+    },
+    "anvil": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/mounthaven-officers",
+      "productName": "Mounthaven Officers",
+      "kind": "pack",
+      "image": "./model-art/mounthaven-officers.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/mounthaven-officers.webp"
+    },
+    "mounthaven-veteran": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/mounthaven-officers",
+      "productName": "Mounthaven Officers",
+      "kind": "pack",
+      "image": "./model-art/mounthaven-officers.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/mounthaven-officers.webp"
+    },
+    "namaoin": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/yaldabaoth-supports",
+      "productName": "Yaldabaoth Supports",
+      "kind": "pack",
+      "image": "./model-art/yaldabaoth-supports.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/yaldabaoth-supports.webp"
+    },
+    "aodharu": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/yaldabaoth-supports",
+      "productName": "Yaldabaoth Supports",
+      "kind": "pack",
+      "image": "./model-art/yaldabaoth-supports.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/yaldabaoth-supports.webp"
+    },
+    "master-maiele": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/yaldabaoth-officers",
+      "productName": "Yaldabaoth Officers",
+      "kind": "pack",
+      "image": "./model-art/yaldabaoth-officers.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/yaldabaoth-officers.webp"
+    },
+    "tutor": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/yaldabaoth-officers",
+      "productName": "Yaldabaoth Officers",
+      "kind": "pack",
+      "image": "./model-art/yaldabaoth-officers.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/yaldabaoth-officers.webp"
+    },
+    "shadow-of-the-rowan": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/syenann-supports",
+      "productName": "Sÿenann Supports",
+      "kind": "pack",
+      "image": "./model-art/syenann-supports.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/syenann-supports.webp"
+    },
+    "shadow-of-the-hawthorn": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/syenann-supports",
+      "productName": "Sÿenann Supports",
+      "kind": "pack",
+      "image": "./model-art/syenann-supports.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/syenann-supports.webp"
+    },
+    "druid": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/syenann-action-pack",
+      "productName": "Sÿenann Action Pack",
+      "kind": "pack",
+      "image": "./model-art/syenann-action-pack.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/syenann-action-pack.webp"
+    },
+    "ynyr-dara-lainn": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/syenann-action-pack",
+      "productName": "Sÿenann Action Pack",
+      "kind": "pack",
+      "image": "./model-art/syenann-action-pack.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/syenann-action-pack.webp"
+    },
+    "aoidos": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/syenann-action-pack",
+      "productName": "Sÿenann Action Pack",
+      "kind": "pack",
+      "image": "./model-art/syenann-action-pack.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/syenann-action-pack.webp"
+    },
+    "lioslaith-coic-caledhee": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/syenann-action-pack",
+      "productName": "Sÿenann Action Pack",
+      "kind": "pack",
+      "image": "./model-art/syenann-action-pack.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/syenann-action-pack.webp"
+    },
+    "shadows-of-the-yew": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/syenann-action-pack",
+      "productName": "Sÿenann Action Pack",
+      "kind": "pack",
+      "image": "./model-art/syenann-action-pack.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/syenann-action-pack.webp"
+    },
+    "ansera-noighman": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/black-legion-supports",
+      "productName": "Black Legion Supports",
+      "kind": "pack",
+      "image": "./model-art/black-legion-supports.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/black-legion-supports.webp"
+    },
+    "gale-falchion": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/black-legion-supports",
+      "productName": "Black Legion Supports",
+      "kind": "pack",
+      "image": "./model-art/black-legion-supports.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/black-legion-supports.webp"
+    },
+    "nadezhda-lazard-champion-of-embersig": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/black-legion-officers",
+      "productName": "Black Legion Officers",
+      "kind": "pack",
+      "image": "./model-art/black-legion-officers.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/black-legion-officers.webp"
+    },
+    "corporal": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/black-legion-officers",
+      "productName": "Black Legion Officers",
+      "kind": "pack",
+      "image": "./model-art/black-legion-officers.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/black-legion-officers.webp"
+    },
+    "lotta": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/orc-officers",
+      "productName": "Orc Officers",
+      "kind": "pack",
+      "image": "./model-art/orc-officers.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/orc-officers.webp"
+    },
+    "prime-warrior": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/orc-officers",
+      "productName": "Orc Officers",
+      "kind": "pack",
+      "image": "./model-art/orc-officers.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/orc-officers.webp"
+    },
+    "tattooist": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/varank-supports",
+      "productName": "Varank Supports",
+      "kind": "pack",
+      "image": "./model-art/varank-supports.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/varank-supports.webp"
+    },
+    "selika": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/varank-supports",
+      "productName": "Varank Supports",
+      "kind": "pack",
+      "image": "./model-art/varank-supports.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/varank-supports.webp"
+    },
+    "folder": {
+      "productUrl": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/action-pack-mounthaven",
+      "productName": "Action Pack Mounthaven ",
+      "kind": "pack",
+      "image": "./model-art/action-pack-mounthaven.webp",
+      "sourceImage": "https://assets.corvusbelli.net/store/products/warcrow/wargame/front/xl/action-pack-mounthaven.webp"
+    }
+  }
+}
