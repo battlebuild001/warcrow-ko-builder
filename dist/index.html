@@ -47,13 +47,18 @@
         <div class="validation" id="validation" aria-live="polite"></div>
         <div class="selected-list" id="selectedList"></div>
         <div class="army-actions"><label class="list-name">목록 이름<input id="listName" type="text" maxlength="60" placeholder="예: 북방의 선봉대" /></label><div class="button-row"><button id="saveButton" class="button button-gold" type="button">목록 저장</button><button id="exportButton" class="button button-ghost" type="button">JSON 내보내기</button></div><div class="button-row quiet"><button id="loadButton" type="button">저장 목록 불러오기</button><button id="resetButton" type="button">새 목록</button></div></div>
-        <p class="data-note">유닛 이름과 카드 문구는 영문 원본을 유지한 검토용 자료입니다. Officer/Support 구분과 최신 프로필은 공식 CorvuSphere 확인이 필요합니다.</p>
+        <p class="data-note">유닛 이름과 카드 문구는 한국어 검토용 초안입니다. 카드 이미지 4종의 상세 문구는 원본에서 제공되지 않았습니다. Officer/Support 구분과 최신 프로필은 공식 CorvuSphere 확인이 필요합니다.</p>
       </aside>
     </div>
     <footer><span>비공식 한국어 빌더 초안</span><span>Warcrow™ is a trademark of Corvus Belli S.L.</span></footer>
   </main>
 
-  <dialog id="cardDialog" class="card-dialog"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form><h2 id="dialogTitle">유닛 카드</h2><img id="dialogImage" alt="" /><p>카드 이미지: Warcrow Army Builder 출처. 수치와 문구는 공식 최신 프로필과 대조하세요.</p></dialog>
+  <dialog id="cardDialog" class="card-dialog"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form>
+    <div class="card-head"><span class="section-kicker">한국어 유닛 카드</span><h2 id="dialogTitle">유닛 카드</h2><p id="dialogOriginalName"></p><div class="card-meta" id="dialogMeta"></div></div>
+    <div class="card-body"><div class="card-tags" id="dialogTags"></div><h3>능력과 효과</h3><div class="card-abilities" id="dialogAbilities"></div><p class="card-translation-note" id="dialogNote"></p>
+      <details class="card-source"><summary>영문 원문과 카드 이미지 대조</summary><pre id="dialogEnglish"></pre><img id="dialogImage" alt="" loading="lazy" /></details>
+    </div>
+  </dialog>
   <dialog id="loadDialog" class="load-dialog"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form><h2>저장한 목록</h2><div id="savedList"></div></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="./app.js" defer></script>

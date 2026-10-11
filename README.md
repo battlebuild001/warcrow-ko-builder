@@ -4,4 +4,6 @@
 
 `dist/`가 배포 파일이다. `app-data.json`은 `/workspace/warcrow-research`의 수집 자료에서 생성했다. 정식 서비스 전에는 Officer/Support 구분과 유닛 프로필을 CorvuSphere 최신 자료와 대조해야 한다.
 
+`card-ko.json`은 162종의 한국어 유닛 이름과 확보한 카드 이미지 158종의 한국어 텍스트 초안을 담는다. 카드 텍스트는 OCR 및 자동 번역을 거쳤으므로 주사위 기호, 상태 효과, 수치의 원본 대조가 필요하다. 원본 카드 이미지가 제공되지 않는 4종은 편성 메타데이터만 한국어로 표시한다.
+
 로컬에서 보려면 `python -m http.server 8000 -d dist`를 실행한다.
