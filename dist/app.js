@@ -314,7 +314,6 @@ function exportList(){if(!selectedUnits().length)return toast('내보낼 유닛�
 function showSaved(){const saved=getSaved();$('#savedList').innerHTML=saved.length?saved.map((item,i)=>`<div class="saved-entry"><div><strong>${escapeHtml(item.name)}</strong><small>${escapeHtml(factionNames[item.faction]?.[0]||item.faction)} · ${item.mode==='wts'?'WTS 시즌 2':'일반전'} · ${new Date(item.createdAt).toLocaleDateString('ko-KR')}</small></div><button type="button" data-load="${i}">불러오기</button></div>`).join(''):'<div class="empty">저장한 목록이 없습니다.</div>';$('#loadDialog').showModal()}
 function reset(){state.quantities={};state.commander='';$('#listName').value='';render();toast('새 편성표를 시작합니다.')}
 document.addEventListener('click',(event)=>{
-  const demo=event.target.closest('[data-demo-card]');if(demo){const u=data.units.find(x=>x.cardKey==='tattooist');if(u)openKoreanCard(u);else toast('카드 자료를 불러오는 중입니다.');return}
   const faction=event.target.closest('[data-faction]');if(faction){if(state.faction!==faction.dataset.faction){state.faction=faction.dataset.faction;state.quantities={};state.commander='';$('#listName').value='';render()}return}
   const add=event.target.closest('[data-add]');if(add){addUnit(add.dataset.add);return}
   const remove=event.target.closest('[data-remove]');if(remove){removeUnit(remove.dataset.remove);return}
