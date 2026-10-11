@@ -47,7 +47,7 @@ function factionDisplay(id){const english=data.factions.find(f=>f.id===id)?.name
 function localCardUrl(u){return translations.cards[u.cardKey]?`./card-art/${encodeURIComponent(u.cardKey)}_card_en.webp`:''}
 function modelPhoto(u,small=false){
   const model=modelImages[u.id];
-  if(!model)return small?'':`<div class="unit-icon">${escapeHtml(unitName(u).slice(0,1))}</div>`;
+  if(!model)return `<div class="unit-model-missing${small?' unit-model-missing-small':''}" role="img" aria-label="${escapeHtml(unitName(u))} NO IMAGE">NO IMAGE</div>`;
   return `<button type="button" class="unit-model-thumb${small?' unit-model-thumb-small':''}" data-model="${escapeHtml(u.id)}" aria-label="${escapeHtml(unitName(u))} ${ui('공식 모델 사진 보기','View official model photo')}"><img src="${escapeHtml(model.image)}" alt="" loading="lazy"></button>`;
 }
 function openModel(u){
