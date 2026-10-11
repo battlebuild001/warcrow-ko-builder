@@ -32,6 +32,7 @@ function ko(value){
 let data={units:[],factions:[],wtsFogIds:[],version:''};
 let translations={names:{},cards:{}};
 let cardProfiles={};
+let cardAbilities={};
 function localizedName(u){return translations.names[u.name]||u.name}
 function localCardUrl(u){return translations.cards[u.cardKey]?`./card-art/${encodeURIComponent(u.cardKey)}_card_en.webp`:''}
 const state={faction:'northern-tribes',mode:'wts',limit:250,quantities:{},commander:'',query:'',sort:'points',type:'all',availableOnly:false,listName:''};
@@ -140,7 +141,7 @@ function visualAbility(paragraph,index){
   const title=unreadable?`능력 ${index+1}`:candidate;
   const detail=split>0&&split<65?first.slice(split+3):period>0&&period<65?first.slice(period+2):first.length<45&&!unreadable?'':first;
   const body=[detail,...lines].filter(Boolean).join('\n').replace(/LoS가 없습니다/gi,'시야선 불필요').replace(/LoS/gi,'시야선');
-  const kind=/치유|회복|약초|heal/i.test(paragraph)?'heal':/주문|마법|영혼|토템|spell/i.test(paragraph)?'magic':'ability';
+  const kind=/치유|회복|약초|heal/i.test(paragraph)?'heal':'magic';
   return `<section class="showcase-skill">${cardIcon(kind,'icon-skill',`${title} 능력 기호`)}<div><div class="skill-heading"><h3>${escapeHtml(title)}</h3></div>${body?`<p>${escapeHtml(body)}</p>`:''}</div></section>`;
 }
 const flamecobsRows=[
@@ -158,7 +159,50 @@ function flamecobsCard(u){
   const dice=(items)=>items.map(color=>cardIcon(color.startsWith('black-')?color:`die-${color}`,'icon-die',`${color} 주사위 기호`)).join('');
   const combat=flamecobsRows.map((row,index)=>`<section class="auth-combat-row" aria-label="전투 방식 ${index+1}"><div class="auth-combat-bar"><span class="auth-range">${row.range}</span><span class="auth-bar-icon">${cardIcon('ranged-mark','icon-combat','원거리 공격 기호')}<b>8</b></span><span class="auth-bar-icon">${cardIcon('melee-mark','icon-combat','근접 공격 기호')}</span><span class="auth-bar-icon">${cardIcon('armor','icon-combat','방어 기호')}</span><span class="auth-stress">${cardIcon('stress-seal','icon-combat','스트레스 수치')}<b>0</b></span></div><div class="auth-combat-dice"><span></span><span>${dice(row.ranged)}</span><span>${dice(row.melee)}</span><span>${dice(row.defense)}</span><span></span></div><div class="auth-combat-effect">${cardIcon('crit','icon-status','공격 효과 기호 1')}${cardIcon('crit','icon-status','공격 효과 기호 2')}<span>대상에게 피해 ${cardIcon('damage','icon-inline','피해 기호')} 1을 입힙니다.</span></div></section>`).join('');
   const art=localCardUrl(u);
-  return `<article class="showcase-card showcase-authentic" aria-label="플레임콥스 한국어 카드"><header class="auth-profile"><div class="auth-ribbon"><strong>20</strong></div><div class="auth-portrait" role="img" aria-label="플레임콥스 인물 그림" style="background-image:url('${escapeHtml(art)}')"></div><div class="auth-profile-main"><div class="auth-titlebar"><h2>플레임콥스</h2><span>FLAMECOBS</span></div><div class="auth-stat-head"><span>MOV</span><span>W</span><span>WP</span><span>MOR</span><span>AVB</span></div><div class="auth-stat-values"><strong>3-2 [9]</strong><strong>2</strong><strong>${cardIcon('die-orange','icon-die','주황 의지 주사위')}</strong><strong>1</strong><strong>1</strong></div><p>보병 · 투사체 · 레드 캡</p></div></header><div class="auth-content"><div class="auth-heading">전투 <span>COMBAT</span></div><div class="auth-combat">${combat}</div><div class="auth-heading">능력 <span>ABILITIES</span></div><div class="auth-abilities"><section>${cardIcon('magic','icon-skill','폭발 능력 기호')}<div><h3>폭발</h3><p><em>이 유닛의 병력 하나가 전투에서 제거되기 직전.</em> 5보폭 이내의 다른 모든 유닛은 스트레스 1과 피해 ${cardIcon('damage','icon-inline','피해 기호')} 2를 받습니다.</p></div></section><section>${cardIcon('magic','icon-skill','감정 능력 기호')}<div><h3>감정: 격노</h3><p><em>누아다가 격노 감정을 선택한 경우에만.</em> 자신에게 피해 ${cardIcon('damage','icon-inline','피해 기호')} 1을 가해 근접·원거리 공격 굴림에 ${cardIcon('black-star','icon-inline','검은 별 기호')}${cardIcon('black-star','icon-inline','검은 별 기호')}를 추가할 수 있습니다. 이 피해로 유닛이 파괴된다면 사용할 수 없습니다. 이 피해는 전투 결과 계산에 포함되지 않습니다.</p></div></section></div><div class="auth-footer">영문 원본 카드의 수치·주사위·효과를 대조한 한글 카드</div></div></article>`;
+  return `<article class="showcase-card showcase-authentic showcase-flamecobs" aria-label="플레임콥스 한국어 카드"><header class="auth-profile"><div class="auth-ribbon"><strong>20</strong></div><div class="auth-portrait" role="img" aria-label="플레임콥스 인물 그림" style="background-image:url('${escapeHtml(art)}')"></div><div class="auth-profile-main"><div class="auth-titlebar"><h2>플레임콥스</h2><span>FLAMECOBS</span></div><div class="auth-stat-head"><span>MOV</span><span>W</span><span>WP</span><span>MOR</span><span>AVB</span></div><div class="auth-stat-values"><strong>3-2 [9]</strong><strong>2</strong><strong>${cardIcon('die-orange','icon-die','주황 의지 주사위')}</strong><strong>1</strong><strong>1</strong></div><p>보병 · 투사체 · 레드 캡</p></div></header><div class="auth-content"><div class="auth-heading">전투 <span>COMBAT</span></div><div class="auth-combat">${combat}</div><div class="auth-heading">능력 <span>ABILITIES</span></div><div class="auth-abilities"><section>${cardIcon('magic','icon-skill','폭발 능력 기호')}<div><h3>폭발</h3><p><em>이 유닛의 병력 하나가 전투에서 제거되기 직전.</em> 5보폭 이내의 다른 모든 유닛은 스트레스 1과 피해 ${cardIcon('damage','icon-inline','피해 기호')} 2를 받습니다.</p></div></section><section>${cardIcon('magic','icon-skill','감정 능력 기호')}<div><h3>감정: 격노</h3><p><em>누아다가 격노 감정을 선택한 경우에만.</em> 자신에게 피해 ${cardIcon('damage','icon-inline','피해 기호')} 1을 가해 근접·원거리 공격 굴림에 ${cardIcon('black-star','icon-inline','검은 별 기호')}${cardIcon('black-star','icon-inline','검은 별 기호')}를 추가할 수 있습니다. 이 피해로 유닛이 파괴된다면 사용할 수 없습니다. 이 피해는 전투 결과 계산에 포함되지 않습니다.</p></div></section></div><div class="auth-footer">영문 원본 카드의 수치·주사위·효과를 대조한 한글 카드</div></div></article>`;
+}
+const ribbonColors={'northern-tribes':'#988d78','feudom':'#1149a3','hegemony-of-embersig':'#b68b24','mounthaven':'#7a5a42','scions-of-yaldabaoth':'#b52123','syenann':'#37765c'};
+function sourceDice(colors){
+  return colors?.length?colors.map(color=>cardIcon(color.startsWith('black-')?color:`die-${color}`,'icon-die',`${color} 주사위 기호`)).join(''):'<span class="auth-unread">원본 대조</span>';
+}
+function sourceProfile(u,profile){
+  const name=localizedName(u),art=localCardUrl(u);
+  const portrait=art?`<div class="auth-portrait" role="img" aria-label="${escapeHtml(name)} 인물 그림" style="background-image:url('${escapeHtml(art)}')"></div>`:`<div class="auth-portrait auth-portrait-empty" aria-hidden="true">${escapeHtml(name.slice(0,1))}</div>`;
+  const tags=[...(u.characteristics||[]).map(x=>terms[x]||x),...(u.keywords||[]).map(x=>ko(x.name))];
+  const hasStats=profile&&[profile.mov,profile.w,profile.mor].some(value=>value!==null&&value!==undefined);
+  const stats=hasStats?`<div class="auth-stat-head"><span>MOV</span><span>W</span><span>WP</span><span>MOR</span><span>AVB</span></div><div class="auth-stat-values"><strong>${escapeHtml(profile.mov||'—')}</strong><strong>${escapeHtml(profile.w??'—')}</strong><strong>${profile.wpDice?.length?sourceDice(profile.wpDice):'—'}</strong><strong>${escapeHtml(profile.mor??'—')}</strong><strong>${escapeHtml(u.availability)}</strong></div>`:'';
+  return `<header class="auth-profile ${hasStats?'':'auth-profile-simple'}" style="--ribbon-color:${ribbonColors[u.faction]||'#988d78'}"><div class="auth-ribbon"><strong>${escapeHtml(u.pointsCost)}</strong></div>${portrait}<div class="auth-profile-main"><div class="auth-titlebar"><h2>${escapeHtml(name)}</h2></div>${stats}<p>${escapeHtml(tags.join(' · ')||u.name)}</p></div></header>`;
+}
+function sourceCombat(rows){
+  return rows.map((row,index)=>`<section class="auth-combat-row" aria-label="전투 방식 ${index+1}"><div class="auth-combat-bar"><span class="${row.badge?'auth-range':'auth-range-empty'}">${row.badge?escapeHtml(row.badge):''}</span><span class="auth-bar-icon">${row.first?.length?cardIcon('ranged-mark','icon-combat','첫 공격 방식 기호'):''}${row.distance?`<b>${escapeHtml(row.distance)}</b>`:''}</span><span class="auth-bar-icon">${row.second?.length?cardIcon('melee-mark','icon-combat','두 번째 공격 방식 기호'):''}</span><span class="auth-bar-icon">${row.defense?.length?cardIcon('armor','icon-combat','방어 기호'):''}</span><span class="auth-stress">${cardIcon('stress-seal','icon-combat','스트레스 수치')}${row.stress!==null&&row.stress!==undefined?`<b>${escapeHtml(row.stress)}</b>`:'<b class="auth-stress-unknown">·</b>'}</span></div><div class="auth-combat-dice"><span></span><span>${row.first?.length?sourceDice(row.first):''}</span><span>${row.second?.length?sourceDice(row.second):''}</span><span>${row.defense?.length?sourceDice(row.defense):''}</span><span></span></div>${row.effect?`<div class="auth-combat-effect">${row.effect}</div>`:''}</section>`).join('');
+}
+function sourceAbility(paragraph,index){
+  const lines=paragraph.split('\n').map(x=>x.trim()).filter(Boolean);
+  const first=lines.shift()||'';
+  const split=first.indexOf(' · '),period=first.indexOf('. ');
+  const rawTitle=split>0&&split<65?first.slice(0,split):period>0&&period<65?first.slice(0,period):first.length<45?first:`능력 ${index+1}`;
+  const unreadable=/[A-Za-z]{2}|[§®°<>]/.test(rawTitle);
+  const title=unreadable?`능력 ${index+1}`:rawTitle;
+  const detail=split>0&&split<65?first.slice(split+3):period>0&&period<65?first.slice(period+2):first.length<45&&!unreadable?'':first;
+  const body=[detail,...lines].filter(Boolean).join('\n').replace(/LoS가 없습니다/gi,'시야선 불필요').replace(/LoS/gi,'시야선');
+  const kind=/치유|회복|약초|heal/i.test(paragraph)?'heal':/주문|마법|영혼|토템|spell/i.test(paragraph)?'magic':'ability';
+  return `<section>${cardIcon(kind,'icon-skill',`${title} 능력 기호`)}<div><h3>${escapeHtml(title)}</h3>${body?`<p>${escapeHtml(body)}</p>`:''}</div></section>`;
+}
+function tattooistSourceCard(u){
+  const effect=`${cardIcon('crit','icon-status','공격 효과 기호 1')}${cardIcon('crit','icon-status','공격 효과 기호 2')}<span>대상에게 둔화 상태를 부여합니다.</span>`;
+  const combat=sourceCombat([{distance:12,first:['red','yellow','yellow'],second:['orange','orange'],defense:['green'],stress:0,effect}]);
+  const front=[['약초와 연고','12보폭 이내 모든 아군 유닛을 대상으로, 원하는 상태를 제거하고 피해 1을 회복합니다. 의지 판정의 성공 기호 하나마다 대상별로 피해 1을 추가 회복합니다.','heal'],['환각 버섯','지속 · 시야 불필요 · 모든 아군 주문 시전자. 마법 오염·주문 방어 판정에서 주사위를 원하는 만큼 다시 굴릴 수 있습니다. 두 판정에 원본 카드에 표시된 추가 기호를 적용합니다.','magic'],['토템의 숨결','지속 · 시야 불필요 · 모든 아군 바랑크 유닛이 파란 주문 해제 주사위를 얻습니다.','magic']];
+  const back=[['치유 문신','활성화당 1회, 피해를 받기 직전 의지 판정에 성공하면 피해 1을 무시할 수 있습니다.','magic'],['고래 바늘','무장 해제·둔화·취약 상태에 면역입니다.','magic']];
+  const abilities=(items)=>items.map(([title,body,icon])=>`<section>${cardIcon(icon,'icon-skill',`${title} 능력 기호`)}<div><h3>${title}</h3><p>${body}</p></div></section>`).join('');
+  return `<article class="showcase-card showcase-authentic" aria-label="타투이스트 한국어 카드">${sourceProfile(u,{mov:'4-3[10]',w:2,wpDice:['yellow','yellow'],mor:1})}<div class="auth-content"><div class="auth-heading">전투 <span>COMBAT</span></div><div class="auth-combat">${combat}</div><div class="auth-heading">능력 <span>ABILITIES</span></div><div class="auth-abilities">${abilities(front)}</div><div class="auth-heading">강화 · 사기 +1 <span>ENHANCEMENT</span></div><div class="auth-abilities">${abilities(back)}</div><div class="auth-footer">영문 원본 카드의 수치·주사위·효과를 대조한 한글 카드</div></div></article>`;
+}
+function draftSourceCard(u,translated,profile){
+  const name=localizedName(u);
+  const rows=(profile?.combat||[]).map(row=>({first:row.attacks?.[0]||[],second:row.attacks?.slice(1).flat()||[],defense:row.defense||[],stress:null}));
+  const paragraphs=cardAbilityParagraphs(translated);
+  const boxes=cardAbilities[u.cardKey]||[];
+  const abilities=boxes.length?boxes.map((box,i)=>sourceAbility(box.korean||box.english,i)).join(''):Object.hasOwn(cardAbilities,u.cardKey)?`<section>${cardIcon('magic','icon-skill','정보 기호')}<div><h3>인쇄된 능력 없음</h3><p>원본 카드에 별도의 능력 상자가 없습니다.</p></div></section>`:paragraphs.length?paragraphs.map(sourceAbility).join(''):`<section>${cardIcon('magic','icon-skill','정보 기호')}<div><h3>상세 능력 미확보</h3><p>원본 카드 이미지가 제공되지 않아 편성 정보만 표시합니다.</p></div></section>`;
+  return `<article class="showcase-card showcase-authentic showcase-authentic-draft" aria-label="${escapeHtml(name)} 한국어 카드">${sourceProfile(u,profile)}<div class="auth-content"><div class="auth-heading">전투 <span>COMBAT</span></div><div class="auth-combat">${rows.length?sourceCombat(rows):'<p class="auth-empty">전투 수치가 없는 카드이거나 원본 판독이 필요합니다.</p>'}</div><div class="auth-heading">능력 <span>ABILITIES</span></div><div class="auth-abilities">${abilities}</div><div class="auth-footer">자동 변환 초안 · 주사위 기호와 문구는 아래 영문 원본에서 대조하세요.</div></div></article>`;
 }
 function visualCard(u,translated,profile){
   const name=localizedName(u),faction=factionNames[u.faction]?.[0]||u.faction;
@@ -177,7 +221,7 @@ function openKoreanCard(u){
   $('#cardDialog').classList.add('showcase-open');
   $('#dialogShowcase').hidden=false;
   $('#dialogGeneric').hidden=true;
-  $('#dialogShowcase').innerHTML=u.cardKey==='tattooist'?tattooistShowcase():u.cardKey==='flamecobs'?flamecobsCard(u):visualCard(u,translated,cardProfiles[u.cardKey]);
+  $('#dialogShowcase').innerHTML=u.cardKey==='tattooist'?tattooistSourceCard(u):u.cardKey==='flamecobs'?flamecobsCard(u):draftSourceCard(u,translated,cardProfiles[u.cardKey]);
   $('#dialogTitle').textContent=localizedName(u);
   $('#dialogOriginalName').textContent=u.name;
   $('#dialogMeta').innerHTML=`<span>포인트<strong>${u.pointsCost}</strong></span><span>지휘 토큰<strong>${u.command||0}</strong></span><span>최대 편성 · AVB<strong>${u.availability}</strong></span>`;
@@ -186,7 +230,7 @@ function openKoreanCard(u){
   const paragraphs=translated?.korean?.split(/\n\s*\n/).map(x=>x.trim()).filter(Boolean)||[];
   $('#dialogAbilities').innerHTML=paragraphs.length?paragraphs.map(x=>`<div class="ability-block">${escapeHtml(x)}</div>`).join(''):'<div class="ability-block">원문 카드의 상세 능력 문구를 확보하지 못했습니다. 위의 편성 정보와 특성·규칙은 수집된 유닛 데이터를 바탕으로 표시했습니다.</div>';
   $('#dialogNote').textContent=translated?'이 번역은 카드 문자 인식을 바탕으로 만든 검토용 초안입니다. 수치, 주사위 기호, 상태 효과는 아래 원본 카드와 대조하세요.':'원본 사이트의 카드 이미지가 제공되지 않아 상세 문구는 아직 번역할 수 없습니다.';
-  $('#dialogEnglish').textContent=u.cardKey==='flamecobs'?flamecobsEnglish:translated?.english||'원본 카드 텍스트 미확보';
+  $('#dialogEnglish').textContent=u.cardKey==='flamecobs'?flamecobsEnglish:cardAbilities[u.cardKey]?.map(box=>box.english).join('\n\n')||translated?.english||'원본 카드 텍스트 미확보';
   const image=$('#dialogImage');
   if(localCardUrl(u)){image.hidden=false;image.src=localCardUrl(u);image.alt=`${u.name} 영문 원본 카드`}
   else{image.hidden=true;image.removeAttribute('src');image.alt=''}
@@ -217,4 +261,4 @@ $('#availableOnly').addEventListener('change',e=>{state.availableOnly=e.target.c
 $('#commanderSelect').addEventListener('change',e=>{state.commander=e.target.value;renderValidation()});
 $('#saveButton').addEventListener('click',saveList);$('#exportButton').addEventListener('click',exportList);
 $('#loadButton').addEventListener('click',showSaved);$('#resetButton').addEventListener('click',reset);
-Promise.all(['./app-data.json','./card-ko.json','./card-profiles.json'].map(url=>fetch(url).then(response=>{if(!response.ok)throw Error(`${url} 요청 실패`);return response.json()}))).then(([units,translated,profiles])=>{data=units;translations=translated;cardProfiles=profiles;$('#sourceVersion').textContent=`유닛 자료 v${data.version} · 한국어 카드 초안`;render()}).catch(()=>{toast('유닛 자료를 불러오지 못했습니다.');$('#unitList').innerHTML='<div class="empty">자료를 불러올 수 없습니다. 페이지를 새로고침하세요.</div>'});
+Promise.all(['./app-data.json','./card-ko.json','./card-profiles.json','./card-abilities.json'].map(url=>fetch(url).then(response=>{if(!response.ok)throw Error(`${url} 요청 실패`);return response.json()}))).then(([units,translated,profiles,abilities])=>{data=units;translations=translated;cardProfiles=profiles;cardAbilities=abilities;$('#sourceVersion').textContent=`유닛 자료 v${data.version} · 한국어 카드 초안`;render()}).catch(()=>{toast('유닛 자료를 불러오지 못했습니다.');$('#unitList').innerHTML='<div class="empty">자료를 불러올 수 없습니다. 페이지를 새로고침하세요.</div>'});
