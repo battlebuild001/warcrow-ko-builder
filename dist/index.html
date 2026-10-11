@@ -6,12 +6,12 @@
   <meta name="theme-color" content="#16131C" />
   <meta name="description" content="워크로우 한국어 아미 빌더 초안. 진영을 고르고 공식 편성 규칙에 따라 부대를 구성하세요." />
   <title>워크로우 한글 아미 빌더 · 초안</title>
-  <link rel="stylesheet" href="./style.css?v=11" />
+  <link rel="stylesheet" href="./style.css?v=12" />
 </head>
 <body>
   <header class="topbar">
     <div class="brand"><div class="brand-mark">W</div><div><strong>WARCROW</strong><small>한국어 아미 빌더 <span>초안</span></small></div></div>
-    <div class="top-actions"><span class="source-version" id="sourceVersion">자료 불러오는 중</span><a href="https://experience.corvusbelli.com/en/warcrow" target="_blank" rel="noopener noreferrer">공식 자료 ↗</a></div>
+    <div class="top-actions"><div class="language-switch" role="group" aria-label="표시 언어 / Display language"><button type="button" data-language="ko" aria-pressed="true">한글</button><button type="button" data-language="en" aria-pressed="false">English</button><button type="button" data-language="bi" aria-pressed="false">한·영</button></div><span class="source-version" id="sourceVersion">자료 불러오는 중</span><a href="https://experience.corvusbelli.com/en/warcrow" target="_blank" rel="noopener noreferrer">공식 자료 ↗</a></div>
   </header>
 
   <main class="page-shell">
@@ -53,7 +53,7 @@
     <footer><span>비공식 한국어 빌더 초안</span><span>Warcrow™ is a trademark of Corvus Belli S.L.</span></footer>
   </main>
 
-  <dialog id="cardDialog" class="card-dialog"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form>
+  <dialog id="cardDialog" class="card-dialog"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form><div class="card-language-toolbar"><div class="language-switch" role="group" aria-label="표시 언어 / Display language"><button type="button" data-language="ko" aria-pressed="true">한글</button><button type="button" data-language="en" aria-pressed="false">English</button><button type="button" data-language="bi" aria-pressed="false">한·영</button></div></div>
     <div id="dialogShowcase" hidden></div>
     <div id="dialogGeneric"><div class="card-head"><span class="section-kicker">한국어 유닛 카드</span><h2 id="dialogTitle">유닛 카드</h2><p id="dialogOriginalName"></p><div class="card-meta" id="dialogMeta"></div></div>
       <div class="card-body"><div class="card-tags" id="dialogTags"></div><h3>능력과 효과</h3><div class="card-abilities" id="dialogAbilities"></div><p class="card-translation-note" id="dialogNote"></p></div>
@@ -62,6 +62,6 @@
   </dialog>
   <dialog id="loadDialog" class="load-dialog"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form><h2>저장한 목록</h2><div id="savedList"></div></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="./app.js?v=11" defer></script>
+  <script src="./app.js?v=12" defer></script>
 </body>
 </html>
