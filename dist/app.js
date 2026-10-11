@@ -331,28 +331,46 @@ function exactSourceCard(u){
   const abilityOverlays=boxes.map((box,index)=>{
     const part=exactAbilityParts(box.korean||box.english,index);
     const y=box.top+.002,h=Math.max(.012,box.bottom-box.top-.004);
-    return `<div class="exact-ability exact-fit" style="left:8%;top:${percent(y)};width:88.5%;height:${percent(h)}"><strong>${escapeHtml(part.title)}</strong>${part.body?` <span>${escapeHtml(part.body)}</span>`:''}</div>`;
+    return `<div class="exact-ability exact-fit" data-short="${escapeHtml(part.title)}" data-tiny="능력 ${index+1}" style="left:8%;top:${percent(y)};width:88.5%;height:${percent(h)}"><div class="exact-fit-content"><strong>${escapeHtml(part.title)}</strong>${part.body?` <span>${escapeHtml(part.body)}</span>`:''}</div></div>`;
   }).join('');
-  const effectOverlays=effects.filter(effect=>effect.korean?.trim()).map(effect=>{
+  const effectOverlays=effects.filter(effect=>effect.korean?.trim()).map((effect,index)=>{
     const x=effect.left+.001,y=effect.top+.001,w=effect.right-effect.left-.002,h=effect.bottom-effect.top-.002;
-    return `<div class="exact-effect exact-fit" style="left:${percent(x)};top:${percent(y)};width:${percent(w)};height:${percent(h)}">${escapeHtml(effect.korean||effect.english)}</div>`;
+    return `<div class="exact-effect exact-fit" data-short="효과 ${index+1}" data-tiny="${index+1}" style="left:${percent(x)};top:${percent(y)};width:${percent(w)};height:${percent(h)}"><div class="exact-fit-content">${escapeHtml(effect.korean||effect.english)}</div></div>`;
   }).join('');
   const readable=boxes.map((box,index)=>{const part=exactAbilityParts(box.korean||box.english,index);return `<section><h3>${escapeHtml(part.title)}</h3><p>${escapeHtml(part.body)}</p><p class="exact-english">${escapeHtml(box.english)}</p></section>`}).join('');
-  const readableEffects=effects.filter(effect=>effect.korean?.trim()).map(effect=>`<section><h3>${ui('전투 효과','Combat effect')}</h3><p>${escapeHtml(effect.korean)}</p><p class="exact-english">${escapeHtml(effect.english)}</p></section>`).join('');
-  return `<article class="exact-card" aria-label="${escapeHtml(name)} ${ui('원본 배치 한국어 카드','source card with Korean translation')}"><div class="exact-canvas"><img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(name)} ${ui('원본 카드 도식과 기호','original card artwork and symbols')}" loading="eager" />${title(.024)}${enhancement?title(enhancement.top+.002,true):''}<div class="exact-traits">${escapeHtml(traits.join(' · '))}</div>${abilityOverlays}${effectOverlays}</div><details class="exact-readable" ${language==='bi'?'open':''}><summary>${ui('한국어 능력과 전투 효과 크게 보기','Read abilities and combat effects')}</summary>${readable}${readableEffects}${readable||readableEffects?'':`<p>${ui('원본 카드에 별도 능력 상자가 없습니다.','The source card has no separate ability boxes.')}</p>`}</details></article>`;
+  const readableEffects=effects.filter(effect=>effect.korean?.trim()).map((effect,index)=>`<section><h3>${ui(`전투 효과 ${index+1}`,`Combat effect ${index+1}`)}</h3><p>${escapeHtml(effect.korean)}</p><p class="exact-english">${escapeHtml(effect.english)}</p></section>`).join('');
+  return `<article class="exact-card" aria-label="${escapeHtml(name)} ${ui('원본 배치 한국어 카드','source card with Korean translation')}"><div class="exact-canvas"><img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(name)} ${ui('원본 카드 도식과 기호','original card artwork and symbols')}" loading="eager" />${title(.024)}${enhancement?title(enhancement.top+.002,true):''}<div class="exact-traits">${escapeHtml(traits.join(' · '))}</div>${abilityOverlays}${effectOverlays}</div><details class="exact-readable" ${language!=='en'?'open':''}><summary>${ui('한국어 능력과 전투 효과 크게 보기','Read abilities and combat effects')}</summary>${readable}${readableEffects}${readable||readableEffects?'':`<p>${ui('원본 카드에 별도 능력 상자가 없습니다.','The source card has no separate ability boxes.')}</p>`}</details></article>`;
 }
 function fitExactText(){
   const canvas=$('#dialogShowcase .exact-canvas');
   if(!canvas)return;
   for(const element of canvas.querySelectorAll('.exact-fit')){
-    const initial=parseFloat(getComputedStyle(element).fontSize);
-    let size=initial;
-    while(size>8&&(element.scrollHeight>element.clientHeight+1||element.scrollWidth>element.clientWidth+1)){
-      size-=.5;element.style.fontSize=`${size}px`;
+    element.dataset.fullHtml??=element.innerHTML;
+    element.innerHTML=element.dataset.fullHtml;
+    element.classList.remove('exact-unfit');
+    element.dataset.fullText??=element.textContent||'';
+    element.style.fontSize='';
+    const overflows=()=>{
+      const content=element.querySelector('.exact-fit-content');
+      const box=element.getBoundingClientRect(),inner=content.getBoundingClientRect();
+      return element.scrollHeight>element.clientHeight+1||element.scrollWidth>element.clientWidth+1||content.scrollHeight>content.clientHeight+1||content.scrollWidth>content.clientWidth+1||inner.bottom>box.bottom-1||inner.right>box.right-1;
+    };
+    const minimum=element.classList.contains('exact-effect')?Math.max(8,Math.min(10,(element.clientHeight-1)/1.12)):10;
+    let size=Math.max(minimum,parseFloat(getComputedStyle(element).fontSize));
+    element.style.fontSize=`${size}px`;
+    while(size>minimum&&overflows()){
+      size=Math.max(minimum,size-.5);element.style.fontSize=`${size}px`;
     }
-    if(element.scrollHeight>element.clientHeight+1||element.scrollWidth>element.clientWidth+1)element.title=element.textContent;
+    if(overflows()){
+      element.innerHTML=`<div class="exact-fit-content">${escapeHtml(element.dataset.short)}</div>`;
+      element.classList.add('exact-condensed');
+      if(overflows())element.innerHTML=`<div class="exact-fit-content">${escapeHtml(element.dataset.tiny)}</div>`;
+      if(overflows())element.classList.add('exact-unfit');
+    }else element.classList.remove('exact-condensed');
+    element.title=element.dataset.fullText;
   }
 }
+let exactCardResizeObserver;
 function visualCard(u,translated,profile){
   const name=localizedName(u),faction=factionNames[u.faction]?.[0]||u.faction;
   const tags=[...(u.characteristics||[]).map(x=>terms[x]||x),...(u.keywords||[]).map(x=>ko(x.name)),...(u.specialRules||[]).map(ko)];
@@ -388,7 +406,14 @@ function openKoreanCard(u){
   else{image.hidden=true;image.removeAttribute('src');image.alt=''}
   if(!$('#cardDialog').open)$('#cardDialog').showModal();
   const sourceImage=$('#dialogShowcase .exact-canvas img');
-  if(sourceImage){if(sourceImage.complete)requestAnimationFrame(fitExactText);else sourceImage.addEventListener('load',fitExactText,{once:true})}
+  exactCardResizeObserver?.disconnect();
+  if(sourceImage){
+    exactCardResizeObserver=new ResizeObserver(()=>requestAnimationFrame(fitExactText));
+    exactCardResizeObserver.observe(sourceImage.parentElement);
+    if(sourceImage.complete)requestAnimationFrame(fitExactText);
+    else sourceImage.addEventListener('load',fitExactText,{once:true});
+    document.fonts?.ready.then(()=>requestAnimationFrame(fitExactText));
+  }
 }
 function applyStaticLanguage(){
   document.documentElement.lang=language==='en'?'en':'ko';
