@@ -4,16 +4,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#16131C" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="description" content="워크로우 한국어 아미 빌더 초안. 진영을 고르고 공식 편성 규칙에 따라 부대를 구성하세요." />
   <title>워크로우 한글 아미 빌더 · 초안</title>
-  <link rel="stylesheet" href="./style.css?v=15" />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" href="./pwa-icon-192.png" sizes="192x192" type="image/png" />
+  <link rel="apple-touch-icon" href="./pwa-icon-192.png" />
+  <link rel="stylesheet" href="./style.css?v=16" />
 </head>
 <body>
   <header class="topbar">
     <div class="brand"><div class="brand-mark">W</div><div><strong>WARCROW</strong><small>한국어 아미 빌더 <span>초안</span></small></div></div>
     <div class="top-actions"><div class="language-switch" role="group" aria-label="표시 언어 / Display language"><button type="button" data-language="ko" aria-pressed="true">한글</button><button type="button" data-language="en" aria-pressed="false">English</button><button type="button" data-language="bi" aria-pressed="false">한·영</button></div><span class="source-version" id="sourceVersion">자료 불러오는 중</span><a href="https://experience.corvusbelli.com/en/warcrow" target="_blank" rel="noopener noreferrer">공식 자료 ↗</a></div>
   </header>
-  <nav class="guide-strip" aria-label="게임 규칙 안내"><span>게임 가이드</span><a href="./rules.html">공식 룰북 정리</a><a href="./quick-sheet.html">퀵시트</a><a href="./tutorial.html">입문 튜토리얼</a></nav>
+  <nav class="guide-strip" aria-label="게임 규칙 안내"><span>게임 가이드</span><a href="./rules.html">공식 룰북 정리</a><a href="./quick-sheet.html">퀵시트</a><a href="./tutorial.html">입문 튜토리얼</a><button type="button" class="install-app-button" hidden>앱 설치</button></nav>
 
   <main class="page-shell">
     <section class="hero" aria-labelledby="pageTitle">
@@ -65,5 +71,6 @@
   <dialog id="loadDialog" class="load-dialog"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form><h2>저장한 목록</h2><div id="savedList"></div></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="./app.js?v=15" defer></script>
+  <script src="./pwa.js?v=16" defer></script>
 </body>
 </html>

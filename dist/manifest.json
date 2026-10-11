@@ -1,0 +1,18 @@
+{
+  "id": "./",
+  "name": "워크로우 한국어 아미 빌더",
+  "short_name": "Warcrow 빌더",
+  "description": "한국어 로스터 편성, 게임 기록, 룰북 정리와 퀵시트",
+  "lang": "ko",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#16131C",
+  "theme_color": "#16131C",
+  "categories": ["games", "utilities"],
+  "icons": [
+    {"src": "./pwa-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "./pwa-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "./pwa-icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
