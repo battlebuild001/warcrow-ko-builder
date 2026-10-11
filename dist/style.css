@@ -35,3 +35,17 @@
 .skill-sigil.healing{background:var(--sage);border-color:var(--sage);color:var(--card-ink)}
 .skill-sigil.defense{background:#54766B;border-color:var(--sage)}
 .skill-chip{background:#E5D9F0;color:var(--card-accent)}
+
+/* Exact card glyphs, displayed from the official Tattooist card image. */
+.source-glyph{display:inline-block;flex:none;overflow:hidden;vertical-align:middle;pointer-events:none}
+.source-die{width:27px;height:27px;clip-path:polygon(50% 1%,99% 50%,50% 99%,1% 50%);filter:drop-shadow(1px 2px 0 #241F2E55)}
+.source-combat-icon{width:28px;height:28px}
+.source-status-icon{width:56px;height:37px}
+.source-skill-icon{width:32px;height:32px;border-radius:50%}
+.source-inline-icon{width:22px;height:23px;margin:0 3px;vertical-align:-6px}
+.showcase-stats .source-die{width:27px;height:27px}
+.showcase-combat .source-die{width:25px;height:25px}
+.showcase-combat .showcase-dice{gap:2px}
+.showcase-status{align-items:center}
+@media(max-width:650px){.showcase-stats .source-die{width:18px;height:18px}.showcase-combat .source-die{width:23px;height:23px}.source-combat-icon{width:25px;height:25px}.source-skill-icon{width:26px;height:26px}}
+.showcase-top:after{content:none}
