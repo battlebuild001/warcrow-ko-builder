@@ -16,7 +16,7 @@
 
   <main class="page-shell">
     <section class="hero" aria-labelledby="pageTitle">
-      <div><p class="eyebrow">YOUR COMPANY · YOUR STORY</p><h1 id="pageTitle">나만의 부대를<br /><em>편성하세요.</em></h1><p class="hero-copy">진영을 선택하고 유닛을 모아 전장으로 떠날 준비를 하세요. 공식 편성 규칙과 WTS 시즌 2 제한을 함께 확인할 수 있습니다.</p></div>
+      <div><p class="eyebrow">YOUR COMPANY · YOUR STORY</p><h1 id="pageTitle">나만의 부대를<br /><em>편성하세요.</em></h1><p class="hero-copy">진영을 선택하고 유닛을 모아 전장으로 떠날 준비를 하세요. 공식 편성 규칙과 WTS 시즌 2 제한을 함께 확인할 수 있습니다.</p><button class="hero-demo" type="button" data-demo-card>✦ 타투이스트 한국어 카드 예시 보기 <span>↗</span></button></div>
       <div class="hero-stamp" aria-hidden="true"><span>W</span><small>ARMY<br />BUILDER</small></div>
     </section>
 
@@ -54,10 +54,11 @@
   </main>
 
   <dialog id="cardDialog" class="card-dialog"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form>
-    <div class="card-head"><span class="section-kicker">한국어 유닛 카드</span><h2 id="dialogTitle">유닛 카드</h2><p id="dialogOriginalName"></p><div class="card-meta" id="dialogMeta"></div></div>
-    <div class="card-body"><div class="card-tags" id="dialogTags"></div><h3>능력과 효과</h3><div class="card-abilities" id="dialogAbilities"></div><p class="card-translation-note" id="dialogNote"></p>
-      <details class="card-source"><summary>영문 원문과 카드 이미지 대조</summary><pre id="dialogEnglish"></pre><img id="dialogImage" alt="" loading="lazy" /></details>
+    <div id="dialogShowcase" hidden></div>
+    <div id="dialogGeneric"><div class="card-head"><span class="section-kicker">한국어 유닛 카드</span><h2 id="dialogTitle">유닛 카드</h2><p id="dialogOriginalName"></p><div class="card-meta" id="dialogMeta"></div></div>
+      <div class="card-body"><div class="card-tags" id="dialogTags"></div><h3>능력과 효과</h3><div class="card-abilities" id="dialogAbilities"></div><p class="card-translation-note" id="dialogNote"></p></div>
     </div>
+    <div class="card-source-wrap"><details class="card-source"><summary>영문 원문과 카드 이미지 대조</summary><pre id="dialogEnglish"></pre><img id="dialogImage" alt="" loading="lazy" /></details></div>
   </dialog>
   <dialog id="loadDialog" class="load-dialog"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form><h2>저장한 목록</h2><div id="savedList"></div></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
