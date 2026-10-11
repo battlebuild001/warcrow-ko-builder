@@ -143,6 +143,23 @@ function visualAbility(paragraph,index){
   const kind=/치유|회복|약초|heal/i.test(paragraph)?'heal':/주문|마법|영혼|토템|spell/i.test(paragraph)?'magic':'ability';
   return `<section class="showcase-skill">${cardIcon(kind,'icon-skill',`${title} 능력 기호`)}<div><div class="skill-heading"><h3>${escapeHtml(title)}</h3></div>${body?`<p>${escapeHtml(body)}</p>`:''}</div></section>`;
 }
+const flamecobsRows=[
+  {range:'2+',ranged:['red','orange','yellow','yellow'],melee:['orange','yellow','black-star'],defense:['blue','black-shield']},
+  {range:'1',ranged:['orange','orange','yellow'],melee:['orange'],defense:['black-shield']}
+];
+const flamecobsEnglish=`Infantry, Projectile, Red Cap
+
+Inflict 1 damage to your target.
+
+EXPLOSION. When a troop from your unit is about to be taken out of combat, all other units within 5 strides suffer 1 stress and 2 damage.
+
+EMOTION: RAGE. Only if Nuada chooses the Rage emotion. You may inflict yourself 1 damage to add two black stars to your attack rolls (melee and ranged). You cannot inflict yourself the damage if this destroys the unit. This damage is not accounted for in the resolution of a combat.`;
+function flamecobsCard(u){
+  const dice=(items)=>items.map(color=>cardIcon(color.startsWith('black-')?color:`die-${color}`,'icon-die',`${color} 주사위 기호`)).join('');
+  const combat=flamecobsRows.map((row,index)=>`<section class="auth-combat-row" aria-label="전투 방식 ${index+1}"><div class="auth-combat-bar"><span class="auth-range">${row.range}</span><span class="auth-bar-icon">${cardIcon('ranged-mark','icon-combat','원거리 공격 기호')}<b>8</b></span><span class="auth-bar-icon">${cardIcon('melee-mark','icon-combat','근접 공격 기호')}</span><span class="auth-bar-icon">${cardIcon('armor','icon-combat','방어 기호')}</span><span class="auth-stress">${cardIcon('stress-seal','icon-combat','스트레스 수치')}<b>0</b></span></div><div class="auth-combat-dice"><span></span><span>${dice(row.ranged)}</span><span>${dice(row.melee)}</span><span>${dice(row.defense)}</span><span></span></div><div class="auth-combat-effect">${cardIcon('crit','icon-status','공격 효과 기호 1')}${cardIcon('crit','icon-status','공격 효과 기호 2')}<span>대상에게 피해 ${cardIcon('damage','icon-inline','피해 기호')} 1을 입힙니다.</span></div></section>`).join('');
+  const art=localCardUrl(u);
+  return `<article class="showcase-card showcase-authentic" aria-label="플레임콥스 한국어 카드"><header class="auth-profile"><div class="auth-ribbon"><strong>20</strong></div><div class="auth-portrait" role="img" aria-label="플레임콥스 인물 그림" style="background-image:url('${escapeHtml(art)}')"></div><div class="auth-profile-main"><div class="auth-titlebar"><h2>플레임콥스</h2><span>FLAMECOBS</span></div><div class="auth-stat-head"><span>MOV</span><span>W</span><span>WP</span><span>MOR</span><span>AVB</span></div><div class="auth-stat-values"><strong>3-2 [9]</strong><strong>2</strong><strong>${cardIcon('die-orange','icon-die','주황 의지 주사위')}</strong><strong>1</strong><strong>1</strong></div><p>보병 · 투사체 · 레드 캡</p></div></header><div class="auth-content"><div class="auth-heading">전투 <span>COMBAT</span></div><div class="auth-combat">${combat}</div><div class="auth-heading">능력 <span>ABILITIES</span></div><div class="auth-abilities"><section>${cardIcon('magic','icon-skill','폭발 능력 기호')}<div><h3>폭발</h3><p><em>이 유닛의 병력 하나가 전투에서 제거되기 직전.</em> 5보폭 이내의 다른 모든 유닛은 스트레스 1과 피해 ${cardIcon('damage','icon-inline','피해 기호')} 2를 받습니다.</p></div></section><section>${cardIcon('magic','icon-skill','감정 능력 기호')}<div><h3>감정: 격노</h3><p><em>누아다가 격노 감정을 선택한 경우에만.</em> 자신에게 피해 ${cardIcon('damage','icon-inline','피해 기호')} 1을 가해 근접·원거리 공격 굴림에 ${cardIcon('black-star','icon-inline','검은 별 기호')}${cardIcon('black-star','icon-inline','검은 별 기호')}를 추가할 수 있습니다. 이 피해로 유닛이 파괴된다면 사용할 수 없습니다. 이 피해는 전투 결과 계산에 포함되지 않습니다.</p></div></section></div><div class="auth-footer">영문 원본 카드의 수치·주사위·효과를 대조한 한글 카드</div></div></article>`;
+}
 function visualCard(u,translated,profile){
   const name=localizedName(u),faction=factionNames[u.faction]?.[0]||u.faction;
   const tags=[...(u.characteristics||[]).map(x=>terms[x]||x),...(u.keywords||[]).map(x=>ko(x.name)),...(u.specialRules||[]).map(ko)];
@@ -160,7 +177,7 @@ function openKoreanCard(u){
   $('#cardDialog').classList.add('showcase-open');
   $('#dialogShowcase').hidden=false;
   $('#dialogGeneric').hidden=true;
-  $('#dialogShowcase').innerHTML=u.cardKey==='tattooist'?tattooistShowcase():visualCard(u,translated,cardProfiles[u.cardKey]);
+  $('#dialogShowcase').innerHTML=u.cardKey==='tattooist'?tattooistShowcase():u.cardKey==='flamecobs'?flamecobsCard(u):visualCard(u,translated,cardProfiles[u.cardKey]);
   $('#dialogTitle').textContent=localizedName(u);
   $('#dialogOriginalName').textContent=u.name;
   $('#dialogMeta').innerHTML=`<span>포인트<strong>${u.pointsCost}</strong></span><span>지휘 토큰<strong>${u.command||0}</strong></span><span>최대 편성 · AVB<strong>${u.availability}</strong></span>`;
@@ -169,7 +186,7 @@ function openKoreanCard(u){
   const paragraphs=translated?.korean?.split(/\n\s*\n/).map(x=>x.trim()).filter(Boolean)||[];
   $('#dialogAbilities').innerHTML=paragraphs.length?paragraphs.map(x=>`<div class="ability-block">${escapeHtml(x)}</div>`).join(''):'<div class="ability-block">원문 카드의 상세 능력 문구를 확보하지 못했습니다. 위의 편성 정보와 특성·규칙은 수집된 유닛 데이터를 바탕으로 표시했습니다.</div>';
   $('#dialogNote').textContent=translated?'이 번역은 카드 문자 인식을 바탕으로 만든 검토용 초안입니다. 수치, 주사위 기호, 상태 효과는 아래 원본 카드와 대조하세요.':'원본 사이트의 카드 이미지가 제공되지 않아 상세 문구는 아직 번역할 수 없습니다.';
-  $('#dialogEnglish').textContent=translated?.english||'원본 카드 텍스트 미확보';
+  $('#dialogEnglish').textContent=u.cardKey==='flamecobs'?flamecobsEnglish:translated?.english||'원본 카드 텍스트 미확보';
   const image=$('#dialogImage');
   if(localCardUrl(u)){image.hidden=false;image.src=localCardUrl(u);image.alt=`${u.name} 영문 원본 카드`}
   else{image.hidden=true;image.removeAttribute('src');image.alt=''}
