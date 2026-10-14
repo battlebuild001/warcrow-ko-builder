@@ -121,3 +121,5 @@ body[data-language="ko"] .faction-en,body[data-language="ko"] .unit-name-en{disp
 .exact-effect{display:block;white-space:nowrap;text-overflow:ellipsis}.exact-fit-content{max-width:100%;overflow-wrap:anywhere}.exact-effect .exact-fit-content{overflow:hidden;text-overflow:ellipsis}.exact-condensed .exact-fit-content{font-weight:800;text-align:center}.exact-readable section p{overflow-wrap:anywhere}
 .exact-readable section p{color:#312720}.exact-readable .exact-english{color:#5b4f42}
 .exact-unfit{visibility:hidden}
+
+footer{flex-wrap:wrap}.site-credit{color:var(--sage);font-weight:700}
