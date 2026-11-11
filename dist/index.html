@@ -12,7 +12,7 @@
   <link rel="manifest" href="./manifest.json" />
   <link rel="icon" href="./pwa-icon-192.png" sizes="192x192" type="image/png" />
   <link rel="apple-touch-icon" href="./pwa-icon-192.png" />
-  <link rel="stylesheet" href="./style.css?v=20" />
+  <link rel="stylesheet" href="./style.css?v=22" />
 </head>
 <body>
   <header class="topbar">
@@ -54,11 +54,11 @@
         <label class="commander-select">지휘관 <span>Officer 캐릭터 중 지정</span><select id="commanderSelect"><option value="">지휘관 선택</option></select></label>
         <div class="validation" id="validation" aria-live="polite"></div>
         <div class="selected-list" id="selectedList"></div>
-        <div class="army-actions"><label class="list-name">목록 이름<input id="listName" type="text" maxlength="60" placeholder="예: 북방의 선봉대" /></label><button id="confirmRosterButton" class="button button-gold confirm-roster" type="button">로스터 확정 · 게임 시작</button><p class="roster-confirm-note">현재 편성을 게임용 복사본으로 저장합니다.</p><button id="resumeGameButton" class="button button-ghost resume-game" type="button" hidden>진행 중 게임으로 돌아가기</button><div class="button-row"><button id="saveButton" class="button button-gold" type="button">목록 저장</button><button id="exportButton" class="button button-ghost" type="button">JSON 내보내기</button></div><div class="button-row quiet"><button id="loadButton" type="button">저장 목록 불러오기</button><button id="resetButton" type="button">새 목록</button></div></div>
+        <div class="army-actions"><label class="list-name">목록 이름<input id="listName" type="text" maxlength="60" placeholder="예: 북방의 선봉대" /></label><button id="confirmRosterButton" class="button button-gold confirm-roster" type="button">플레이 모드 · 카드 보기</button><p class="roster-confirm-note">선택한 유닛의 카드를 좌우로 넘겨 봅니다.</p><button id="resumeGameButton" class="button button-ghost resume-game" type="button" hidden>플레이 모드로 돌아가기</button><div class="button-row"><button id="saveButton" class="button button-gold" type="button">목록 저장</button><button id="exportButton" class="button button-ghost" type="button">JSON 내보내기</button></div><div class="button-row quiet"><button id="loadButton" type="button">저장 목록 불러오기</button><button id="resetButton" type="button">새 목록</button></div></div>
         <p class="data-note">유닛 이름과 카드 문구는 한국어 검토용 초안입니다. 카드 이미지 4종의 상세 문구는 원본에서 제공되지 않았습니다. Officer/Support 구분과 최신 프로필은 공식 CorvuSphere 확인이 필요합니다.</p>
       </aside>
     </div>
-    <section id="gameView" class="game-view" aria-label="게임 중 로스터" hidden></section>
+    <section id="gameView" class="game-view" aria-label="플레이 모드 유닛 카드" hidden></section>
     <footer><span>비공식 한국어 빌더 초안</span><span class="site-credit">배틀테이블하비 제작</span><span>Warcrow™ is a trademark of Corvus Belli S.L.</span></footer>
   </main>
 
@@ -72,7 +72,7 @@
   <dialog id="modelDialog" class="model-dialog" aria-labelledby="modelDialogTitle"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form><p class="section-kicker">CORVUS BELLI · OFFICIAL MODEL</p><h2 id="modelDialogTitle"></h2><figure><img id="modelDialogImage" alt="" /><figcaption><strong id="modelDialogKind"></strong><span id="modelDialogProduct"></span></figcaption></figure><a id="modelDialogSource" href="https://store.corvusbelli.com/en/warcrow/wargame" target="_blank" rel="noopener noreferrer">공식 스토어에서 상품 확인 ↗</a></dialog>
   <dialog id="loadDialog" class="load-dialog"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form><h2>저장한 목록</h2><div id="savedList"></div></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="./app.js?v=21" defer></script>
+  <script src="./app.js?v=22" defer></script>
   <script src="./pwa.js?v=16" defer></script>
 </body>
 </html>

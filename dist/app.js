@@ -143,52 +143,34 @@ function renderArmy(){
   renderCommander();renderValidation();
   $('#selectedList').innerHTML=units.length?units.map(u=>`<div class="selected-entry"><span class="number">${count(u)}×</span>${modelPhoto(u,true)}<div class="summary"><strong>${escapeHtml(unitName(u))}</strong><small>${u.pointsCost*count(u)} ${ui('점','pts')} · COM ${(u.command||0)*count(u)}${data.wtsFogIds.includes(u.id)&&state.mode==='wts'?` · ${ui('출전 불가','ineligible')}`:''}</small></div><button type="button" data-remove="${escapeHtml(u.id)}" aria-label="${escapeHtml(unitName(u))} ${ui('제거','remove')}">−</button></div>`).join(''):`<div class="empty">${ui('아직 추가한 유닛이 없습니다.','No units added yet.')}<br />${ui('왼쪽 목록에서 부대를 구성하세요.','Build your army from the catalog.')}</div>`;
 }
-const gameConditions=[['slowed','둔화','Slowed'],['disarmed','무장 해제','Disarmed'],['vulnerable','취약','Vulnerable'],['frightened','공포','Frightened'],['demoralized','사기 붕괴','Demoralized']];
-function rosterIssue(){
-  const units=selectedUnits();
-  if(!units.length)return ui('유닛을 먼저 추가하세요.','Add a unit first.');
-  if(!state.commander||!units.some(u=>u.id===state.commander))return ui('지휘관을 지정하세요.','Choose a commander.');
-  if(totalPoints()>state.limit)return ui('점수 상한을 초과했습니다.','The points limit is exceeded.');
-  if(units.some(u=>count(u)>u.availability))return ui('AVB 상한을 초과했습니다.','A unit exceeds its availability.');
-  if(units.filter(u=>u.highCommand).length>1)return ui('최고 지휘부는 1명까지입니다.','Only one High Command unit is allowed.');
-  if(state.mode==='wts'&&units.some(isBlocked))return ui('WTS 출전 불가 유닛이 포함되어 있습니다.','The army includes a WTS-ineligible unit.');
-  if(state.mode==='wts'&&mercenaries()>1)return ui('WTS 용병은 최대 1개입니다.','WTS allows at most one mercenary.');
-  return '';
-}
+let playCardObserver;
 function confirmRoster(){
-  const issue=rosterIssue();if(issue)return toast(issue);
-  const units=selectedUnits().map(u=>({...JSON.parse(JSON.stringify(u)),quantity:count(u),w:cardProfiles[u.cardKey]?.w??null,mor:cardProfiles[u.cardKey]?.mor??null}));
-  const instances=units.flatMap(u=>Array.from({length:u.quantity},(_,index)=>({key:`${u.id}:${index+1}`,unitId:u.id,copy:index+1,damage:0,stress:0,troops:'',activated:false,conditions:[],note:''})));
-  const game={id:`${Date.now()}-${Math.random().toString(36).slice(2,8)}`,name:$('#listName').value.trim()||ui('새 편성표','New army list'),faction:state.faction,mode:state.mode,limit:state.limit,commander:state.commander,points:totalPoints(),commandTotal:totalCommand(),commandRemaining:totalCommand(),victoryPoints:0,round:1,turn:1,confirmedAt:new Date().toISOString(),units,instances};
+  const units=selectedUnits().map(u=>({...JSON.parse(JSON.stringify(u)),quantity:count(u)}));
+  if(!units.length)return toast(ui('유닛을 먼저 추가하세요.','Add a unit first.'));
+  const game={id:`${Date.now()}-${Math.random().toString(36).slice(2,8)}`,name:$('#listName').value.trim()||ui('내 유닛 카드','My unit cards'),faction:state.faction,confirmedAt:new Date().toISOString(),units,instances:[],cardIndex:0};
   gameSessions.unshift(game);activeGameId=game.id;persistGames();screen='game';render();window.scrollTo(0,0);
 }
-function gameUnit(game,instance){return game.units.find(unit=>unit.id===instance.unitId)}
-function gameCounter(label,value,scope,field,key=''){
-  return `<div class="game-counter"><span>${label}</span><div><button type="button" data-game-delta="-1" data-game-scope="${scope}" data-game-field="${field}" data-game-key="${escapeHtml(key)}" aria-label="${escapeHtml(label)} −1">−</button><strong>${escapeHtml(value)}</strong><button type="button" data-game-delta="1" data-game-scope="${scope}" data-game-field="${field}" data-game-key="${escapeHtml(key)}" aria-label="${escapeHtml(label)} +1">+</button></div></div>`;
-}
-function renderGameUnit(game,instance){
-  const unit=gameUnit(game,instance);if(!unit)return '';
-  const name=unitName(unit),w=unit.w==null||unit.w===''?'—':unit.w,mor=unit.mor==null||unit.mor===''?'—':unit.mor;
-  const copy=unit.quantity>1?` <small>#${instance.copy}</small>`:'';
-  const danger=mor!=='—'&&Number.isFinite(Number(mor))&&instance.stress>Number(mor);
-  return `<article class="game-unit" data-game-instance="${escapeHtml(instance.key)}"><div class="game-unit-head"><div><h3>${escapeHtml(name)}${copy}</h3><p>${unit.pointsCost} ${ui('점','pts')} · W ${escapeHtml(w)} ${ui('(병력당)','(per troop)')} · MOR ${escapeHtml(mor)}</p></div><button type="button" class="game-card-button" data-game-card="${escapeHtml(instance.key)}">${ui('카드 보기','View card')} ↗</button></div><div class="game-unit-controls"><button type="button" class="activation-toggle ${instance.activated?'active':''}" data-game-activate="${escapeHtml(instance.key)}" aria-pressed="${Boolean(instance.activated)}">${instance.activated?ui('활성화됨','Activated'):ui('활성화 표시','Mark activated')}</button>${gameCounter(ui('피해 기록','Damage tracked'),instance.damage,'unit','damage',instance.key)}${gameCounter(ui('스트레스','Stress'),instance.stress,'unit','stress',instance.key)}<label class="game-troops">${ui('현재 병력','Troops remaining')}<input type="number" min="0" max="99" inputmode="numeric" placeholder="—" data-game-troops="${escapeHtml(instance.key)}" value="${escapeHtml(instance.troops??'')}" /></label></div>${danger?`<p class="game-rule-alert">${ui('스트레스가 MOR을 넘었습니다. 활성화 종료 시 WP 판정을 확인하세요.','Stress exceeds MOR. Check the WP roll at the end of activation.')}</p>`:''}<div class="game-conditions" role="group" aria-label="${ui('상태 표시','States')}">${gameConditions.map(([key,koLabel,enLabel])=>`<button type="button" data-game-condition="${key}" data-game-key="${escapeHtml(instance.key)}" aria-pressed="${instance.conditions.includes(key)}" class="${instance.conditions.includes(key)?'on':''}">${ui(koLabel,enLabel)}</button>`).join('')}</div><label class="game-note">${ui('메모','Notes')}<textarea rows="2" data-game-note="${escapeHtml(instance.key)}" placeholder="${ui('목표·지속 효과 등을 기록','Track objectives and ongoing effects')}">${escapeHtml(instance.note||'')}</textarea></label></article>`;
+function movePlayCard(delta){
+  const game=activeGame();if(!game?.units.length)return;
+  game.cardIndex=((Number(game.cardIndex)||0)+delta+game.units.length)%game.units.length;
+  persistGames();renderGame();
 }
 function renderGame(){
   const game=activeGame(),view=$('#gameView');
   $('.hero').hidden=screen==='game';$('.setup-panel').hidden=screen==='game';$('.builder-grid').hidden=screen==='game';view.hidden=screen!=='game';
-  $('#resumeGameButton').hidden=!game;
-  if(!game){view.innerHTML='';return}
-  const commander=game.units.find(unit=>unit.id===game.commander),roster=game.units.map(unit=>`<li><span>${escapeHtml(unitName(unit))}</span><b>${unit.quantity} × ${unit.pointsCost} ${ui('점','pts')}</b></li>`).join('');
-  const sessions=gameSessions.map(session=>`<option value="${escapeHtml(session.id)}" ${session.id===game.id?'selected':''}>${escapeHtml(session.name)} · ${new Date(session.confirmedAt).toLocaleDateString(language==='en'?'en-US':'ko-KR')}</option>`).join('');
-  view.innerHTML=`<div class="game-heading"><div><span class="section-kicker">${ui('확정 로스터 · 게임 중','Confirmed roster · In play')}</span><h2>${escapeHtml(game.name)}</h2><p>${escapeHtml(factionDisplay(game.faction))} · ${game.mode==='wts'?'WTS Season 2':ui('일반전','Standard')} · ${game.points}/${game.limit} ${ui('점','pts')}</p></div><button type="button" class="button button-ghost" data-game-action="builder">${ui('편성 화면','Army builder')}</button></div><div class="game-layout"><aside class="game-roster-panel panel"><h3>${ui('확정된 편성','Confirmed army')}</h3><p class="game-confirmed">${ui('확정','Confirmed')} ${new Date(game.confirmedAt).toLocaleString(language==='en'?'en-US':'ko-KR')}</p><label class="game-session-label">${ui('게임 기록 선택','Choose a game')}<select id="gameSessionSelect">${sessions}</select></label><div class="game-roster-meta"><span>${ui('지휘관','Commander')}</span><strong>${escapeHtml(commander?unitName(commander):'—')}</strong></div><ul class="game-roster-list">${roster}</ul><p class="game-rule-note">${ui('확정 당시 편성의 복사본이며 게임 기록은 이 브라우저에 자동 저장됩니다.','This is a snapshot of the confirmed army. Game progress is saved automatically in this browser.')}</p></aside><div class="game-play-panel"><section class="game-round-panel panel"><div class="game-round-title"><h3>${ui('게임 진행','Game progress')}</h3><button type="button" class="button button-gold" data-game-action="next-round">${ui('다음 라운드','Next round')} ↗</button></div><div class="game-global-counters">${gameCounter(ui('라운드','Round'),game.round,'game','round')}${gameCounter(ui('턴','Turn'),game.turn,'game','turn')}${gameCounter(ui('남은 지휘 토큰','Command tokens left'),game.commandRemaining,'game','commandRemaining')}${gameCounter(ui('승점','Victory points'),game.victoryPoints,'game','victoryPoints')}</div><nav class="game-guide-links" aria-label="게임 규칙 안내"><a href="./quick-sheet.html" target="_blank" rel="noopener">${ui('퀵시트 열기','Quick sheet')} ↗</a><a href="./rules.html" target="_blank" rel="noopener">${ui('규칙 찾아보기','Rule guide')} ↗</a><a href="./tutorial.html" target="_blank" rel="noopener">${ui('튜토리얼','Tutorial')} ↗</a></nav><p class="game-rule-note">${ui('다음 라운드는 활성화 표시와 턴을 초기화합니다. 스트레스 감소·이벤트·승점은 공식 규칙에 따라 직접 처리하세요.','Next round clears activation markers and resets the turn. Resolve stress, events, and victory points according to the rules.')}</p></section><div class="game-units-heading"><h3>${ui('유닛 상태','Unit status')}</h3><span>${game.instances.length} ${ui('개 유닛','units')}</span></div><div class="game-unit-list">${game.instances.map(instance=>renderGameUnit(game,instance)).join('')}</div></div></div>`;
-}
-function updateGameCounter(button){
-  const game=activeGame();if(!game)return;
-  const field=button.dataset.gameField,delta=Number(button.dataset.gameDelta);
-  const target=button.dataset.gameScope==='game'?game:game.instances.find(instance=>instance.key===button.dataset.gameKey);
-  if(!target||!['round','turn','commandRemaining','victoryPoints','damage','stress'].includes(field))return;
-  const minimum=['round','turn'].includes(field)?1:0,maximum=field==='turn'?10:999;
-  target[field]=Math.max(minimum,Math.min(maximum,(Number(target[field])||0)+delta));persistGames();renderGame();
+  $('#resumeGameButton').hidden=!game?.units.length;
+  playCardObserver?.disconnect();
+  if(screen!=='game'||!game?.units.length){view.innerHTML='';return}
+  const index=Math.max(0,Math.min(game.units.length-1,Number(game.cardIndex)||0));game.cardIndex=index;
+  const unit=game.units[index];
+  const card=localCardUrl(unit)?exactSourceCard(unit):language==='en'?englishFallbackCard(unit,cardProfiles[unit.cardKey]):draftSourceCard(unit,translations.cards[unit.cardKey],cardProfiles[unit.cardKey]);
+  view.innerHTML=`<div class="game-heading"><div><span class="section-kicker">${ui('플레이 모드 · 유닛 카드','Play mode · Unit cards')}</span><h2>${escapeHtml(game.name)}</h2><p>${ui('좌우로 넘겨 선택한 유닛의 카드를 확인하세요.','Swipe left or right to browse your selected unit cards.')}</p></div><button type="button" class="button button-ghost" data-game-action="builder">${ui('편성으로 돌아가기','Back to builder')}</button></div><nav class="play-navigation" aria-label="${ui('유닛 카드 이동','Unit card navigation')}"><button type="button" data-play-step="-1" aria-label="${ui('이전 유닛 카드','Previous unit card')}" ${game.units.length===1?'disabled':''}>‹</button><div><label class="sr-only" for="playUnitSelect">${ui('유닛 선택','Select unit')}</label><select id="playUnitSelect">${game.units.map((u,i)=>`<option value="${i}" ${i===index?'selected':''}>${escapeHtml(unitName(u))}${u.quantity>1?` ×${u.quantity}`:''}</option>`).join('')}</select><span aria-live="polite">${index+1} / ${game.units.length}</span></div><button type="button" data-play-step="1" aria-label="${ui('다음 유닛 카드','Next unit card')}" ${game.units.length===1?'disabled':''}>›</button></nav><div id="playCardStage" class="play-card-stage" aria-label="${escapeHtml(unitName(unit))}">${card}</div>`;
+  const image=$('#playCardStage .exact-canvas img');
+  if(image){
+    playCardObserver=new ResizeObserver(()=>requestAnimationFrame(fitExactText));playCardObserver.observe(image.parentElement);
+    if(image.complete)requestAnimationFrame(fitExactText);else image.addEventListener('load',fitExactText,{once:true});
+    document.fonts?.ready.then(()=>requestAnimationFrame(fitExactText));
+  }
 }
 function cardIcon(name,kind,label){
   return `<svg class="card-icon ${kind}" viewBox="0 0 40 40" role="img" aria-label="${escapeHtml(label)}"><use href="./icons.svg?v=9#${name}" /></svg>`;
@@ -342,7 +324,7 @@ function exactSourceCard(u){
   return `<article class="exact-card" aria-label="${escapeHtml(name)} ${ui('원본 배치 한국어 카드','source card with Korean translation')}"><div class="exact-canvas"><img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(name)} ${ui('원본 카드 도식과 기호','original card artwork and symbols')}" loading="eager" />${title(.024)}${enhancement?title(enhancement.top+.002,true):''}<div class="exact-traits">${escapeHtml(traits.join(' · '))}</div>${abilityOverlays}${effectOverlays}</div><details class="exact-readable" ${language!=='en'?'open':''}><summary>${ui('한국어 능력과 전투 효과 크게 보기','Read abilities and combat effects')}</summary>${readable}${readableEffects}${readable||readableEffects?'':`<p>${ui('원본 카드에 별도 능력 상자가 없습니다.','The source card has no separate ability boxes.')}</p>`}</details></article>`;
 }
 function fitExactText(){
-  const canvas=$('#dialogShowcase .exact-canvas');
+  const canvas=$('#cardDialog').open?$('#dialogShowcase .exact-canvas'):$('#playCardStage .exact-canvas')||$('#dialogShowcase .exact-canvas');
   if(!canvas)return;
   for(const element of canvas.querySelectorAll('.exact-fit')){
     element.dataset.fullHtml??=element.innerHTML;
@@ -439,9 +421,9 @@ function applyStaticLanguage(){
   lead('.commander-select','지휘관 ','Commander ');leaf('.commander-select>span','Officer 캐릭터 중 지정','Choose an Officer character');
   lead('.list-name','목록 이름','List name');$('#listName').placeholder=ui('예: 북방의 선봉대','e.g. Northern Vanguard');
   leaf('#saveButton','목록 저장','Save list');leaf('#exportButton','JSON 내보내기','Export JSON');leaf('#loadButton','저장 목록 불러오기','Load saved list');leaf('#resetButton','새 목록','New list');
-  leaf('#confirmRosterButton','로스터 확정 · 게임 시작','Confirm roster · Start game');leaf('#resumeGameButton','진행 중 게임으로 돌아가기','Return to active game');
-  leaf('.roster-confirm-note','현재 편성을 게임용 복사본으로 저장합니다.','Saves a snapshot of the current army for play.');
-  $('#gameView').setAttribute('aria-label',ui('게임 중 로스터','In-play roster'));
+  leaf('#confirmRosterButton','플레이 모드 · 카드 보기','Play mode · View cards');leaf('#resumeGameButton','플레이 모드로 돌아가기','Return to play mode');
+  leaf('.roster-confirm-note','선택한 유닛의 카드를 좌우로 넘겨 봅니다.','Browse the selected unit cards left and right.');
+  $('#gameView').setAttribute('aria-label',ui('플레이 모드 유닛 카드','Play mode unit cards'));
   leaf('.data-note','유닛 이름과 카드 문구는 한국어 검토용 초안입니다. 카드 이미지 4종의 상세 문구는 원본에서 제공되지 않았습니다. Officer/Support 구분과 최신 프로필은 공식 CorvuSphere 확인이 필요합니다.','Korean card text is a review draft. The official builder does not provide full card images for four units. Check Officer/Support types and current profiles against CorvuSphere.');
   leaf('footer>span:first-child','비공식 한국어 빌더 초안','Unofficial Warcrow builder draft');
   leaf('#loadDialog h2','저장한 목록','Saved lists');leaf('.card-source summary','영문 원문과 카드 이미지 대조','Original English text and card image');
@@ -458,11 +440,8 @@ function showSaved(){const saved=getSaved();$('#savedList').innerHTML=saved.leng
 function reset(){state.quantities={};state.commander='';$('#listName').value='';render();toast(ui('새 편성표를 시작합니다.','New army list started.'))}
 document.addEventListener('click',(event)=>{
   const languageButton=event.target.closest('button[data-language]');if(languageButton){language=languageButton.dataset.language;localStorage.setItem(languageStorageKey,language);render();if($('#cardDialog').open&&openCardUnit)openKoreanCard(openCardUnit);return}
-  const gameAction=event.target.closest('[data-game-action]');if(gameAction){const game=activeGame();if(gameAction.dataset.gameAction==='builder'){screen='builder';render();window.scrollTo(0,0)}else if(gameAction.dataset.gameAction==='next-round'&&game){game.round=Math.min(999,game.round+1);game.turn=1;game.instances.forEach(instance=>instance.activated=false);persistGames();renderGame()}return}
-  const gameDelta=event.target.closest('[data-game-delta]');if(gameDelta){updateGameCounter(gameDelta);return}
-  const gameActivation=event.target.closest('[data-game-activate]');if(gameActivation){const instance=activeGame()?.instances.find(x=>x.key===gameActivation.dataset.gameActivate);if(instance){instance.activated=!instance.activated;persistGames();renderGame()}return}
-  const gameCondition=event.target.closest('[data-game-condition]');if(gameCondition){const instance=activeGame()?.instances.find(x=>x.key===gameCondition.dataset.gameKey);if(instance){const condition=gameCondition.dataset.gameCondition;instance.conditions=instance.conditions.includes(condition)?instance.conditions.filter(x=>x!==condition):[...instance.conditions,condition];persistGames();renderGame()}return}
-  const gameCard=event.target.closest('[data-game-card]');if(gameCard){const game=activeGame(),instance=game?.instances.find(x=>x.key===gameCard.dataset.gameCard),unit=instance&&gameUnit(game,instance);if(unit)openKoreanCard(unit);return}
+  const playStep=event.target.closest('[data-play-step]');if(playStep){movePlayCard(Number(playStep.dataset.playStep));return}
+  const gameAction=event.target.closest('[data-game-action]');if(gameAction){screen='builder';render();window.scrollTo(0,0);return}
   const faction=event.target.closest('[data-faction]');if(faction){if(state.faction!==faction.dataset.faction){state.faction=faction.dataset.faction;state.quantities={};state.commander='';$('#listName').value='';render()}return}
   const add=event.target.closest('[data-add]');if(add){addUnit(add.dataset.add);return}
   const remove=event.target.closest('[data-remove]');if(remove){removeUnit(remove.dataset.remove);return}
@@ -481,7 +460,11 @@ $('#confirmRosterButton').addEventListener('click',confirmRoster);
 $('#resumeGameButton').addEventListener('click',()=>{if(activeGame()){screen='game';render();window.scrollTo(0,0)}});
 $('#saveButton').addEventListener('click',saveList);$('#exportButton').addEventListener('click',exportList);
 $('#loadButton').addEventListener('click',showSaved);$('#resetButton').addEventListener('click',reset);
-document.addEventListener('change',event=>{if(event.target.id==='gameSessionSelect'){activeGameId=event.target.value;persistGames();renderGame()}});
-document.addEventListener('input',event=>{const game=activeGame();if(!game)return;const noteKey=event.target.dataset.gameNote,troopsKey=event.target.dataset.gameTroops;if(noteKey){const instance=game.instances.find(x=>x.key===noteKey);if(instance){instance.note=event.target.value;persistGames()}}else if(troopsKey){const instance=game.instances.find(x=>x.key===troopsKey);if(instance){instance.troops=event.target.value===''?'':String(Math.max(0,Math.min(99,Number(event.target.value)||0)));persistGames()}}});
+document.addEventListener('change',event=>{if(event.target.id==='playUnitSelect'){const game=activeGame();if(game){game.cardIndex=Number(event.target.value);persistGames();renderGame()}}});
+let playSwipe=null;
+document.addEventListener('pointerdown',event=>{if(screen==='game'&&event.isPrimary&&event.target.closest('#playCardStage')&&!event.target.closest('button,a,select,input,summary'))playSwipe={x:event.clientX,y:event.clientY,id:event.pointerId}});
+document.addEventListener('pointerup',event=>{if(!playSwipe||event.pointerId!==playSwipe.id)return;const dx=event.clientX-playSwipe.x,dy=event.clientY-playSwipe.y;playSwipe=null;if(screen==='game'&&!$('#cardDialog').open&&Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.5)movePlayCard(dx<0?1:-1)});
+document.addEventListener('pointercancel',()=>{playSwipe=null});
+document.addEventListener('keydown',event=>{if(screen!=='game'||$('#cardDialog').open||event.target.closest('input,select,textarea,[contenteditable]'))return;if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();movePlayCard(event.key==='ArrowLeft'?-1:1)}});
 applyStaticLanguage();
 Promise.all(['./app-data.json','./card-ko.json','./card-profiles.json','./card-abilities.json','./card-effects.json','./model-images.json'].map(url=>fetch(`${url}?v=21`).then(response=>{if(!response.ok)throw Error(`${url} request failed`);return response.json()}))).then(([units,translated,profiles,abilities,effects,models])=>{data=units;translations=translated;cardProfiles=profiles;cardAbilities=abilities;cardEffects=effects;modelImages=models.units||{};render()}).catch(()=>{toast(ui('유닛 자료를 불러오지 못했습니다.','Could not load unit data.'));$('#unitList').innerHTML=`<div class="empty">${ui('자료를 불러올 수 없습니다. 페이지를 새로고침하세요.','Could not load data. Refresh the page.')}</div>`});
