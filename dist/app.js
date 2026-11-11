@@ -19,15 +19,28 @@ const terms = {
   'Slowed':'둔화','Vulnerable':'취약','Disarmed':'무장 해제',
   'Frightened':'공포','Shove':'밀어내기','Attract':'끌어당기기',
   'Place':'배치','Displace':'강제 이동','Fix a Die':'주사위 고정',
+  'Beserker Rage':'광전사의 분노','Berserker Rage':'광전사의 분노',
+  'Aestari':'에스타리','Alven':'알벤','Ashen':'애셴','Centaur':'켄타우로스',
+  'Darkminded':'다크마인디드','Dead Flesh':'죽은 육신','Ghent':'겐트',
+  'Living Flesh':'살아 있는 육신','Nemorous':'네모러스','Nemourous':'네모러스',
+  'Priestess':'여사제','Risen':'라이즌','Shadow':'그림자','Syenann':'시예난','Virtuoso':'비르투오소',
+  'Cancel a symbol':'기호 취소','Immune to State':'상태 면역','Impassable':'통과 불가',
+  'Displaced':'강제 이동','Placed':'배치','Vunerable':'취약','dismared':'무장 해제',
+  'Sinister':'불길한 지형','BLK':'검정','BLU':'파랑','GRN':'초록',
   'Repeat a Die':'주사위 다시 굴리기','Repeat Die':'주사위 다시 굴리기',
   'Flee':'도주','Heal':'치유','Rugged':'험지','Forest':'숲','or':'또는','Trap':'함정'
 };
+let termDictionary,termPattern,termNames;
 function ko(value){
   const raw=String(value||'');
-  return raw.replace(/\b[A-Za-z][A-Za-z ]+\b/g, (part)=>{
-    const trimmed=part.trim();
-    return (terms[trimmed]||trimmed.split(' ').map(word=>terms[word]||word).join(' '))+(part.endsWith(' ')?' ':'');
-  });
+  if(/<span\b/.test(raw))return raw.startsWith('Dispel')?'주문 해제 (카드 기호 참조)':raw.replace(/<[^>]*>/g,'');
+  if(termNames!==translations.names){
+    termNames=translations.names;
+    termDictionary=new Map(Object.entries({...translations.names,...terms}).map(([key,text])=>[key.toLowerCase(),text]));
+    const phrases=[...termDictionary.keys()].sort((a,b)=>b.length-a.length).map(text=>text.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));
+    termPattern=new RegExp(`\\b(?:${phrases.join('|')})\\b`,'gi');
+  }
+  return raw.replace(termPattern,part=>termDictionary.get(part.toLowerCase()));
 }
 let data={units:[],factions:[],wtsFogIds:[],version:''};
 let translations={names:{},cards:{}};
@@ -48,15 +61,19 @@ function localCardUrl(u){return translations.cards[u.cardKey]?`./card-art/${enco
 function modelPhoto(u,small=false){
   const model=modelImages[u.id];
   if(!model)return `<div class="unit-model-missing${small?' unit-model-missing-small':''}" role="img" aria-label="${escapeHtml(unitName(u))} NO IMAGE">NO IMAGE</div>`;
-  return `<button type="button" class="unit-model-thumb${small?' unit-model-thumb-small':''}" data-model="${escapeHtml(u.id)}" aria-label="${escapeHtml(unitName(u))} ${ui('공식 모델 사진 보기','View official model photo')}"><img src="${escapeHtml(model.image)}" alt="" loading="lazy"></button>`;
+  return `<button type="button" class="unit-model-thumb${small?' unit-model-thumb-small':''}" data-model="${escapeHtml(u.id)}" aria-label="${escapeHtml(unitName(u))} ${ui('유닛 이미지 보기','View unit image')}"><img src="${escapeHtml(model.image)}" alt="" loading="lazy"></button>`;
 }
 function openModel(u){
   const model=modelImages[u.id];if(!model)return;
   $('#modelDialogTitle').textContent=unitName(u);
-  const img=$('#modelDialogImage');img.src=model.image;img.alt=`${u.name} ${model.kind==='pack'?ui('공식 패키지 사진','official product pack photo'):ui('공식 모델 사진','official miniature photo')}`;
-  $('#modelDialogKind').textContent=model.kind==='pack'?ui('여러 유닛이 포함된 공식 패키지 사진','Official pack photo with multiple units'):model.kind==='product'?ui('공식 상품 모델 사진','Official product miniature photo'):ui('공식 개별 모델 사진','Official individual miniature photo');
+  const illustration=model.kind==='portrait';
+  const kind=illustration?ui('공식 유닛 일러스트','Official unit illustration'):model.kind==='pack'?ui('여러 유닛이 포함된 공식 패키지 사진','Official pack photo with multiple units'):ui('모델 사진','Miniature photo');
+  const img=$('#modelDialogImage');img.src=model.image;img.alt=`${unitName(u)} · ${kind}`;
+  $('#modelDialog .section-kicker').textContent=illustration?'UNIT ILLUSTRATION':'MINIATURE GALLERY';
+  $('#modelDialogKind').textContent=kind;
   $('#modelDialogProduct').textContent=model.productName;
   $('#modelDialogSource').href=model.productUrl;
+  $('#modelDialogSource').textContent=illustration?ui('공식 이미지 출처 보기 ↗','View official image source ↗'):ui('모델 사진 출처 보기 ↗','View miniature photo source ↗');
   $('#modelDialog').showModal();
 }
 const state={faction:'northern-tribes',mode:'wts',limit:250,quantities:{},commander:'',query:'',sort:'points',type:'all',availableOnly:false,listName:''};
@@ -108,7 +125,7 @@ function renderCatalog(){
   $('#unitList').innerHTML=units.length?units.map(u=>{
     const blocked=isBlocked(u),reason=canAdd(u),traits=(u.characteristics||[]).slice(0,4),special=(u.specialRules||[]).slice(0,3).map(traitName).join(' · ');
     const category=unitType(u)==='Character'?ui('캐릭터','Character'):unitType(u)==='Companion'?ui('동반자','Companion'):ui('일반 유닛','Troop');
-    return `<article class="unit-card">${modelPhoto(u)}<div class="unit-main"><div class="unit-top"><div><div class="unit-name"><span class="unit-name-ko">${escapeHtml(localizedName(u))}</span><span class="unit-name-en">${escapeHtml(u.name)}</span></div><div class="unit-category">${category}${u.highCommand?` · ${ui('최고 지휘부','High Command')}`:''}</div></div><div class="unit-cost">${u.pointsCost}<small> ${ui('점','pts')}</small></div></div><div class="tags">${traits.map(t=>`<span class="tag">${escapeHtml(traitName(t))}</span>`).join('')}${blocked?`<span class="tag warning">${ui('WTS 출전 불가','WTS ineligible')}</span>`:''}</div>${special?`<p class="rule-line" title="${escapeHtml(special)}">${ui('규칙','Rules')} · ${escapeHtml(special)}</p>`:''}<div class="unit-bottom"><div class="unit-links"><button class="mini-link" data-card="${escapeHtml(u.id)}">${ui('카드 보기','View card')} ↗</button>${modelImages[u.id]?`<button class="mini-link" data-model="${escapeHtml(u.id)}">${ui('모델 사진','Model photo')} ↗</button>`:''}</div><div class="stepper"><button type="button" data-remove="${escapeHtml(u.id)}" aria-label="${escapeHtml(unitName(u))} ${ui('제거','remove')}" ${count(u)?'':'disabled'}>−</button><b>${count(u)} <small>/ ${u.availability}</small></b><button type="button" data-add="${escapeHtml(u.id)}" aria-label="${escapeHtml(unitName(u))} ${ui('추가','add')}" title="${escapeHtml(reason||ui('추가','Add'))}" ${reason?'disabled':''}>+</button></div></div></div></article>`;
+    return `<article class="unit-card">${modelPhoto(u)}<div class="unit-main"><div class="unit-top"><div><div class="unit-name"><span class="unit-name-ko">${escapeHtml(localizedName(u))}</span><span class="unit-name-en">${escapeHtml(u.name)}</span></div><div class="unit-category">${category}${u.highCommand?` · ${ui('최고 지휘부','High Command')}`:''}</div></div><div class="unit-cost">${u.pointsCost}<small> ${ui('점','pts')}</small></div></div><div class="tags">${traits.map(t=>`<span class="tag">${escapeHtml(traitName(t))}</span>`).join('')}${blocked?`<span class="tag warning">${ui('WTS 출전 불가','WTS ineligible')}</span>`:''}</div>${special?`<p class="rule-line" title="${escapeHtml(special)}">${ui('규칙','Rules')} · ${escapeHtml(special)}</p>`:''}<div class="unit-bottom"><div class="unit-links"><button class="mini-link" data-card="${escapeHtml(u.id)}">${ui('카드 보기','View card')} ↗</button>${modelImages[u.id]?`<button class="mini-link" data-model="${escapeHtml(u.id)}">${ui('유닛 이미지','Unit image')} ↗</button>`:''}</div><div class="stepper"><button type="button" data-remove="${escapeHtml(u.id)}" aria-label="${escapeHtml(unitName(u))} ${ui('제거','remove')}" ${count(u)?'':'disabled'}>−</button><b>${count(u)} <small>/ ${u.availability}</small></b><button type="button" data-add="${escapeHtml(u.id)}" aria-label="${escapeHtml(unitName(u))} ${ui('추가','add')}" title="${escapeHtml(reason||ui('추가','Add'))}" ${reason?'disabled':''}>+</button></div></div></div></article>`;
   }).join(''):`<div class="empty">${ui('조건에 맞는 유닛이 없습니다.','No units match these filters.')}<br />${ui('검색어나 필터를 바꿔보세요.','Try another search or filter.')}</div>`;
 }
 function renderCommander(){
@@ -300,8 +317,8 @@ function exactAbilityParts(text,index){
   const position=divider>0&&divider<65?divider:period>0&&period<65?period:-1;
   const title=position>=0?first.slice(0,position):first.length<45?first:`능력 ${index+1}`;
   const beginning=position>=0?first.slice(position+(position===divider?3:2)):first.length<45?'':first;
-  const body=[beginning,...lines].filter(Boolean).join(' ').replace(/LoS가 없습니다/gi,'시야선 불필요').replace(/LoS/gi,'시야선').replace(/당신은 두려움을 얻습니다/g,'공포 무시 특성을 얻습니다');
-  return {title:/[A-Za-z]{2}|[§®°<>]/.test(title)?`능력 ${index+1}`:title,body};
+  const body=[beginning,...lines].filter(Boolean).join('\n').replace(/LoS가 없습니다/gi,'시야선 불필요').replace(/LoS/gi,'시야선').replace(/당신은 두려움을 얻습니다/g,'공포 무시 특성을 얻습니다');
+  return {title,body};
 }
 function exactSourceCard(u){
   const name=localizedName(u),imageUrl=localCardUrl(u),boxes=cardAbilities[u.cardKey]||[],effects=cardEffects[u.cardKey]||[];
@@ -319,7 +336,7 @@ function exactSourceCard(u){
     const x=effect.left+.001,y=effect.top+.001,w=effect.right-effect.left-.002,h=effect.bottom-effect.top-.002;
     return `<div class="exact-effect exact-fit" data-short="효과 ${index+1}" data-tiny="${index+1}" style="left:${percent(x)};top:${percent(y)};width:${percent(w)};height:${percent(h)}"><div class="exact-fit-content">${escapeHtml(effect.korean||effect.english)}</div></div>`;
   }).join('');
-  const readable=boxes.map((box,index)=>{const part=exactAbilityParts(box.korean||box.english,index);return `<section><h3>${escapeHtml(part.title)}</h3><p>${escapeHtml(part.body)}</p><p class="exact-english">${escapeHtml(box.english)}</p></section>`}).join('');
+  const readable=boxes.map((box,index)=>{const part=exactAbilityParts(box.korean||box.english,index);return `<section><h3>${ui(`능력 ${index+1}`,`Ability ${index+1}`)} · ${escapeHtml(part.title)}</h3><p>${escapeHtml(part.body)}</p><p class="exact-english">${escapeHtml(box.english)}</p></section>`}).join('');
   const readableEffects=effects.filter(effect=>effect.korean?.trim()).map((effect,index)=>`<section><h3>${ui(`전투 효과 ${index+1}`,`Combat effect ${index+1}`)}</h3><p>${escapeHtml(effect.korean)}</p><p class="exact-english">${escapeHtml(effect.english)}</p></section>`).join('');
   return `<article class="exact-card" aria-label="${escapeHtml(name)} ${ui('원본 배치 한국어 카드','source card with Korean translation')}"><div class="exact-canvas"><img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(name)} ${ui('원본 카드 도식과 기호','original card artwork and symbols')}" loading="eager" />${title(.024)}${enhancement?title(enhancement.top+.002,true):''}<div class="exact-traits">${escapeHtml(traits.join(' · '))}</div>${abilityOverlays}${effectOverlays}</div><details class="exact-readable" ${language!=='en'?'open':''}><summary>${ui('한국어 능력과 전투 효과 크게 보기','Read abilities and combat effects')}</summary>${readable}${readableEffects}${readable||readableEffects?'':`<p>${ui('원본 카드에 별도 능력 상자가 없습니다.','The source card has no separate ability boxes.')}</p>`}</details></article>`;
 }
@@ -347,7 +364,13 @@ function fitExactText(){
       element.innerHTML=`<div class="exact-fit-content">${escapeHtml(element.dataset.short)}</div>`;
       element.classList.add('exact-condensed');
       if(overflows())element.innerHTML=`<div class="exact-fit-content">${escapeHtml(element.dataset.tiny)}</div>`;
-      if(overflows())element.classList.add('exact-unfit');
+      if(overflows()){
+        const content=element.querySelector('.exact-fit-content'),style=getComputedStyle(element);
+        const width=Math.max(1,element.clientWidth-parseFloat(style.paddingLeft)-parseFloat(style.paddingRight));
+        const height=Math.max(1,element.clientHeight-parseFloat(style.paddingTop)-parseFloat(style.paddingBottom));
+        const scale=Math.min(1,width/Math.max(1,content.scrollWidth),height/Math.max(1,content.getBoundingClientRect().height));
+        content.style.transformOrigin='left top';content.style.transform=`scale(${scale})`;
+      }
     }else element.classList.remove('exact-condensed');
     element.title=element.dataset.fullText;
   }
@@ -467,4 +490,4 @@ document.addEventListener('pointerup',event=>{if(!playSwipe||event.pointerId!==p
 document.addEventListener('pointercancel',()=>{playSwipe=null});
 document.addEventListener('keydown',event=>{if(screen!=='game'||$('#cardDialog').open||event.target.closest('input,select,textarea,[contenteditable]'))return;if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();movePlayCard(event.key==='ArrowLeft'?-1:1)}});
 applyStaticLanguage();
-Promise.all(['./app-data.json','./card-ko.json','./card-profiles.json','./card-abilities.json','./card-effects.json','./model-images.json'].map(url=>fetch(`${url}?v=21`).then(response=>{if(!response.ok)throw Error(`${url} request failed`);return response.json()}))).then(([units,translated,profiles,abilities,effects,models])=>{data=units;translations=translated;cardProfiles=profiles;cardAbilities=abilities;cardEffects=effects;modelImages=models.units||{};render()}).catch(()=>{toast(ui('유닛 자료를 불러오지 못했습니다.','Could not load unit data.'));$('#unitList').innerHTML=`<div class="empty">${ui('자료를 불러올 수 없습니다. 페이지를 새로고침하세요.','Could not load data. Refresh the page.')}</div>`});
+Promise.all(['./app-data.json','./card-ko.json','./card-profiles.json','./card-abilities.json','./card-effects.json','./model-images.json'].map(url=>fetch(`${url}?v=23`).then(response=>{if(!response.ok)throw Error(`${url} request failed`);return response.json()}))).then(([units,translated,profiles,abilities,effects,models])=>{data=units;translations=translated;cardProfiles=profiles;cardAbilities=abilities;cardEffects=effects;modelImages=models.units||{};render()}).catch(()=>{toast(ui('유닛 자료를 불러오지 못했습니다.','Could not load unit data.'));$('#unitList').innerHTML=`<div class="empty">${ui('자료를 불러올 수 없습니다. 페이지를 새로고침하세요.','Could not load data. Refresh the page.')}</div>`});
