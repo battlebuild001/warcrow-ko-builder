@@ -1,9 +1,9 @@
-const CACHE_NAME = 'warcrow-ko-pwa-v25';
+const CACHE_NAME = 'warcrow-ko-pwa-v26';
 const CORE_FILES = [
-  './', './index.html', './builder.css?v=25', './style.css?v=24', './app.js?v=25',
-  './app-data.json?v=25', './card-ko.json?v=25',
-  './card-profiles.json?v=25', './card-abilities.json?v=25',
-  './card-effects.json?v=25', './model-images.json?v=25', './icons.svg?v=9',
+  './', './index.html', './glossary.js?v=26', './glossary.css?v=26', './rules-glossary.json?v=26', './builder.css?v=25', './style.css?v=24', './app.js?v=26',
+  './app-data.json?v=26', './card-ko.json?v=26',
+  './card-profiles.json?v=26', './card-abilities.json?v=26',
+  './card-effects.json?v=26', './model-images.json?v=26', './icons.svg?v=9',
   './rules.html', './quick-sheet.html', './tutorial.html',
   './guide.css?v=16', './pwa.js?v=16', './manifest.json',
   './pwa-icon-192.png', './pwa-icon-512.png', './pwa-icon-maskable-512.png'
