@@ -1,4 +1,4 @@
-const CACHE_NAME = 'warcrow-ko-pwa-v30';
+const CACHE_NAME = 'warcrow-ko-pwa-v31';
 const CORE_FILES = [
   "./",
   "./index.html",
@@ -9,7 +9,9 @@ const CORE_FILES = [
   "./play-tools.css?v=28",
   "./scenarios.css?v=30",
   "./joins.css?v=29",
-  "./app.js?v=29",
+  "./app.js?v=31",
+  "./rosters.js?v=31",
+  "./rosters.css?v=31",
   "./glossary.js?v=28",
   "./native-cards.js?v=28",
   "./scenarios.js?v=30",
