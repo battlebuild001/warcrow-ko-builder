@@ -18,3 +18,56 @@ button,a,input,select{touch-action:manipulation}button:focus-visible,a:focus-vis
 html{scroll-behavior:auto}
 @media(max-width:900px){.unit-name{min-height:0}.unit-bottom .stepper{order:-1}.unit-card-link{width:100%;text-align:center;min-height:40px}.unit-category{margin:4px 0 7px}}
 body[data-language="en"] .faction-en{display:block!important;font-size:11px;font-weight:600;line-height:1.45;color:var(--text);overflow-wrap:anywhere}body[data-language="bi"] .faction-en{display:block!important;font-size:9px;line-height:1.4;margin-top:3px;color:var(--muted);overflow-wrap:anywhere}
+/* Compact catalog: one horizontal unit row at every screen width. */
+.unit-list{grid-template-columns:minmax(0,1fr);gap:6px}
+.unit-card.unit-row{display:grid;grid-template-columns:40px minmax(0,1fr) 34px 44px 92px;align-items:center;gap:10px;min-height:68px;padding:9px 10px;border-radius:9px;overflow:visible;transform:none}
+.unit-card.unit-row:hover{transform:none;border-color:#b6a0de70}
+.unit-row .unit-art{position:relative;width:40px;height:44px;border-radius:6px;flex:none;background:#e9e5df}
+.unit-row .unit-art .unit-model-thumb{width:100%;height:100%;padding:2px;border-radius:6px;background:#f1eee9}
+.unit-row .unit-art .unit-model-thumb img{width:100%;height:100%;object-fit:contain;transform:none;mix-blend-mode:multiply}
+.unit-row .unit-art.is-illustration .unit-model-thumb{padding:0}
+.unit-row .unit-art.is-illustration img{object-fit:cover;mix-blend-mode:normal}
+.unit-row .unit-model-missing{width:40px;height:44px;border-radius:6px;font-size:6px;letter-spacing:0}
+.unit-row .unit-main{padding:0;min-width:0;display:block}
+.unit-row .unit-name{min-height:0;width:100%;padding:2px 0;line-height:1.35}
+.unit-row .unit-name-ko{font-size:13px;font-weight:700;line-height:1.4;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;word-break:keep-all;overflow-wrap:anywhere}
+.unit-row .unit-name-en{margin-top:2px;font-size:10px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body[data-language="en"] .unit-row .unit-name-ko{display:none}
+body[data-language="ko"] .unit-row .unit-name-en{display:none}
+body[data-language="en"] .unit-row .unit-name-en{font-size:12px;line-height:1.4;font-weight:700;color:var(--text);white-space:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.unit-row .unit-category{font-size:9px;line-height:1.4;margin:2px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--sage)}
+.unit-row .unit-blocked{color:#e5b9a8;margin-left:3px}
+.unit-row .unit-cost{position:static;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;min-height:42px;width:34px;margin:0;padding:3px 0;background:none;border:0;box-shadow:none;color:var(--text);font:700 16px/1.1 'Noto Sans KR',sans-serif}
+.unit-row .unit-cost small{font-size:7px;letter-spacing:.04em;line-height:1;margin-top:3px}
+.unit-row .unit-card-link{display:block;width:44px;min-width:0;min-height:42px;padding:0;border:1px solid var(--workspace-line);border-radius:6px;text-align:center;font-size:10px;white-space:nowrap;color:var(--accent);background:var(--workspace-soft)}
+.unit-row .stepper{display:grid;grid-template-columns:34px 22px 34px;width:92px;margin:0;border-radius:6px}
+.unit-row .stepper button{width:34px;min-width:34px;height:42px;padding:0;font-size:19px}
+.unit-row .stepper b{min-width:0;font-size:12px;font-variant-numeric:tabular-nums}
+@media(min-width:1500px){.unit-list{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:900px){
+ .unit-card.unit-row{grid-template-columns:38px minmax(0,1fr) 29px 34px 82px;gap:6px;min-height:64px;padding:7px}
+ .unit-row .unit-art,.unit-row .unit-model-missing{width:38px;height:42px}
+ .unit-row .unit-name-ko{font-size:12px;line-height:1.4}
+ .unit-row .unit-name-en{font-size:9px}
+ body[data-language="en"] .unit-row .unit-name-en{font-size:11px}
+ .unit-row .unit-category{font-size:8px;margin-top:1px}
+ .unit-row .unit-cost{width:29px;font-size:15px}
+ .unit-row .unit-card-link{width:34px;min-height:42px;font-size:9px}
+ .unit-row .stepper{grid-template-columns:30px 20px 30px;width:82px;order:initial}
+ .unit-row .stepper button{width:30px;min-width:30px;height:42px}
+ .mobile-dock{display:flex;flex-wrap:nowrap;gap:10px;box-sizing:border-box;width:100%;min-width:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));white-space:nowrap}
+ .dock-roster{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:8px;min-width:0;flex:1 1 0;white-space:nowrap;overflow:hidden}
+ .dock-roster>span{min-width:0;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .dock-roster strong{font-size:15px;line-height:1.35;white-space:nowrap;font-variant-numeric:tabular-nums}
+ .dock-roster small{min-width:0;font-size:10px;line-height:1.35;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;font-variant-numeric:tabular-nums}
+ .dock-play{flex:0 0 110px;width:110px;min-width:110px;max-width:110px;padding:0 6px;min-height:46px;white-space:nowrap;font-size:12px;text-align:center}
+ .catalog-toolbar{grid-template-columns:minmax(0,1fr) 110px}
+ .sort-control select{font-size:10px}
+ .filter-row{flex-wrap:nowrap;min-width:0}
+ .filter-select{min-width:0;flex:none}
+ .filter-select select{max-width:126px;font-size:10px}
+ .check-filter{min-width:0;white-space:nowrap;font-size:10px}
+}
+@media(max-width:360px){.unit-card.unit-row{gap:4px;padding:6px;grid-template-columns:36px minmax(0,1fr) 26px 32px 80px}.unit-row .unit-art,.unit-row .unit-model-missing{width:36px;height:40px}.unit-row .unit-card-link{width:32px}.unit-row .stepper{grid-template-columns:29px 20px 29px;width:80px}.unit-row .stepper button{width:29px;min-width:29px}.unit-row .unit-category{display:none}}
+#unitCount{display:inline-block;white-space:nowrap;vertical-align:middle}
+@media(max-width:900px){.catalog .panel-head{align-items:flex-start}.catalog .panel-head>div:first-child{flex:1;min-width:0}.catalog .view-badge{flex:0 1 auto;max-width:37%;font-size:9px}.catalog #catalogTitle{font-size:17px;line-height:1.4}}

@@ -13,8 +13,9 @@
   <link rel="icon" href="./pwa-icon-192.png" sizes="192x192" type="image/png" />
   <link rel="apple-touch-icon" href="./pwa-icon-192.png" />
   <link rel="stylesheet" href="./style.css?v=24" />
-  <link rel="stylesheet" href="./builder.css?v=25" />
+  <link rel="stylesheet" href="./builder.css?v=27" />
   <link rel="stylesheet" href="./glossary.css?v=26" />
+  <link rel="stylesheet" href="./native-cards.css?v=27" />
 </head>
 <body>
   <header class="topbar">
@@ -64,17 +65,15 @@
   <div class="mobile-dock" id="mobileDock"><button type="button" class="dock-roster" data-open-army><span>내 편성</span><strong id="dockCount">0 유닛</strong><small id="dockPoints">0 / 250점</small></button><button type="button" class="dock-play" data-play-now>플레이 시작 <span aria-hidden="true">→</span></button></div>
   <dialog id="cardDialog" class="card-dialog"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form><div class="card-language-toolbar"><div class="language-switch" role="group" aria-label="표시 언어 / Display language"><button type="button" data-language="ko" aria-pressed="true">한글</button><button type="button" data-language="en" aria-pressed="false">English</button><button type="button" data-language="bi" aria-pressed="false">한·영</button></div></div>
     <div id="dialogShowcase" hidden></div>
-    <div id="dialogGeneric"><div class="card-head"><span class="section-kicker">한국어 유닛 카드</span><h2 id="dialogTitle">유닛 카드</h2><p id="dialogOriginalName"></p><div class="card-meta" id="dialogMeta"></div></div>
-      <div class="card-body"><div class="card-tags" id="dialogTags"></div><h3>능력과 효과</h3><div class="card-abilities" id="dialogAbilities"></div><p class="card-translation-note" id="dialogNote"></p></div>
-    </div>
-    <div class="card-source-wrap"><details class="card-source"><summary>영문 원문과 카드 이미지 대조</summary><pre id="dialogEnglish"></pre><img id="dialogImage" alt="" loading="lazy" /></details></div>
+    <div class="card-source-wrap"><details class="card-source"><summary>영문 원문과 카드 이미지 대조</summary><pre id="dialogEnglish"></pre><a id="cardOriginalLink" target="_blank" rel="noopener noreferrer">영문 원본 카드 열기 ↗</a></details></div>
   </dialog>
   <dialog id="modelDialog" class="model-dialog" aria-labelledby="modelDialogTitle"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form><p class="section-kicker">CORVUS BELLI · OFFICIAL MODEL</p><h2 id="modelDialogTitle"></h2><figure><img id="modelDialogImage" alt="" /><figcaption><strong id="modelDialogKind"></strong><span id="modelDialogProduct"></span></figcaption></figure><a id="modelDialogSource" href="https://store.corvusbelli.com/en/warcrow/wargame" target="_blank" rel="noopener noreferrer">공식 스토어에서 상품 확인 ↗</a></dialog>
   <dialog id="loadDialog" class="load-dialog"><form method="dialog"><button class="dialog-close" aria-label="닫기">×</button></form><h2>저장한 목록</h2><div id="savedList"></div></dialog>
   <dialog id="ruleDialog" class="rule-dialog" aria-labelledby="ruleDialogTitle"><header class="rule-reader-head"><div><span class="rule-reader-kicker">WARCROW · RULEBOOK 1.6.1</span><h2 id="ruleDialogTitle">규칙 사전</h2></div><form method="dialog"><button class="rule-reader-close" aria-label="규칙 설명 닫기">×</button></form><nav class="rule-reader-nav"><button type="button" id="ruleBack" hidden>← 이전 규칙</button><button type="button" data-open-rules>전체 규칙 보기</button></nav><label class="sr-only" for="ruleSearch">규칙 검색</label><input type="search" id="ruleSearch" placeholder="둔화, 팅지, MOV 등 검색" autocomplete="off" /></header><div id="ruleSearchResults" class="rule-search-results" hidden></div><article id="ruleDetail" class="rule-detail"></article></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="./glossary.js?v=26" defer></script>
-  <script src="./app.js?v=26" defer></script>
+  <script src="./glossary.js?v=27" defer></script>
+  <script src="./native-cards.js?v=27" defer></script>
+  <script src="./app.js?v=27" defer></script>
   <script src="./pwa.js?v=16" defer></script>
 </body>
 </html>

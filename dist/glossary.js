@@ -1,4 +1,4 @@
-/* Official rules are data-backed; inline terms and image stat hit targets share one reader. */
+/* Official rules are data-backed; inline terms and native stats share one reader. */
 let ruleData={entries:[]},ruleById=new Map(),ruleByAlias=new Map(),rulePattern=null;
 let currentRuleId='',ruleHistory=[],ruleContextUnit=null,ruleContextEnhanced=false;
 const ruleStatIds={MOV:'movement',W:'wounds',WP:'wp',MOR:'mor',AVB:'availability',COM:'command-token',PT:'points'};
@@ -29,16 +29,6 @@ function ruleText(value,excludeId=''){
 function ruleKeyword(raw){
   const label=traitName(raw),id=ruleByAlias.get(String(raw).toLocaleLowerCase());
   return id?ruleTerm(id,label):ruleText(label);
-}
-function cardStatButtons(profile,start=0,end=1){
-  const definitions=[['MOV',.332,.17],['W',.502,.12],['WP',.622,.136],['MOR',.758,.12],['AVB',.878,.096]];
-  const span=end-start;
-  const button=(label,left,width,top,bottom,extra='')=>top>=start&&top<end?`<button type="button" class="stat-rule-hit" data-rule="${ruleStatIds[label]}" data-rule-stat-scope="${extra?'enhancement':'base'}" aria-haspopup="dialog" aria-label="${label} ${extra} 규칙 설명" title="${label} 규칙 설명" style="left:${left*100}%;width:${width*100}%;top:${(top-start)/span*100}%;height:${Math.min(bottom,end)-top>0?(Math.min(bottom,end)-top)/span*100:0}%"><span class="sr-only">${label} 규칙 설명</span></button>`:'';
-  let html=definitions.map(([label,left,width])=>button(label,left,width,.071,.139)).join('');
-  html+=button('PT',.018,.10,.004,.08);
-  const enhancement=profile?.enhancement,stats=enhancement?.stats||[];
-  if(enhancement)html+=stats.map((stat,i)=>ruleStatIds[stat.label]?button(stat.label,.965-stats.length*.16+i*.16,.16,enhancement.top+.03,enhancement.top+.10,'강화'):'').join('');
-  return html;
 }
 function cardRulesTools(){return `<div class="card-rules-tools"><span>${ui('스탯·밑줄 용어를 누르면 규칙 설명','Tap stats or underlined terms for rules')}</span><button type="button" data-open-rules>${ui('규칙 사전','Rules')} ↗</button></div>`}
 function cardKeywordButtons(u){
