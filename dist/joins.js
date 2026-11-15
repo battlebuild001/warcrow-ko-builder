@@ -1,4 +1,4 @@
-/* Core Rules 1.6.1, pp. 73–81. Deployments are assignments; table distances stay player-confirmed. */
+/* Card grouping follows printed Join conditions; activation and battlefield states are not tracked. */
 let joinMetadata={units:{},unitNameAliases:{},sourceNotes:[]};
 function configureJoins(value){joinMetadata=value&&value.units?value:{units:{},unitNameAliases:{},sourceNotes:[]};}
 function joinUi(ko,en){return typeof ui==='function'?ui(ko,en):ko;}
@@ -54,7 +54,7 @@ function renderJoinPlanner(roster=state,source=data){
     return `<div class="join-planner-row"><label for="${inputId}"><strong>${joinEscape(label)}</strong><span>${joinEscape(joinRoleLabel(c.unit))} · ${joinEscape((joinUnitMetadata(c.unit)?.joinText||[]).join(' / '))}</span></label><select id="${inputId}" data-join-character="${joinEscape(c.unit.id)}" data-join-copy="${c.copy}" aria-describedby="${inputId}-note"><option value="">${joinUi('독립 운용','Independent')}</option>${options}</select><small id="${inputId}-note">${noLegal?joinUi('현재 편성에 조건을 충족하는 빈 유닛이 없습니다.','There is no eligible unoccupied unit in this army.'):joinUi('각 유닛 개체에 한 명만 배정합니다.','One Character per unit instance.')}${!joinRole(c.unit)?` ${joinUi('공식 카드가 없어 장교·지원 유형은 표시하지 않습니다.','The unavailable source card prevents verifying Officer/Support type.')}`:''}</small></div>`;
   }).join('');
   const relevantNotes=(joinMetadata.sourceNotes||[]).filter(n=>chars.some(c=>n.ids.includes(c.unit.id))).map(n=>`<p class="join-note">${joinEscape(n.messageKo)}</p>`).join('');
-  return `<section class="join-planner" aria-labelledby="joinPlannerTitle"><div class="join-section-heading"><h3 id="joinPlannerTitle">${joinUi('캐릭터 합류','Character joins')}</h3><button type="button" data-rule="join">${joinUi('합류 규칙','Join rules')}</button></div><p>${joinUi('배치 시 합류할 유닛을 정합니다. 같은 종류를 여러 개 편성했다면 개체별로 선택하세요.','Assign Characters for deployment. Multiple copies are separate unit instances.')}</p>${rows}${relevantNotes}<small class="join-planner-footnote">${joinUi('플레이 중 합류·이탈은 카드 화면에서 처리합니다. 캐릭터의 일반 프로필과 합류 프로필은 함께 적용하지 않습니다.','In-game joining/leaving is managed from the card screen. Individual and joined Character profiles do not apply together.')}</small></section>`;
+  return `<section class="join-planner" aria-labelledby="joinPlannerTitle"><div class="join-section-heading"><h3 id="joinPlannerTitle">${joinUi('캐릭터 합류','Character joins')}</h3><button type="button" data-rule="join">${joinUi('합류 규칙','Join rules')}</button></div><p>${joinUi('배치 시 합류할 유닛을 정합니다. 같은 종류를 여러 개 편성했다면 개체별로 선택하세요.','Assign Characters for deployment. Multiple copies are separate unit instances.')}</p>${rows}${relevantNotes}<small class="join-planner-footnote">${joinUi('플레이 중 합류·해산은 카드 화면에서 처리합니다. 캐릭터의 일반 프로필과 합류 프로필은 함께 적용하지 않습니다.','Join or detach Characters from the card screen. Individual and joined Character profiles do not apply together.')}</small></section>`;
 }
 function joinGameRoster(game){return {faction:game?.faction,quantities:Object.fromEntries((game?.units||[]).map(u=>[u.id,Math.max(1,Math.floor(Number(u.quantity)||1))])),joins:game?.joins||[]};}
 function gameJoinGroups(game){
@@ -109,31 +109,41 @@ function renderJoinedGroup(group){
 function renderPlayJoinControls(group,game){
   if(!group?.unit)return '';
   const character=group.character||group.unit;if(!group.character&&(!joinIsCharacter(character)||!joinGroups(character).length))return '';
-  const key=joinInstanceKey(character.id,group.character?group.characterCopy:group.copy),locked=!!game?.joinActivation?.operations?.[key];
-  const button=group.character?`<button type="button" class="button button-ghost" data-play-join-action="leave" data-join-key="${joinEscape(key)}" aria-label="${joinUi('캐릭터 이탈','Leave unit')}" ${locked?'disabled':''}>${joinUi('이탈','Leave')}</button>`:`<button type="button" class="button button-ghost" data-play-join-action="join" data-join-key="${joinEscape(key)}" aria-label="${joinUi('유닛에 합류','Join a unit')}" ${locked?'disabled':''}>${joinUi('합류','Join')}</button>`;
-  const activationLabel=joinUi('새 활성화 시작 · 합류/이탈 잠금 해제','New activation · unlock join/leave');
-  return `<section class="play-join-controls" aria-label="${joinUi('플레이 중 합류 관리','In-game joining')}"><div>${button}<button type="button" class="join-new-activation" data-join-new-activation aria-label="${activationLabel}" title="${activationLabel}" ${locked?'':'hidden'}>${joinUi('새 활성화','New activation')}</button></div><small>${locked?joinUi('이번 활성화에는 합류·이탈을 다시 할 수 없습니다.','Joining/leaving is locked for this activation.'):joinUi('실제 전장의 조건을 확인한 뒤 사용하세요.','Check the physical table before use.')}</small></section>`;
+  const key=joinInstanceKey(character.id,group.character?group.characterCopy:group.copy),action=group.character?'leave':'join';
+  return `<section class="play-join-controls" aria-label="${joinUi('합류·해산','Join / detach')}"><div><button type="button" class="button button-ghost" data-play-join-action="${action}" data-join-key="${joinEscape(key)}" aria-label="${group.character?joinUi('캐릭터 합류 해산','Detach Character'):joinUi('유닛에 합류','Join a unit')}">${group.character?joinUi('해산','Detach'):joinUi('합류','Join')}</button></div></section>`;
 }
 function joinGameChanged(game){if(typeof persistGames==='function')persistGames();if(typeof renderGame==='function')renderGame();document.dispatchEvent(new CustomEvent('warcrow:joins-changed',{detail:{game}}));}
+function applyPlayJoin(game,key,targetKey=null){
+  const all=joinRosterInstances(joinGameRoster(game),game.units),ci=all.find(i=>i.instanceKey===key);if(!ci)return false;
+  const current=validateJoins(joinGameRoster(game),game.units).validJoins.find(j=>joinInstanceKey(j.characterId,j.characterCopy)===key),leaving=targetKey===null;
+  if(leaving&&!current||!leaving&&current)return false;
+  const next=(game.joins||[]).filter(j=>joinInstanceKey(j.characterId,j.characterCopy)!==key);
+  if(!leaving){
+    const target=gameJoinGroups(game).find(g=>g.instanceKey===targetKey&&!g.character&&!joinIsCharacter(g.unit)&&joinTargetMatches(ci.unit,g.unit));
+    if(!target)return false;
+    next.push({characterId:ci.unit.id,characterCopy:ci.copy,targetId:target.unit.id,targetCopy:target.copy});
+  }
+  const result=validateJoins({...joinGameRoster(game),joins:next},game.units);if(result.issues.length){if(typeof toast==='function')toast(result.issues[0]);return false;}
+  game.joins=result.validJoins;delete game.joinActivation;
+  const groups=gameJoinGroups(game),index=leaving?groups.findIndex(g=>g.unit.id===ci.unit.id&&g.copy===ci.copy):groups.findIndex(g=>g.character?.id===ci.unit.id&&g.characterCopy===ci.copy);
+  if(index>=0)game.cardIndex=index;
+  joinGameChanged(game);return true;
+}
 function openPlayJoinDialog(game,key,action){
-  const groups=gameJoinGroups(game),all=joinRosterInstances(joinGameRoster(game),game.units),ci=all.find(i=>i.instanceKey===key);if(!ci)return;
-  const current=validateJoins(joinGameRoster(game),game.units).validJoins.find(j=>joinInstanceKey(j.characterId,j.characterCopy)===key);
-  if(action==='leave'&&!current||action==='join'&&current||game.joinActivation?.operations?.[key])return;
-  const available=groups.filter(g=>!g.character&&!joinIsCharacter(g.unit)&&joinTargetMatches(ci.unit,g.unit));
+  if(action==='leave'){applyPlayJoin(game,key);return;}
+  if(action!=='join')return;
+  const all=joinRosterInstances(joinGameRoster(game),game.units),ci=all.find(i=>i.instanceKey===key);if(!ci||!joinIsCharacter(ci.unit)||!joinGroups(ci.unit).length)return;
+  if(validateJoins(joinGameRoster(game),game.units).validJoins.some(j=>joinInstanceKey(j.characterId,j.characterCopy)===key))return;
+  const available=gameJoinGroups(game).filter(g=>!g.character&&!joinIsCharacter(g.unit)&&joinTargetMatches(ci.unit,g.unit));
   let dialog=document.getElementById('joinPlayDialog');if(!dialog){dialog=document.createElement('dialog');dialog.id='joinPlayDialog';dialog.className='join-play-dialog';document.body.append(dialog);}
-  const leaving=action==='leave';
-  const checks=leaving?[joinUi('합류 유닛은 현재 교전 중이 아닙니다.','The joined unit is not engaged in combat.'),joinUi('유닛을 활성화하기 직전이며, 캐릭터가 이탈하여 대신 활성화합니다.','This is before the unit activates; the Character leaves and activates instead.'),joinUi('이번 활성화에 이 캐릭터는 합류하지 않았습니다.','This Character has not joined during this activation.')]:[joinUi('캐릭터의 활성화 시작 시 합류를 선언했습니다.','Joining was declared at the start of the Character’s activation.'),joinUi('대상 유닛은 사기가 붕괴되지 않았으며 교전 중도 아닙니다.','The target is neither demoralized nor engaged.'),joinUi('캐릭터는 이번 활성화에 이동만 수행했습니다. 이동은 최대 두 번입니다.','The Character performed only movement, at most twice, during this activation.'),joinUi('활성화 종료 시 대상 유닛과 대형을 유지합니다. 병사 리더로부터 2보폭 이내이며 시야선이 있습니다.','At activation end it is in formation: within 2 strides of the troop leader and with LoS.'),joinUi('이번 활성화에 이 캐릭터는 유닛에서 이탈하지 않았습니다.','This Character has not left a unit during this activation.')];
-  dialog.innerHTML=`<form method="dialog" class="join-play-form"><header><h2>${leaving?joinUi('캐릭터 이탈 기록','Record leaving'):joinUi('캐릭터 합류 완료','Complete joining')}</h2><button type="button" data-join-dialog-cancel class="join-dialog-close" aria-label="${joinUi('닫기','Close')}">×</button></header><p>${joinEscape(joinName(ci.unit))}</p>${!leaving?`<label class="join-target-label" for="joinPlayTarget">${joinUi('합류 대상 개체','Target unit instance')}</label><select id="joinPlayTarget" required>${available.map(g=>`<option value="${joinEscape(g.instanceKey)}">${joinEscape(g.label)}</option>`).join('')}</select>${available.length?'':`<p class="join-warning">${joinUi('공식 조건을 충족하는 빈 대상 유닛이 없습니다.','There is no eligible unoccupied target.')}</p>`}`:''}<fieldset><legend>${joinUi('실제 전장에서 확인','Check the physical table')}</legend>${checks.map((t,i)=>`<label><input type="checkbox" name="join-check-${i}" required /> <span>${joinEscape(t)}</span></label>`).join('')}</fieldset><p class="join-token-note">${joinEscape(joinTokenRules(leaving))}</p>${!leaving?`<p>${joinRole(ci.unit)==='officer'?joinUi('활성화 종료 시 기존 리더와 위치를 바꿔 장교를 병사 리더로 삼을 수 있습니다. 합류한 유닛으로 목표 지배권을 경합합니다. 활성화 종료 스킬은 합류 프로필 또는 해당 유닛의 프로필에 있는 것만 사용합니다.','At activation end, an Officer may swap with the old leader to maintain formation. The joined unit contests objectives. Only end-of-activation skills in the joined profile or target profile may be used.'):joinUi('합류한 유닛으로 목표 지배권을 경합합니다. 활성화 종료 스킬은 합류 프로필 또는 해당 유닛의 프로필에 있는 것만 사용합니다.','The joined unit contests objectives. Only end-of-activation skills in its joined Character or target profile may be used.')}</p>`:''}<footer><button type="button" class="button button-ghost" data-join-dialog-cancel>${joinUi('취소','Cancel')}</button><button type="submit" class="button" data-join-submit ${!leaving&&!available.length?'disabled':''}>${leaving?joinUi('이탈 기록','Record leaving'):joinUi('합류 완료 기록','Record completed join')}</button></footer></form>`;
+  dialog.innerHTML=`<form method="dialog" class="join-play-form"><header><h2 id="joinPlayTitle" tabindex="-1" autofocus>${joinUi('합류','Join')}</h2><button type="button" data-join-dialog-cancel class="join-dialog-close" aria-label="${joinUi('닫기','Close')}">×</button></header><p>${joinEscape(joinName(ci.unit))}</p><label class="join-target-label" for="joinPlayTarget">${joinUi('합류할 유닛','Target unit')}</label><select id="joinPlayTarget">${available.map(g=>`<option value="${joinEscape(g.instanceKey)}">${joinEscape(g.label)}</option>`).join('')}</select>${available.length?'':`<p class="join-warning">${joinUi('합류할 수 있는 빈 유닛이 없습니다.','There is no eligible unoccupied unit.')}</p>`}<footer><button type="button" class="button button-ghost" data-join-dialog-cancel>${joinUi('취소','Cancel')}</button><button type="submit" class="button" data-join-submit ${available.length?'':'disabled'}>${joinUi('합류','Join')}</button></footer></form>`;
+  dialog.setAttribute('aria-labelledby','joinPlayTitle');
   dialog.querySelectorAll('[data-join-dialog-cancel]').forEach(button=>button.addEventListener('click',()=>dialog.close()));
   dialog.querySelector('form').addEventListener('submit',event=>{
-    if(event.submitter?.value==='cancel')return;
-    event.preventDefault();if(!event.currentTarget.reportValidity())return;
-    let next=(game.joins||[]).filter(j=>joinInstanceKey(j.characterId,j.characterCopy)!==key);
-    if(!leaving){const target=available.find(g=>g.instanceKey===dialog.querySelector('#joinPlayTarget').value);if(!target)return;next.push({characterId:ci.unit.id,characterCopy:ci.copy,targetId:target.unit.id,targetCopy:target.copy});}
-    const validation=validateJoins({...joinGameRoster(game),joins:next},game.units);if(validation.issues.length){if(typeof toast==='function')toast(validation.issues[0]);return;}
-    game.joins=validation.validJoins;game.joinActivation=game.joinActivation||{operations:{}};game.joinActivation.operations=game.joinActivation.operations||{};game.joinActivation.operations[key]=action;const updatedGroups=gameJoinGroups(game);const focusIndex=leaving?updatedGroups.findIndex(g=>g.unit.id===ci.unit.id&&g.copy===ci.copy):updatedGroups.findIndex(g=>g.character?.id===ci.unit.id&&g.characterCopy===ci.copy);if(focusIndex>=0)game.cardIndex=focusIndex;dialog.close();joinGameChanged(game);
+    event.preventDefault();const target=dialog.querySelector('#joinPlayTarget').value;if(!target)return;
+    if(applyPlayJoin(game,key,target))dialog.close();
   });
-  dialog.showModal();
+  dialog.showModal();dialog.querySelector('#joinPlayTitle').focus({preventScroll:true});
 }
 document.addEventListener('change',event=>{
   const select=event.target.closest?.('[data-join-character]');if(!select||typeof state==='undefined'||typeof data==='undefined')return;
@@ -142,6 +152,5 @@ document.addEventListener('change',event=>{
   const result=validateJoins({...state,joins:next},data);if(result.issues.length){if(typeof toast==='function')toast(result.issues[0]);return;}state.joins=result.validJoins;if(typeof renderArmy==='function')renderArmy();document.getElementById(select.id)?.focus({preventScroll:true});document.dispatchEvent(new CustomEvent('warcrow:joins-changed',{detail:{state}}));
 });
 document.addEventListener('click',event=>{
-  const action=event.target.closest?.('[data-play-join-action]');if(action&&typeof activeGame==='function'){const game=activeGame();if(game)openPlayJoinDialog(game,action.dataset.joinKey,action.dataset.playJoinAction);return;}
-  const advance=event.target.closest?.('[data-join-new-activation]');if(advance&&typeof activeGame==='function'){const game=activeGame();if(game){game.joinActivation={operations:{}};joinGameChanged(game);if(typeof toast==='function')toast(joinUi('새 활성화로 전환했습니다. 실제 새 활성화가 시작될 때만 사용하세요.','New activation recorded. Use this only when a new activation actually starts.'));}}
+  const action=event.target.closest?.('[data-play-join-action]');if(action&&typeof activeGame==='function'){const game=activeGame();if(game)openPlayJoinDialog(game,action.dataset.joinKey,action.dataset.playJoinAction);}
 });
