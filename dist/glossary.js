@@ -5,6 +5,7 @@ const ruleStatIds={MOV:'movement',W:'wounds',WP:'wp',MOR:'mor',AVB:'availability
 function configureRules(data){
   ruleData=data;ruleById=new Map(data.entries.map(e=>[e.id,e]));ruleByAlias=new Map();
   for(const e of data.entries)for(const alias of [...e.aliases,e.label,e.english])if(alias)ruleByAlias.set(alias.toLocaleLowerCase(),e.id);
+  for(const alias of ['지휘 능력','지휘능력'])ruleByAlias.set(alias,'skills');
   const aliases=[...ruleByAlias.keys()].sort((a,b)=>b.length-a.length).map(a=>{
     const escaped=a.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
     return /^[A-Za-z]/.test(a)?`(?<![A-Za-z])${escaped}(?![A-Za-z])`:escaped;
@@ -31,10 +32,6 @@ function ruleKeyword(raw){
   return id?ruleTerm(id,label):ruleText(label);
 }
 function cardRulesTools(){return `<div class="card-rules-tools"><span>${ui('스탯·밑줄 용어를 누르면 규칙 설명','Tap stats or underlined terms for rules')}</span><button type="button" data-open-rules>${ui('규칙 사전','Rules')} ↗</button></div>`}
-function cardKeywordButtons(u){
-  const keywords=[...new Set([...(u.keywords||[]).map(k=>k.name),...(u.specialRules||[])])];
-  return keywords.length?`<div class="card-keyword-chips" aria-label="유닛 키워드"><span class="card-keyword-caption">${ui('유닛 키워드','Unit keywords')}</span>${keywords.map(k=>`<span class="card-keyword-chip">${ruleKeyword(k)}</span>`).join('')}</div>`:'';
-}
 function inferRuleUnit(target){
   const id=target?.closest('[data-rule-unit]')?.dataset.ruleUnit;
   if($('#cardDialog').open&&openCardUnit&&(!id||openCardUnit.id===id))return openCardUnit;
