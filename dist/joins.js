@@ -110,7 +110,8 @@ function renderPlayJoinControls(group,game){
   if(!group?.unit)return '';
   const character=group.character||group.unit;if(!group.character&&(!joinIsCharacter(character)||!joinGroups(character).length))return '';
   const key=joinInstanceKey(character.id,group.character?group.characterCopy:group.copy),action=group.character?'leave':'join';
-  return `<section class="play-join-controls" aria-label="${joinUi('합류·해산','Join / detach')}"><div><button type="button" class="button button-ghost" data-play-join-action="${action}" data-join-key="${joinEscape(key)}" aria-label="${group.character?joinUi('캐릭터 합류 해산','Detach Character'):joinUi('유닛에 합류','Join a unit')}">${group.character?joinUi('해산','Detach'):joinUi('합류','Join')}</button></div></section>`;
+  const icon=`<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="8" cy="7" r="3"/><path d="M2 21v-2a6 6 0 0 1 12 0v2M16 8h6${group.character?'':'m-3-3v6'}"/></svg>`;
+  return `<section class="play-join-controls" aria-label="${joinUi('합류·해산','Join / detach')}"><div><button type="button" class="button play-join-action" data-play-join-action="${action}" data-join-key="${joinEscape(key)}" aria-label="${group.character?joinUi('캐릭터 합류 해산','Detach Character'):joinUi('유닛에 합류','Join a unit')}">${icon}<span>${group.character?joinUi('합류 해산','Detach Character'):joinUi('유닛에 합류','Join a unit')}</span><svg class="play-join-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 5 7 7-7 7"/></svg></button></div></section>`;
 }
 function joinGameChanged(game){if(typeof persistGames==='function')persistGames();if(typeof renderGame==='function')renderGame();document.dispatchEvent(new CustomEvent('warcrow:joins-changed',{detail:{game}}));}
 function applyPlayJoin(game,key,targetKey=null){
