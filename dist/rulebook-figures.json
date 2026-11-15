@@ -1,0 +1,446 @@
+{
+  "core": {
+    "3": [
+      {
+        "src": "./rulebook-art/core-003-1.webp",
+        "alt": "기본 룰북 3쪽 원문 도해: 게임 준비물",
+        "width": 1201,
+        "height": 1346
+      }
+    ],
+    "4": [
+      {
+        "src": "./rulebook-art/core-004-1.webp",
+        "alt": "기본 룰북 4쪽 원문 도해: 토큰과 마커 일람",
+        "width": 1201,
+        "height": 1959
+      }
+    ],
+    "8": [
+      {
+        "src": "./rulebook-art/core-008-1.webp",
+        "alt": "기본 룰북 8쪽 원문 도해: 유닛 프로필 카드와 항목 번호",
+        "width": 1201,
+        "height": 853
+      }
+    ],
+    "17": [
+      {
+        "src": "./rulebook-art/core-017-1.webp",
+        "alt": "기본 룰북 17쪽 원문 도해: 주사위 기호의 모양과 명칭",
+        "width": 1201,
+        "height": 353
+      },
+      {
+        "src": "./rulebook-art/core-017-2.webp",
+        "alt": "기본 룰북 17쪽 원문 도해: 색상별 팔면체 주사위의 모든 면과 기호",
+        "width": 1201,
+        "height": 1201
+      }
+    ],
+    "21": [
+      {
+        "src": "./rulebook-art/core-021-1.webp",
+        "alt": "기본 룰북 21쪽 원문 도해: 스위치 비용과 효과 예시",
+        "width": 1201,
+        "height": 263
+      }
+    ],
+    "22": [
+      {
+        "src": "./rulebook-art/core-022-1.webp",
+        "alt": "기본 룰북 22쪽 원문 도해: 팅지 주사위 기호 예시",
+        "width": 1201,
+        "height": 442
+      }
+    ],
+    "27": [
+      {
+        "src": "./rulebook-art/core-027-1.webp",
+        "alt": "기본 룰북 27쪽 원문 도해: 주도권 토큰",
+        "width": 306,
+        "height": 540
+      }
+    ],
+    "31": [
+      {
+        "src": "./rulebook-art/core-031-1.webp",
+        "alt": "기본 룰북 31쪽 원문 도해: 턴 카운터",
+        "width": 1201,
+        "height": 1201
+      }
+    ],
+    "35": [
+      {
+        "src": "./rulebook-art/core-035-1.webp",
+        "alt": "기본 룰북 35쪽 원문 도해: 라운드 종료 시 턴 카운터 예시",
+        "width": 1201,
+        "height": 1201
+      }
+    ],
+    "45": [
+      {
+        "src": "./rulebook-art/core-045-1.webp",
+        "alt": "기본 룰북 45쪽 원문 도해: 공격과 방어 주사위 프로필 예시",
+        "width": 1201,
+        "height": 294
+      },
+      {
+        "src": "./rulebook-art/core-045-2.webp",
+        "alt": "기본 룰북 45쪽 원문 도해: 스트레스 보정치 예시",
+        "width": 1201,
+        "height": 452
+      }
+    ],
+    "55": [
+      {
+        "src": "./rulebook-art/core-055-1.webp",
+        "alt": "기본 룰북 55쪽 원문 도해: 능력 예시",
+        "width": 1201,
+        "height": 297
+      }
+    ],
+    "57": [
+      {
+        "src": "./rulebook-art/core-057-1.webp",
+        "alt": "기본 룰북 57쪽 원문 도해: 영구 지속 스킬 예시",
+        "width": 1201,
+        "height": 295
+      }
+    ],
+    "58": [
+      {
+        "src": "./rulebook-art/core-058-1.webp",
+        "alt": "기본 룰북 58쪽 원문 도해: 스킬 종류별 예시 1",
+        "width": 1201,
+        "height": 295
+      },
+      {
+        "src": "./rulebook-art/core-058-2.webp",
+        "alt": "기본 룰북 58쪽 원문 도해: 스킬 종류별 예시 2",
+        "width": 1201,
+        "height": 407
+      },
+      {
+        "src": "./rulebook-art/core-058-3.webp",
+        "alt": "기본 룰북 58쪽 원문 도해: 스킬 종류별 예시 3",
+        "width": 1201,
+        "height": 286
+      }
+    ],
+    "59": [
+      {
+        "src": "./rulebook-art/core-059-1.webp",
+        "alt": "기본 룰북 59쪽 원문 도해: 스킬 종류별 예시 1",
+        "width": 1201,
+        "height": 254
+      },
+      {
+        "src": "./rulebook-art/core-059-2.webp",
+        "alt": "기본 룰북 59쪽 원문 도해: 스킬 종류별 예시 2",
+        "width": 1201,
+        "height": 261
+      },
+      {
+        "src": "./rulebook-art/core-059-3.webp",
+        "alt": "기본 룰북 59쪽 원문 도해: 스킬 종류별 예시 3",
+        "width": 1201,
+        "height": 337
+      }
+    ],
+    "77": [
+      {
+        "src": "./rulebook-art/core-077-1.webp",
+        "alt": "기본 룰북 77쪽 원문 도해: 캐릭터와 유닛 프로필 카드 결합",
+        "width": 1163,
+        "height": 2201
+      }
+    ],
+    "78": [
+      {
+        "src": "./rulebook-art/core-078-1.webp",
+        "alt": "기본 룰북 78쪽 원문 도해: 합류한 캐릭터의 배치 예시",
+        "width": 1201,
+        "height": 620
+      }
+    ],
+    "81": [
+      {
+        "src": "./rulebook-art/core-081-1.webp",
+        "alt": "기본 룰북 81쪽 원문 도해: 캐릭터와 유닛 원문 삽화",
+        "width": 1201,
+        "height": 1222
+      }
+    ],
+    "102": [
+      {
+        "src": "./rulebook-art/core-102-1.webp",
+        "alt": "기본 룰북 102쪽 원문 도해: 목표물 통제와 정복 마커 예시",
+        "width": 1201,
+        "height": 557
+      }
+    ],
+    "105": [
+      {
+        "src": "./rulebook-art/core-105-1.webp",
+        "alt": "기본 룰북 105쪽 원문 도해: 적대적 중립 유닛과 대상 선택 예시",
+        "width": 1201,
+        "height": 562
+      }
+    ],
+    "106": [
+      {
+        "src": "./rulebook-art/core-106-1.webp",
+        "alt": "기본 룰북 106쪽 원문 도해: 유닛과 대형 예시",
+        "width": 1201,
+        "height": 592
+      }
+    ],
+    "107": [
+      {
+        "src": "./rulebook-art/core-107-1.webp",
+        "alt": "기본 룰북 107쪽 원문 도해: 가시선 예시",
+        "width": 1201,
+        "height": 717
+      },
+      {
+        "src": "./rulebook-art/core-107-2.webp",
+        "alt": "기본 룰북 107쪽 원문 도해: 사거리 예시",
+        "width": 1201,
+        "height": 598
+      }
+    ],
+    "108": [
+      {
+        "src": "./rulebook-art/core-108-1.webp",
+        "alt": "기본 룰북 108쪽 원문 도해: 사거리 안에 있는 대상 예시",
+        "width": 1201,
+        "height": 786
+      },
+      {
+        "src": "./rulebook-art/core-108-2.webp",
+        "alt": "기본 룰북 108쪽 원문 도해: 대항 굴림 예시",
+        "width": 1201,
+        "height": 639
+      }
+    ],
+    "109": [
+      {
+        "src": "./rulebook-art/core-109-1.webp",
+        "alt": "기본 룰북 109쪽 원문 도해: 활성화와 행동 선언: 스킬 예시 1",
+        "width": 1201,
+        "height": 299
+      },
+      {
+        "src": "./rulebook-art/core-109-2.webp",
+        "alt": "기본 룰북 109쪽 원문 도해: 활성화와 행동 선언: 스킬 예시 2",
+        "width": 1201,
+        "height": 197
+      },
+      {
+        "src": "./rulebook-art/core-109-3.webp",
+        "alt": "기본 룰북 109쪽 원문 도해: 이동 템플릿 사용 예시",
+        "width": 1201,
+        "height": 686
+      }
+    ],
+    "110": [
+      {
+        "src": "./rulebook-art/core-110-1.webp",
+        "alt": "기본 룰북 110쪽 원문 도해: 돌격 이동 거리 예시",
+        "width": 1201,
+        "height": 305
+      },
+      {
+        "src": "./rulebook-art/core-110-2.webp",
+        "alt": "기본 룰북 110쪽 원문 도해: 여러 병력으로 구성된 유닛의 이동 예시",
+        "width": 1201,
+        "height": 719
+      },
+      {
+        "src": "./rulebook-art/core-110-3.webp",
+        "alt": "기본 룰북 110쪽 원문 도해: 다른 유닛을 통과하는 이동 예시",
+        "width": 1201,
+        "height": 713
+      }
+    ],
+    "111": [
+      {
+        "src": "./rulebook-art/core-111-1.webp",
+        "alt": "기본 룰북 111쪽 원문 도해: 유닛 통과가 불가능한 예시",
+        "width": 1201,
+        "height": 666
+      },
+      {
+        "src": "./rulebook-art/core-111-2.webp",
+        "alt": "기본 룰북 111쪽 원문 도해: 패배한 유닛 밀어내기 예시",
+        "width": 1201,
+        "height": 696
+      }
+    ],
+    "112": [
+      {
+        "src": "./rulebook-art/core-112-1.webp",
+        "alt": "기본 룰북 112쪽 원문 도해: 근접 공격 주사위와 프로필 예시",
+        "width": 1201,
+        "height": 574
+      },
+      {
+        "src": "./rulebook-art/core-112-2.webp",
+        "alt": "기본 룰북 112쪽 원문 도해: 스위치 적용 후 남은 기호 예시",
+        "width": 1201,
+        "height": 255
+      }
+    ],
+    "113": [
+      {
+        "src": "./rulebook-art/core-113-1.webp",
+        "alt": "기본 룰북 113쪽 원문 도해: 근접 공격 피해 배분 예시",
+        "width": 1201,
+        "height": 255
+      },
+      {
+        "src": "./rulebook-art/core-113-2.webp",
+        "alt": "기본 룰북 113쪽 원문 도해: 전투 후 밀어내기와 추격 예시",
+        "width": 1201,
+        "height": 1141
+      },
+      {
+        "src": "./rulebook-art/core-113-3.webp",
+        "alt": "기본 룰북 113쪽 원문 도해: 추격 후 교전 여부 예시",
+        "width": 1201,
+        "height": 974
+      }
+    ],
+    "114": [
+      {
+        "src": "./rulebook-art/core-114-1.webp",
+        "alt": "기본 룰북 114쪽 원문 도해: 원거리 공격 대상과 가시선 예시",
+        "width": 1201,
+        "height": 1134
+      },
+      {
+        "src": "./rulebook-art/core-114-2.webp",
+        "alt": "기본 룰북 114쪽 원문 도해: 원거리 공격 주사위 결과 예시",
+        "width": 1201,
+        "height": 652
+      }
+    ],
+    "115": [
+      {
+        "src": "./rulebook-art/core-115-1.webp",
+        "alt": "기본 룰북 115쪽 원문 도해: 엄폐 예시",
+        "width": 1201,
+        "height": 558
+      }
+    ],
+    "116": [
+      {
+        "src": "./rulebook-art/core-116-1.webp",
+        "alt": "기본 룰북 116쪽 원문 도해: 사기가 붕괴된 유닛과 턴 카운터 예시",
+        "width": 1201,
+        "height": 617
+      },
+      {
+        "src": "./rulebook-art/core-116-2.webp",
+        "alt": "기본 룰북 116쪽 원문 도해: 피해와 병력 수별 전투 패널 예시",
+        "width": 1201,
+        "height": 940
+      }
+    ],
+    "117": [
+      {
+        "src": "./rulebook-art/core-117-1.webp",
+        "alt": "기본 룰북 117쪽 원문 도해: 캐릭터 합류 시 프로필 결합 예시",
+        "width": 1201,
+        "height": 1254
+      },
+      {
+        "src": "./rulebook-art/core-117-2.webp",
+        "alt": "기본 룰북 117쪽 원문 도해: 캐릭터 합류 시 정복 수치 변경 예시",
+        "width": 1201,
+        "height": 1262
+      }
+    ],
+    "118": [
+      {
+        "src": "./rulebook-art/core-118-1.webp",
+        "alt": "기본 룰북 118쪽 원문 도해: 캐릭터를 유닛 구성원으로 취급하는 예시 1",
+        "width": 1201,
+        "height": 256
+      },
+      {
+        "src": "./rulebook-art/core-118-2.webp",
+        "alt": "기본 룰북 118쪽 원문 도해: 캐릭터를 유닛 구성원으로 취급하는 예시 2",
+        "width": 1201,
+        "height": 223
+      },
+      {
+        "src": "./rulebook-art/core-118-3.webp",
+        "alt": "기본 룰북 118쪽 원문 도해: 캐릭터를 유닛 구성원으로 취급하는 예시 3",
+        "width": 1201,
+        "height": 680
+      }
+    ],
+    "119": [
+      {
+        "src": "./rulebook-art/core-119-1.webp",
+        "alt": "기본 룰북 119쪽 원문 도해: 유닛이 파괴된 뒤 캐릭터의 스킬 적용 예시 1",
+        "width": 1201,
+        "height": 191
+      },
+      {
+        "src": "./rulebook-art/core-119-2.webp",
+        "alt": "기본 룰북 119쪽 원문 도해: 유닛이 파괴된 뒤 캐릭터의 스킬 적용 예시 2",
+        "width": 1201,
+        "height": 223
+      },
+      {
+        "src": "./rulebook-art/core-119-3.webp",
+        "alt": "기본 룰북 119쪽 원문 도해: 밀치기 예시",
+        "width": 954,
+        "height": 993
+      }
+    ],
+    "120": [
+      {
+        "src": "./rulebook-art/core-120-1.webp",
+        "alt": "기본 룰북 120쪽 원문 도해: 끌어당기기 예시",
+        "width": 999,
+        "height": 1020
+      },
+      {
+        "src": "./rulebook-art/core-120-2.webp",
+        "alt": "기본 룰북 120쪽 원문 도해: 배치 예시",
+        "width": 1201,
+        "height": 1186
+      },
+      {
+        "src": "./rulebook-art/core-120-3.webp",
+        "alt": "기본 룰북 120쪽 원문 도해: 변위 예시",
+        "width": 1201,
+        "height": 733
+      },
+      {
+        "src": "./rulebook-art/core-120-4.webp",
+        "alt": "기본 룰북 120쪽 원문 도해: 매복병 배치와 가시선 예시",
+        "width": 1201,
+        "height": 1296
+      }
+    ]
+  },
+  "wts": {
+    "17": [
+      {
+        "src": "./rulebook-art/wts-017-1.webp",
+        "alt": "WTS 시즌 2 17쪽 바클리아 팜 공식 전장 배치도"
+      }
+    ],
+    "18": [
+      {
+        "src": "./rulebook-art/wts-018-1.webp",
+        "alt": "WTS 시즌 2 18쪽 아사일 보더랜즈 공식 전장 배치도"
+      }
+    ]
+  }
+}

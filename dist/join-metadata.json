@@ -1,0 +1,3356 @@
+{
+  "version": 1,
+  "rulesVersion": "Core 1.6.1",
+  "rulesPages": [
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81
+  ],
+  "source": "https://www.warcrowarmybuilder.com/builder",
+  "units": {
+    "amaury-boissonade": {
+      "isCharacter": true,
+      "role": null,
+      "roleSource": "unavailable",
+      "joinText": [
+        "Join (Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Human",
+        "Knight"
+      ],
+      "keywords": [
+        "Ambusher",
+        "Join (Infantry)",
+        "Spellcaster"
+      ],
+      "name": "Amaury Boissonade",
+      "source": "official-builder-structured-data"
+    },
+    "armelle-of-northsby": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Human",
+        "Noble",
+        "Priestess"
+      ],
+      "keywords": [
+        "Preferred Terrain (Rugged)",
+        "Spellcaster"
+      ],
+      "name": "Armelle of Northsby",
+      "source": "official-builder-structured-data"
+    },
+    "commander": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Human",
+        "Knight",
+        "Noble"
+      ],
+      "keywords": [
+        "Join (Infantry)",
+        "Spellcaster"
+      ],
+      "name": "Commander",
+      "source": "official-builder-structured-data"
+    },
+    "feudom-archers": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Human",
+        "Infantry"
+      ],
+      "keywords": [],
+      "name": "Feudom Archers",
+      "source": "official-builder-structured-data"
+    },
+    "feudom-foot-knights": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Human",
+        "Infantry",
+        "Knight",
+        "Noble"
+      ],
+      "keywords": [],
+      "name": "Feudom Foot Knights",
+      "source": "official-builder-structured-data"
+    },
+    "feudom-guisarmiers": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Human",
+        "Infantry"
+      ],
+      "keywords": [
+        "Preferred Terrain (Rugged)"
+      ],
+      "name": "Feudom Guisarmiers",
+      "source": "official-builder-structured-data"
+    },
+    "feudom-knights": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Cavalry",
+        "Human",
+        "Knight",
+        "Noble"
+      ],
+      "keywords": [],
+      "name": "Feudom Knights",
+      "source": "official-builder-structured-data"
+    },
+    "genevieve-countess-of-silem": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Knight, Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Knight",
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "High Command",
+        "Human",
+        "Noble",
+        "Knight"
+      ],
+      "keywords": [
+        "Dispel (GRN)",
+        "Join (Knight, Infantry)"
+      ],
+      "name": "Genevieve Countess of Silem",
+      "source": "official-builder-structured-data"
+    },
+    "guardians-of-the-mounds": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Human",
+        "Infantry"
+      ],
+      "keywords": [
+        "Preferred Terrain (Rugged)",
+        "Scout"
+      ],
+      "name": "Guardians of the Mounds",
+      "source": "official-builder-structured-data"
+    },
+    "instructor": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Human",
+        "Noble",
+        "Priestess"
+      ],
+      "keywords": [
+        "Join (Infantry)"
+      ],
+      "name": "Instructor",
+      "source": "official-builder-structured-data"
+    },
+    "ismail-the-eighth-pillar": {
+      "isCharacter": true,
+      "role": null,
+      "roleSource": "unavailable",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Colossal Company",
+        "Human",
+        "Mercenary"
+      ],
+      "keywords": [
+        "Fearless",
+        "Spellcaster"
+      ],
+      "name": "Ismail, the Eighth Pillar",
+      "source": "official-builder-structured-data"
+    },
+    "jacques-hellion": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Colossal Company",
+        "Human"
+      ],
+      "keywords": [
+        "Scout"
+      ],
+      "name": "Jacques & Hellion",
+      "source": "official-builder-structured-data"
+    },
+    "knight-of-the-sacred-relic": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Guisarmiers | Guardians)"
+      ],
+      "joinGroups": [
+        [
+          "Guisarmiers"
+        ],
+        [
+          "Guardians"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Human",
+        "Knight",
+        "Noble"
+      ],
+      "keywords": [
+        "Dispel (BLK)",
+        "Fearless",
+        "Join (Guisarmiers | Guardians)"
+      ],
+      "name": "Knight of the Sacred Relic",
+      "source": "official-builder-structured-data"
+    },
+    "ludivine-corbin": {
+      "isCharacter": true,
+      "role": null,
+      "roleSource": "unavailable",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Colossal Company",
+        "Human",
+        "Noble",
+        "Priestess"
+      ],
+      "keywords": [
+        "Fearless",
+        "Spellcaster"
+      ],
+      "name": "Ludivine Corbin",
+      "source": "official-builder-structured-data"
+    },
+    "mace-escort": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Human",
+        "Infantry",
+        "Knight"
+      ],
+      "keywords": [],
+      "name": "Mace Escort",
+      "source": "official-builder-structured-data"
+    },
+    "magister": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "High Command",
+        "Human",
+        "Knight",
+        "Noble"
+      ],
+      "keywords": [
+        "Dispel (BLU BLK)",
+        "Join (Infantry)"
+      ],
+      "name": "Magister",
+      "source": "official-builder-structured-data"
+    },
+    "mist-guard": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Knight",
+        "Noble"
+      ],
+      "keywords": [
+        "Intimidating (1)",
+        "Large",
+        "Scout"
+      ],
+      "name": "Mist Guard",
+      "source": "official-builder-structured-data"
+    },
+    "morgane-de-jauffret": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Guisarmiers | Guardians)"
+      ],
+      "joinGroups": [
+        [
+          "Guisarmiers"
+        ],
+        [
+          "Guardians"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Human",
+        "Noble",
+        "Priestess"
+      ],
+      "keywords": [
+        "Fearless",
+        "Join (Guisarmiers | Guardians)",
+        "Spellcaster"
+      ],
+      "name": "Morgane De Jauffret",
+      "source": "official-builder-structured-data"
+    },
+    "pierre-besson-grand-magister": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Knight, Cavalry)"
+      ],
+      "joinGroups": [
+        [
+          "Knight",
+          "Cavalry"
+        ]
+      ],
+      "traits": [
+        "Cavalry",
+        "Character",
+        "High Command",
+        "Human",
+        "Knight",
+        "Noble"
+      ],
+      "keywords": [
+        "Dispel (GRN)",
+        "Join (Knight, Cavalry)"
+      ],
+      "name": "Pierre Besson, Grand Magister",
+      "source": "official-builder-structured-data"
+    },
+    "priestess-of-selas": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Human",
+        "Noble",
+        "Priestess"
+      ],
+      "keywords": [
+        "Spellcaster"
+      ],
+      "name": "Priestess of Selas",
+      "source": "official-builder-structured-data"
+    },
+    "privateer-starvingson": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Mercenary",
+        "Red Cap"
+      ],
+      "keywords": [
+        "Join (Infantry)"
+      ],
+      "name": "Privateer Starvingson",
+      "source": "official-builder-structured-data"
+    },
+    "roland-loussier-and-whitetrail": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Knight",
+        "Noble"
+      ],
+      "keywords": [
+        "Intimidating (1)",
+        "Large",
+        "Scout"
+      ],
+      "name": "Roland Loussier and Whitetrail",
+      "source": "official-builder-structured-data"
+    },
+    "royal-falconer": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Human"
+      ],
+      "keywords": [
+        "Preferred Terrain (Rugged)",
+        "Scout"
+      ],
+      "name": "Royal Falconer",
+      "source": "official-builder-structured-data"
+    },
+    "syzigian": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Human",
+        "Knight"
+      ],
+      "keywords": [
+        "Join (Infantry)",
+        "Scout"
+      ],
+      "name": "Syzigian",
+      "source": "official-builder-structured-data"
+    },
+    "vercana": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Colossal Company",
+        "Human",
+        "Mercenary"
+      ],
+      "keywords": [
+        "Ambusher"
+      ],
+      "name": "Vercana",
+      "source": "official-builder-structured-data"
+    },
+    "verena-de-aurtigard": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "High Command",
+        "Human",
+        "Noble",
+        "Priestess"
+      ],
+      "keywords": [
+        "Elite",
+        "Spellcaster"
+      ],
+      "name": "Verena De Aurtigard",
+      "source": "official-builder-structured-data"
+    },
+    "aggressors": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Human",
+        "Infantry"
+      ],
+      "keywords": [],
+      "name": "Aggressors",
+      "source": "official-builder-structured-data"
+    },
+    "aide": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Aestari",
+        "Character",
+        "Elf"
+      ],
+      "keywords": [
+        "Fearless",
+        "Spellcaster"
+      ],
+      "name": "Aide",
+      "source": "official-builder-structured-data"
+    },
+    "amelia-hellbroth": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Colossal Company",
+        "High Command",
+        "Human"
+      ],
+      "keywords": [
+        "Elite",
+        "Join (Infantry)"
+      ],
+      "name": "Amelia Hellbroth",
+      "source": "official-builder-structured-data"
+    },
+    "ansera-noighman": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry | War Rig)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry"
+        ],
+        [
+          "War Rig"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Ghent",
+        "Dwarf"
+      ],
+      "keywords": [
+        "Dispel (BLU)",
+        "Join (Infantry | War Rig)"
+      ],
+      "name": "Ansera Noighman",
+      "source": "official-builder-structured-data"
+    },
+    "black-angels": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Cavalry",
+        "Human"
+      ],
+      "keywords": [
+        "Preferred Terrain (Rugged)"
+      ],
+      "name": "Black Angels",
+      "source": "official-builder-structured-data"
+    },
+    "black-legion-arquebusiers": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Human",
+        "Infantry"
+      ],
+      "keywords": [
+        "Cover (BLK)"
+      ],
+      "name": "Black Legion Arquebusiers",
+      "source": "official-builder-structured-data"
+    },
+    "black-legion-bucklermen": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Human",
+        "Infantry"
+      ],
+      "keywords": [],
+      "name": "Black Legion Bucklermen",
+      "source": "official-builder-structured-data"
+    },
+    "bulwarks": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Human",
+        "Infantry"
+      ],
+      "keywords": [
+        "Cover (BLK)",
+        "Immovable"
+      ],
+      "name": "Bulwarks",
+      "source": "official-builder-structured-data"
+    },
+    "corporal": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Human)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Human"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Human"
+      ],
+      "keywords": [
+        "Join (Infantry, Human)"
+      ],
+      "name": "Corporal",
+      "source": "official-builder-structured-data"
+    },
+    "dragoslav-bjelogric-drago-the-anvil": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Bucklermen | Bulwark)"
+      ],
+      "joinGroups": [
+        [
+          "Bucklermen"
+        ],
+        [
+          "Bulwark"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "High Command",
+        "Human"
+      ],
+      "keywords": [
+        "Bloodlust (Varank)",
+        "Elite",
+        "Join (Bucklermen | Bulwark)"
+      ],
+      "name": "Dragoslav Bjelogríc, Drago the Anvil",
+      "source": "official-builder-structured-data"
+    },
+    "engineer": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry | War Rig)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry"
+        ],
+        [
+          "War Rig"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Ghent",
+        "Dwarf"
+      ],
+      "keywords": [
+        "Dispel (BLU)",
+        "Join (Infantry | War Rig)"
+      ],
+      "name": "Engineer",
+      "source": "official-builder-structured-data"
+    },
+    "frostfire-herald": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Aestari",
+        "Character",
+        "Elf"
+      ],
+      "keywords": [
+        "Fearless",
+        "Spellcaster"
+      ],
+      "name": "Frostfire Herald",
+      "source": "official-builder-structured-data"
+    },
+    "gale-falchion": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Aestari",
+        "Character",
+        "Elf"
+      ],
+      "keywords": [
+        "Spellcaster"
+      ],
+      "name": "Gale Falchion",
+      "source": "official-builder-structured-data"
+    },
+    "gunnery-corporal": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Arquebusiers | Pioneers)"
+      ],
+      "joinGroups": [
+        [
+          "Arquebusiers"
+        ],
+        [
+          "Pioneers"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Human"
+      ],
+      "keywords": [
+        "Join (Arquebusiers | Pioneers)",
+        "Aim"
+      ],
+      "name": "Gunnery Corporal",
+      "source": "official-builder-structured-data"
+    },
+    "hetman": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "High Command",
+        "Human"
+      ],
+      "keywords": [
+        "Join (Infantry)"
+      ],
+      "name": "Hetman",
+      "source": "official-builder-structured-data"
+    },
+    "lady-telia": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Arquebusiers | Pioneers)"
+      ],
+      "joinGroups": [
+        [
+          "Arquebusiers"
+        ],
+        [
+          "Pioneers"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Human"
+      ],
+      "keywords": [
+        "Elite",
+        "Scout",
+        "Join (Arquebusiers | Pioneers)"
+      ],
+      "name": "Lady Télia",
+      "source": "official-builder-structured-data"
+    },
+    "marhael-the-refused": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Aestari",
+        "Character",
+        "Elf"
+      ],
+      "keywords": [
+        "Fearless",
+        "Spellcaster"
+      ],
+      "name": "Marhael the Refused",
+      "source": "official-builder-structured-data"
+    },
+    "mk-os-automata": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [],
+      "keywords": [],
+      "name": "MK-OS Automata",
+      "source": "official-builder-structured-data"
+    },
+    "mounted-hetman": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Cavalry)"
+      ],
+      "joinGroups": [
+        [
+          "Cavalry"
+        ]
+      ],
+      "traits": [
+        "Cavalry",
+        "Character",
+        "High Command",
+        "Human"
+      ],
+      "keywords": [
+        "Join (Cavalry)"
+      ],
+      "name": "Mounted Hetman",
+      "source": "official-builder-structured-data"
+    },
+    "nadezhda-lazard-champion-of-embersig": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Human"
+      ],
+      "keywords": [
+        "Join (Infantry)"
+      ],
+      "name": "Nadezhda Lazard, Champion of Embersig",
+      "source": "official-builder-structured-data"
+    },
+    "naergon-caladren": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Aestari",
+        "Character",
+        "Colossal Company",
+        "Elf"
+      ],
+      "keywords": [
+        "Spellcaster"
+      ],
+      "name": "Naergon Caladren",
+      "source": "official-builder-structured-data"
+    },
+    "nayra-caladren": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Aestari",
+        "Character",
+        "Colossal Company",
+        "Elf"
+      ],
+      "keywords": [
+        "Elite",
+        "Fearless",
+        "Spellcaster"
+      ],
+      "name": "Nayra Caladren",
+      "source": "official-builder-structured-data"
+    },
+    "pioneers": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Dwarf",
+        "Ghent",
+        "Infantry"
+      ],
+      "keywords": [
+        "Dispel (BLU)",
+        "Scout"
+      ],
+      "name": "Pioneers",
+      "source": "official-builder-structured-data"
+    },
+    "strategos": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Human"
+      ],
+      "keywords": [
+        "Join (Infantry)"
+      ],
+      "name": "Strategos",
+      "source": "official-builder-structured-data"
+    },
+    "trabor-slepmund": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (War Rig)"
+      ],
+      "joinGroups": [
+        [
+          "War Rig"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Colossal Company",
+        "Dwarf",
+        "Ghent"
+      ],
+      "keywords": [
+        "Dispel (BLU)",
+        "Join (War Rig)"
+      ],
+      "name": "Trabor Slepmund",
+      "source": "official-builder-structured-data"
+    },
+    "war-rig": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [],
+      "keywords": [
+        "Intimidating (1)",
+        "Large",
+        "Manned"
+      ],
+      "name": "War Rig",
+      "source": "official-builder-structured-data"
+    },
+    "war-surgeon": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Human"
+      ],
+      "keywords": [
+        "Join (Infantry)"
+      ],
+      "name": "War Surgeon",
+      "source": "official-builder-structured-data"
+    },
+    "ancestor": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Dwarf, Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Dwarf",
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Dwarf",
+        "Spirit"
+      ],
+      "keywords": [
+        "Intimidating (2)",
+        "Join (Dwarf, Infantry)"
+      ],
+      "name": "Ancestor",
+      "source": "official-builder-structured-data"
+    },
+    "anvil": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Dwarf, Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Dwarf",
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Dwarf"
+      ],
+      "keywords": [
+        "Join (Dwarf, Infantry)",
+        "Preferred Terrain (Rugged)"
+      ],
+      "name": "Anvil",
+      "source": "official-builder-structured-data"
+    },
+    "biwa": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Colossal Company",
+        "Dwarf"
+      ],
+      "keywords": [
+        "Dispel (BLU BLU)",
+        "Spellcaster"
+      ],
+      "name": "Biwa",
+      "source": "official-builder-structured-data"
+    },
+    "bombardier": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Dwarf"
+      ],
+      "keywords": [],
+      "name": "Bombardier",
+      "source": "official-builder-structured-data"
+    },
+    "folder": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Dwarf"
+      ],
+      "keywords": [
+        "Dispel (BLU BLU)",
+        "Spellcaster"
+      ],
+      "name": "Folder",
+      "source": "official-builder-structured-data"
+    },
+    "hammer": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Dwarf, Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Dwarf",
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Dwarf",
+        "High Command"
+      ],
+      "keywords": [
+        "Elite",
+        "Join (Dwarf, Infantry)",
+        "Preferred Terrain (Rugged)"
+      ],
+      "name": "Hammer",
+      "source": "official-builder-structured-data"
+    },
+    "headhunter": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Dwarf"
+      ],
+      "keywords": [
+        "Preferred terrain (Rugged)",
+        "Scout"
+      ],
+      "name": "Headhunter",
+      "source": "official-builder-structured-data"
+    },
+    "hearthguard": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Dwarf",
+        "Infantry"
+      ],
+      "keywords": [],
+      "name": "Hearthguard",
+      "source": "official-builder-structured-data"
+    },
+    "hrodreiks-thirteenth-executor-of-the-master-plan": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Dwarf, Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Dwarf",
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Dwarf"
+      ],
+      "keywords": [
+        "Join (Dwarf, Infantry)",
+        "Preferred Terrain (Rugged)"
+      ],
+      "name": "Hrodreiks Thirteenth Executor of the Master Plan",
+      "source": "official-builder-structured-data"
+    },
+    "keeper-of-the-sacred-fire": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Dwarf, Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Dwarf",
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Dwarf"
+      ],
+      "keywords": [
+        "Join (Dwarf, Infantry)"
+      ],
+      "name": "Keeper of the Sacred Fire",
+      "source": "official-builder-structured-data"
+    },
+    "mounthaven-militia": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Dwarf",
+        "Infantry"
+      ],
+      "keywords": [],
+      "name": "Mounthaven Militia",
+      "source": "official-builder-structured-data"
+    },
+    "mounthaven-veteran": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Mounthaven Warriors)"
+      ],
+      "joinGroups": [
+        [
+          "Mounthaven Warriors"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Dwarf"
+      ],
+      "keywords": [
+        "Join (Mounthaven Warriors)"
+      ],
+      "name": "Mounthaven Veteran",
+      "source": "official-builder-structured-data"
+    },
+    "mounthaven-warriors": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Dwarf",
+        "Infantry"
+      ],
+      "keywords": [],
+      "name": "Mounthaven Warriors",
+      "source": "official-builder-structured-data"
+    },
+    "olga-princess-of-mounthaven": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Dwarf, Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Dwarf",
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Dwarf",
+        "High Command"
+      ],
+      "keywords": [
+        "Elite",
+        "Join (Dwarf, Infantry)",
+        "Preferred Terrain (Rugged)"
+      ],
+      "name": "Olga Princess of Mounthaven",
+      "source": "official-builder-structured-data"
+    },
+    "raiders": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Dwarf",
+        "Infantry"
+      ],
+      "keywords": [
+        "Preferred Terrain (Rugged)",
+        "Scout"
+      ],
+      "name": "Raiders",
+      "source": "official-builder-structured-data"
+    },
+    "the-bear": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [],
+      "keywords": [],
+      "name": "The Bear",
+      "source": "official-builder-structured-data"
+    },
+    "the-owl": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [],
+      "keywords": [],
+      "name": "The Owl",
+      "source": "official-builder-structured-data"
+    },
+    "unrelenting": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Dwarf",
+        "Infantry"
+      ],
+      "keywords": [
+        "Dispel (<span class='Warcrow-Family WC_8'>8</span><span class='Warcrow-Family WC_7'>7</span>)"
+      ],
+      "name": "Unrelenting",
+      "source": "official-builder-structured-data"
+    },
+    "waljan-the-last-of-the-first": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Dwarf",
+        "Spirit"
+      ],
+      "keywords": [
+        "Bloodlust",
+        "Fearless",
+        "Intimidating (2)"
+      ],
+      "name": "Waljan, the Last of the First",
+      "source": "official-builder-structured-data"
+    },
+    "war-augur": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Dwarf, Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Dwarf",
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Dwarf"
+      ],
+      "keywords": [
+        "Join (Dwarf, Infantry)",
+        "Preferred Terrain (Rugged)"
+      ],
+      "name": "War Augur",
+      "source": "official-builder-structured-data"
+    },
+    "zsoka": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Dwarf"
+      ],
+      "keywords": [
+        "Dispel(BLU)",
+        "Fearless"
+      ],
+      "name": "Zsoka",
+      "source": "official-builder-structured-data"
+    },
+    "ahlwardt-ice-bear": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Skin Changers)"
+      ],
+      "joinGroups": [
+        [
+          "Skin Changers"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "High Command",
+        "Varank"
+      ],
+      "keywords": [
+        "Berserker Rage",
+        "Dispel (BLU BLK)",
+        "Elite",
+        "Join (Skin Changers)"
+      ],
+      "name": "Ahlwardt, Ice Bear",
+      "source": "official-builder-structured-data"
+    },
+    "alborc": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Orc | Infantry, Varank)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Orc"
+        ],
+        [
+          "Infantry",
+          "Varank"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "High Command",
+        "Orc"
+      ],
+      "keywords": [
+        "Join (Infantry, Orc | Infantry, Varank)",
+        "Elite"
+      ],
+      "name": "Alborc",
+      "source": "official-builder-structured-data"
+    },
+    "battle-scarred": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Infantry",
+        "Orc"
+      ],
+      "keywords": [
+        "Raging"
+      ],
+      "name": "Battle-Scarred",
+      "source": "official-builder-structured-data"
+    },
+    "coal": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [
+        "Join (Iriavík Restless Pup)"
+      ],
+      "joinGroups": [
+        [
+          "Iriavík Restless Pup"
+        ]
+      ],
+      "traits": [
+        "Companion"
+      ],
+      "keywords": [
+        "Join (Iriavík Restless Pup)"
+      ],
+      "name": "Coal",
+      "source": "official-builder-structured-data"
+    },
+    "contender": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Orc)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Orc"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Orc"
+      ],
+      "keywords": [
+        "Join (Infantry, Orc)",
+        "Raging"
+      ],
+      "name": "Contender",
+      "source": "official-builder-structured-data"
+    },
+    "darkmaster": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Hunters)"
+      ],
+      "joinGroups": [
+        [
+          "Hunters"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Orc"
+      ],
+      "keywords": [
+        "Ambusher",
+        "Dispel (BLK BLK)",
+        "Join (Hunters)"
+      ],
+      "name": "Darkmaster",
+      "source": "official-builder-structured-data"
+    },
+    "eskold-the-executioner": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Varank | Warg Riders)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Varank"
+        ],
+        [
+          "Warg Riders"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Varank"
+      ],
+      "keywords": [
+        "Join (Infantry, Varank | Warg Riders)",
+        "Scout"
+      ],
+      "name": "Eskold the Executioner",
+      "source": "official-builder-structured-data"
+    },
+    "evoker": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Orc"
+      ],
+      "keywords": [
+        "Spellcaster"
+      ],
+      "name": "Evoker",
+      "source": "official-builder-structured-data"
+    },
+    "hersir": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Varank)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Varank"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Varank"
+      ],
+      "keywords": [
+        "Berserker Rage",
+        "Elite",
+        "Join (Infantry, Varank)"
+      ],
+      "name": "Hersir",
+      "source": "official-builder-structured-data"
+    },
+    "ice-archers": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Infantry",
+        "Varank"
+      ],
+      "keywords": [],
+      "name": "Ice Archers",
+      "source": "official-builder-structured-data"
+    },
+    "iriavik-restless-pup": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Colossal Company",
+        "Nemorous",
+        "Varank"
+      ],
+      "keywords": [
+        "Ambusher",
+        "Dispel (BLK)",
+        "Preferred Terrain (Rugged)"
+      ],
+      "name": "Iriavik Restless Pup",
+      "source": "official-builder-structured-data"
+    },
+    "lotta": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Orc)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Orc"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Orc"
+      ],
+      "keywords": [
+        "Join (Infantry, Orc)",
+        "Raging"
+      ],
+      "name": "Lotta",
+      "source": "official-builder-structured-data"
+    },
+    "mounted-wrathmane": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Warg Riders)"
+      ],
+      "joinGroups": [
+        [
+          "Warg Riders"
+        ]
+      ],
+      "traits": [
+        "Cavalry",
+        "Character",
+        "High Command",
+        "Orc"
+      ],
+      "keywords": [
+        "Elite",
+        "Join (Warg Riders)",
+        "Preferred Terrain (Rugged)",
+        "Raging"
+      ],
+      "name": "Mounted Wrathmane",
+      "source": "official-builder-structured-data"
+    },
+    "njord-the-merciless": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Varank)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Varank"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Varank"
+      ],
+      "keywords": [
+        "Berserker Rage",
+        "Elite",
+        "Join (Infantry, Varank)"
+      ],
+      "name": "Njord, The Merciless",
+      "source": "official-builder-structured-data"
+    },
+    "orc-hunters": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Infantry",
+        "Orc"
+      ],
+      "keywords": [],
+      "name": "Orc Hunters",
+      "source": "official-builder-structured-data"
+    },
+    "ormuk": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Colossal Company",
+        "Orc"
+      ],
+      "keywords": [
+        "Bloodlust",
+        "Dispel (BLK)",
+        "Elite",
+        "Fearless",
+        "Raging"
+      ],
+      "name": "Ormuk",
+      "source": "official-builder-structured-data"
+    },
+    "prime-warrior": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Orc)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Orc"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Orc"
+      ],
+      "keywords": [
+        "Join (Infantry, Orc)",
+        "Raging"
+      ],
+      "name": "Prime Warrior",
+      "source": "official-builder-structured-data"
+    },
+    "revenant": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Orc"
+      ],
+      "keywords": [
+        "Elite",
+        "Fearless",
+        "Immovable",
+        "Intimidating (1)"
+      ],
+      "name": "Revenant",
+      "source": "official-builder-structured-data"
+    },
+    "rock-troll": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [],
+      "keywords": [
+        "Dispel (G)",
+        "Golem",
+        "Intimidating (1)",
+        "Large"
+      ],
+      "name": "Rock Troll",
+      "source": "official-builder-structured-data"
+    },
+    "selika": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Varank)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Varank"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Varank"
+      ],
+      "keywords": [
+        "Ambusher",
+        "Join (Infantry, Varank)"
+      ],
+      "name": "Selika",
+      "source": "official-builder-structured-data"
+    },
+    "skin-changers": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Infantry",
+        "Varank"
+      ],
+      "keywords": [
+        "Fearless"
+      ],
+      "name": "Skin Changers",
+      "source": "official-builder-structured-data"
+    },
+    "tattooist": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Varank)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Varank"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Varank"
+      ],
+      "keywords": [
+        "Join (Infantry, Varank)",
+        "Scout"
+      ],
+      "name": "Tattooist",
+      "source": "official-builder-structured-data"
+    },
+    "tundra-marauders": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Infantry",
+        "Varank"
+      ],
+      "keywords": [
+        "Preferred Terrain (Rugged)",
+        "Scout"
+      ],
+      "name": "Tundra Marauders",
+      "source": "official-builder-structured-data"
+    },
+    "warg-riders": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Cavalry",
+        "Orc"
+      ],
+      "keywords": [
+        "Bloodlust",
+        "Preferred Terrain (Rugged)",
+        "Raging"
+      ],
+      "name": "Warg Riders",
+      "source": "official-builder-structured-data"
+    },
+    "wisemane": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Orc)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Orc"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Orc"
+      ],
+      "keywords": [
+        "Fearless",
+        "Join (Infantry, Orc)"
+      ],
+      "name": "Wisemane",
+      "source": "official-builder-structured-data"
+    },
+    "wrathmane": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Orc)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Orc"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "High Command",
+        "Orc"
+      ],
+      "keywords": [
+        "Join (Infantry, Orc)",
+        "Elite",
+        "Raging"
+      ],
+      "name": "Wrathmane",
+      "source": "official-builder-structured-data"
+    },
+    "bugbowls": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Infantry",
+        "Projectile",
+        "Red Cap"
+      ],
+      "keywords": [
+        "Scout"
+      ],
+      "name": "Bugbowls",
+      "source": "official-builder-structured-data"
+    },
+    "crucible": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Red Cap"
+      ],
+      "keywords": [
+        "Dispel (BLU)",
+        "Golem",
+        "Intimidating (1)",
+        "Large"
+      ],
+      "name": "Crucible",
+      "source": "official-builder-structured-data"
+    },
+    "flamecobs": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Infantry",
+        "Red Cap"
+      ],
+      "keywords": [],
+      "name": "Flamecobs",
+      "source": "official-builder-structured-data"
+    },
+    "gobblers": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Infantry",
+        "Projectile",
+        "Red Cap"
+      ],
+      "keywords": [
+        "Fearless",
+        "Scout"
+      ],
+      "name": "Gobblers",
+      "source": "official-builder-structured-data"
+    },
+    "nuada": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Alven",
+        "Character",
+        "Elf",
+        "High Command"
+      ],
+      "keywords": [
+        "Elite"
+      ],
+      "name": "Nuada",
+      "source": "official-builder-structured-data"
+    },
+    "osseous": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Infantry",
+        "Projectile",
+        "Red Cap"
+      ],
+      "keywords": [],
+      "name": "Osseous",
+      "source": "official-builder-structured-data"
+    },
+    "overseer": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Gobblers | Bugbowls | Osseous)"
+      ],
+      "joinGroups": [
+        [
+          "Gobblers"
+        ],
+        [
+          "Bugbowls"
+        ],
+        [
+          "Osseous"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Red Cap"
+      ],
+      "keywords": [
+        "Join (Gobblers | Bugbowls | Osseous)"
+      ],
+      "name": "Overseer",
+      "source": "official-builder-structured-data"
+    },
+    "rumpy-ride": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Red Cap, Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Red Cap",
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Red Cap"
+      ],
+      "keywords": [
+        "Dispel (BLU BLK)",
+        "Elite",
+        "Join (Red Cap, Infantry)",
+        "Spellcaster"
+      ],
+      "name": "Rumpy Ride",
+      "source": "official-builder-structured-data"
+    },
+    "sightless": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Red Cap, Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Red Cap",
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Red Cap"
+      ],
+      "keywords": [
+        "Dispel (BLU)",
+        "Join (Red Cap, Infantry)"
+      ],
+      "name": "Sightless",
+      "source": "official-builder-structured-data"
+    },
+    "stompers": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Projectile",
+        "Red Cap"
+      ],
+      "keywords": [
+        "Intimidating (1)",
+        "Preferred Terrain (Rugged)"
+      ],
+      "name": "Stompers",
+      "source": "official-builder-structured-data"
+    },
+    "anointed": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Human",
+        "Infantry"
+      ],
+      "keywords": [
+        "Fearless",
+        "Intimidating (1)"
+      ],
+      "name": "Anointed",
+      "source": "official-builder-structured-data"
+    },
+    "aodharu": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Risen"
+      ],
+      "keywords": [
+        "Bloodlust",
+        "Tinge",
+        "Golem",
+        "Intimidating (2)"
+      ],
+      "name": "Aodharu",
+      "source": "official-builder-structured-data"
+    },
+    "breath": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Darkminded",
+        "Elf"
+      ],
+      "keywords": [
+        "Dispel (BLK BLK)",
+        "Spellcaster",
+        "Tinge"
+      ],
+      "name": "Breath",
+      "source": "official-builder-structured-data"
+    },
+    "echoes": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Elf",
+        "Infantry"
+      ],
+      "keywords": [
+        "Elite",
+        "Golem",
+        "Intimidating (1)"
+      ],
+      "name": "Echoes",
+      "source": "official-builder-structured-data"
+    },
+    "feadhalu": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Living Flesh"
+      ],
+      "keywords": [
+        "Ambusher",
+        "Dispel (BLK)",
+        "Golem"
+      ],
+      "name": "Feadhalu",
+      "source": "official-builder-structured-data"
+    },
+    "first-anointed": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Human)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Human"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Human",
+        "Infantry"
+      ],
+      "keywords": [
+        "Intimidating (1)",
+        "Join (Infantry, Human)"
+      ],
+      "name": "First Anointed",
+      "source": "official-builder-structured-data"
+    },
+    "gitmalu-the-perfect-one": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Darkminded",
+        "Elf"
+      ],
+      "keywords": [
+        "Dispel (BLU BLK)",
+        "Elite",
+        "Spellcaster",
+        "Tinge"
+      ],
+      "name": "Gitmalu The Perfect One",
+      "source": "official-builder-structured-data"
+    },
+    "harvester": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Dead Flesh",
+        "Risen",
+        "Elf"
+      ],
+      "keywords": [
+        "Dispel (BLK)",
+        "Golem",
+        "Intimidating (2)"
+      ],
+      "name": "Harvester",
+      "source": "official-builder-structured-data"
+    },
+    "harvester-riders": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Cavalry",
+        "Elf",
+        "Risen"
+      ],
+      "keywords": [
+        "Golem",
+        "Intimidating (2)",
+        "Preferred Terrain (Sinister)",
+        "Tinge"
+      ],
+      "name": "Harvester Riders",
+      "source": "official-builder-structured-data"
+    },
+    "husks": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Risen",
+        "Infantry"
+      ],
+      "keywords": [
+        "Golem",
+        "Tinge"
+      ],
+      "name": "Husks",
+      "source": "official-builder-structured-data"
+    },
+    "intact": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Human",
+        "Infantry"
+      ],
+      "keywords": [],
+      "name": "Intact",
+      "source": "official-builder-structured-data"
+    },
+    "irkalla-the-maw": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Human)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Human"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Human",
+        "Infantry"
+      ],
+      "keywords": [
+        "Fearless",
+        "Intimidating (2)",
+        "Join (Infantry, Human)"
+      ],
+      "name": "Irkalla, The Maw",
+      "source": "official-builder-structured-data"
+    },
+    "kipleacht": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Cavalry"
+      ],
+      "keywords": [
+        "Ambusher",
+        "Golem",
+        "Intimidating (1)",
+        "Large"
+      ],
+      "name": "Kipleacht",
+      "source": "official-builder-structured-data"
+    },
+    "liberated": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Darkminded",
+        "Elf",
+        "Infantry"
+      ],
+      "keywords": [],
+      "name": "Liberated",
+      "source": "official-builder-structured-data"
+    },
+    "lifted": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Darkminded",
+        "Elf"
+      ],
+      "keywords": [
+        "Dispel (BLU BLK)",
+        "Intimidating (1)",
+        "Spellcaster",
+        "Tinge"
+      ],
+      "name": "Lifted",
+      "source": "official-builder-structured-data"
+    },
+    "marked": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Human",
+        "Infantry"
+      ],
+      "keywords": [],
+      "name": "Marked",
+      "source": "official-builder-structured-data"
+    },
+    "marked-marksmen": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Human",
+        "Infantry",
+        "Living Flesh"
+      ],
+      "keywords": [
+        "Scout"
+      ],
+      "name": "Marked Marksmen",
+      "source": "official-builder-structured-data"
+    },
+    "master-keorl": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Living Flesh)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Living Flesh"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Elf",
+        "Darkminded",
+        "High Command",
+        "Living Flesh"
+      ],
+      "keywords": [
+        "Intimidating (2)",
+        "Spellcaster",
+        "Join (Infantry, Living Flesh)"
+      ],
+      "name": "Master Keorl",
+      "source": "official-builder-structured-data"
+    },
+    "master-maiele": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Darkminded",
+        "Elf",
+        "Virtuoso"
+      ],
+      "keywords": [
+        "Dispel (GRN)",
+        "Spellcaster",
+        "Tinge"
+      ],
+      "name": "Master Maiele",
+      "source": "official-builder-structured-data"
+    },
+    "master-nepharim": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Dead Flesh)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Dead Flesh"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Dead Flesh",
+        "Darkminded",
+        "Elf",
+        "High Command"
+      ],
+      "keywords": [
+        "Intimidating (2)",
+        "Spellcaster",
+        "Join (Infantry, Dead Flesh)"
+      ],
+      "name": "Master Nepharim",
+      "source": "official-builder-structured-data"
+    },
+    "master-uruk": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Darkminded",
+        "Elf",
+        "High Command"
+      ],
+      "keywords": [
+        "Dispel (BLU BLK)",
+        "Intimidating (2)",
+        "Join (Infantry)"
+      ],
+      "name": "Master Uruk",
+      "source": "official-builder-structured-data"
+    },
+    "mornmab": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [],
+      "keywords": [
+        "Golem",
+        "Large",
+        "Intimidating (2)",
+        "Bloodlust"
+      ],
+      "name": "Mornmab",
+      "source": "official-builder-structured-data"
+    },
+    "namaoin": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Darkminded",
+        "Elf"
+      ],
+      "keywords": [
+        "Ambusher",
+        "Dispel (BLK BLK)"
+      ],
+      "name": "Namaoin",
+      "source": "official-builder-structured-data"
+    },
+    "needle": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Darkminded",
+        "Elf"
+      ],
+      "keywords": [
+        "Dispel (BLU BLK)",
+        "Join (Infantry)",
+        "Tinge"
+      ],
+      "name": "Needle",
+      "source": "official-builder-structured-data"
+    },
+    "orc-husk": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Dead Flesh)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Dead Flesh"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Dead Flesh",
+        "Risen"
+      ],
+      "keywords": [
+        "Golem",
+        "Join (Infantry, Dead Flesh)"
+      ],
+      "name": "Orc Husk",
+      "source": "official-builder-structured-data"
+    },
+    "progenitor-sculptor": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Elf",
+        "Darkminded",
+        "High Command"
+      ],
+      "keywords": [
+        "Intimidating (2)",
+        "Spellcaster",
+        "Join (Infantry)",
+        "Tinge"
+      ],
+      "name": "Progenitor Sculptor",
+      "source": "official-builder-structured-data"
+    },
+    "puppeteer": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Virtuoso",
+        "Darkminded",
+        "Elf"
+      ],
+      "keywords": [
+        "Dispel (BLU)",
+        "Spellcaster",
+        "Tinge"
+      ],
+      "name": "Puppeteer",
+      "source": "official-builder-structured-data"
+    },
+    "samara-dithean": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Darkminded",
+        "Elf"
+      ],
+      "keywords": [
+        "Dispel (BLU)",
+        "Intimidating (1)",
+        "Spellcaster",
+        "Tinge"
+      ],
+      "name": "Samara Dithean",
+      "source": "official-builder-structured-data"
+    },
+    "tutor": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Darkminded",
+        "Elf"
+      ],
+      "keywords": [
+        "Dispel (BLU)",
+        "Join (Infantry)"
+      ],
+      "name": "Tutor",
+      "source": "official-builder-structured-data"
+    },
+    "aileen-cethir-wynn": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Elf",
+        "Nemorous",
+        "Syenann"
+      ],
+      "keywords": [
+        "Ambusher",
+        "Dispel (GRN)",
+        "Spellcaster"
+      ],
+      "name": "Aileen Cethir Wynn",
+      "source": "official-builder-structured-data"
+    },
+    "alula": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Elf",
+        "Syenann"
+      ],
+      "keywords": [],
+      "name": "Alula",
+      "source": "official-builder-structured-data"
+    },
+    "aoidos": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Syenann)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Syenann"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Elf",
+        "Nemorous",
+        "Syenann"
+      ],
+      "keywords": [
+        "Join (Infantry, Syenann)",
+        "Spellcaster"
+      ],
+      "name": "Aoidos",
+      "source": "official-builder-structured-data"
+    },
+    "clouded": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Cavalry",
+        "Elf",
+        "Nemorous",
+        "Syenann"
+      ],
+      "keywords": [
+        "Preferred Terrain (Rugged | Forest)",
+        "Scout"
+      ],
+      "name": "Clouded",
+      "source": "official-builder-structured-data"
+    },
+    "darach-wildling": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Elf",
+        "Colossal Company",
+        "Nemorous",
+        "Syenann"
+      ],
+      "keywords": [
+        "Aim",
+        "Ambusher"
+      ],
+      "name": "Darach Wildling",
+      "source": "official-builder-structured-data"
+    },
+    "druid": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Nemorous",
+        "Elf",
+        "Syenann"
+      ],
+      "keywords": [
+        "Spellcaster"
+      ],
+      "name": "Druid",
+      "source": "official-builder-structured-data"
+    },
+    "eachann": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Cavalry",
+        "Centaurelf",
+        "Nemorous",
+        "Syenann",
+        "Character"
+      ],
+      "keywords": [
+        "Intimidating (1)",
+        "Preferred Terrain (Rugged | Forest)"
+      ],
+      "name": "Eachann",
+      "source": "official-builder-structured-data"
+    },
+    "grand-captain": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Syenann)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Syenann"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Elf",
+        "High Command",
+        "Nemorous",
+        "Syenann"
+      ],
+      "keywords": [
+        "Join (Infantry, Syenann)",
+        "Preferred Terrain (Rugged | Forest)"
+      ],
+      "name": "Grand Captain",
+      "source": "official-builder-structured-data"
+    },
+    "grove-curtailers": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Infantry",
+        "Elf",
+        "Syenann"
+      ],
+      "keywords": [
+        "Scout"
+      ],
+      "name": "Grove Curtailers",
+      "source": "official-builder-structured-data"
+    },
+    "lioslaith-coic-caledhee": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Syenann)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Syenann"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Elf",
+        "High Command",
+        "Nemorous",
+        "Syenann"
+      ],
+      "keywords": [
+        "Ambusher",
+        "Elite",
+        "Join (Infantry, Syenann)"
+      ],
+      "name": "Lioslaith Coic Caledhee",
+      "source": "official-builder-structured-data"
+    },
+    "moss-hermit": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Nemorous",
+        "Syenann"
+      ],
+      "keywords": [
+        "Intimidating (1)",
+        "Large",
+        "Preferred Terrain (Forest)"
+      ],
+      "name": "Moss Hermit",
+      "source": "official-builder-structured-data"
+    },
+    "neakail-oen-fhiahra": {
+      "isCharacter": true,
+      "role": null,
+      "roleSource": "unavailable",
+      "joinText": [
+        "Join (Grove Curtailers)"
+      ],
+      "joinGroups": [
+        [
+          "Grove Curtailers"
+        ]
+      ],
+      "traits": [
+        "Ashen",
+        "Character",
+        "Elf",
+        "Syenann"
+      ],
+      "keywords": [
+        "Join (Grove Curtailers)",
+        "Scout",
+        "Tinge"
+      ],
+      "name": "Neakail Oen Fhiahra",
+      "source": "official-builder-structured-data"
+    },
+    "oona": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Ashen",
+        "Character",
+        "Colossal Company",
+        "Elf",
+        "Nemourous",
+        "Syenann"
+      ],
+      "keywords": [
+        "Intimidating (1)",
+        "Spellcaster",
+        "Tinge"
+      ],
+      "name": "Oona",
+      "source": "official-builder-structured-data"
+    },
+    "protectors-of-the-forest": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Elf",
+        "Infantry",
+        "Syenann"
+      ],
+      "keywords": [],
+      "name": "Protectors of the Forest",
+      "source": "official-builder-structured-data"
+    },
+    "shadow-of-the-hawthorn": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Elf",
+        "Shadow",
+        "Syenann"
+      ],
+      "keywords": [
+        "Preferred Terrain (Forest or Rugged)"
+      ],
+      "name": "Shadow of the Hawthorn",
+      "source": "official-builder-structured-data"
+    },
+    "shadow-of-the-rowan": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Elf",
+        "Shadow",
+        "Syenann"
+      ],
+      "keywords": [
+        "Ambusher",
+        "Preferred Terrain (Rugged | Forest)"
+      ],
+      "name": "Shadow of the Rowan",
+      "source": "official-builder-structured-data"
+    },
+    "shadows-of-the-yew": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Elf",
+        "Infantry",
+        "Shadow",
+        "Syenann"
+      ],
+      "keywords": [
+        "Ambusher",
+        "Preferred Terrain (Rugged | Forest)"
+      ],
+      "name": "Shadows of the Yew",
+      "source": "official-builder-structured-data"
+    },
+    "sprigs": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Elf",
+        "Infantry",
+        "Nemorous",
+        "Syenann"
+      ],
+      "keywords": [
+        "Bloodlust",
+        "Preferred Terrain (Forest)",
+        "Raging"
+      ],
+      "name": "Sprigs",
+      "source": "official-builder-structured-data"
+    },
+    "syena-wardens": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Elf",
+        "Infantry",
+        "Nemorous",
+        "Syenann"
+      ],
+      "keywords": [
+        "Fearless"
+      ],
+      "name": "Syena Wardens",
+      "source": "official-builder-structured-data"
+    },
+    "syenann-captain": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Infantry, Syenann)"
+      ],
+      "joinGroups": [
+        [
+          "Infantry",
+          "Syenann"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Elf",
+        "Syenann"
+      ],
+      "keywords": [
+        "Aim",
+        "Join (Infantry, Syenann)"
+      ],
+      "name": "Syenann Captain",
+      "source": "official-builder-structured-data"
+    },
+    "walker-of-the-leaf-storm": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Elf",
+        "Nemorous",
+        "Syenann"
+      ],
+      "keywords": [
+        "Ambusher",
+        "Dispel (BLU BLK)",
+        "Spellcaster"
+      ],
+      "name": "Walker of the Leaf Storm",
+      "source": "official-builder-structured-data"
+    },
+    "warden-captain": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Syena Wardens)"
+      ],
+      "joinGroups": [
+        [
+          "Syena Wardens"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Elf",
+        "Nemorous",
+        "Syenann"
+      ],
+      "keywords": [
+        "Elite",
+        "Join (Syena Wardens)"
+      ],
+      "name": "Warden Captain",
+      "source": "official-builder-structured-data"
+    },
+    "ynyr-dara-lainn": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Elf",
+        "Syenann"
+      ],
+      "keywords": [
+        "Scout"
+      ],
+      "name": "Ynyr Dara Lainn",
+      "source": "official-builder-structured-data"
+    }
+  },
+  "unitNameAliases": {
+    "guisarmiers": [
+      "feudom-guisarmiers"
+    ],
+    "guardians": [
+      "guardians-of-the-mounds"
+    ],
+    "bucklermen": [
+      "black-legion-bucklermen"
+    ],
+    "bulwark": [
+      "bulwarks"
+    ],
+    "bulwarks": [
+      "bulwarks"
+    ],
+    "arquebusiers": [
+      "black-legion-arquebusiers"
+    ],
+    "hunters": [
+      "orc-hunters"
+    ]
+  },
+  "sourceNotes": [
+    {
+      "ids": [
+        "master-nepharim",
+        "orc-husk"
+      ],
+      "messageKo": "공식 합류 조건은 Infantry, Dead Flesh입니다. 현재 확보된 허스크스의 공식 특성은 Risen, Infantry이므로 두 특성을 임의로 같은 것으로 처리하지 않습니다."
+    }
+  ]
+}
