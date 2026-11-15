@@ -178,7 +178,7 @@ function confirmRoster(){
   setArmyDrawer(false);gameSessions.unshift(game);activeGameId=game.id;persistGames();screen='game';render();window.scrollTo(0,0);
 }
 function playDisplayUnits(game){return game?gameJoinGroups(game):[]}
-function playCardMarkup(display,game){return `${renderPlayJoinControls(display,game)}${renderJoinedGroup(display)}`}
+function playCardMarkup(display,game){return `${renderJoinedGroup(display)}${renderPlayJoinControls(display,game)}`}
 function movePlayCard(delta){
   const game=activeGame(),units=playDisplayUnits(game);if(!units.length)return;
   const focusedTab=document.activeElement?.classList.contains('play-unit-tab');
