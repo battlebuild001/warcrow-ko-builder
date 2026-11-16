@@ -62,19 +62,7 @@
 .keyword-chip-group{gap:4px;margin-bottom:5px}
 .keyword-chip-group .card-keyword-caption{font-size:9px;line-height:1.4}
 .native-card .card-keyword-chip{min-height:28px;padding:3px 6px;border-radius:4px;font-size:10px;line-height:1.4}
-.keyword-guide-panel{padding:0 7px}
-.keyword-guide-panel>summary{min-height:32px;padding:6px 0;font-size:11px;line-height:1.4}
-.keyword-guide-panel>summary>span{font-size:9px;padding:0 5px}
-.keyword-guide-panel[open]{padding-bottom:6px}
-.keyword-guide-intro{padding:0 0 6px;font-size:12px;line-height:1.55}
-.keyword-guide-intro p{margin-top:4px;font-size:11px;line-height:1.5}
-.keyword-explanation{margin-bottom:4px;border-radius:4px}
-.keyword-explanation>summary{min-height:36px;padding:6px 26px 6px 8px}
-.keyword-explanation>summary::after{top:6px;right:9px;font-size:18px}
-.keyword-term-heading{gap:2px 6px;line-height:1.4}
-.keyword-term-heading>strong{font-size:12px}
-.keyword-term-heading>small{font-size:9px}
-.keyword-term-timing{margin-top:2px;font-size:11px;line-height:1.5}
+
 .keyword-explanation-body{padding:7px 8px;font-size:12px;line-height:1.55}
 .keyword-explanation-body p{margin-bottom:6px}
 .keyword-explanation-body h4{margin:8px 0 3px;font-size:11px}
@@ -89,7 +77,7 @@
 .keyword-source-cost .native-glyph{--native-glyph-size:22px}
 .native-card .keyword-jump,.native-card .keyword-full-rule{min-height:30px;margin-top:5px;padding:4px 6px;font-size:11px;line-height:1.4}
 .keyword-citation{margin-top:4px;font-size:9px}
-.keyword-explanation,.native-effect,.native-ability{scroll-margin-block:125px 20px}
+.native-effect,.native-ability{scroll-margin-block:125px 20px}
 .joined-banner{margin-bottom:5px;padding:7px 9px;border-radius:7px}
 .joined-banner>span{font-size:10px}
 .joined-banner h3{margin:2px 0;font-size:14px;line-height:1.4}
@@ -117,4 +105,3 @@
 .play-tab-copy{max-width:158px}
 #gameView .play-card-stage{scroll-margin-top:calc(var(--play-sticky-top) + 58px)}
 @media(max-width:359px){.native-card .native-title h2{font-size:16px}.native-stat strong{font-size:14px}.native-card .card-keyword-chip{font-size:10px}.native-pool{padding:5px 4px}.native-dice{gap:1px}}
-

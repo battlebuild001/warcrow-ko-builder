@@ -213,6 +213,7 @@ function renderGame(){
   }).join('');
   const chevron='<svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg>';
   view.innerHTML=`<header class="game-heading play-header"><div class="play-roster-title"><span class="section-kicker">${ui('플레이 모드','PLAY MODE')}</span><h2>${escapeHtml(game.name)}</h2><p>${ui(`${units.length}개 유닛`,`${units.length} units`)}<span aria-hidden="true">·</span>${ui('카드를 좌우로 넘겨 보세요.','Swipe to browse cards.')}</p></div>${playTools}</header>${typeof scenarioPlaySummary==='function'?scenarioPlaySummary(game):''}<nav class="play-navigation play-unit-navigation" aria-label="${ui('유닛 카드 이동','Unit card navigation')}"><button type="button" class="play-page-arrow play-page-previous" data-play-step="-1" aria-label="${ui('이전 유닛 카드','Previous unit card')}" ${units.length===1?'disabled':''}>${chevron}</button><div class="play-tabs" id="playUnitTabs" role="tablist" aria-label="${ui('선택한 유닛','Selected units')}" aria-orientation="horizontal">${tabs}</div><button type="button" class="play-page-arrow" data-play-step="1" aria-label="${ui('다음 유닛 카드','Next unit card')}" ${units.length===1?'disabled':''}>${chevron}</button><select id="playUnitSelect" hidden aria-hidden="true" tabindex="-1">${units.map((entry,i)=>`<option value="${i}" ${i===index?'selected':''}>${escapeHtml(entry.label||unitName(entry.unit||entry))}</option>`).join('')}</select><span class="sr-only" role="status" aria-live="polite">${index+1} / ${units.length} · ${escapeHtml(display.label||unitName(unit))}</span></nav><div id="playCardStage" class="play-card-stage" role="tabpanel" aria-labelledby="playUnitTab${index}" tabindex="0" data-rule-unit="${escapeHtml(unit.id)}">${card}</div>`;
+  bindKeywordCard($('#playCardStage .native-card[data-card-key]'),unit,display.character?joinedCardData(display):{});
   requestAnimationFrame(()=>{
     const rail=$('#playUnitTabs'),tab=rail?.querySelector('[aria-selected="true"]');
     if(rail&&tab)rail.scrollTo({left:Math.max(0,tab.offsetLeft-(rail.clientWidth-tab.offsetWidth)/2),behavior:'instant'});
@@ -229,6 +230,7 @@ function openKoreanCard(u){
   $('#dialogShowcase').dataset.ruleUnit=u.id;
   $('#dialogShowcase').hidden=false;
   $('#dialogShowcase').innerHTML=nativeUnitCard(u);
+  bindKeywordCard($('#dialogShowcase .native-card'),u);
   $('#dialogEnglish').textContent=(cardAbilities[u.cardKey]||[]).map(box=>box.english).join('\n\n')||ui('원문 상세 카드 미제공','Detailed source card unavailable');
   const link=$('#cardOriginalLink'),source=localCardUrl(u)||u.cardUrl;
   link.hidden=!source;if(source)link.href=source;else link.removeAttribute('href');

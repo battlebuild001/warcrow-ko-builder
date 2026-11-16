@@ -1,0 +1,38 @@
+/* Keyword help lives in a focused dialog; the army card contains chips only. */
+.keyword-dialog{box-sizing:border-box;width:min(640px,calc(100vw - 20px));max-height:calc(100dvh - 24px);margin:auto;padding:0;border:1px solid var(--accent,#b6a0de);border-radius:12px;background:#f8f2e6;color:#241d16;overflow:auto;overscroll-behavior:contain;box-shadow:0 24px 70px #08060d88;scrollbar-width:thin}
+.keyword-dialog::backdrop{background:#08060dbb;backdrop-filter:blur(4px)}
+.keyword-popup-head{position:sticky;top:0;z-index:2;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:13px 15px;background:var(--surface,#241f2e);color:var(--text,#f4f0f8);border-bottom:1px solid var(--accent,#b6a0de)}
+.keyword-popup-head>div{min-width:0}
+.keyword-popup-head p{margin:0 0 4px;color:var(--sage,#94b9ac);font-size:11px;line-height:1.45;overflow-wrap:anywhere}
+.keyword-popup-head h2{margin:0;color:var(--text,#f4f0f8);font-size:18px;font-weight:750;line-height:1.45;word-break:keep-all;overflow-wrap:anywhere}
+.keyword-popup-head h2:focus{outline:none}
+.keyword-popup-close{appearance:none;display:grid;place-items:center;flex:none;width:38px;height:38px;margin:0;padding:0;border:1px solid var(--line,#554a65);border-radius:50%;background:transparent;color:var(--text,#f4f0f8);font:28px/1 system-ui,sans-serif;cursor:pointer}
+.keyword-popup-body{padding:12px}
+.keyword-popup-entry{margin:0;padding:0;font-size:14px;line-height:1.65;overflow-wrap:anywhere}
+.keyword-popup-status{display:table;margin:0 0 8px;padding:3px 7px;border:1px solid #c9b6d7;border-radius:5px;background:#f0e8f6;color:#604675;font-size:11px;font-weight:700;line-height:1.5}
+.keyword-popup-timing{margin:0;padding:9px 11px;border-left:3px solid #9b80bf;border-radius:0 5px 5px 0;background:#eee5f2}
+.keyword-popup-timing h3{margin:0 0 4px;color:#604675;font-size:12px;line-height:1.45}
+.keyword-popup-timing p{margin:0;color:#30251a;font-size:14px;line-height:1.65}
+.keyword-dialog .keyword-explanation-body{padding:10px 0 0;font-size:14px;line-height:1.65}
+.keyword-dialog .keyword-explanation-body p{margin:0 0 9px}
+.keyword-dialog .keyword-explanation-body h4{margin:13px 0 5px;color:#74512a;font-size:12px;line-height:1.45}
+.keyword-dialog .keyword-source-type,.keyword-dialog .keyword-faction-note{padding:8px 10px;font-size:12px;line-height:1.65}
+.keyword-dialog .keyword-english{margin-top:5px;font-size:.92em;line-height:1.6}
+.keyword-dialog .keyword-source{margin-bottom:8px!important;padding:9px!important}
+.keyword-dialog .keyword-source>strong{font-size:12px;line-height:1.55}
+.keyword-dialog .keyword-source>p{margin:5px 0;font-size:12px;line-height:1.6}
+.keyword-dialog .keyword-source blockquote{margin:7px 0 0;padding:7px 9px}
+.keyword-dialog .native-rule-copy,.keyword-dialog .keyword-source blockquote .native-rule-copy{color:#30251a;font-size:13px;line-height:1.65}
+.keyword-dialog .native-english{margin-top:6px;padding-top:6px;border-top:1px dashed #c8b89e;color:#66513d;font-size:12px}
+.keyword-dialog .keyword-source-cost{gap:3px;margin-top:5px}
+.keyword-dialog .keyword-source-cost .native-cost{--native-glyph-size:22px;width:26px;height:28px;color:#fff}
+.keyword-dialog .keyword-source-cost .native-cost>span{color:#fff}
+.keyword-dialog .keyword-source-cost .native-cost:before{inset:5px 4px;background:#11150f}
+.keyword-dialog .keyword-jump,.keyword-dialog .keyword-full-rule{appearance:none;display:inline-flex;align-items:center;min-height:38px;max-width:100%;margin:7px 0 0;padding:6px 9px;border:1px solid #b89f78;border-radius:5px;background:#fffaf0;color:#475745;font-family:inherit;font-size:12px;line-height:1.5;text-align:left;white-space:normal;cursor:pointer}
+.keyword-dialog .keyword-full-rule{border-color:#ab91c7;background:#eadff5;color:#4b365c;font-weight:700}
+.keyword-dialog .keyword-citation{display:block;margin-top:6px;font-size:10px;color:#705c43;line-height:1.6}
+.keyword-dialog .rule-term{color:inherit}
+.keyword-dialog .rule-term:hover{color:#725087;background:#b6a0de25}
+.keyword-dialog button:focus-visible{outline:2px solid #8863b0;outline-offset:3px}
+@media(max-width:359px){.keyword-popup-head{padding:11px 12px}.keyword-popup-head h2{font-size:16px}.keyword-popup-body{padding:10px}}
+

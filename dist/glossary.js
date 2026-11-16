@@ -44,7 +44,7 @@ function inferRuleUnit(target){
 
 function openRule(id,options={}){
   const dialog=$('#ruleDialog');
-  if(!dialog.open){ruleHistory=[];ruleContextUnit=options.unit||null;ruleContextEnhanced=options.enhanced||false;ruleContextProfile=options.profile||null;currentRuleId=''}
+  if(!dialog.open||options.resetContext){ruleHistory=[];ruleContextUnit=options.unit||null;ruleContextEnhanced=options.enhanced||false;ruleContextProfile=options.profile||null;currentRuleId=''}
   if(!options.raw&&id==='tinge'&&ruleContextUnit?.faction==='scions-of-yaldabaoth')id='tinge-scions';
   if(!ruleById.has(id))return openRuleBrowser(options.unit);
   if(dialog.open&&currentRuleId&&currentRuleId!==id&&!options.back)ruleHistory.push({id:currentRuleId,scroll:dialog.scrollTop});
@@ -80,7 +80,7 @@ function renderRuleSearch(query){
 }
 document.addEventListener('click',event=>{
   const term=event.target.closest('[data-rule]');
-  if(term){if(term.closest('#playCardStage')&&Date.now()<(window.warcrowSkipRuleClickUntil||0)){event.preventDefault();return}event.preventDefault();event.stopPropagation();const inside=$('#ruleDialog').open&&$('#ruleDialog').contains(term);openRule(term.dataset.rule,{unit:inside?ruleContextUnit:inferRuleUnit(term),profile:inside?ruleContextProfile:JSON.parse(term.closest('[data-rule-profile]')?.dataset.ruleProfile||'null'),raw:term.hasAttribute('data-rule-raw'),enhanced:term.dataset.ruleStatScope==='enhancement'});return}
+  if(term){if(term.closest('#playCardStage')&&Date.now()<(window.warcrowSkipRuleClickUntil||0)){event.preventDefault();return}event.preventDefault();event.stopPropagation();const inside=$('#ruleDialog').open&&$('#ruleDialog').contains(term),popup=typeof keywordPopupRuleContext==='function'?keywordPopupRuleContext(term):null;openRule(term.dataset.rule,{unit:popup?popup.unit:inside?ruleContextUnit:inferRuleUnit(term),profile:popup?popup.profile:inside?ruleContextProfile:JSON.parse(term.closest('[data-rule-profile]')?.dataset.ruleProfile||'null'),raw:term.hasAttribute('data-rule-raw'),enhanced:term.dataset.ruleStatScope==='enhancement',resetContext:!!popup});return}
   const browser=event.target.closest('[data-open-rules]');if(browser){event.preventDefault();openRuleBrowser(inferRuleUnit(browser))}
 });
 document.addEventListener('input',event=>{if(event.target.id==='ruleSearch'){$('#ruleDetail').hidden=true;$('#ruleSearchResults').hidden=false;renderRuleSearch(event.target.value)}});

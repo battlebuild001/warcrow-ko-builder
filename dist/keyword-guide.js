@@ -62,6 +62,7 @@ function keywordTermLabel(term,unit=null){
   if(term.owned&&unit&&term.id==='join'){const targets=joinGroups(unit).map(group=>group.map(t=>keywordJoinName(t,unit)).join(' + ')).join(' | ');return ui('합류','Join')+' ('+targets+')';}
   if(['dispel','cover'].includes(term.id)&&keywordParameterText(term.raw))return ui(term.id==='dispel'?'주문 해제':'엄폐',term.id==='dispel'?'Dispel':'Cover')+' ('+keywordParameterText(term.raw)+')';
   if(['place','displace','shove','attract','intimidating'].includes(term.id)){const base={place:'배치',displace:'강제 이동',shove:'밀어내기',attract:'끌어당기기',intimidating:'위압'}[term.id];return ui(base+(term.value?'('+term.value+')':''),ruleById.get(term.id).english.replace(/\(.*\)/,term.value?'('+term.value+')':'').trim());}
+  const entry=ruleById.get(term.id);if(language!=='en'&&ko(term.raw)===term.raw&&entry)return ui(entry.label,entry.english);
   return traitName(term.raw);
 }
 function keywordSkillTiming(item){
@@ -105,25 +106,53 @@ function keywordTermMarkup(term,unit){
     'This rule is referenced by the skills or switches below. Listing it grants neither a separate action nor the state itself.'
   ];
   const scions=term.id==='tinge'&&unit.faction==='scions-of-yaldabaoth'?'<p class="keyword-faction-note">'+keywordCopy('이 진영은 사이언즈 오브 얄다바오트의 팅지 전용 표를 사용합니다. 토큰을 받을 때마다 판정하지 않고, 규칙이 지정한 확인 시점에 처리합니다.','This faction uses the Scions of Yaldabaoth Tinge table. Check effects only at specified checkpoints, not whenever a token is gained.')+'</p>':'';
-  return '<details class="keyword-explanation" data-keyword-entry="'+escapeHtml(term.key)+'" data-keyword-rule="'+term.id+'"><summary><span class="keyword-term-heading"><strong>'+escapeHtml(keywordTermLabel(term,unit))+'</strong><small>'+status+'</small></span><span class="keyword-term-timing">'+keywordCopy(...timing,true)+'</span></summary><div class="keyword-explanation-body"><p class="keyword-source-type">'+keywordCopy(...intro)+'</p><h4>'+ui('처리 방법','How to resolve')+'</h4><p>'+keywordCopy(...usage)+'</p>'+keywordParameterNote(term,unit)+scions+(term.sources.length?'<h4>'+ui('이 카드에서 사용하는 시점·조건','Timing and conditions on this card')+'</h4><ul class="keyword-sources">'+term.sources.map(keywordSourceMarkup).join('')+'</ul>':'')+'<button type="button" class="keyword-full-rule" data-rule="'+term.id+'">'+ui('전체 규칙·예외 보기','Full rule and exceptions')+' ↗</button><small class="keyword-citation">'+(entry?.pages?.length?ui('공식 룰북 1.6.1 · ','Official rulebook 1.6.1 · p. ')+entry.pages.join(', '):ui('카드의 지시를 따릅니다.','Follow the card instruction.'))+'</small></div></details>';
+  return '<article class="keyword-popup-entry" data-keyword-entry="'+escapeHtml(term.key)+'" data-keyword-rule="'+term.id+'"><p class="keyword-popup-status">'+status+'</p><section class="keyword-popup-timing"><h3>'+ui('사용 시점','When to use')+'</h3><p>'+keywordCopy(...timing)+'</p></section><div class="keyword-explanation-body"><p class="keyword-source-type">'+keywordCopy(...intro)+'</p><h4>'+ui('처리 방법','How to resolve')+'</h4><p>'+keywordCopy(...usage)+'</p>'+keywordParameterNote(term,unit)+scions+(term.sources.length?'<h4>'+ui('이 카드에서 사용하는 시점·조건','Timing and conditions on this card')+'</h4><ul class="keyword-sources">'+term.sources.map(keywordSourceMarkup).join('')+'</ul>':'')+'<button type="button" class="keyword-full-rule" data-rule="'+term.id+'">'+ui('전체 규칙·예외 보기','Full rule and exceptions')+' ↗</button><small class="keyword-citation">'+(entry?.pages?.length?ui('공식 룰북 1.6.1 · ','Official rulebook 1.6.1 · p. ')+entry.pages.join(', '):ui('카드의 지시를 따릅니다.','Follow the card instruction.'))+'</small></div></article>';
 }
 function cardKeywordGuide(unit,options={}){
   const model=keywordGuideModel(unit,options),owned=model.terms.filter(t=>t.owned),references=model.terms.filter(t=>!t.owned);
-  const chips=(terms,caption)=>terms.length?'<div class="keyword-chip-group"><span class="card-keyword-caption">'+caption+'</span>'+terms.map(term=>'<button type="button" class="card-keyword-chip" data-keyword-open="'+escapeHtml(term.key)+'" aria-label="'+escapeHtml(keywordTermLabel(term,unit))+' '+ui('사용법 보기','usage')+'">'+escapeHtml(keywordTermLabel(term,unit))+'</button>').join('')+'</div>':'';
-  const explanation=keywordCopy('종족·병종 같은 특성은 대상·합류 조건을 판별하는 분류입니다. 보유 키워드는 정해진 상황에 적용하는 공통 규칙입니다. 이름이 붙은 능력은 종류별 행동·비용·조건에 따라 쓰며, 스위치는 해당 굴림의 기호를 소비해 발동합니다. 효과에서 참조하는 용어는 그 효과가 지시할 때만 적용합니다.','Traits such as species and troop type classify units for targets and Join requirements. Printed keywords follow their own shared rules. Named skills use their type’s actions, costs and conditions. Switches spend symbols from the matching roll. Referenced terms apply when their source effect instructs you.');
-  return '<section class="card-keyword-guide">'+(owned.length||references.length?'<div class="card-keyword-chips">'+chips(owned,ui('보유 키워드','Printed keywords'))+chips(references,ui('능력·스위치에서 참조하는 규칙','Rules referenced by skills and switches'))+'</div>':'')+'<details class="keyword-guide-panel"><summary>'+ui('키워드·능력은 어떻게 다른가요?','Keywords, skills and switches')+(model.terms.length?' <span>'+model.terms.length+'</span>':'')+'</summary><div class="keyword-guide-intro">'+explanation+'<p>'+ui('각 항목을 펼치면 사용 시점, 처리 방법과 이 카드의 실제 발동 문구가 나옵니다.','Expand an entry for timing, resolution and this card’s actual instruction.')+'</p></div>'+model.terms.map(t=>keywordTermMarkup(t,unit)).join('')+'</details></section>';
+  const chips=(terms,caption)=>terms.length?'<div class="keyword-chip-group"><span class="card-keyword-caption">'+caption+'</span>'+terms.map(term=>'<button type="button" class="card-keyword-chip" data-keyword-open="'+escapeHtml(term.key)+'" aria-haspopup="dialog" aria-label="'+escapeHtml(keywordTermLabel(term,unit))+' '+ui('설명 보기','explanation')+'">'+escapeHtml(keywordTermLabel(term,unit))+'</button>').join('')+'</div>':'';
+  return owned.length||references.length?'<section class="card-keyword-guide"><div class="card-keyword-chips">'+chips(owned,ui('보유 키워드','Printed keywords'))+chips(references,ui('능력·스위치에서 참조하는 규칙','Rules referenced by skills and switches'))+'</div></section>':'';
+}
+const keywordCardContexts=new WeakMap();
+let keywordPopupContext=null;
+function bindKeywordCard(card,unit,options={}){
+  if(!card||!unit)return null;
+  const context={card,unit,profile:options.profile||nativeCards[unit.cardKey]||{},model:keywordGuideModel(unit,options)};
+  keywordCardContexts.set(card,context);return context;
+}
+function keywordPopupRuleContext(target){
+  return keywordPopupContext&&target?.closest('#keywordDialog')?{unit:keywordPopupContext.unit,profile:keywordPopupContext.profile}:null;
+}
+function openKeywordPopup(opener){
+  const card=opener.closest('.native-card'),context=card&&keywordCardContexts.get(card);
+  if(!context)return;
+  const term=context.model.terms.find(t=>t.key===opener.dataset.keywordOpen);if(!term)return;
+  let dialog=document.getElementById('keywordDialog');
+  if(!dialog){dialog=document.createElement('dialog');dialog.id='keywordDialog';dialog.className='keyword-dialog';dialog.setAttribute('aria-labelledby','keywordPopupTitle');document.body.append(dialog);}
+  if(dialog.open)return;
+  const current={...context,opener,restoreFocus:true};keywordPopupContext=current;
+  dialog.dataset.ruleUnit=context.unit.id;
+  dialog.innerHTML='<header class="keyword-popup-head"><div><p>'+escapeHtml(unitName(context.unit))+'</p><h2 id="keywordPopupTitle" tabindex="-1">'+escapeHtml(keywordTermLabel(term,context.unit))+'</h2></div><button type="button" class="keyword-popup-close" data-close-keyword aria-label="'+ui('키워드 설명 닫기','Close keyword explanation')+'">×</button></header><div class="keyword-popup-body">'+keywordTermMarkup(term,context.unit)+'</div>';
+  dialog.querySelector('[data-close-keyword]').addEventListener('click',()=>dialog.close());
+  dialog.addEventListener('close',()=>{
+    if(keywordPopupContext===current)keywordPopupContext=null;
+    if(current.restoreFocus&&current.opener.isConnected)current.opener.focus({preventScroll:true});
+  },{once:true});
+  dialog.showModal();dialog.scrollTop=0;dialog.querySelector('#keywordPopupTitle').focus({preventScroll:true});
 }
 document.addEventListener('click',event=>{
-  const opener=event.target.closest('[data-keyword-open]'),jump=event.target.closest('[data-keyword-jump]');if(!opener&&!jump)return;
-  const card=(opener||jump).closest('.native-card');if(!card)return;event.preventDefault();
+  const opener=event.target.closest('[data-keyword-open]');
   if(opener){
-    const panel=card.querySelector('.keyword-guide-panel'),entry=[...card.querySelectorAll('[data-keyword-entry]')].find(e=>e.dataset.keywordEntry===opener.dataset.keywordOpen);
-    if(!entry)return;panel.open=true;entry.open=true;entry.querySelector('summary').focus({preventScroll:true});entry.scrollIntoView({block:'start',behavior:'auto'});return;
+    if(opener.closest('#playCardStage')&&Date.now()<(window.warcrowSkipRuleClickUntil||0)){event.preventDefault();return;}
+    event.preventDefault();openKeywordPopup(opener);return;
   }
-  const [kind,index]=jump.dataset.keywordJump.split(':'),target=card.querySelector('[data-'+kind+'-index="'+index+'"]');
-  if(!target)return;target.tabIndex=-1;target.focus({preventScroll:true});target.scrollIntoView({block:'center',behavior:'auto'});target.classList.add('keyword-effect-focus');setTimeout(()=>target.classList.remove('keyword-effect-focus'),1600);
+  const jump=event.target.closest('[data-keyword-jump]');if(!jump||!jump.closest('#keywordDialog')||!keywordPopupContext)return;
+  event.preventDefault();const context=keywordPopupContext,[kind,index]=jump.dataset.keywordJump.split(':');
+  const target=context.card.isConnected?context.card.querySelector('[data-'+kind+'-index="'+index+'"]'):null;
+  if(!target)return;
+  context.restoreFocus=false;document.getElementById('keywordDialog').close();
+  target.tabIndex=-1;target.focus({preventScroll:true});target.scrollIntoView({block:'center',behavior:'auto'});target.classList.add('keyword-effect-focus');setTimeout(()=>target.classList.remove('keyword-effect-focus'),1600);
 });
-
 
 function keywordParameterText(raw,lang=language){
   const glyphColors={7:['검정','Black'],8:['파랑','Blue'],9:['초록','Green']};
