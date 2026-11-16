@@ -12,3 +12,11 @@
 .play-join-controls .play-join-action:hover{background:var(--accent-strong,#d4c2f2);border-color:var(--accent-strong,#d4c2f2);color:var(--bg,#16131c)}
 .play-join-controls .play-join-action:active{box-shadow:inset 0 2px 4px #16131c26}
 .play-join-controls .play-join-action:focus-visible{outline:3px solid var(--sage,#94b9ac);outline-offset:4px}
+
+/* Dialog actions need explicit theme colors; generic .button only defines sizing. */
+.join-play-form [data-join-submit]{appearance:none;-webkit-appearance:none;min-height:48px;padding:10px 16px;border:1px solid var(--accent-strong,#d4c2f2);border-radius:9px;background:var(--accent,#b6a0de);color:var(--bg,#16131c);font-family:inherit;font-size:14px;font-weight:800;line-height:1.5;text-align:center;box-shadow:0 2px 8px #0b091133;touch-action:manipulation}
+.join-play-form [data-join-submit]:enabled:hover{background:var(--accent-strong,#d4c2f2);border-color:var(--accent-strong,#d4c2f2);color:var(--bg,#16131c)}
+.join-play-form [data-join-submit]:enabled:active{box-shadow:inset 0 2px 4px #16131c26}
+.join-play-form [data-join-submit]:focus-visible{outline:3px solid var(--sage,#94b9ac);outline-offset:3px}
+.join-play-form [data-join-submit]:disabled{border-color:var(--line,#554a65);background:var(--surface2,#30283c);color:var(--muted,#c1b7ca);box-shadow:none;opacity:.55;cursor:not-allowed}
+.join-play-form footer [data-join-dialog-cancel]{appearance:none;-webkit-appearance:none;min-height:48px;padding:10px 16px;border:1px solid var(--line,#554a65);border-radius:9px;background:transparent;color:var(--text,#f4f0f8);font-size:14px;line-height:1.5}
