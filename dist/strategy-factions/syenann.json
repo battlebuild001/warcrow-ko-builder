@@ -1,0 +1,766 @@
+{
+  "id": "syenann",
+  "title": "시예난",
+  "tagline": "숲과 네모러스 거점을 연결하고, 한 번의 교전을 유리한 위치 교환으로 바꾸기",
+  "overview": "시예난은 숲을 배경으로 삼는 데서 그치지 않고, 숲과 아군 네모러스 유닛까지의 거리로 사격 후 이동·공격 강화·배치 능력의 연결망을 만드는 진영입니다. 궁병, 정찰 보병, 매복 타격대, 기병과 주문 지원의 역할이 다릅니다. 모든 유닛이 네모러스이거나 매복을 가진 것은 아닙니다. 무엇을 죽일지와 함께 그 공격을 마친 뒤 어디에 남을지를 먼저 정하면 장점이 드러납니다. 아래 전략은 공식 카드와 룰북을 바탕으로 한 저자 분석이며, 실제 대회 우승 명단이나 검증된 진영 승률을 뜻하지 않습니다.",
+  "styleTags": [
+    "숲·네모러스 거리 관리",
+    "사격 후 이탈",
+    "정찰·매복의 시간차",
+    "상태와 위치 통제",
+    "지휘 토큰 배분"
+  ],
+  "sections": [
+    {
+      "id": "identity",
+      "title": "공식 특성과 현재 유닛풀",
+      "kind": "official",
+      "paragraphs": [
+        "공식 소개는 빠른 공격과 이탈을 강조하지만, 이것을 모든 유닛이 똑같이 움직인다는 규칙으로 읽으면 안 됩니다. 프로텍터스 오브 더 포리스트는 사거리 18의 사격과 사격 후 강제 이동을, 그로브 커테일러스는 정찰과 전투 후 이탈을, 섀도스 오브 더 유는 매복 및 돌격·강습 시 상대 반응 봉쇄를 담당합니다. 시에나 워든스는 온전한 병력 패널에서 점령값 2와 COM 1을 제공하는 별도의 목표물 전력입니다.",
+        "현재 공식 추출 데이터의 시예난 목록에는 공유 용병을 포함해 26개 프로필이 있습니다. 다라치 와이들링과 우나는 일반전과 WTS를 구분해야 하며 시즌 2 예시에서는 제외합니다. 네카일 오엔 피아라는 합류 대상과 특성 메타데이터는 있으나 원본 카드와 장교·지원 유형을 확인하지 못해, 아래 편성의 지휘관이나 핵심 연계로 사용하지 않았습니다.",
+        "프로텍터스 오브 더 포리스트와 그로브 커테일러스는 원래 네모러스 특성이 없습니다. 이름이 숲과 관련되거나 정찰이 있다고 네모러스가 되는 것은 아닙니다. 반면 드루이드·스프리그스·시에나 워든스·클라우디드 등은 실제로 그 특성을 가집니다. 거점의 자격은 카드의 특성으로 판별합니다."
+      ],
+      "bullets": [],
+      "unitIds": [
+        "protectors-of-the-forest",
+        "grove-curtailers",
+        "shadows-of-the-yew",
+        "syena-wardens",
+        "neakail-oen-fhiahra"
+      ],
+      "sourceIds": [
+        "sy-official-nation",
+        "sy-builder",
+        "sy-card-protectors_of_the_forest",
+        "sy-card-grove_curtailers",
+        "sy-card-syena_wardens"
+      ]
+    },
+    {
+      "id": "network",
+      "title": "숲을 점이 아닌 연결망으로 읽기",
+      "kind": "analysis",
+      "paragraphs": [
+        "배치 전에 서로 다른 세 거리를 표시해 보세요. 궁병은 사격을 끝낸 순간 숲 또는 아군 네모러스 5보폭 이내여야 스토킹 프롬 더 포리스트로 강제 이동(4)을 할 수 있습니다. 커테일러스의 슬리퍼리는 자신이 숲 또는 아군 네모러스 7보폭 이내에서 교전해야 합니다. 그랜드 캡틴의 앰부싱 택틱스는 숲 또는 아군 네모러스 5보폭 이내의 아군에게 근접 공격 재굴림을 허용합니다. 이 능력은 영구이므로 캐릭터가 합류해도 계속 적용됩니다. 하나의 넓은 오라로 합쳐 기억하면 필요한 순간에 범위를 벗어납니다.",
+        "드루이드는 배치 단계 전에 시야 차단·엄폐(검정 주사위 1개)를 가진 숲 하나를 놓을 수 있으며, 그 베이스는 한 변 7보폭 정사각형 안에 들어가야 합니다. 이 숲의 목적은 중앙을 많이 가리는 것만이 아닙니다. 궁병이 사격 후 숨는 방향, 커테일러스가 무장 해제를 얻는 접근로, 워커가 돌아올 후보 지점을 한꺼번에 늘리는 위치를 고릅니다. 숲은 아군의 시야도 차단하므로 자기 사격로를 완전히 막지 않는지 확인합니다.",
+        "네모러스 유닛 하나를 전방으로 보내는 것은 지원망을 이동시키는 일이기도 합니다. 다만 연결용 유닛이 먼저 파괴되면 뒤의 궁병과 타격대가 동시에 조건을 잃을 수 있습니다. 한 지점에 전부 의존하기보다 숲 하나와 살아 있는 네모러스 유닛 하나처럼 대체 거점을 확보하면 이탈 경로가 안정됩니다. 위치 변경 능력은 일반 이동과 다르지만, 모델이 실제로 들어갈 공간과 모험의 금지 사항까지 무시하는 허가가 되지는 않습니다."
+      ],
+      "bullets": [],
+      "unitIds": [
+        "druid",
+        "grand-captain",
+        "protectors-of-the-forest",
+        "grove-curtailers",
+        "walker-of-the-leaf-storm"
+      ],
+      "sourceIds": [
+        "sy-card-druid",
+        "sy-card-grand_captain",
+        "sy-card-protectors_of_the_forest",
+        "sy-card-grove_curtailers",
+        "sy-rules"
+      ]
+    },
+    {
+      "id": "resources",
+      "title": "공격보다 먼저 정할 자원 예산",
+      "kind": "analysis",
+      "paragraphs": [
+        "시예난의 강한 위치 변경 중에는 지휘 능력이 많습니다. 그랜드 캡틴의 머누버스 인 더 포리스트, 시예난 캡틴의 코오디네이트 디 어드밴스, 알룰라의 서프라이즈 어택, 워커의 프리페어드 투 스트라이크는 행동 대신 COM 1개를 요구합니다. 중대의 COM 합계로 시작한 토큰은 보통 회복하지 않습니다. 매 라운드 전부 사용할 수 있는 능력 목록으로 여기지 말고, 이번 게임에 몇 번 구매할 수 있는지 셉니다.",
+        "예를 들어 궁병을 살리는 알룰라의 반응에 COM을 남기면, 같은 턴 그랜드 캡틴으로 두 유닛을 재배치할 여유가 줄어듭니다. 반대로 궁병이 이미 안전하고 다음 채점에 두 목표를 동시에 바꿀 수 있다면 지휘 토큰을 기동에 쓰는 편이 낫습니다. 능력의 라운드당 한 번 제한과 토큰 총량은 서로 별개의 제한입니다.",
+        "주문은 통상 행동과 시전 절차를 필요로 하고, 검정 주사위 변형은 성공한 주문 뒤 팅지 굴림을 유발합니다. 드루이드의 공격 주문에 둔화를 더하거나 지원 주문에 스트레스 제거를 더하는 선택도 공짜가 아닙니다. 현재 팅지 수, 시전자가 생존해야 할 남은 라운드, 이번 효과가 즉시 바꿀 득점을 보고 강화합니다. 팅지 토큰을 얻을 때마다 무조건 표를 적용하는 식으로 단순화하지 말고 규칙이 지시하는 시점을 따릅니다."
+      ],
+      "bullets": [],
+      "unitIds": [
+        "grand-captain",
+        "syenann-captain",
+        "alula",
+        "walker-of-the-leaf-storm",
+        "druid"
+      ],
+      "sourceIds": [
+        "sy-rules",
+        "sy-card-grand_captain",
+        "sy-card-alula",
+        "sy-card-walker_of_the_leaf_storm",
+        "sy-card-druid"
+      ]
+    },
+    {
+      "id": "joins",
+      "title": "합류는 능력 추가 버튼이 아닌 역할 교체",
+      "kind": "official",
+      "paragraphs": [
+        "합류 조건의 쉼표는 조건을 모두 충족한다는 뜻입니다. 그랜드 캡틴·리오스레이스 코익 칼레디·아오이도스·시예난 캡틴은 시예난 보병에 합류할 수 있고, 워든 캡틴은 시에나 워든스에만 합류합니다. 한 유닛에는 캐릭터 한 명만 들어갑니다. 드루이드·알룰라·에일린·워커처럼 합류 키워드가 없는 캐릭터는 근처에 서 있어도 합류한 것으로 처리할 수 없습니다.",
+        "합류 중에는 유닛 내 캐릭터 프로필을 사용하되, 기본 프로필의 영구 능력은 예외적으로 유지됩니다. 그랜드 캡틴의 앰부싱 택틱스가 그 예입니다. 합류 뒤에도 전군 선호 지형과 조건부 근접 공격 재굴림을 제공하며, 합류 프로필의 위 아 원 위드 더 그레이트 포리스트는 소속 유닛에 네모러스를 추가로 부여합니다. 반면 워든 캡틴의 기본 스트렝슨 더 섀도스는 영구가 아니므로 합류 중 슬리퍼리와 동시에 적용하지 않습니다. 아오이도스의 일반 주문도 합류 프로필에 없다는 점을 확인합니다.",
+        "캐릭터의 특성·키워드는 원칙적으로 소속 유닛에 자동 공유되지 않습니다. 따라서 리오스레이스가 네모러스라는 사실만으로 합류한 섀도스 오브 더 유 전체가 네모러스 거점이 되는 것은 아닙니다. 유닛 내 프로필에 명시된 예외를 확인해야 합니다. 합류로 올라간 병력 수와 MOR도 유용하지만, 독립 활성화 하나를 줄이는 대가와 비교합니다."
+      ],
+      "bullets": [],
+      "unitIds": [
+        "grand-captain",
+        "lioslaith-coic-caledhee",
+        "aoidos",
+        "syenann-captain",
+        "warden-captain",
+        "shadows-of-the-yew"
+      ],
+      "sourceIds": [
+        "sy-rules",
+        "sy-card-grand_captain",
+        "sy-card-warden_captain",
+        "sy-card-aoidos",
+        "sy-card-lioslaith_coic_caledhee"
+      ]
+    },
+    {
+      "id": "tempo",
+      "title": "기동으로 만드는 실제 교환",
+      "kind": "analysis",
+      "paragraphs": [
+        "사격 목표는 체력이 가장 적은 적만이 아닙니다. 프로텍터스의 샤프 아처스는 원거리 공격으로 실제 피해를 입혀야 스트레스를 더합니다. 스트레스가 이미 높은 적을 겨눠 다음 활성화의 선택을 좁히거나, 목표물로 들어갈 적의 병력을 줄여 점령 패널을 낮출 수 있는지 봅니다. 피해를 못 줬는데 자동으로 스트레스를 더하지 않으며, 사격 후 이동도 자기 활성화 중의 사격 종료라는 조건이 있습니다.",
+        "섀도스 오브 더 유의 사일런트 앤드 프리사이스는 자신이 돌격·강습할 때 대상의 스위치·대기 사격과 지정된 반응형 지속 능력을 막습니다. 상대의 모든 능력을 게임 내내 지우는 효과는 아닙니다. 반응이 강한 적에게 첫 교전을 맡기고, 별도 지원 유닛이 같은 활성화에 무료로 연속 공격할 수 있다고 가정하지 않는 편이 안전합니다.",
+        "커테일러스는 전투를 해결한 뒤 패배 유닛 밀어내기 단계 전에 자신이 밀려나기로 선택하고, 그 이동에 첫 MOV 대신 돌격 수치를 씁니다. 이것은 공격 전에 무조건 빠져나가거나 교전 중 아무 때나 순간이동하는 능력이 아닙니다. 들어갈 때부터 빠질 방향을 정하고, 목표를 지켜야 하는 상황이라면 이탈이 오히려 점수를 내주는지 비교하세요."
+      ],
+      "bullets": [],
+      "unitIds": [
+        "protectors-of-the-forest",
+        "shadows-of-the-yew",
+        "grove-curtailers"
+      ],
+      "sourceIds": [
+        "sy-card-protectors_of_the_forest",
+        "sy-card-shadows_of_the_yew",
+        "sy-card-grove_curtailers"
+      ]
+    },
+    {
+      "id": "control",
+      "title": "둔화와 재집결을 승점으로 바꾸기",
+      "kind": "analysis",
+      "paragraphs": [
+        "스프리그스의 브랜치스 앤드 바인스는 자신과 교전 중이며 둔화 상태인 적의 모든 이동과 배치를 막습니다. 둔화 하나를 붙였다는 사실만으로 전장의 적을 멈추지는 않습니다. 드루이드의 변형이나 스프리그스의 스위치로 둔화를 만들고 실제 교전 상태를 유지해야 합니다. 상대가 상태를 제거하거나 스프리그스를 제거하면 구속이 풀릴 수 있으므로, 그 한 턴 동안 다른 유닛이 무엇을 얻는지 정합니다.",
+        "섀도 오브 더 호손은 교전한 모든 적의 점령값을 1 낮추고 이동·배치를 막습니다. 자신도 점령값 2이므로, 적을 파괴하지 않아도 목표물의 수치를 바꾸는 후보입니다. 다만 몸 하나가 버텨야 유지되는 통제입니다. 지원 없이 적 주력 사이에 넣기보다 사격이나 다른 교전으로 상대의 응답을 줄인 뒤 진입하는 편이 낫습니다.",
+        "워든스의 페인드 리트리트는 전투 종료 시 자발적으로 사기 붕괴하고 도주하며 재집결 토큰을 보통보다 이르게 놓습니다. 재집결 때 카운터마치 머누버로 이동 대신 활성화하여 돌격할 수 있습니다. 하지만 사기 붕괴 중에는 목표를 다투지 못하고, 재집결 굴림과 도주 경로도 남습니다. 지금 지키는 점수를 포기하고 다음 반격을 얻는 선택이지 무료 후퇴가 아닙니다."
+      ],
+      "bullets": [],
+      "unitIds": [
+        "sprigs",
+        "druid",
+        "shadow-of-the-hawthorn",
+        "syena-wardens"
+      ],
+      "sourceIds": [
+        "sy-rules",
+        "sy-card-sprigs",
+        "sy-card-druid",
+        "sy-card-shadow_of_the_hawthorn",
+        "sy-card-syena_wardens"
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": "입문 상자와 전략 자료를 구분하기",
+      "kind": "analysis",
+      "paragraphs": [
+        "공식 액션 팩은 드루이드·이너 다라 레인·아오이도스·리오스레이스·프로텍터스 한 유닛·섀도스 오브 더 유 한 유닛의 10개 미니어처로 구성됩니다. 미니어처 10개가 독립 유닛 10개인 것은 아닙니다. 현재 비용으로는 합계 170점이며, 공식 입문 기사도 이를 시작점으로 씁니다. 아래 245점 예시는 그 기사에서 제안한 워든스·스프리그스 추가 구성을 현행 프로필로 구체화했습니다.",
+        "공식 상점의 역할 설명과 실제 카드가 다르면 카드의 조건을 우선합니다. 아오이도스 주문은 2026년 6월에 변경되었으므로 오래된 영상의 문구를 그대로 적용하지 않습니다. 이번 조사에서 공개 레딧 검색은 403으로 본문을 읽지 못했고, 검증 가능한 시예난 대회 승리 명단도 확보하지 못했습니다. 따라서 본문의 전술은 카드에 근거한 연습 제안으로 표시합니다."
+      ],
+      "bullets": [],
+      "unitIds": [
+        "druid",
+        "ynyr-dara-lainn",
+        "aoidos",
+        "lioslaith-coic-caledhee",
+        "protectors-of-the-forest",
+        "shadows-of-the-yew"
+      ],
+      "sourceIds": [
+        "sy-official-pack",
+        "sy-official-250",
+        "sy-june-update",
+        "sy-builder"
+      ]
+    },
+    {
+      "id": "community-view",
+      "title": "영상 의견: 넓은 압박을 만드는 진영이라는 해석",
+      "kind": "community",
+      "paragraphs": [
+        "워터멜론 워게임즈의 2025년 입문 영상은 시예난을 상대가 여러 곳에 대응하게 만드는 유격·기동 진영으로 평가하고, 드루이드의 추가 숲과 섀도스 오브 더 유를 주요 입문 축으로 소개합니다. 또한 섀도 오브 더 호손은 살상보다 점령·교전 구속, 워커는 시간차 재배치에 가치가 있다는 의견을 냅니다. 이는 영상 제작자의 평가이며 실제 승률이나 필수 채용률 자료가 아닙니다.",
+        "현재 카드와 대조하면 추가 숲·섀도스의 지정 반응 봉쇄·호손의 교전 통제·워커의 복귀라는 큰 역할은 확인됩니다. 다만 영상은 코어 1.6 이전 자료입니다. 영상의 일반적인 순간이동 설명을 무제한 배치로 적용하지 않으며, 워커는 주문으로 전장을 떠나고 복귀 후 활성화하는 지휘 능력에 COM1을 쓰는 현재 절차로 분리해 읽어야 합니다. 최상위 평균 이동·가장 복잡한 진영 같은 평가를 현행 전체 데이터의 통계로 인용하지 않았습니다."
+      ],
+      "bullets": [],
+      "unitIds": [
+        "druid",
+        "shadows-of-the-yew",
+        "shadow-of-the-hawthorn",
+        "walker-of-the-leaf-storm"
+      ],
+      "sourceIds": [
+        "sy-video-watermelon",
+        "sy-card-druid",
+        "sy-card-shadows_of_the_yew",
+        "sy-card-shadow_of_the_hawthorn",
+        "sy-card-walker_of_the_leaf_storm"
+      ]
+    }
+  ],
+  "unitRoles": [
+    {
+      "role": "사격·손실 없는 위치 조정",
+      "unitIds": [
+        "protectors-of-the-forest",
+        "syenann-captain"
+      ],
+      "why": "프로텍터스는 18보폭 사격, 피해 후 스트레스 추가, 조건부 강제 이동(4)을 가집니다. 시예난 캡틴은 12보폭 이내 비교전 아군에게 라운드당 한 번 COM을 써 이동을 제공합니다.",
+      "when": "중앙으로 달리기보다 사격 후 엄폐 복귀와 다음 채점 위치가 필요한 편성. 캡틴의 방어 재굴림은 자신이 주도권을 가졌을 때만 적용합니다.",
+      "sourceIds": [
+        "sy-card-protectors_of_the_forest",
+        "sy-builder",
+        "sy-card-syenann_captain"
+      ]
+    },
+    {
+      "role": "중앙 점령·반격",
+      "unitIds": [
+        "syena-wardens",
+        "warden-captain",
+        "sprigs"
+      ],
+      "why": "워든스는 온전한 3+ 패널의 점령값 2와 두터운 전투 패널, 스프리그스는 병력 회복과 둔화 교전 구속을 제공합니다. 워든 캡틴 합류는 MOR·점령값·전투 보너스와 조건부 무장 해제를 더합니다.",
+      "when": "넓은 유격만으로 지킬 수 없는 목표가 있을 때. 워든스가 2- 패널로 내려가면 기본 점령값이 1로 줄어드는 점도 계산합니다.",
+      "sourceIds": [
+        "sy-card-syena_wardens",
+        "sy-card-warden_captain",
+        "sy-card-sprigs"
+      ]
+    },
+    {
+      "role": "정찰·매복 타격",
+      "unitIds": [
+        "grove-curtailers",
+        "shadows-of-the-yew",
+        "clouded"
+      ],
+      "why": "커테일러스는 정찰·전투 후 이탈, 섀도스는 매복·반응 봉쇄, 클라우디드는 정찰과 배치(12) 행동을 가진 기병입니다. 같은 측면 역할이라도 진입 시점과 비용이 다릅니다.",
+      "when": "대기 사격이 위협이면 섀도스, 전방 교환 후 이탈이 중요하면 커테일러스, 먼 측면의 재배치가 필요하면 클라우디드를 검토합니다. 클라우디드는 키워드 매복을 가진 유닛으로 쓰지 않습니다.",
+      "sourceIds": [
+        "sy-card-grove_curtailers",
+        "sy-card-shadows_of_the_yew",
+        "sy-card-clouded"
+      ]
+    },
+    {
+      "role": "숲·주문·타이밍 지원",
+      "unitIds": [
+        "druid",
+        "aoidos",
+        "walker-of-the-leaf-storm",
+        "aileen-cethir-wynn"
+      ],
+      "why": "드루이드는 추가 숲과 전투 주문, 아오이도스는 상태·능력 억제와 스트레스 이전, 워커는 전장 이탈 후 복귀와 지휘 활성화, 에일린은 짧은 사격 및 아군 배치 지원으로 역할이 갈립니다.",
+      "when": "지원 캐릭터를 늘리기 전에 실제로 강화받을 전투 유닛과 COM 예산이 충분한지 봅니다. 여러 주문을 늘리는 편성은 행동·팅지·유지할 위치를 함께 요구합니다.",
+      "sourceIds": [
+        "sy-card-druid",
+        "sy-card-aoidos",
+        "sy-card-walker_of_the_leaf_storm",
+        "sy-card-aileen_cethir_wynn"
+      ]
+    },
+    {
+      "role": "독립 통제·반응",
+      "unitIds": [
+        "shadow-of-the-hawthorn",
+        "shadow-of-the-rowan",
+        "alula",
+        "ynyr-dara-lainn",
+        "eachann",
+        "moss-hermit"
+      ],
+      "why": "호손은 교전한 적을 묶고 점령값을 낮추며, 로완은 매복 후 아군 공격과 돌격 반응, 알룰라는 아군 교전 시 지휘 개입을 제공합니다. 이너·에칸·모스 허밋은 각각 재진입·밀어내기·근거리 압박에 무게를 둡니다.",
+      "when": "특정 문제를 해결할 때 한 종류씩 추가합니다. 알룰라의 개입도 COM을 쓰고, 모스 허밋은 큰 W 수치만으로 목표물을 다투는 점령 역할이 생기지 않습니다.",
+      "sourceIds": [
+        "sy-builder",
+        "sy-card-shadow_of_the_hawthorn",
+        "sy-card-shadow_of_the_rowan",
+        "sy-card-alula",
+        "sy-card-ynyr_dara_lainn",
+        "sy-card-eachann",
+        "sy-card-moss_hermit"
+      ]
+    }
+  ],
+  "synergies": [
+    {
+      "title": "드루이드의 숲 → 궁병 사격 → 안전한 복귀",
+      "unitIds": [
+        "druid",
+        "protectors-of-the-forest"
+      ],
+      "plan": "배치 전 드루이드로 사격로 옆에 숲을 놓습니다. 궁병을 자기 사격 종료 시 그 숲 또는 아군 네모러스 5보폭 이내가 되도록 이동시킨 뒤 사격합니다. 조건을 충족하면 스토킹 프롬 더 포리스트의 강제 이동(4)로 시야 밖이나 다음 목표 방향으로 이동합니다. 추가 지휘 토큰 없이 카드의 지속 능력을 활용하는 기본 연습입니다.",
+      "caution": "숲 자체가 자기 시야를 막을 수 있습니다. 사격 후 강제 이동은 원래 사격의 사거리·시야선을 만들어 주지 않고, 반응 사격에서도 무조건 발동하는 능력이 아닙니다.",
+      "sourceIds": [
+        "sy-card-druid",
+        "sy-card-protectors_of_the_forest"
+      ]
+    },
+    {
+      "title": "그랜드 캡틴의 두 지점 재배치",
+      "unitIds": [
+        "grand-captain",
+        "grove-curtailers",
+        "sprigs"
+      ],
+      "plan": "그랜드 캡틴의 활성화 중 COM 1을 지불해 머누버스 인 더 포리스트를 라운드당 한 번 사용합니다. 최대 두 아군이 각각 자기 7보폭 이내의 숲 또는 아군 네모러스에 인접하게 배치됩니다. 이미 숲에 가까운 유닛을 옮기는 것보다, 한 유닛은 위협에서 빼고 다른 유닛은 다음 점령 위치로 보내는 양방향 교환을 노립니다.",
+      "caution": "그랜드 캡틴 중심의 7보폭 오라가 아닙니다. 각 대상의 합법적인 도착 기준과 자리가 필요합니다. 앰부싱 택틱스는 영구 능력이므로 합류 후에도 유지되지만, 재굴림을 받는 각 아군은 여전히 숲 또는 아군 네모러스 5보폭 조건을 충족해야 합니다.",
+      "sourceIds": [
+        "sy-card-grand_captain",
+        "sy-rules"
+      ]
+    },
+    {
+      "title": "둔화 공급 → 스프리그스의 교전 구속",
+      "unitIds": [
+        "druid",
+        "sprigs",
+        "grove-curtailers"
+      ],
+      "plan": "먼저 드루이드가 퍼니시 디 인트루더를 시전하면서 검정 주사위 1개 변형을 선택하면 대상에게 스트레스와 둔화를 줄 수 있습니다. 또는 커테일러스·스프리그스의 실제 스위치 비용을 지불해 둔화를 만듭니다. 이어 스프리그스가 교전하여 브랜치스 앤드 바인스로 이동과 배치를 막는 동안 다른 유닛은 목표물을 확보합니다.",
+      "caution": "주문 변형은 성공 후 팅지 굴림을 요구합니다. 행동 순서상 서로 다른 유닛 사이에는 상대의 응답이 들어갈 수 있습니다. 구속은 둔화와 교전이 유지될 때만 작동하며 적의 모든 행동을 금지하지는 않습니다.",
+      "sourceIds": [
+        "sy-card-druid",
+        "sy-card-sprigs",
+        "sy-card-grove_curtailers",
+        "sy-rules"
+      ]
+    },
+    {
+      "title": "워커의 시간차 포털과 복귀 활성화",
+      "unitIds": [
+        "walker-of-the-leaf-storm",
+        "syena-wardens",
+        "sprigs"
+      ],
+      "plan": "워커가 행동으로 엔터 더 포털을 시전해 자신과 7보폭 이내 아군 하나를 전장에서 제거합니다. 기본 지속은 2턴이며 변형으로 단축하거나 대상을 늘릴 수 있습니다. 종료 시 숲 또는 아군 네모러스 3보폭 이내에 워커를 놓고 다른 대상들을 배치(3)한 뒤, 라운드당 한 번 COM 1로 복귀 유닛 하나를 활성화하는 프리페어드 투 스트라이크를 검토합니다.",
+      "caution": "턴은 라운드와 다릅니다. 제거된 동안 목표를 다툴 수 없으므로 채점 직전 사용이 손해일 수 있습니다. 도착 거점이 사라질 위험과 남은 COM, 추가 활성화에 적용되는 일반 스트레스 규칙을 확인합니다.",
+      "sourceIds": [
+        "sy-card-walker_of_the_leaf_storm",
+        "sy-rules"
+      ]
+    },
+    {
+      "title": "리오스레이스와 섀도스의 선제 교전",
+      "unitIds": [
+        "lioslaith-coic-caledhee",
+        "shadows-of-the-yew"
+      ],
+      "plan": "시예난 보병인 섀도스에 리오스레이스를 합류시킵니다. 섀도스의 돌격·강습 반응 봉쇄에 합류 프로필의 캡틴 오브 더 섀도스 오브 더 유가 더해져, 그 돌격·강습 대상은 취약을 받고 자기 유닛은 공격 주사위를 최대 2개 재굴림할 수 있습니다. 상대의 반응에 기대는 정예 유닛을 첫 목표로 검토합니다.",
+      "caution": "재굴림을 합류 캐릭터의 기본 정예 키워드 자동 공유로 설명하지 않습니다. 해당 합류 능력의 명시 효과입니다. 취약은 제거 조건이 있으며, 한 번 좋은 교전을 했다고 계속 남는 디버프가 아닙니다.",
+      "sourceIds": [
+        "sy-card-lioslaith_coic_caledhee",
+        "sy-card-shadows_of_the_yew",
+        "sy-rules"
+      ]
+    }
+  ],
+  "rosters": [
+    {
+      "title": "액션 팩에서 확장하는 245점 입문 연습 — 5점 여유",
+      "mode": "standard",
+      "limit": 250,
+      "quantities": {
+        "druid": 1,
+        "ynyr-dara-lainn": 1,
+        "protectors-of-the-forest": 1,
+        "aoidos": 1,
+        "lioslaith-coic-caledhee": 1,
+        "shadows-of-the-yew": 1,
+        "syena-wardens": 1,
+        "sprigs": 1
+      },
+      "commander": "lioslaith-coic-caledhee",
+      "joins": [
+        {
+          "characterId": "lioslaith-coic-caledhee",
+          "characterCopy": 0,
+          "targetId": "shadows-of-the-yew",
+          "targetCopy": 0
+        }
+      ],
+      "plan": "공식 입문 기사의 액션 팩170+워든스40+스프리그스35를 현재 개별 비용으로 재검산한 프로필 기반 연습용 제안입니다. 실제 대회 출전·승리 명단이 아닙니다. 합계245점, 초기 COM3, 합류 후 독립 운용 단위7개입니다. 하이 커맨드인 리오스레이스가 지휘관이며 섀도스에 합류해 한 타격축을 만듭니다. 워든스는 점령, 스프리그스는 교전 구속, 궁병은 사격 후 이탈, 드루이드는 숲을 담당합니다. 아오이도스는 기본 주문과 스트레스 이전을 유지하려고 독립 배치합니다. 이너의 재배치에 COM을 전부 써버리지 말고 다른 필요와 나눕니다. 그랜드 캡틴의 전체 기동망이나 추가 지휘 이동을 포기한 대신 서로 다른 역할을 한 번씩 배웁니다.",
+      "swaps": [
+        "스프리그스35를 그로브 커테일러스35로 바꾸면245점을 유지하며 병력 회복·구속 대신 정찰·전투 후 이탈을 연습합니다.",
+        "이너35를 클라우디드30으로 바꾸면240점입니다. 남은10점을 자동 보너스로 간주하지 말고, 역할이 바뀐 정찰 기병과 COM이1 줄어드는 점까지 확인합니다.",
+        "WTS로 전환할 때는 최신 시즌의 금지 목록과 모험 제한을 다시 확인합니다. 이 예시는 현재 금지된 다라치·우나를 사용하지 않습니다."
+      ],
+      "sourceIds": [
+        "sy-official-250",
+        "sy-official-pack",
+        "sy-builder",
+        "sy-rules",
+        "sy-card-lioslaith_coic_caledhee",
+        "sy-card-shadows_of_the_yew"
+      ],
+      "provenance": "analyst-example"
+    },
+    {
+      "title": "숲 연결망·목표 통제 250점 연습",
+      "mode": "standard",
+      "limit": 250,
+      "quantities": {
+        "grand-captain": 1,
+        "syena-wardens": 1,
+        "warden-captain": 1,
+        "protectors-of-the-forest": 1,
+        "grove-curtailers": 1,
+        "clouded": 1,
+        "walker-of-the-leaf-storm": 1,
+        "sprigs": 1
+      },
+      "commander": "grand-captain",
+      "joins": [
+        {
+          "characterId": "warden-captain",
+          "characterCopy": 0,
+          "targetId": "syena-wardens",
+          "targetCopy": 0
+        }
+      ],
+      "plan": "30+40+30+25+35+30+25+35=250점, 초기 COM5, 합류 후 독립 운용 단위7개인 프로필 기반 연습용 제안입니다. 대회 실적 명단이 아닙니다. 그랜드 캡틴은 별도 활성화와 자체 사격·근접 전투 선택지를 남기려고 독립 운용합니다. 앰부싱 택틱스는 영구라 합류 여부와 무관하게 유지됩니다. 이동 지휘는 독립·합류 프로필 모두에 있습니다. 워든 캡틴은 워든스에 합류하여 점령·MOR 보너스와 슬리퍼리를 제공합니다. 커테일러스·클라우디드는 정찰의 양 측면 압박, 궁병은 유일한 전담 장거리 사격, 워커는 구출·시간차 재투입, 스프리그스는 교전 고정에 배정합니다. 드루이드와 매복 섀도스를 제외했으므로 추가 숲을 놓을 수 없고 사격 화력·정면 반응 봉쇄가 줄어듭니다. 기본 지형이 연결되는지부터 확인해야 하며, 전장을 벗어나는 포털보다 목표를 남겨 지킬 유닛을 우선 정합니다.",
+      "swaps": [
+        "워커25를 드루이드25로 바꾸면250점 그대로 추가 숲과 주문 지원을 얻습니다. 포털과 COM1을 잃으므로 시작 COM은4로 다시 계산합니다.",
+        "클라우디드30을 섀도 오브 더 호손25로 바꾸면245점입니다. 정찰 기병의 광역 기동 대신 교전한 적의 이동·배치 차단과 점령값 조정을 얻습니다.",
+        "워든 캡틴을 합류시킨 상태에서는 기본 스트렝슨 더 섀도스를 동시에 제공하지 않습니다. 섀도 지원을 목적으로 교체 편성한다면 독립 운용과 전체 합류 계획을 새로 계산합니다."
+      ],
+      "sourceIds": [
+        "sy-builder",
+        "sy-rules",
+        "sy-card-grand_captain",
+        "sy-card-warden_captain",
+        "sy-card-walker_of_the_leaf_storm",
+        "sy-card-clouded"
+      ],
+      "provenance": "analyst-example"
+    }
+  ],
+  "gamePlan": {
+    "deployment": [
+      "먼저 모험의 MP·AP 채점 시점과 목표를 확인하고, 워든스처럼 남아 다툴 유닛과 커테일러스처럼 교환 후 빠질 유닛을 구분합니다. 좋은 숲이 있다는 이유만으로 모든 병력을 같은 측면에 모으면 반대편 목표를 포기하게 됩니다.",
+      "드루이드가 있다면 배치 전 추가 숲의 위치를 정합니다. 궁병의 시야선과 사격 후5보폭 조건, 네모러스 전진 거점과 워커 복귀 지점을 실제 템플릿으로 확인합니다. 시야 차단이 상대 대기 사격뿐 아니라 자기 사격을 막는지 함께 봅니다.",
+      "정찰 커테일러스·클라우디드와 매복 섀도스·로완을 같은 규칙으로 배치하지 않습니다. WTS에서는 유닛은 배치 전까지 비공개이며 미배치 정찰·매복 유닛의 상시 능력 공개 여부에 별도 절차가 있습니다. 매복 전력을 숨기는 대신 그 병력이 없는 상태로 초반 목표를 지킬 수 있어야 합니다."
+    ],
+    "opening": [
+      "첫 활성화의 목표는 최대 전진이 아니라 다음 유닛을 안전하게 움직이게 하는 것입니다. 네모러스 거점을 먼저 노출해야만 사격 후 이탈이 가능하다면, 그 거점이 상대에게 제거되기 전에 궁병을 운용할 순서를 잡습니다.",
+      "궁병은 사거리18을 활용해 앞서는 적을 줄이되, 샤프 아처스 스트레스는 피해가 들어간 뒤에만 더합니다. 사격 후4 이동이 실제로 어디까지인지 미리 재고, 적의 다음 돌격 각에 그대로 남는 위치를 피합니다.",
+      "그랜드 캡틴 재배치나 포털을 사용하기 전에 이번 이동이 채점·생존·확실한 다음 공격 중 하나를 개선하는지 말로 설명해 봅니다. 단순히 멀리 이동했다는 이유만으로 귀한 COM을 소모하지 않습니다."
+    ],
+    "midgame": [
+      "한 목표에 워든스가 버티는 동안 측면은 궁병·정찰 유닛으로 상대의 활성화를 분산시킵니다. 상대가 한 측면에 응답하면 그랜드 캡틴이나 포털로 반대쪽 위치를 바꾸되, 기존 목표의 수비를 비워 상대가 재경합할 위험을 먼저 계산합니다. 일반 규칙에서는 떠났다는 이유만으로 기존 지배권을 잃지 않습니다.",
+      "섀도스의 돌격·강습은 대기 사격이나 교전 반응이 강한 표적에 우선 검토합니다. 커테일러스는 주변7보폭 조건으로 무장 해제를 만들고, 전투 후 돌격 수치로 빠질 수 있는 방향을 확보합니다. 둘을 단순히 높은 공격 주사위 수로만 비교하지 않습니다.",
+      "스프리그스가 묶은 적을 모두 공격해 파괴하려고 몰려들 필요는 없습니다. 적이 이동도 배치도 못 하는 동안 다른 목표를 얻으면 역할을 다한 것입니다. 단, 상태가 제거되거나 교전이 끊기면 상대가 다시 움직이므로 그 이후의 방어선도 남깁니다.",
+      "피해를 입은 유닛은 병력 패널이 바뀌었는지 즉시 확인합니다. 특히 워든스의 점령값과 궁병의 점령 능력이 줄어들 수 있습니다. 살아 있다는 사실과 같은 승점 역할을 계속한다는 사실을 구분합니다."
+    ],
+    "endgame": [
+      "남은 채점이 한 번이라면 포털로 병력을 숨기는 것이 안전해 보여도 목표를 지킬 병력이 없어 상대의 재경합을 막지 못할 수 있습니다. 일반 규칙에서 이미 획득한 지배권은 유닛이 떠났다는 이유만으로 사라지지 않습니다. 현재 점령값과 사기 붕괴 여부를 기준으로 최종 위치를 결정합니다.",
+      "워든스의 자발 도주는 재집결 토큰이 채점보다 먼저 돌아오고 실제 돌격 경로가 있을 때만 반격 계획으로 계산합니다. 전장 가장자리까지 도주해 파괴되거나 재집결에 실패할 가능성도 남습니다.",
+      "마지막 COM은 가장 비싼 유닛의 공격보다 목표물 두 곳의 위치 교환에 더 큰 가치가 있을 수 있습니다. 반대로 퇴로 없는 재배치는 상대에게 마지막 제거 점수를 주므로, 모험이 요구하는 MP와 AP를 따로 확인합니다."
+    ],
+    "priorities": [
+      "첫째, 현재 모험의 다음 채점에 필요한 유닛을 남깁니다. 둘째, 숲·네모러스 연결 거점을 지킵니다. 셋째, 상태와 지형으로 상대 반응을 줄여 타격합니다. 마지막으로 공격 후 살아남을 도착점을 확보합니다.",
+      "모든 지휘 능력에 COM1이 든다는 표를 게임 옆에 두고, 라운드 시작에 남은 토큰과 반드시 남겨 둘 반응을 정합니다.",
+      "시야선·거리·해당 프로필·발동 시점·비용을 확인한 뒤 능력을 선언합니다. 시예난의 기동은 조건을 정확히 지켰을 때 강합니다."
+    ]
+  },
+  "matchups": [
+    {
+      "opponentType": "정예 중갑·높은 방어 주사위의 중앙 전력",
+      "plan": "정면 화력 교환만 고집하기보다 취약·방어 기호 취소 스위치·밀어내기·점령값 조정으로 답합니다. 호손은 교전으로 수치를 낮추고 워든스는 다른 목표를 지키는 식으로, 적을 못 죽여도 얻는 점수를 찾습니다.",
+      "avoid": "모든 공격에 스트레스 수정치를 붙여 MOR 한도에 도달한 뒤, 이탈도 반응도 선택하지 못하는 교환."
+    },
+    {
+      "opponentType": "긴 사거리 사격과 대기 사격",
+      "plan": "드루이드 숲과 시야 차단 뒤에서 다음 진입점을 만듭니다. 섀도스는 돌격·강습 시 지정된 반응을 막고, 클라우디드·로완·섀도스는 자기 캐머플라주드의 지형3·적거리7 조건을 각각 유지합니다.",
+      "avoid": "캐머플라주드를 영구 은신처럼 취급하거나, 적이7보폭 이내로 들어왔는데도 공격 대상이 되지 않는다고 주장하는 것."
+    },
+    {
+      "opponentType": "빠른 기병·다중 돌격",
+      "plan": "알룰라의 COM 반응, 로완의 돌격 선언 반응, 스프리그스의 둔화 교전 구속처럼 접근을 벌하는 장치를 선택합니다. 동시에 여러 공격이 들어오면 라운드당 한 번 제한 때문에 무엇을 보호할지 먼저 정합니다.",
+      "avoid": "반응 능력이 존재한다는 사실만으로 아군을 모두 노출하거나, COM을 기동에 전부 써 반응 비용을 못 내는 것."
+    },
+    {
+      "opponentType": "여러 저가 유닛으로 목표물을 넓게 점유",
+      "plan": "모든 적을 추격하기보다 워든스의 점령값, 궁병의 병력 감소, 재배치로 빈 목표를 점유하는 운영을 조합합니다. 독립 지원 캐릭터를 너무 많이 합류시켜 응답 가능한 활성화 수를 스스로 줄이지 않습니다.",
+      "avoid": "타격대가 값싼 미끼를 따라 반대편까지 가고, 중앙 채점에 도달할 수 있는 유닛이 없어지는 것."
+    },
+    {
+      "opponentType": "상태·주문·스트레스 압박",
+      "plan": "현재 팅지·MOR와 주문 저지의 위험을 함께 봅니다. 아오이도스를 독립 운용하면 스트레스·상태 이전과 주문 선택지가 있지만, 대상·거리·행동 비용을 확인합니다. 자동 능력과 일반 시전 절차도 구분합니다.",
+      "avoid": "주문 시전자라면 아무 위험 없이 모든 주문을 저지할 수 있다고 생각하거나, 합류 중 아오이도스의 기본 능력을 모두 사용하는 것."
+    }
+  ],
+  "mistakes": [
+    "이름에 숲이 들어간 모든 유닛을 네모러스 거점으로 세는 것. 프로텍터스와 커테일러스는 원래 그 특성이 없습니다.",
+    "기본·합류 프로필 능력을 무조건 모두 합치거나, 반대로 기본 능력을 모두 잃는다고 생각하는 것. 그랜드 캡틴의 앰부싱 택틱스는 영구라 합류 후에도 유지됩니다. 워든 캡틴의 기본 스트렝슨 더 섀도스는 영구가 아니므로 구분해야 합니다.",
+    "사격 후 이탈·상대 돌격 반응·전투 후 이탈을 언제나 선언 가능한 일반 이동처럼 쓰는 것. 각 발동 시점이 다릅니다.",
+    "스위치의 특수 기호 비용이나 빈 기호 비용을 서로 바꿔 쓰는 것. 해당 전투 패널의 실제 비용을 먼저 확인합니다.",
+    "지휘 능력을 무료 지속 능력으로 오해하는 것. 라운드당 제한과 남은 COM 총량을 모두 지켜야 합니다.",
+    "둔화만 있으면 이동·배치가 모두 금지된다고 생각하는 것. 일반 둔화는 두 번째 MOV와 돌격 수치를 줄이며, 스프리그스의 별도 교전 능력이 있어야 추가 구속이 생깁니다.",
+    "워든스의 자발 도주를 점령을 유지하는 안전 이동으로 사용하는 것. 사기 붕괴 중에는 목표물의 지배권을 다투지 못합니다.",
+    "공식 입문 상자 제안을 현행 대회 우승 명단으로 소개하는 것. 아래 예시는 현재 프로필로 검산한 학습 편성입니다."
+  ],
+  "practice": [
+    "숲 하나·드루이드·궁병만 놓고 사격 전 위치, 사격 후5보폭 조건, 강제 이동4의 끝점을 세 번 연습합니다. 상대가 거점 유닛을 먼저 제거했을 때 가능한 두 번째 경로도 찾아봅니다.",
+    "그랜드 캡틴과 아군 두 유닛으로 7보폭 배치 지점을 직접 측정합니다. 1COM으로 한쪽을 살리고 다른 쪽을 채점 위치로 보낼 수 있는 배치를 만들고, 단순 전진만 한 배치와 비교합니다.",
+    "워든스가 도주를 선택한 경우와 남은 경우를 같은 전투 결과에서 각각 진행합니다. 채점·재집결 토큰·전장 가장자리까지 실제로 처리해 손익을 기록합니다.",
+    "같은245점 편성으로 두 게임을 하되 첫 게임은 아오이도스 독립, 다음 게임은 합법적인 시예난 보병에 합류시켜 봅니다. 사용할 수 있는 능력과 독립 운용 단위 수의 변화만 기록해도 합류의 대가가 보입니다.",
+    "게임 후 가장 긴 이동이 아니라, 이동으로 바뀐 MP·AP·생존 유닛을 기록합니다. 포털·정찰·매복이 채점을 언제 비웠고 언제 되찾았는지 확인합니다."
+  ],
+  "sources": [
+    {
+      "id": "sy-official-nation",
+      "title": "Sÿenann: Faction Guide and Miniatures",
+      "url": "https://warcrow.com/en/games/warcrow/nation/syenann",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "진영의 숲·기동 중심 정체성과 공식 소개. 구체적 전투 규칙은 최신 카드로 재확인.",
+      "limitations": "일부 유닛명이 구 번역명이며 홍보상의 최강 표현은 승률 근거로 사용하지 않음."
+    },
+    {
+      "id": "sy-official-250",
+      "title": "Quick 250-Point Army Lists for New Warcrow Players",
+      "url": "https://warcrow.com/en/news/250-points-lists-ideas",
+      "type": "official",
+      "publishedAt": "2026-09-04",
+      "accessedAt": "2026-11-16",
+      "coverage": "액션 팩을 출발점으로 하는 공식 구매·입문 편성 제안. 245점 예시의 구성 출발점.",
+      "limitations": "내러티브 캠페인 입문 기사이며 대회 성적 자료가 아님. 현행 개별 프로필로 점수와 합류를 별도 검증."
+    },
+    {
+      "id": "sy-official-pack",
+      "title": "Sÿenann Action Pack",
+      "url": "https://store.corvusbelli.com/en/warcrow/wargame/miniatures/syenann-action-pack",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "공식 상점의 공개 상품 데이터로 10개 미니어처와 6개 유닛 구성 확인.",
+      "limitations": "상품 설명의 전술 표현은 규칙을 대체하지 않음. 상품 페이지 본문은 자바스크립트로 제공되어 같은 상점의 공개 GraphQL 상품 설명을 확인."
+    },
+    {
+      "id": "sy-rules",
+      "title": "Warcrow Resources — Core Rules 1.6.1 / WTS Season 2",
+      "url": "https://experience.corvusbelli.com/en/warcrow/resources",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "앱에 수록한 공식 코어 1.6.1의 편성·행동·지휘·마법·팅지·상태·합류 규칙 및 WTS 시즌 2 제한을 대조. 특히 p57 영구 능력의 합류 예외와 p103 획득한 목표 지배권 유지 규칙을 재대조.",
+      "limitations": "자료실 화면의 목록은 동적 로딩. 개별 규칙은 프로젝트에 확보된 공식 PDF와 원문 페이지 데이터로 확인."
+    },
+    {
+      "id": "sy-june-update",
+      "title": "Warcrow Update - June 2026",
+      "url": "https://warcrow.com/en/news/warcrow-update-june-2026",
+      "type": "official",
+      "publishedAt": "2026-06-10",
+      "accessedAt": "2026-11-16",
+      "coverage": "아오이도스 v3.0 발라드 오브 더 드라이어드 변경 및 비공식 호드 MOD·400점 구분.",
+      "limitations": "변경 이력이며 현재 수치의 직접 근거는 최신 카드."
+    },
+    {
+      "id": "sy-builder",
+      "title": "Warcrow Army Builder — profile data v0.13.51",
+      "url": "https://www.warcrowarmybuilder.com/builder",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "시예난의 비용·AVB·COM·하이 커맨드·시즌 2 적법성. 프로젝트의 공식 추출 데이터와 카드·합류 메타데이터 대조.",
+      "limitations": "웹페이지는 자바스크립트 앱. 네카일의 원본 카드와 장교·지원 유형이 로컬 검증 데이터에 없어 상세 평가에서 제외."
+    },
+    {
+      "id": "sy-card-grand_captain",
+      "title": "그랜드 캡틴 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/grand_captain_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 카드의 특성·키워드·기본/합류 능력·스위치와 전투 패널.",
+      "limitations": "카드 공개 URL 200 확인. 규칙 판정에는 최신 프로필과 모험별 예외를 함께 적용."
+    },
+    {
+      "id": "sy-card-lioslaith_coic_caledhee",
+      "title": "리오스레이스 코익 칼레디 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/lioslaith_coic_caledhee_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 카드의 특성·키워드·기본/합류 능력·스위치와 전투 패널.",
+      "limitations": "카드 공개 URL 200 확인. 규칙 판정에는 최신 프로필과 모험별 예외를 함께 적용."
+    },
+    {
+      "id": "sy-card-druid",
+      "title": "드루이드 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/druid_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 카드의 특성·키워드·기본/합류 능력·스위치와 전투 패널.",
+      "limitations": "카드 공개 URL 200 확인. 규칙 판정에는 최신 프로필과 모험별 예외를 함께 적용."
+    },
+    {
+      "id": "sy-card-aoidos",
+      "title": "아오이도스 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/aoidos_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 카드의 특성·키워드·기본/합류 능력·스위치와 전투 패널.",
+      "limitations": "카드 공개 URL 200 확인. 규칙 판정에는 최신 프로필과 모험별 예외를 함께 적용."
+    },
+    {
+      "id": "sy-card-protectors_of_the_forest",
+      "title": "프로텍터스 오브 더 포리스트 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/protectors_of_the_forest_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 카드의 특성·키워드·기본/합류 능력·스위치와 전투 패널.",
+      "limitations": "카드 공개 URL 200 확인. 규칙 판정에는 최신 프로필과 모험별 예외를 함께 적용."
+    },
+    {
+      "id": "sy-card-syena_wardens",
+      "title": "시에나 워든스 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/syena_wardens_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 카드의 특성·키워드·기본/합류 능력·스위치와 전투 패널.",
+      "limitations": "카드 공개 URL 200 확인. 규칙 판정에는 최신 프로필과 모험별 예외를 함께 적용."
+    },
+    {
+      "id": "sy-card-warden_captain",
+      "title": "워든 캡틴 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/warden_captain_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 카드의 특성·키워드·기본/합류 능력·스위치와 전투 패널.",
+      "limitations": "카드 공개 URL 200 확인. 규칙 판정에는 최신 프로필과 모험별 예외를 함께 적용."
+    },
+    {
+      "id": "sy-card-sprigs",
+      "title": "스프리그스 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/sprigs_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 카드의 특성·키워드·기본/합류 능력·스위치와 전투 패널.",
+      "limitations": "카드 공개 URL 200 확인. 규칙 판정에는 최신 프로필과 모험별 예외를 함께 적용."
+    },
+    {
+      "id": "sy-card-grove_curtailers",
+      "title": "그로브 커테일러스 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/grove_curtailers_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 카드의 특성·키워드·기본/합류 능력·스위치와 전투 패널.",
+      "limitations": "카드 공개 URL 200 확인. 규칙 판정에는 최신 프로필과 모험별 예외를 함께 적용."
+    },
+    {
+      "id": "sy-card-shadows_of_the_yew",
+      "title": "섀도스 오브 더 유 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/shadows_of_the_yew_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 카드의 특성·키워드·기본/합류 능력·스위치와 전투 패널.",
+      "limitations": "카드 공개 URL 200 확인. 규칙 판정에는 최신 프로필과 모험별 예외를 함께 적용."
+    },
+    {
+      "id": "sy-card-clouded",
+      "title": "클라우디드 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/clouded_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 카드의 특성·키워드·기본/합류 능력·스위치와 전투 패널.",
+      "limitations": "카드 공개 URL 200 확인. 규칙 판정에는 최신 프로필과 모험별 예외를 함께 적용."
+    },
+    {
+      "id": "sy-card-walker_of_the_leaf_storm",
+      "title": "워커 오브 더 리프 스톰 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/walker_of_the_leaf_storm_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 카드의 특성·키워드·기본/합류 능력·스위치와 전투 패널.",
+      "limitations": "카드 공개 URL 200 확인. 규칙 판정에는 최신 프로필과 모험별 예외를 함께 적용."
+    },
+    {
+      "id": "sy-card-shadow_of_the_hawthorn",
+      "title": "섀도 오브 더 호손 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/shadow_of_the_hawthorn_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 카드의 특성·키워드·기본/합류 능력·스위치와 전투 패널.",
+      "limitations": "카드 공개 URL 200 확인. 규칙 판정에는 최신 프로필과 모험별 예외를 함께 적용."
+    },
+    {
+      "id": "sy-card-shadow_of_the_rowan",
+      "title": "섀도 오브 더 로완 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/shadow_of_the_rowan_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 카드의 특성·키워드·기본/합류 능력·스위치와 전투 패널.",
+      "limitations": "카드 공개 URL 200 확인. 규칙 판정에는 최신 프로필과 모험별 예외를 함께 적용."
+    },
+    {
+      "id": "sy-card-ynyr_dara_lainn",
+      "title": "이너 다라 레인 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/ynyr_dara_lainn_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 카드의 특성·키워드·기본/합류 능력·스위치와 전투 패널.",
+      "limitations": "카드 공개 URL 200 확인. 규칙 판정에는 최신 프로필과 모험별 예외를 함께 적용."
+    },
+    {
+      "id": "sy-card-alula",
+      "title": "알룰라 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/alula_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 카드의 특성·키워드·기본/합류 능력·스위치와 전투 패널.",
+      "limitations": "카드 공개 URL 200 확인. 규칙 판정에는 최신 프로필과 모험별 예외를 함께 적용."
+    },
+    {
+      "id": "sy-card-aileen_cethir_wynn",
+      "title": "에일린 세티르 윈 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/aileen_cethir_wynn_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 카드의 특성·키워드·기본/합류 능력·스위치와 전투 패널.",
+      "limitations": "카드 공개 URL 200 확인. 규칙 판정에는 최신 프로필과 모험별 예외를 함께 적용."
+    },
+    {
+      "id": "sy-card-syenann_captain",
+      "title": "시예난 캡틴 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/syenann_captain_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 공식 카드와 프로젝트의 검증된 능력·전투 패널 데이터 대조.",
+      "limitations": "모험별 예외와 최신 프로필을 함께 적용."
+    },
+    {
+      "id": "sy-card-eachann",
+      "title": "에칸 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/eachann_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 공식 카드와 프로젝트의 검증된 능력·전투 패널 데이터 대조.",
+      "limitations": "모험별 예외와 최신 프로필을 함께 적용."
+    },
+    {
+      "id": "sy-card-moss_hermit",
+      "title": "모스 허밋 공식 프로필",
+      "url": "https://www.warcrowarmybuilder.com/art/card/moss_hermit_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "현행 공식 카드와 프로젝트의 검증된 능력·전투 패널 데이터 대조.",
+      "limitations": "모험별 예외와 최신 프로필을 함께 적용."
+    },
+    {
+      "id": "sy-video-watermelon",
+      "title": "New to Warcrow? Start Here! - What Faction to Play 2025 — WatermelonWargames",
+      "url": "https://www.youtube.com/watch?v=dchC5UIjcjs",
+      "type": "video",
+      "publishedAt": "2025-12-21",
+      "accessedAt": "2026-11-16",
+      "coverage": "실제 확보된 자막의 11:03~17:45 시예난 구간 읽음. 유격·숲·섀도스·호손·워커에 관한 제작자 의견을 현재 카드와 대조.",
+      "limitations": "코어1.6 이전 입문 의견. 자막의 유닛명 자동인식 오류가 많음. 현행 수치·전체 진영 순위·대회 실적 근거로 쓰지 않음."
+    }
+  ]
+}

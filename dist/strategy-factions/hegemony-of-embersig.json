@@ -1,0 +1,777 @@
+{
+  "id": "hegemony-of-embersig",
+  "title": "헤게모니 오브 엠버시그",
+  "tagline": "점령할 곳을 먼저 정하고, 보병과 지휘 범위를 함께 전진시킨다.",
+  "overview": "헤게모니는 모든 유닛이 똑같이 단단한 군대가 아니다. 버클러맨과 불워크스가 자리를 만들고, 사격수와 기술자·마법사가 그 자리를 지킬 조건을 만든다. 기본 의지나 사기가 낮은 병력을 지휘·병력 수·범위 지원으로 보완하는 선택이 핵심이다. 누가 이번 점령을 맡고 그 유닛의 다음 활성화를 지켜 줄지 먼저 정한다. 아래는 공식 1.6.1과 프로젝트의 원본 대조 빌더 v0.13.51에 근거한 운영 분석이다. 두 250점 예시는 실대회 복제가 아닌 프로필 기반 연습용 제안이다.",
+  "styleTags": [
+    "보병 점령",
+    "범위 지원",
+    "지휘 토큰 관리",
+    "전문 사격",
+    "합류 선택",
+    "기계 돌파"
+  ],
+  "sections": [
+    {
+      "id": "identity",
+      "title": "공식 정체성과 검증 범위",
+      "kind": "official",
+      "paragraphs": [
+        "공식 팩션 소개는 헤게모니를 방어적인 보병과 높은 점령 능력으로 목표물을 확보하는 점령군으로 설명한다. 에스타리 마법 지원, 겐트의 기술, 캐릭터의 지휘·스트레스 관리·의지 공유를 연결하는 군대다. 이것은 팩션의 방향이지 모든 보병이 높은 점령값이나 면역을 가진다는 뜻은 아니다.",
+        "2026년 11월 3일 공식 핫픽스의 헤게모니 변경은 거너리 코퍼럴 v2.1의 스페인어 오탈자 수정이다. 수치와 예시는 프로젝트 검수판 기준이며, 실물 카드와 다르면 경기에서 적용할 버전을 먼저 맞춘다."
+      ],
+      "bullets": [],
+      "unitIds": [],
+      "sourceIds": [
+        "heg-faction",
+        "heg-builder",
+        "heg-hotfix",
+        "heg-core"
+      ]
+    },
+    {
+      "id": "recruitment",
+      "title": "편성은 공격력보다 역할과 지휘 예산부터",
+      "kind": "analysis",
+      "paragraphs": [
+        "250점을 중앙 점령, 접근을 막는 사격, 측면 대응, 지휘·회복에 나눠 본다. 20점 버클러맨 두 유닛은 한 곳에 병력을 보태거나 서로 다른 목표물을 맡을 수 있다. 반대로 워 리그와 여러 캐릭터에 투자하면 개별 전투는 강화되지만 실제로 움직일 독립 유닛 수가 줄어든다.",
+        "지휘 토큰은 모집한 유닛들의 COM을 합친 공동 자원이며 보통 자동 회복하지 않는다. 사기 보조에 쓸 토큰, 연계 사격에 쓸 토큰, 마지막 점령에 남길 토큰을 구분한다. 지금 공격을 조금 개선하는 데 쓰고 다음 활성화의 중요한 지휘 능력을 포기하는 상황을 피한다."
+      ],
+      "bullets": [
+        "장교 중 지휘관을 정하고 최고 지휘부는 한 명까지만 넣는다. 예시는 AVB와 합류 조건까지 검산했다.",
+        "캐릭터를 합류시키면 일반적으로 활성화 단위가 합쳐진다. 강화된 한 유닛과 독립 지원 한 유닛 중 어느 쪽이 필요한지 먼저 정한다."
+      ],
+      "unitIds": [
+        "black-legion-bucklermen",
+        "hetman",
+        "war-rig"
+      ],
+      "sourceIds": [
+        "heg-core",
+        "heg-builder"
+      ]
+    },
+    {
+      "id": "profile-choice",
+      "title": "앞면의 오라를 합류면으로 착각하지 않는다",
+      "kind": "analysis",
+      "paragraphs": [
+        "독립 헤트만의 인스파이어링 리더십은 12보폭 안의 아군에게 의지를 빌려 주지만, 합류면에는 그 능력 대신 스테디, 솔저스가 있다. 합류하면 해당 유닛의 의지 교체·사기 보정과 합류면 능력을 쓰는 선택이다. 넓은 전선의 의지를 보조하려고 채용했다면 독립 상태와 엄폐를 확보하는 쪽부터 검토한다.",
+        "거너리 코퍼럴도 독립일 때의 조준 오라와 코오디네이티드 파이어, 합류할 때의 사기 보정·사격 보정·슈터스 오피서를 구분해야 한다. 캐릭터가 조준이나 정찰을 가졌다는 이유만으로 합류한 유닛이 그 키워드를 공유하지 않는다. 레이디 텔리아를 정찰 배치하려면 원래 정찰을 가진 파이오니어스 같은 대상인지 확인한다."
+      ],
+      "bullets": [
+        "한 유닛에는 캐릭터 한 명만 합류한다. 워 서전과 장교의 혜택을 같은 유닛에 동시에 합산하지 않는다.",
+        "WP의 절대 주사위 표기는 교체이고 + 표기는 추가다. 사기 +1과 의지 주사위 추가를 같은 방식으로 처리하지 않는다."
+      ],
+      "unitIds": [
+        "hetman",
+        "gunnery-corporal",
+        "lady-telia",
+        "war-surgeon"
+      ],
+      "sourceIds": [
+        "heg-core",
+        "heg-card-hetman",
+        "heg-card-gunnery",
+        "heg-card-telia"
+      ]
+    },
+    {
+      "id": "objective-math",
+      "title": "병력 수와 주변 유닛 수를 따로 센다",
+      "kind": "analysis",
+      "paragraphs": [
+        "코퍼럴의 수적 우세 조건은 자기 병력 수와 교전 상대 병력의 총합을 비교한다. 불워크스의 홀드 포지션은 7보폭 안의 다른 비캐릭터 보병·기병 유닛 수를 센다. 버클러맨 한 유닛에 병사가 네 명 있다고 불워크스에 네 번의 보너스를 주지 않는다. 합류 캐릭터는 자기 유닛의 병력 한 명으로 계산한다.",
+        "불워크스를 중앙에 두더라도 지원 유닛이 모두 같은 좁은 목표물에 몰릴 필요는 없다. 범위 안에서 사격 각도와 두 번째 목표물 진입로를 남긴다. 적을 전멸시키기 어렵다면 코퍼럴의 점령 보정이나 드라고슬라브의 디 앤빌을 실제 점령 시점에 남겨 두는 쪽이 유리할 수 있다."
+      ],
+      "bullets": [],
+      "unitIds": [
+        "corporal",
+        "bulwarks",
+        "black-legion-bucklermen",
+        "dragoslav-bjelogric-drago-the-anvil"
+      ],
+      "sourceIds": [
+        "heg-card-corporal",
+        "heg-card-bulwarks",
+        "heg-card-bucklermen",
+        "heg-card-drago",
+        "heg-core"
+      ]
+    },
+    {
+      "id": "ranged-network",
+      "title": "사격은 킬 수보다 접근 순서를 바꾼다",
+      "kind": "analysis",
+      "paragraphs": [
+        "아르케뷔지어스는 기본 사거리 12보폭과 7보폭 안의 포인트 블랭크를 구분한다. 가까운 적에게 성공을 더하고 피해를 주면 공포를 부여하므로, 중앙 보병 앞에서 적이 멈출 지점을 위협하기 좋다. 하지만 사격 유닛이 교전당하면 계획한 원거리 공격을 계속할 수 없으므로 보병의 차단 위치가 필요하다.",
+        "파이오니어스의 모타르는 시야선이 필요 없는 전투 능력이지만 대상은 12보폭 안의 비교전 적이어야 한다. 적의 병력마다 주황 주사위를 더해도 같은 색 최대 세 개 제한은 지킨다. 일반 사격과 모타르를 구분하고, 아군이 먼저 적을 붙잡아 유효한 모타르 대상을 없애지 않도록 활성화 순서를 잡는다."
+      ],
+      "bullets": [
+        "엄폐(검정)를 가진 아르케뷔지어스·불워크스는 인접한 다른 유닛에게 엄폐를 제공한다. 자신이 자기 키워드의 이득을 받는다고 계산하지 않는다."
+      ],
+      "unitIds": [
+        "black-legion-arquebusiers",
+        "pioneers",
+        "gunnery-corporal",
+        "bulwarks"
+      ],
+      "sourceIds": [
+        "heg-card-arquebusiers",
+        "heg-card-pioneers",
+        "heg-card-gunnery",
+        "heg-core"
+      ]
+    },
+    {
+      "id": "unit-pool",
+      "title": "확장 선택과 특수 프로필",
+      "kind": "official",
+      "paragraphs": [
+        "아멜리아 헬브로스와 드라고슬라브, 헤트만, 마운티드 헤트만은 최고 지휘부 선택지다. 서로 비용이 남는다고 같은 명단에 중복해 넣지 않는다. 나에르곤 칼라드렌은 나이라 칼라드렌이 없는 중대에 넣을 수 없어 둘을 함께 쓰려면 현재 검수 비용으로 50점을 확보해야 한다.",
+        "엠케이 오에스 오토마타는 이동·시야 차단·파괴 시 폭발을 따로 다루는 동반자 프로필이다. 공식 카드의 전장 최대 세 개 제한과 트라보르의 배치 능력을 함께 읽는다. 빌더의 0점 표시를 보고 무료 독립 점령 부대로 추가하는 식의 구성은 이 예시에서 사용하지 않는다."
+      ],
+      "bullets": [
+        "이스마일, 디 에이트 필러는 이 자료에 공식 상세 카드가 없어 전투 수치를 추정하지 않고 예시에서 제외했다.",
+        "프라이버티어 스타빙슨과 베르카나 같은 용병은 선택 모드의 용병 제한도 확인한다. 여기에 든 두 예시는 용병을 사용하지 않는다."
+      ],
+      "unitIds": [
+        "amelia-hellbroth",
+        "dragoslav-bjelogric-drago-the-anvil",
+        "hetman",
+        "mounted-hetman",
+        "naergon-caladren",
+        "nayra-caladren",
+        "mk-os-automata",
+        "trabor-slepmund",
+        "ismail-the-eighth-pillar",
+        "privateer-starvingson",
+        "vercana"
+      ],
+      "sourceIds": [
+        "heg-builder",
+        "heg-core",
+        "heg-card-automata"
+      ]
+    },
+    {
+      "id": "community-view",
+      "title": "영상의 운영 견해와 현재 카드의 차이",
+      "kind": "community",
+      "paragraphs": [
+        "WatermelonWargames의 2025년 입문 영상 2:12–5:59는 헤게모니를 전문 도구를 지휘와 점령으로 묶는 방어 성향의 팩션으로 설명한다. 어그레서스와 워 서전의 조합, 워 리그를 돌파에 쓰고 나머지 병력으로 임무를 수행하는 방향을 제안한다. 이는 제작자의 운영 의견이며 대회 입상 목록이나 승률 자료가 아니다.",
+        "현재 카드에서도 워 리그의 W 8과 기본 점령 0은 확인된다. 다만 영상의 드라고슬라브 의지 공유 설명을 무제한 오라로 읽으면 안 된다. 현재 검수 카드의 독립 상태 범위는 18보폭이며, 합류면의 별도 능력 구성도 확인해야 한다. 1.6.1 이전 영상의 상태·스트레스 설명보다 현 공식 규칙을 우선한다."
+      ],
+      "bullets": [],
+      "unitIds": [
+        "aggressors",
+        "war-surgeon",
+        "war-rig",
+        "dragoslav-bjelogric-drago-the-anvil"
+      ],
+      "sourceIds": [
+        "heg-video",
+        "heg-card-war-rig",
+        "heg-card-drago",
+        "heg-card-surgeon",
+        "heg-core"
+      ]
+    }
+  ],
+  "unitRoles": [
+    {
+      "role": "중앙 점령선",
+      "unitIds": [
+        "black-legion-bucklermen",
+        "bulwarks"
+      ],
+      "why": "버클러맨은 20점·AVB 3으로 선을 늘리고, 첫 전투 행의 점령 2를 제공한다. 불워크스는 35점에 이동 불가와 주변 비캐릭터 보병·기병에 따른 점령 증가를 가진다.",
+      "when": "넓은 임무는 버클러맨을 분산하고, 서로 지원할 수 있는 중앙 임무는 불워크스 주위에 병력을 배치한다.",
+      "sourceIds": [
+        "heg-card-bucklermen",
+        "heg-card-bulwarks"
+      ]
+    },
+    {
+      "role": "돌파와 측면 타격",
+      "unitIds": [
+        "aggressors",
+        "black-angels"
+      ],
+      "why": "어그레서스는 상대 기호 취소 스위치와 교전 적을 밀어내는 지휘 능력으로 방어선을 건드린다. 블랙 엔젤스는 돌격·강습 선언 때 활성화 종료까지 위압(2)과 주황 주사위를 얻는다.",
+      "when": "중앙 고착을 풀려면 어그레서스, 험지 방향의 측면과 12보폭 돌격 위협이 필요하면 블랙 엔젤스를 검토한다.",
+      "sourceIds": [
+        "heg-builder",
+        "heg-core"
+      ]
+    },
+    {
+      "role": "사격선과 간접 압박",
+      "unitIds": [
+        "black-legion-arquebusiers",
+        "pioneers"
+      ],
+      "why": "아르케뷔지어스는 네 병력과 근거리 사격 보너스, 파비스로 정면 사격전을 맡는다. 파이오니어스는 두 병력에 정찰·주문 해제와 시야선 불필요 모타르를 묶는다.",
+      "when": "몸수와 두 사격선은 아르케뷔지어스, 배치 유연성과 숨은 적 압박은 파이오니어스를 선택한다.",
+      "sourceIds": [
+        "heg-card-arquebusiers",
+        "heg-card-pioneers"
+      ]
+    },
+    {
+      "role": "최고 지휘부의 선택",
+      "unitIds": [
+        "hetman",
+        "mounted-hetman",
+        "dragoslav-bjelogric-drago-the-anvil"
+      ],
+      "why": "헤트만은 25점의 스트레스 관리, 마운티드 헤트만은 기병 합류와 긴 돌격 거리, 드라고슬라브는 높은 의지·점령 지휘와 강한 합류 보정을 제공한다.",
+      "when": "넓은 보병 지원, 기병 축, 비싼 중앙 집중 중 무엇이 필요한지 정한다. 독립 오라와 합류면은 별도 선택이다.",
+      "sourceIds": [
+        "heg-builder",
+        "heg-card-hetman",
+        "heg-card-drago"
+      ]
+    },
+    {
+      "role": "보병 장교와 고급 강화",
+      "unitIds": [
+        "corporal",
+        "nadezhda-lazard-champion-of-embersig",
+        "amelia-hellbroth"
+      ],
+      "why": "코퍼럴은 저비용 사기·점령 보정과 병력 우세를 쓰고, 나데즈다는 교전 때 취약을 부여한다. 아멜리아는 40점의 최고 지휘부 투자이며 합류면의 상태 면역과 활성화 토큰 관리가 있다.",
+      "when": "가벼운 점령 보정이면 코퍼럴, 전투 상태 연계면 나데즈다, 큰 자원을 한 유닛에 투자할 명확한 목적이 있으면 아멜리아를 검토한다.",
+      "sourceIds": [
+        "heg-builder",
+        "heg-card-corporal"
+      ]
+    },
+    {
+      "role": "사격 장교",
+      "unitIds": [
+        "gunnery-corporal",
+        "lady-telia"
+      ],
+      "why": "거너리 코퍼럴은 독립 조준 지원과 후속 사격, 합류 시 사기·주황 주사위 보정을 구분한다. 레이디 텔리아는 합류 원거리 공격에 성공 기호를 더하고 지휘로 재굴림을 제공한다.",
+      "when": "여러 사격 유닛을 돕는 역할과 한 사격 유닛을 강화하는 역할 중 하나를 정해 채용한다.",
+      "sourceIds": [
+        "heg-card-gunnery",
+        "heg-card-telia"
+      ]
+    },
+    {
+      "role": "에스타리의 기동·제어",
+      "unitIds": [
+        "frostfire-herald",
+        "gale-falchion",
+        "aide",
+        "marhael-the-refused"
+      ],
+      "why": "프로스트파이어 헤럴드는 핸드 오브 윈드로 위치를 흔들고, 게일 팔치온은 배치 주문과 캐릭터 보호를 가진다. 에이드는 추가 활성화 지휘, 마르하엘은 영구가 아닌 능력 억제를 제공한다.",
+      "when": "적의 높은 방어를 정면 피해만으로 넘기 어렵거나, 취약한 지원 캐릭터와 점령 타이밍을 보호해야 할 때 검토한다.",
+      "sourceIds": [
+        "heg-builder",
+        "heg-card-frostfire",
+        "heg-core"
+      ]
+    },
+    {
+      "role": "기계와 기술 지원",
+      "unitIds": [
+        "war-rig",
+        "ansera-noighman",
+        "engineer",
+        "trabor-slepmund",
+        "mk-os-automata"
+      ],
+      "why": "워 리그는 W 8·점령 0의 돌파 자원이다. 안세라는 합류한 워 리그의 이동과 공격을 개선하고, 엔지니어는 합류 수리와 공격·방어 재굴림을 제공한다. 트라보르는 오토마타 운용과 합류 약병을 쓴다.",
+      "when": "기계에 지원을 더하면 다른 목표물을 맡을 병력이 줄어든다. 세 지원 캐릭터를 한 기계에 동시에 합류시킬 수 없다.",
+      "sourceIds": [
+        "heg-builder",
+        "heg-card-war-rig",
+        "heg-card-ansera",
+        "heg-card-automata"
+      ]
+    },
+    {
+      "role": "지속력과 활성화 순서",
+      "unitIds": [
+        "war-surgeon",
+        "strategos"
+      ],
+      "why": "워 서전은 독립 회복과 합류 피해 무시가 다르다. 스트라테고스는 다른 아군 활성화와 게임당 한 번의 라운드 종료 토큰 이동으로 시간표를 조절한다.",
+      "when": "한 타격 유닛을 오래 쓰려면 워 서전, 적이 대응하기 전 두 동작을 잇거나 득점 시간을 바꾸려면 스트라테고스를 고려한다.",
+      "sourceIds": [
+        "heg-builder",
+        "heg-card-surgeon",
+        "heg-core"
+      ]
+    },
+    {
+      "role": "칼라드렌 투자",
+      "unitIds": [
+        "nayra-caladren",
+        "naergon-caladren"
+      ],
+      "why": "나이라는 시간 제어·상태 부여를, 나에르곤은 강제 이동과 보호 연계를 제공한다. 나에르곤을 선택하면 나이라까지 최소 50점이 필요하다.",
+      "when": "보병과 사격의 기본 운용이 익숙해진 뒤, 적의 행동 수와 목표물 접근을 제어할 구체적인 계획이 있을 때 투입한다.",
+      "sourceIds": [
+        "heg-builder"
+      ]
+    },
+    {
+      "role": "용병 확장",
+      "unitIds": [
+        "privateer-starvingson",
+        "vercana",
+        "ismail-the-eighth-pillar"
+      ],
+      "why": "프라이버티어 스타빙슨은 보병 합류 장교 선택지, 베르카나는 매복 선택지다. 이스마일은 상세 프로필이 제공되지 않은 상태라 세부 전투력을 비교하지 않았다.",
+      "when": "기존 역할의 공백이 분명하고 해당 모드의 출전·용병 제한을 확인한 뒤 선택한다.",
+      "sourceIds": [
+        "heg-builder"
+      ]
+    }
+  ],
+  "synergies": [
+    {
+      "title": "코퍼럴과 다섯 병력의 버클러맨",
+      "unitIds": [
+        "corporal",
+        "black-legion-bucklermen"
+      ],
+      "plan": "배치 때 코퍼럴을 버클러맨 한 유닛에 합류시켜 4+1 병력으로 시작한다. 교전 전에 양측 병력 수를 세어 합류면의 수적 우세가 발동하는지 확인한다. 사기 +1과 점령 +1을 반영하되 공격·방어 수정치를 사용하려면 별도의 스트레스 비용도 계산한다.",
+      "caution": "적 여러 유닛과 교전하면 그 병력 총합과 비교한다. 코퍼럴의 독립 광역 능력을 다른 유닛에 그대로 적용하지 않는다.",
+      "sourceIds": [
+        "heg-card-corporal",
+        "heg-card-bucklermen",
+        "heg-core"
+      ]
+    },
+    {
+      "title": "독립 거너리 코퍼럴의 두 사격선",
+      "unitIds": [
+        "gunnery-corporal",
+        "black-legion-arquebusiers",
+        "pioneers"
+      ],
+      "plan": "첫 사격 유닛을 거너리 코퍼럴의 7보폭 안에 두고, 다른 사격 유닛도 같은 적에 대한 통상 사거리·시야를 확보한다. 첫 유닛이 원거리 공격을 수행한 활성화 종료에 지휘 토큰 1개로 코오디네이티드 파이어를 사용한다.",
+      "caution": "두 번째 유닛이 자동으로 모타르 능력까지 수행하는 것은 아니다. 합류면에는 이 독립 능력이 없고, 이미 교전한 사격 유닛은 원거리 공격 계획을 따르기 어렵다.",
+      "sourceIds": [
+        "heg-card-gunnery",
+        "heg-card-arquebusiers",
+        "heg-card-pioneers",
+        "heg-core"
+      ]
+    },
+    {
+      "title": "안세라가 이끄는 워 리그 접근",
+      "unitIds": [
+        "ansera-noighman",
+        "war-rig"
+      ],
+      "plan": "배치 합류 후 안세라의 로지스틱스 앤드 테크니컬 탤런트로 워 리그의 MOV 2-3 [8]과 공격 주사위 보정을 확인한다. 활성화 시작에는 합류 수리의 WP 굴림을 처리하고, 접근 경로와 7보폭 화염 공격의 유효 대상을 정한다.",
+      "caution": "큰 모델이 실제로 들어갈 공간이 필요하다. 수리는 성공 기호 수만큼이며 자동 완전 회복이 아니다. 점령 0을 다른 보병 대신 득점한다고 계산하지 않는다.",
+      "sourceIds": [
+        "heg-card-ansera",
+        "heg-card-war-rig",
+        "heg-core"
+      ]
+    },
+    {
+      "title": "드라고슬라브와 불워크스의 점령 투자",
+      "unitIds": [
+        "dragoslav-bjelogric-drago-the-anvil",
+        "bulwarks"
+      ],
+      "plan": "합류하면 의지 교체·사기 +1·공격/방어 자동 기호·점령 보정과 합류 능력을 확인한다. 주변 보병이 7보폭 지원망을 유지하도록 움직이고, 지휘 토큰 1개를 디 앤빌의 실제 통제권 경합 시점에 사용할지 남겨 둔다.",
+      "caution": "합류면은 정예와 피의 갈증(바랑크)을 명시적으로 부여한다. 바랑크 상대 의무 행동과 억제 판정을 읽고, 독립 의지 공유 오라를 함께 가진 것으로 계산하지 않는다.",
+      "sourceIds": [
+        "heg-card-drago",
+        "heg-card-bulwarks",
+        "heg-core"
+      ]
+    },
+    {
+      "title": "어그레서스의 유지력에 투자하기",
+      "unitIds": [
+        "aggressors",
+        "war-surgeon"
+      ],
+      "plan": "워 서전을 배치 합류시키면 메딕!을 활성화당 한 번, 피해 직전 WP 판정으로 쓰는 선택이 생긴다. 공격에서 남길 기호와 포이즌 바이얼스의 윤곽 별 소비를 비교하고, 다음 활성화에도 핵심 전투 행을 유지할 병력 수를 남기는 데 집중한다.",
+      "caution": "회복 행동·광역 회복은 독립면의 능력이다. 합류한다고 모두 유지하지 않으며, 같은 유닛에 다른 장교를 추가로 붙이지 못한다.",
+      "sourceIds": [
+        "heg-builder",
+        "heg-card-surgeon",
+        "heg-video",
+        "heg-core"
+      ]
+    },
+    {
+      "title": "스트라테고스의 활성화 연결",
+      "unitIds": [
+        "strategos",
+        "black-legion-bucklermen",
+        "pioneers"
+      ],
+      "plan": "스트라테고스가 합류한 버클러맨의 활성화 종료에 지휘 토큰 1개로 오펜시브 코오디네이션을 사용해 12보폭 이내 다른 아군을 활성화한다. 전열의 점령 처리와 후속 사격·이동을 연결할 수 있는 위치를 먼저 만든다.",
+      "caution": "이미 활성화한 유닛의 토큰·스트레스 규칙과 활성화 종료의 추가 활성화 제한을 그대로 지킨다. 행동을 무한히 연결하는 능력이 아니다.",
+      "sourceIds": [
+        "heg-builder",
+        "heg-core"
+      ]
+    }
+  ],
+  "rosters": [
+    {
+      "title": "입문형 — 보병 지원망과 두 사격선 250점",
+      "mode": "standard",
+      "limit": 250,
+      "quantities": {
+        "hetman": 1,
+        "corporal": 1,
+        "gunnery-corporal": 1,
+        "frostfire-herald": 1,
+        "black-legion-bucklermen": 2,
+        "black-legion-arquebusiers": 1,
+        "bulwarks": 1,
+        "black-angels": 1,
+        "pioneers": 1
+      },
+      "commander": "hetman",
+      "joins": [
+        {
+          "characterId": "corporal",
+          "characterCopy": 0,
+          "targetId": "black-legion-bucklermen",
+          "targetCopy": 0
+        }
+      ],
+      "plan": "25+15+20+25+40+30+35+30+30=250점, COM 합계 6이다. 코퍼럴만 첫 버클러맨에 합류하고 헤트만·거너리 코퍼럴은 독립 지원으로 둔다. 중앙의 두 버클러맨과 불워크스, 아르케뷔지어스·파이오니어스의 서로 다른 사격선, 블랙 엔젤스의 측면 위협을 연습한다. 헤럴드는 강제 이동과 마법 대응을 맡는다. 모든 캐릭터를 합류시켜 독립 오라를 잃는 구성을 피했고, 워 리그와 회복 캐릭터 투자는 포기했다.",
+      "swaps": [
+        "파이오니어스 30점을 두 번째 아르케뷔지어스 30점으로 바꾸면 여전히 250점이며 AVB 2 이내다. 정찰·모타르 대신 네 병력 사격선을 얻는다.",
+        "거너리 코퍼럴 20점을 스트라테고스 20점으로 바꾸면 250점이다. 조준·후속 사격을 포기하고 활성화 연계와 라운드 시간표를 연습한다. 합류할 경우 비어 있는 두 번째 버클러맨을 사용한다."
+      ],
+      "sourceIds": [
+        "heg-builder",
+        "heg-core",
+        "heg-card-hetman",
+        "heg-card-corporal",
+        "heg-card-gunnery",
+        "heg-card-pioneers"
+      ],
+      "provenance": "analyst-example"
+    },
+    {
+      "title": "심화형 — 기계 돌파와 강화 중앙 250점",
+      "mode": "standard",
+      "limit": 250,
+      "quantities": {
+        "dragoslav-bjelogric-drago-the-anvil": 1,
+        "lady-telia": 1,
+        "ansera-noighman": 1,
+        "war-rig": 1,
+        "bulwarks": 1,
+        "pioneers": 1,
+        "black-legion-bucklermen": 1,
+        "black-angels": 1,
+        "war-surgeon": 1
+      },
+      "commander": "dragoslav-bjelogric-drago-the-anvil",
+      "joins": [
+        {
+          "characterId": "dragoslav-bjelogric-drago-the-anvil",
+          "characterCopy": 0,
+          "targetId": "bulwarks",
+          "targetCopy": 0
+        },
+        {
+          "characterId": "lady-telia",
+          "characterCopy": 0,
+          "targetId": "pioneers",
+          "targetCopy": 0
+        },
+        {
+          "characterId": "ansera-noighman",
+          "characterCopy": 0,
+          "targetId": "war-rig",
+          "targetCopy": 0
+        },
+        {
+          "characterId": "war-surgeon",
+          "characterCopy": 0,
+          "targetId": "black-legion-bucklermen",
+          "targetCopy": 0
+        }
+      ],
+      "plan": "35+25+20+40+35+30+20+30+15=250점, COM 합계 5다. 드라고슬라브의 불워크스가 중앙을 맡고, 안세라의 워 리그가 접근을 압박한다. 레이디 텔리아는 원래 정찰인 파이오니어스에 합류하고, 워 서전은 버클러맨의 생존에 투자한다. 합류 후 활성화 단위가 다섯으로 줄어드므로 초반에 한 축을 깊게 잃으면 빈 목표물을 메우기 어렵다. 의지 공유 오라와 독립 지휘 능력은 합류면에서 사라질 수 있다는 대가까지 익힌 뒤 사용한다.",
+      "swaps": [
+        "안세라 20점을 엔지니어 15점으로 바꾸고 워 리그 합류를 다시 지정하면 245점이다. 5점을 남기는 대신 공격·방어 재굴림과 수리를 선택하며, 안세라의 기동·공격 보너스는 잃는다.",
+        "워 서전 15점을 스트라테고스 20점으로 단순 교체하면 255점으로 초과한다. 다른 5점 조정을 먼저 하거나 앞의 245점 교체와 함께 적용해 250점으로 맞춘다."
+      ],
+      "sourceIds": [
+        "heg-builder",
+        "heg-core",
+        "heg-card-drago",
+        "heg-card-bulwarks",
+        "heg-card-ansera",
+        "heg-card-war-rig",
+        "heg-card-telia",
+        "heg-card-surgeon"
+      ],
+      "provenance": "analyst-example"
+    }
+  ],
+  "gamePlan": {
+    "deployment": [
+      "목표물 두 곳과 보병이 안전하게 통과할 길을 먼저 고른다. 버클러맨이 전면을 만들고 불워크스가 지원 유닛을 7보폭 안에 둘 수 있도록 중앙 폭을 확보한다.",
+      "독립 지휘 캐릭터는 전열 뒤에 두되 범위가 끊기지 않게 한다. 엄폐는 인접 조건을 충족해야 하며, 한 줄로 모인 지원군이 광역 공격에 함께 맞지 않도록 간격도 남긴다.",
+      "사격 유닛 둘이 같은 접근로를 볼 수 있게 놓고, 파이오니어스의 정찰 배치는 모험과 전장 가장자리·적 시야 조건을 따른다. 블랙 엔젤스는 직선 돌격로와 측면 우회로 중 하나를 확보한다."
+    ],
+    "opening": [
+      "첫 활성화에서 모든 지원 자원을 쓰지 않는다. 병력을 엄폐에서 꺼내기 전에 적의 주요 사거리와 돌격 거리를 보고, 상대가 유효한 공격을 못 하는 이동으로 중앙을 넓힌다.",
+      "상대의 다수 병력은 아군과 교전하기 전에 모타르나 일반 사격으로 압박한다. 적이 이미 교전했다면 모타르의 대상 요건을 다시 확인하고 다른 일을 선택한다.",
+      "위협이 닿지 않는 블랙 엔젤스나 워 리그를 무작정 앞으로 던지지 않는다. 다음 활성화에 실제로 공격할 수 있는 거리에서 적의 이동 선택을 제한하는 편이 더 낫다."
+    ],
+    "midgame": [
+      "공격 전 처치 기대값과 목표물에서 밀어내는 효과를 비교한다. 불워크스의 톤트 디 에너미는 행동을 쓰는 능력이므로 같은 활성화에 할 일과 함께 계산한다.",
+      "병력을 잃으면 카드의 전투 행과 점령 수치를 즉시 갱신한다. 합류 캐릭터 한 명도 병력에 포함해 전투 행을 정하며, 전투에서 이긴 것과 해당 목표물을 점령한 것을 구분한다.",
+      "지원 범위를 유지하는 유닛과 측면으로 나갈 유닛을 나눈다. 적이 한쪽을 비웠다면 값싼 버클러맨을 새 임무로 보내고 비싼 강화 유닛은 이미 확보한 중앙을 지킨다."
+    ],
+    "endgame": [
+      "남은 활성화와 라운드 종료 위치를 먼저 읽는다. 마지막에 목표물 3보폭 안에 도달할 수 있는 보병과 현재 점령값을 적어 보고, 추가 피해보다 이동 한 번의 가치를 따진다.",
+      "디 앤빌 같은 지휘 효과는 적힌 통제권 경합 시점에 사용한다. 스트라테고스가 있다면 종료 토큰 이동 제한을 지키며 득점이 확정되는 시점과 적의 남은 대응을 함께 본다.",
+      "워 리그의 점령 0, 블랙 엔젤스의 병력 감소 후 점령 0 같은 약점을 확인한다. 큰 모델이 살아 있다는 이유만으로 빈 목표물의 보병을 철수시키지 않는다."
+    ],
+    "priorities": [
+      "최우선은 선택한 모험의 득점 조건이다. 적의 지휘관 제거가 승점으로 이어지지 않는다면 전군을 추격에 쓰지 않는다.",
+      "다음은 병력 수, 사기 여유, 지원 범위다. 필요한 굴림의 수정치 비용과 다음 활성화 가능성을 함께 확인한다.",
+      "마지막으로 지휘 토큰을 배분한다. 눈앞의 공격보다 종료 시점의 점령·스트레스 관리가 더 큰 차이를 만들 수 있다."
+    ]
+  },
+  "matchups": [
+    {
+      "opponentType": "돌격과 높은 근접 피해를 앞세우는 군대",
+      "plan": "불워크스의 돌격 대응과 사격 접근로를 겹치고, 맞아 줄 값싼 전열과 반격 유닛을 분리한다. 적이 한 유닛에 모두 붙으면 수적 우세 조건을 다시 센다.",
+      "avoid": "단단해 보인다는 이유로 보병 한 유닛만 먼저 내보내거나 적의 돌격 거리에 독립 지휘관을 세우지 않는다."
+    },
+    {
+      "opponentType": "장거리 사격과 엄폐 활용",
+      "plan": "직선 사격로를 줄여 접근하고, 독립 거너리 코퍼럴의 조준 범위로 엄폐를 상대한다. 파이오니어스의 모타르는 숨은 비교전 적을 압박할 대안이다.",
+      "avoid": "시야선 불필요가 사거리·대상·엄폐 규칙을 모두 지운다고 생각하지 않는다."
+    },
+    {
+      "opponentType": "고기동 정찰·매복과 측면 침투",
+      "plan": "모든 점수를 중앙 강화에 묶지 말고 두 번째 버클러맨과 블랙 엔젤스가 돌아설 통로를 남긴다. 상대가 늦게 배치할 자리와 우리 사격수의 뒤쪽을 확인한다.",
+      "avoid": "지원 캐릭터가 서로 멀리 떨어지거나 전열 전체가 한 목표물에 몰려 빈 측면을 내주지 않는다."
+    },
+    {
+      "opponentType": "강한 마법·상태 제어",
+      "plan": "주문 시전자와 주문 해제 보유자의 실제 차단 요건을 확인하고, 필요한 방어에 자원을 남긴다. 안세라 같은 상태 면역 지원은 앞면과 합류면의 범위·대상을 구분한다.",
+      "avoid": "공포 무시·탑승·주문 해제가 모든 상태나 팅지를 막는다고 해석하지 않는다."
+    },
+    {
+      "opponentType": "적은 수의 대형·고체력 정예",
+      "plan": "전투로 파괴할 비용과 점령으로 앞설 비용을 비교한다. 필요한 곳은 불워크스로 묶고, 이동 제어와 주변 보병의 점령으로 다른 곳에서 이득을 낸다.",
+      "avoid": "대형을 잡으려고 모든 사격·지휘를 소비한 뒤 상대의 다른 득점 유닛을 방치하지 않는다."
+    },
+    {
+      "opponentType": "다수 병력과 넓은 전장 점유",
+      "plan": "파이오니어스와 워 리그의 병력 수 연동 공격을 유효한 대상에 쓰고, 코퍼럴의 수적 우세가 사라지는 교전은 피한다. 전선 두 곳을 유지해 상대의 집중을 분산한다.",
+      "avoid": "주황 주사위를 병력 수만큼 무제한 굴리거나 다수 유닛과의 교전에서 적 병력을 한 유닛만 세지 않는다."
+    }
+  ],
+  "mistakes": [
+    "거너리 코퍼럴의 조준을 합류한 유닛에 자동 상속시키는 실수. 독립 오라와 합류면을 구분한다.",
+    "레이디 텔리아의 정찰만 보고 아르케뷔지어스 전체를 정찰 배치하는 실수. 대상 유닛 자체의 키워드나 명시적 부여를 확인한다.",
+    "독립 헤트만·드라고슬라브의 의지 공유를 합류 후에도 그대로 유지한다고 계산하는 실수.",
+    "불워크스의 주변 유닛 수와 코퍼럴의 병력 수 비교를 같은 계산으로 처리하는 실수.",
+    "워 리그의 탑승을 모든 스트레스 면역으로 읽거나 점령 0을 잊는 실수.",
+    "큰 합류 보너스를 이유로 지원 범위와 실제 모델 배치 공간을 무시하는 실수.",
+    "스위치를 발동한 기호를 최종 성공·방어 판정에도 다시 쓰거나 원거리 방어에서 스위치를 사용하는 실수.",
+    "워 서전의 앞면 회복 능력과 합류면 피해 무시를 동시에 가진 것으로 읽는 실수."
+  ],
+  "practice": [
+    "같은 중앙 배치에서 헤트만을 독립으로 둔 게임과 배치 합류한 게임을 한 번씩 해 본다. 의지 지원을 받은 유닛 수와 실제 점령 차이를 기록한다.",
+    "코퍼럴 합류 버클러맨과 네 병력 적을 놓고 한 병력씩 줄여 본다. 수적 우세가 언제 꺼지고 전투 행이 언제 바뀌는지 손으로 표시한다.",
+    "거너리 코퍼럴·아르케뷔지어스·파이오니어스로 동일 적을 볼 수 있는 두 사격선을 만든다. 한 유닛이 움직였을 때 후속 사격이 여전히 가능한지 확인한다.",
+    "불워크스 주변 7보폭과 목표물 3보폭을 서로 다른 원으로 표시한다. 지원망과 실제 득점 위치를 혼동하지 않는 연습이다.",
+    "심화 예시에서 안세라의 수리 굴림에 실패한 상태를 가정한다. 워 리그를 잃어도 누가 남은 목표물을 맡을지 한 활성화 전에 정한다."
+  ],
+  "sources": [
+    {
+      "id": "heg-faction",
+      "title": "Hegemony of Embersig: Faction Guide and Miniatures",
+      "url": "https://warcrow.com/en/games/warcrow/nation/hegemony-of-embersig",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "방어 보병·목표물 점유·에스타리 지원·지휘와 의지 공유라는 공식 팩션 소개.",
+      "limitations": "플레이 방향 소개이며 개별 카드 수치나 대회 성적의 근거는 아니다."
+    },
+    {
+      "id": "heg-builder",
+      "title": "Warcrow Army Builder — Hegemony of Embersig",
+      "url": "https://www.warcrowarmybuilder.com/builder",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "프로젝트가 원본 대조한 공식 빌더 v0.13.51의 헤게모니 30개 항목, 비용·AVB·지휘·병력·키워드·앞면/합류면을 기준으로 분석.",
+      "limitations": "이 가이드는 현재 프로젝트 검수 데이터 기준이다. 웹 빌더의 모든 최신 변경을 실시간 반영한다고 보증하지 않는다. 개별 링크는 아래 공식 카드 자료를 함께 참조한다."
+    },
+    {
+      "id": "heg-core",
+      "title": "Warcrow Rules 1.6.1 — English",
+      "url": "https://experience.corvusbelli.com/en/resources/e89e441f-98af-5417-ba5d-96d9a5be719d?l=712b6686-47e5-479e-a729-80c7af9ce90a",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "인쇄 25–27쪽 편성·지휘, 38–40쪽 활성화, 45–54쪽 전투, 73–81쪽 합류, 키워드와 점령 처리.",
+      "limitations": "모험의 개별 득점 조건과 카드 예외를 함께 적용해야 한다."
+    },
+    {
+      "id": "heg-hotfix",
+      "title": "Warcrow Army hotfix - November 2026",
+      "url": "https://warcrow.com/en/news/warcrow-army-hotfix-nov26",
+      "type": "official",
+      "publishedAt": "2026-11-03",
+      "accessedAt": "2026-11-16",
+      "coverage": "거너리 코퍼럴 v2.1의 스페인어 오탈자 수정 공지를 확인했다.",
+      "limitations": "헤게모니의 점수·영문 능력 수치 변경은 이 기사에 기재되지 않았다. 이를 근거로 전체 로컬 데이터가 최신판과 같다고 단정하지 않는다."
+    },
+    {
+      "id": "heg-video",
+      "title": "New to Warcrow? Start Here! - What Faction to Play 2025 — WatermelonWargames",
+      "url": "https://www.youtube.com/watch?v=dchC5UIjcjs",
+      "type": "video",
+      "publishedAt": "2025-12-21",
+      "accessedAt": "2026-11-16",
+      "coverage": "확보한 자막 2:12–5:59의 헤게모니 설명: 전문 유닛의 조합, 드라고슬라브, 어그레서스와 워 서전, 워 리그의 돌파 역할에 대한 제작자 견해.",
+      "limitations": "2025년 입문 의견으로 1.6.1 이전 자료다. 승률·상위권 빈도·현재 최강 조합의 증거로 사용하지 않았고 현 카드로 대조했다."
+    },
+    {
+      "id": "heg-card-hetman",
+      "title": "Hetman — official English card",
+      "url": "https://www.warcrowarmybuilder.com/art/card/hetman_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "공식 카드 URL을 조회하고 프로젝트의 원본 대조 프로필·능력·스위치와 함께 사용했다.",
+      "limitations": "상황별 분석은 이 가이드 저자의 제안이며 공식 추천 전술이나 대회 입상 기록이 아니다."
+    },
+    {
+      "id": "heg-card-corporal",
+      "title": "Corporal — official English card",
+      "url": "https://www.warcrowarmybuilder.com/art/card/corporal_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "공식 카드 URL을 조회하고 프로젝트의 원본 대조 프로필·능력·스위치와 함께 사용했다.",
+      "limitations": "상황별 분석은 이 가이드 저자의 제안이며 공식 추천 전술이나 대회 입상 기록이 아니다."
+    },
+    {
+      "id": "heg-card-bulwarks",
+      "title": "Bulwarks — official English card",
+      "url": "https://www.warcrowarmybuilder.com/art/card/bulwarks_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "공식 카드 URL을 조회하고 프로젝트의 원본 대조 프로필·능력·스위치와 함께 사용했다.",
+      "limitations": "상황별 분석은 이 가이드 저자의 제안이며 공식 추천 전술이나 대회 입상 기록이 아니다."
+    },
+    {
+      "id": "heg-card-bucklermen",
+      "title": "Black Legion Bucklermen — official English card",
+      "url": "https://www.warcrowarmybuilder.com/art/card/black_legion_bucklermen_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "공식 카드 URL을 조회하고 프로젝트의 원본 대조 프로필·능력·스위치와 함께 사용했다.",
+      "limitations": "상황별 분석은 이 가이드 저자의 제안이며 공식 추천 전술이나 대회 입상 기록이 아니다."
+    },
+    {
+      "id": "heg-card-arquebusiers",
+      "title": "Black Legion Arquebusiers — official English card",
+      "url": "https://www.warcrowarmybuilder.com/art/card/black_legion_arquebusiers_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "공식 카드 URL을 조회하고 프로젝트의 원본 대조 프로필·능력·스위치와 함께 사용했다.",
+      "limitations": "상황별 분석은 이 가이드 저자의 제안이며 공식 추천 전술이나 대회 입상 기록이 아니다."
+    },
+    {
+      "id": "heg-card-gunnery",
+      "title": "Gunnery Corporal — official English card",
+      "url": "https://www.warcrowarmybuilder.com/art/card/gunnery_corporal_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "공식 카드 URL을 조회하고 프로젝트의 원본 대조 프로필·능력·스위치와 함께 사용했다.",
+      "limitations": "상황별 분석은 이 가이드 저자의 제안이며 공식 추천 전술이나 대회 입상 기록이 아니다."
+    },
+    {
+      "id": "heg-card-pioneers",
+      "title": "Pioneers — official English card",
+      "url": "https://www.warcrowarmybuilder.com/art/card/pioneers_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "공식 카드 URL을 조회하고 프로젝트의 원본 대조 프로필·능력·스위치와 함께 사용했다.",
+      "limitations": "상황별 분석은 이 가이드 저자의 제안이며 공식 추천 전술이나 대회 입상 기록이 아니다."
+    },
+    {
+      "id": "heg-card-drago",
+      "title": "Dragoslav Bjelogríc, Drago the Anvil — official English card",
+      "url": "https://www.warcrowarmybuilder.com/art/card/dragoslav_bjelogric_drago_the_anvil_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "공식 카드 URL을 조회하고 프로젝트의 원본 대조 프로필·능력·스위치와 함께 사용했다.",
+      "limitations": "상황별 분석은 이 가이드 저자의 제안이며 공식 추천 전술이나 대회 입상 기록이 아니다."
+    },
+    {
+      "id": "heg-card-war-rig",
+      "title": "War Rig — official English card",
+      "url": "https://www.warcrowarmybuilder.com/art/card/war_rig_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "공식 카드 URL을 조회하고 프로젝트의 원본 대조 프로필·능력·스위치와 함께 사용했다.",
+      "limitations": "상황별 분석은 이 가이드 저자의 제안이며 공식 추천 전술이나 대회 입상 기록이 아니다."
+    },
+    {
+      "id": "heg-card-ansera",
+      "title": "Ansera Noighman — official English card",
+      "url": "https://www.warcrowarmybuilder.com/art/card/ansera_noighman_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "공식 카드 URL을 조회하고 프로젝트의 원본 대조 프로필·능력·스위치와 함께 사용했다.",
+      "limitations": "상황별 분석은 이 가이드 저자의 제안이며 공식 추천 전술이나 대회 입상 기록이 아니다."
+    },
+    {
+      "id": "heg-card-telia",
+      "title": "Lady Telia — official English card",
+      "url": "https://www.warcrowarmybuilder.com/art/card/lady_telia_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "공식 카드 URL을 조회하고 프로젝트의 원본 대조 프로필·능력·스위치와 함께 사용했다.",
+      "limitations": "상황별 분석은 이 가이드 저자의 제안이며 공식 추천 전술이나 대회 입상 기록이 아니다."
+    },
+    {
+      "id": "heg-card-surgeon",
+      "title": "War Surgeon — official English card",
+      "url": "https://www.warcrowarmybuilder.com/art/card/war_surgeon_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "공식 카드 URL을 조회하고 프로젝트의 원본 대조 프로필·능력·스위치와 함께 사용했다.",
+      "limitations": "상황별 분석은 이 가이드 저자의 제안이며 공식 추천 전술이나 대회 입상 기록이 아니다."
+    },
+    {
+      "id": "heg-card-frostfire",
+      "title": "Frostfire Herald — official English card",
+      "url": "https://www.warcrowarmybuilder.com/art/card/frostfire_herald_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "공식 카드 URL을 조회하고 프로젝트의 원본 대조 프로필·능력·스위치와 함께 사용했다.",
+      "limitations": "상황별 분석은 이 가이드 저자의 제안이며 공식 추천 전술이나 대회 입상 기록이 아니다."
+    },
+    {
+      "id": "heg-card-automata",
+      "title": "MK-OS Automata — official English card",
+      "url": "https://www.warcrowarmybuilder.com/art/card/mk-os_automata_card_en.webp",
+      "type": "official",
+      "accessedAt": "2026-11-16",
+      "coverage": "공식 카드 URL을 조회하고 프로젝트의 원본 대조 프로필·능력·스위치와 함께 사용했다.",
+      "limitations": "상황별 분석은 이 가이드 저자의 제안이며 공식 추천 전술이나 대회 입상 기록이 아니다."
+    }
+  ]
+}
