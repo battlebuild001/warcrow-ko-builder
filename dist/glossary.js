@@ -1,6 +1,6 @@
 /* Official rules are data-backed; inline terms and native stats share one reader. */
 let ruleData={entries:[]},ruleById=new Map(),ruleByAlias=new Map(),rulePattern=null;
-let currentRuleId='',ruleHistory=[],ruleContextUnit=null,ruleContextEnhanced=false,ruleContextProfile=null;
+let currentRuleId='',ruleHistory=[],ruleContextUnit=null,ruleContextEnhanced=false,ruleContextProfile=null,ruleContextFaction='',ruleContextValue='';
 const ruleStatIds={MOV:'movement',W:'wounds',WP:'wp',MOR:'mor',AVB:'availability',COM:'command-token',PT:'points'};
 function configureRules(data){
   ruleData=data;ruleById=new Map(data.entries.map(e=>[e.id,e]));ruleByAlias=new Map();
@@ -33,6 +33,7 @@ function ruleKeyword(raw){
 }
 function cardRulesTools(){return `<div class="card-rules-tools"><span>${ui('스탯·밑줄 용어를 누르면 규칙 설명','Tap stats or underlined terms for rules')}</span><button type="button" data-open-rules>${ui('규칙 사전','Rules')} ↗</button></div>`}
 function inferRuleUnit(target){
+  if(typeof rulePageContext==='function')return rulePageContext(target)?.unit||null;
   const id=target?.closest('[data-rule-unit]')?.dataset.ruleUnit;
   if($('#cardDialog').open&&openCardUnit&&(!id||openCardUnit.id===id))return openCardUnit;
   if(screen==='game'){
@@ -44,16 +45,16 @@ function inferRuleUnit(target){
 
 function openRule(id,options={}){
   const dialog=$('#ruleDialog');
-  if(!dialog.open||options.resetContext){ruleHistory=[];ruleContextUnit=options.unit||null;ruleContextEnhanced=options.enhanced||false;ruleContextProfile=options.profile||null;currentRuleId=''}
-  if(!options.raw&&id==='tinge'&&ruleContextUnit?.faction==='scions-of-yaldabaoth')id='tinge-scions';
+  if(!dialog.open||options.resetContext){ruleHistory=[];ruleContextUnit=options.unit||null;ruleContextEnhanced=options.enhanced||false;ruleContextProfile=options.profile||null;ruleContextFaction=options.faction||ruleContextUnit?.faction||'';currentRuleId=''}
+  if(!options.raw&&id==='tinge'&&ruleContextFaction==='scions-of-yaldabaoth')id='tinge-scions';
   if(!ruleById.has(id))return openRuleBrowser(options.unit);
-  if(dialog.open&&currentRuleId&&currentRuleId!==id&&!options.back)ruleHistory.push({id:currentRuleId,scroll:dialog.scrollTop});
-  currentRuleId=id;$('#ruleSearch').value='';$('#ruleSearchResults').hidden=true;$('#ruleDetail').hidden=false;renderRuleDetail();
+  if(dialog.open&&currentRuleId&&currentRuleId!==id&&!options.back)ruleHistory.push({id:currentRuleId,value:ruleContextValue,scroll:dialog.scrollTop});
+  currentRuleId=id;ruleContextValue=/^\d+$/.test(String(options.value??''))?String(options.value):'';$('#ruleSearch').value='';$('#ruleSearchResults').hidden=true;$('#ruleDetail').hidden=false;renderRuleDetail();
   if(!dialog.open)dialog.showModal();dialog.scrollTop=options.scroll||0;
   $('#ruleDetailTitle').focus({preventScroll:true});
 }
-function openRuleBrowser(unit=null){
-  const dialog=$('#ruleDialog');if(!dialog.open){ruleContextUnit=unit;ruleContextEnhanced=false;ruleContextProfile=null;ruleHistory=[];currentRuleId=''}
+function openRuleBrowser(unit=null,options={}){
+  const dialog=$('#ruleDialog');if(!dialog.open){ruleContextUnit=unit;ruleContextEnhanced=false;ruleContextProfile=null;ruleContextFaction=options.faction||unit?.faction||'';ruleContextValue='';ruleHistory=[];currentRuleId=''}
   $('#ruleSearch').value='';$('#ruleDetail').hidden=true;$('#ruleSearchResults').hidden=false;
   $('#ruleBack').hidden=true;renderRuleSearch('');if(!dialog.open)dialog.showModal();dialog.scrollTop=0;$('#ruleSearch').focus();
 }
@@ -69,7 +70,7 @@ function renderRuleDetail(){
   $('#ruleBack').hidden=!ruleHistory.length;
   const table=(value,heading='')=>`${heading?`<h3>${escapeHtml(heading)}</h3>`:''}<div class="rule-table-wrap"><table><thead><tr>${value.headers.map(h=>`<th scope="col">${escapeHtml(h)}</th>`).join('')}</tr></thead><tbody>${value.rows.map(row=>`<tr>${row.map((cell,i)=>i===0?`<th scope="row">${ruleText(cell,entry.id)}</th>`:`<td>${ruleText(cell,entry.id)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   const stat=currentRuleStat(entry);
-  const statInfo=stat?`<div class="rule-current-stat"><span>현재 카드의 수치</span><strong>${stat.label} · ${escapeHtml(stat.value)}</strong></div>`:'';
+  const statInfo=stat?`<div class="rule-current-stat"><span>현재 카드의 수치</span><strong>${stat.label} · ${escapeHtml(stat.value)}</strong></div>`:ruleContextValue?`<div class="rule-current-stat"><span>선택한 문구의 값</span><strong>${escapeHtml(entry.english.match(/\(([XN])/i)?.[1]||'X')} = ${escapeHtml(ruleContextValue)}</strong></div>`:'';
   const context=ruleContextUnit?`<p class="rule-card-context">${ui('현재 카드','Current card')} · ${escapeHtml(unitName(ruleContextUnit))}</p>`:'';
   $('#ruleDetail').innerHTML=`${context}<div class="rule-detail-heading"><span>${escapeHtml(entry.english)}</span><h2 id="ruleDetailTitle" tabindex="-1">${escapeHtml(entry.label)}</h2></div>${statInfo}<p class="rule-summary">${ruleText(entry.summary,entry.id)}</p>${entry.table?table(entry.table):''}${(entry.tables||[]).map(t=>table(t,t.heading)).join('')}${entry.sections.map(section=>{let text=section.text;if(stat?.movement&&section.heading==='수치 읽기'){const [,a,b,c]=stat.movement;text=`이 카드의 MOV는 ${stat.value}입니다. 한 번의 일반 이동 행동에서 최대 ${a}보폭 구간과 최대 ${b}보폭 구간을 모두 사용할 수 있으며, 두 구간의 순서는 선택합니다. 앞 구간에서 남긴 거리를 다음 구간에 더할 수는 없습니다. 괄호 안 ${c}는 별도로 사용하는 돌격 거리입니다.`}return `<section><h3>${escapeHtml(section.heading)}</h3><p>${ruleText(text,entry.id)}</p></section>`}).join('')}<nav class="rule-related" aria-label="관련 규칙">${entry.related.filter(id=>ruleById.has(id)).map(id=>`<button type="button" data-rule="${id}" data-rule-raw>${escapeHtml(ruleById.get(id).label)} →</button>`).join('')}</nav><p class="rule-source">${entry.pages.length?`공식 룰북 1.6.1 · ${entry.pages.join(', ')}쪽 (인쇄 쪽수)`:'공식 1.6.1의 독립 정의 없음 · 해당 카드·모험의 문구를 확인하세요.'}<br><a href="${escapeHtml(ruleData.sourceUrl)}" target="_blank" rel="noopener noreferrer">${ui('공식 원문 열기','Open official rules')} ↗</a> · <a href="./rules.html#core-${entry.pages[0]||2}" target="_blank" rel="noopener noreferrer">${ui('한국어 룰북 전문','Full Korean rulebook')} ↗</a></p>`;
 }
@@ -80,8 +81,8 @@ function renderRuleSearch(query){
 }
 document.addEventListener('click',event=>{
   const term=event.target.closest('[data-rule]');
-  if(term){if(term.closest('#playCardStage')&&Date.now()<(window.warcrowSkipRuleClickUntil||0)){event.preventDefault();return}event.preventDefault();event.stopPropagation();const inside=$('#ruleDialog').open&&$('#ruleDialog').contains(term),popup=typeof keywordPopupRuleContext==='function'?keywordPopupRuleContext(term):null;openRule(term.dataset.rule,{unit:popup?popup.unit:inside?ruleContextUnit:inferRuleUnit(term),profile:popup?popup.profile:inside?ruleContextProfile:JSON.parse(term.closest('[data-rule-profile]')?.dataset.ruleProfile||'null'),raw:term.hasAttribute('data-rule-raw'),enhanced:term.dataset.ruleStatScope==='enhancement',resetContext:!!popup});return}
-  const browser=event.target.closest('[data-open-rules]');if(browser){event.preventDefault();openRuleBrowser(inferRuleUnit(browser))}
+  if(term){if(term.closest('#playCardStage')&&Date.now()<(window.warcrowSkipRuleClickUntil||0)){event.preventDefault();return}event.preventDefault();event.stopPropagation();const inside=$('#ruleDialog').open&&$('#ruleDialog').contains(term),popup=typeof keywordPopupRuleContext==='function'?keywordPopupRuleContext(term):null,page=!inside&&typeof rulePageContext==='function'?rulePageContext(term):null;openRule(term.dataset.rule,{unit:popup?popup.unit:inside?ruleContextUnit:inferRuleUnit(term),profile:popup?popup.profile:inside?ruleContextProfile:JSON.parse(term.closest('[data-rule-profile]')?.dataset.ruleProfile||'null'),faction:page?.faction,value:term.dataset.ruleValue,raw:term.hasAttribute('data-rule-raw'),enhanced:term.dataset.ruleStatScope==='enhancement',resetContext:!!popup||!!page});return}
+  const browser=event.target.closest('[data-open-rules]');if(browser){event.preventDefault();openRuleBrowser(inferRuleUnit(browser),typeof rulePageContext==='function'?rulePageContext(browser):{})}
 });
 document.addEventListener('input',event=>{if(event.target.id==='ruleSearch'){$('#ruleDetail').hidden=true;$('#ruleSearchResults').hidden=false;renderRuleSearch(event.target.value)}});
-document.addEventListener('click',event=>{if(event.target.closest('#ruleBack')){const previous=ruleHistory.pop();if(previous)openRule(previous.id,{back:true,raw:true,scroll:previous.scroll})}});
+document.addEventListener('click',event=>{if(event.target.closest('#ruleBack')){const previous=ruleHistory.pop();if(previous)openRule(previous.id,{back:true,raw:true,value:previous.value,scroll:previous.scroll})}});

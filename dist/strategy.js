@@ -30,7 +30,7 @@ function strategyRenderGuide(guide){
   if(guide.mistakes?.length){toc.push({id:'mistakes',title:'자주 하는 실수'});html+=strategySection(guide,'mistakes','자주 하는 실수',strategyList(guide.mistakes));}
   if(guide.practice?.length){toc.push({id:'practice',title:'연습과 복기'});html+=strategySection(guide,'practice','연습과 복기',strategyList(guide.practice,true));}
   toc.push({id:'sources',title:'출처와 적용 시점'});html+=strategySection(guide,'sources','출처와 적용 시점','<p>공식 자료는 규칙·프로필의 근거, 운영 제안은 그 자료를 바탕으로 한 해석, 커뮤니티 해설은 해당 제작자의 시점과 관점입니다.</p>'+strategySourceList(guide.sources)+(guide.id==='general'?strategyList(strategyCommon.researchLimits):''),'official');
-  st$('#strategyToc').innerHTML=toc.map(t=>'<a href="#'+stEscape(guide.id+'/'+t.id)+'">'+stEscape(t.title)+'</a>').join('');st$('#strategyContent').innerHTML=html;
+  st$('#strategyToc').innerHTML=toc.map(t=>'<a href="#'+stEscape(guide.id+'/'+t.id)+'">'+stEscape(t.title)+'</a>').join('');st$('#strategyContent').innerHTML=html;strategyEnhanceRules(st$('#strategyContent'));
 }
 function strategyRouteParts(){try{return decodeURIComponent(location.hash.slice(1)).split('/');}catch{return ['general'];}}
 function strategyCurrentGuide(){const id=strategyRouteParts()[0]||'general';return strategyGuides.find(g=>g.id===id)||strategyCommon;}
@@ -76,8 +76,8 @@ async function loadStrategy(){
   const fetchJSON=async path=>{const r=await fetch(path);if(!r.ok)throw Error(path);return r.json();};
   try{
     strategyCommon=await fetchJSON('./strategy-common.json?v=46');
-    const [units,names,...guides]=await Promise.all([fetchJSON('./app-data.json?v=46'),fetchJSON('./card-ko.json?v=46'),...strategyCommon.factions.map(id=>fetchJSON('./strategy-factions/'+id+'.json?v=46'))]);
-    strategyUnits=units.units;strategyNames=names.names;strategyGuides=[strategyCommon,...guides];
+    const [units,names,rules,...guides]=await Promise.all([fetchJSON('./app-data.json?v=46'),fetchJSON('./card-ko.json?v=46'),fetchJSON('./rules-glossary.json?v=46'),...strategyCommon.factions.map(id=>fetchJSON('./strategy-factions/'+id+'.json?v=47'))]);
+    strategyUnits=units.units;strategyNames=names.names;strategyGuides=[strategyCommon,...guides];strategyConfigureRules(rules);
     st$('#strategyEdition').innerHTML='<span>룰북 '+stEscape(strategyCommon.rulesVersion)+'</span><span>예시 명단 검산: 프로필 '+stEscape(strategyCommon.builderVersion)+'</span><span>자료 확인 '+stEscape(strategyCommon.reviewedAt)+'</span>';
     st$('#strategyFactions').innerHTML=strategyGuides.map(g=>'<a href="#'+stEscape(g.id)+'" data-strategy-guide="'+stEscape(g.id)+'">'+(g.id==='general'?'': '<img src="./faction-art/'+stEscape(g.id)+'.webp" alt="">')+stEscape(g.id==='general'?'공통 운영':g.title)+'</a>').join('')+'<a href="#sources" data-strategy-guide="sources">출처·버전</a>';
     const p=strategyCommon.patchNotice;st$('#strategyPatchNotice').innerHTML='<aside class="strategy-patch"><strong>'+stEscape(p.title)+'</strong><p>'+stEscape(p.text)+'</p><a href="'+stEscape(strategyURL(p.url))+'" target="_blank" rel="noopener noreferrer">공식 11월 변경 공지 ↗</a></aside>';
