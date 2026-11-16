@@ -82,13 +82,13 @@ function keywordSourceLabel(source){
     const title=language==='en'?(item.english||'').split('.')[0]:item.titleKo;
     return scope+' · '+ui(...(types[item.iconType]||types.passive))+(title?' · '+title:'');
   }
-  const attack=source.row.attacks?.[item.columnRole==='attack-2'?1:0],role=item.columnRole==='defense'?ui('방어 전투 효과','Defense switch'):attack?.kind==='ranged'?ui('원거리 공격 전투 효과','Ranged attack switch'):ui('근접 공격 전투 효과','Melee attack switch');
+  const attack=source.row.attacks?.[item.columnRole==='attack-2'?1:0],role=item.columnRole==='defense'?ui('방어 스위치','Defense switch'):attack?.kind==='ranged'?ui('원거리 공격 스위치','Ranged attack switch'):ui('근접 공격 스위치','Melee attack switch');
   return scope+' · '+(source.row.members?source.row.members+' '+ui('병력 행','troop row')+' · ':'')+role;
 }
 function keywordSourceMarkup(source){
   const item=source.item,cost=item.triggerCost||item.trigger||[];
   const timing=source.kind==='ability'?keywordSkillTiming(item):[
-    '해당 전투 행의 굴림에서, 다시 굴림을 마친 뒤 전환 효과 단계에 표시된 기호를 소비합니다. 소비한 기호는 결과 계산이나 다른 효과에 다시 쓰지 않습니다. 원거리 공격의 방어자와 기회 공격에서는 전환 효과를 사용할 수 없습니다.',
+    '해당 전투 행의 굴림에서, 다시 굴림을 마친 뒤 스위치 단계에 표시된 기호를 소비합니다. 소비한 기호는 결과 계산이나 다른 효과에 다시 쓰지 않습니다. 원거리 공격의 방어자와 기회 공격에서는 스위치를 사용할 수 없습니다.',
     'In the matching combat row, after rerolls, spend the shown symbols during the Switches step. Spent symbols cannot be reused. Ranged defenders and both sides of opportunity attacks cannot use switches.'
   ];
   return '<li class="keyword-source"><strong>'+escapeHtml(keywordSourceLabel(source))+'</strong><p>'+keywordCopy(...timing)+'</p>'+(source.kind==='effect'?'<div class="keyword-source-cost"><span>'+ui('소비 기호','Spend')+'</span>'+cost.map(s=>nativeGlyph(s,true)).join('')+'</div>':'')+'<blockquote>'+nativeRuleCopy(item.rulesKo??item.korean??'',item.english||'')+'</blockquote><button type="button" class="keyword-jump" data-keyword-jump="'+source.kind+':'+source.index+'">'+ui('카드의 해당 효과로 이동','Go to this effect on the card')+' ↓</button></li>';
@@ -101,7 +101,7 @@ function keywordTermMarkup(term,unit){
     '이 유닛이 보유한 키워드입니다. 별도의 이름이 붙은 능력과 구분하며, 아래 규칙의 발동 조건에 따라 적용합니다.',
     'This is a printed keyword of the unit. Apply its own timing and conditions, separately from named skills.'
   ]:[
-    '이 용어는 아래 능력·전투 효과가 사용하는 규칙입니다. 참조 목록에 있다는 이유만으로 별도 행동을 얻거나 해당 상태가 되는 것은 아닙니다.',
+    '이 용어는 아래 능력·스위치가 사용하는 규칙입니다. 참조 목록에 있다는 이유만으로 별도 행동을 얻거나 해당 상태가 되는 것은 아닙니다.',
     'This rule is referenced by the skills or switches below. Listing it grants neither a separate action nor the state itself.'
   ];
   const scions=term.id==='tinge'&&unit.faction==='scions-of-yaldabaoth'?'<p class="keyword-faction-note">'+keywordCopy('이 진영은 사이언즈 오브 얄다바오트의 팅지 전용 표를 사용합니다. 토큰을 받을 때마다 판정하지 않고, 규칙이 지정한 확인 시점에 처리합니다.','This faction uses the Scions of Yaldabaoth Tinge table. Check effects only at specified checkpoints, not whenever a token is gained.')+'</p>':'';
@@ -110,8 +110,8 @@ function keywordTermMarkup(term,unit){
 function cardKeywordGuide(unit,options={}){
   const model=keywordGuideModel(unit,options),owned=model.terms.filter(t=>t.owned),references=model.terms.filter(t=>!t.owned);
   const chips=(terms,caption)=>terms.length?'<div class="keyword-chip-group"><span class="card-keyword-caption">'+caption+'</span>'+terms.map(term=>'<button type="button" class="card-keyword-chip" data-keyword-open="'+escapeHtml(term.key)+'" aria-label="'+escapeHtml(keywordTermLabel(term,unit))+' '+ui('사용법 보기','usage')+'">'+escapeHtml(keywordTermLabel(term,unit))+'</button>').join('')+'</div>':'';
-  const explanation=keywordCopy('종족·병종 같은 특성은 대상·합류 조건을 판별하는 분류입니다. 보유 키워드는 정해진 상황에 적용하는 공통 규칙입니다. 이름이 붙은 능력은 종류별 행동·비용·조건에 따라 쓰며, 전투 효과는 해당 굴림의 기호를 소비해 발동합니다. 효과에서 참조하는 용어는 그 효과가 지시할 때만 적용합니다.','Traits such as species and troop type classify units for targets and Join requirements. Printed keywords follow their own shared rules. Named skills use their type’s actions, costs and conditions. Switches spend symbols from the matching roll. Referenced terms apply when their source effect instructs you.');
-  return '<section class="card-keyword-guide">'+(owned.length||references.length?'<div class="card-keyword-chips">'+chips(owned,ui('보유 키워드','Printed keywords'))+chips(references,ui('능력·전투 효과에서 참조하는 규칙','Rules referenced by skills and switches'))+'</div>':'')+'<details class="keyword-guide-panel" open><summary>'+ui('키워드·능력은 어떻게 다른가요?','Keywords, skills and switches')+(model.terms.length?' <span>'+model.terms.length+'</span>':'')+'</summary><div class="keyword-guide-intro">'+explanation+'<p>'+ui('각 항목을 펼치면 사용 시점, 처리 방법과 이 카드의 실제 발동 문구가 나옵니다.','Expand an entry for timing, resolution and this card’s actual instruction.')+'</p></div>'+model.terms.map(t=>keywordTermMarkup(t,unit)).join('')+'</details></section>';
+  const explanation=keywordCopy('종족·병종 같은 특성은 대상·합류 조건을 판별하는 분류입니다. 보유 키워드는 정해진 상황에 적용하는 공통 규칙입니다. 이름이 붙은 능력은 종류별 행동·비용·조건에 따라 쓰며, 스위치는 해당 굴림의 기호를 소비해 발동합니다. 효과에서 참조하는 용어는 그 효과가 지시할 때만 적용합니다.','Traits such as species and troop type classify units for targets and Join requirements. Printed keywords follow their own shared rules. Named skills use their type’s actions, costs and conditions. Switches spend symbols from the matching roll. Referenced terms apply when their source effect instructs you.');
+  return '<section class="card-keyword-guide">'+(owned.length||references.length?'<div class="card-keyword-chips">'+chips(owned,ui('보유 키워드','Printed keywords'))+chips(references,ui('능력·스위치에서 참조하는 규칙','Rules referenced by skills and switches'))+'</div>':'')+'<details class="keyword-guide-panel" open><summary>'+ui('키워드·능력은 어떻게 다른가요?','Keywords, skills and switches')+(model.terms.length?' <span>'+model.terms.length+'</span>':'')+'</summary><div class="keyword-guide-intro">'+explanation+'<p>'+ui('각 항목을 펼치면 사용 시점, 처리 방법과 이 카드의 실제 발동 문구가 나옵니다.','Expand an entry for timing, resolution and this card’s actual instruction.')+'</p></div>'+model.terms.map(t=>keywordTermMarkup(t,unit)).join('')+'</details></section>';
 }
 document.addEventListener('click',event=>{
   const opener=event.target.closest('[data-keyword-open]'),jump=event.target.closest('[data-keyword-jump]');if(!opener&&!jump)return;

@@ -2,7 +2,7 @@
   "version": "core-1.6.1",
   "rules": {
     "aim": {
-      "timingKo": "원거리 공격을 할 때 적용합니다. 다시 굴림은 최초 굴림 뒤, 전환 효과를 처리하기 전에 선택합니다.",
+      "timingKo": "원거리 공격을 할 때 적용합니다. 다시 굴림은 최초 굴림 뒤, 스위치를 처리하기 전에 선택합니다.",
       "timingEn": "Applies when making a ranged attack. Choose a reroll after the initial roll and before switches.",
       "useKo": "별도의 행동이나 기호 비용 없이 원거리 공격 굴림 전체를 다시 굴릴 수 있습니다. 그 공격의 대상은 커버(D)의 혜택을 받지 못합니다. 같은 굴림에서 각 주사위는 한 번만 다시 굴릴 수 있습니다.",
       "useEn": "You may reroll the entire ranged attack roll without a separate action or symbol cost. Its target cannot benefit from Cover (D). Each die can be rerolled only once per roll."
@@ -16,7 +16,7 @@
     "berserker-rage": {
       "timingKo": "공격·방어·의지(WP) 굴림의 자동 기호 추가 단계에 선택합니다.",
       "timingEn": "Choose this during the Add Automatic Symbols step of an attack, defense, or WP roll.",
-      "useKo": "자신에게 피해 1을 주어 원하는 기호 하나를 굴림에 추가할 수 있습니다. 이 피해로 유닛이 파괴된다면 사용할 수 없습니다. 별도의 행동이나 전환 효과가 아니며, 이 자해 피해는 전투 결과 계산에 포함하지 않습니다.",
+      "useKo": "자신에게 피해 1을 주어 원하는 기호 하나를 굴림에 추가할 수 있습니다. 이 피해로 유닛이 파괴된다면 사용할 수 없습니다. 별도의 행동이나 스위치가 아니며, 이 자해 피해는 전투 결과 계산에 포함하지 않습니다.",
       "useEn": "You may suffer 1 damage to add one symbol of your choice. You cannot do so if that damage would destroy the unit. This is neither a separate action nor a switch, and the self-inflicted damage does not count toward combat resolution."
     },
     "bloodlust": {
@@ -64,7 +64,7 @@
     "intimidating": {
       "timingKo": "이 유닛이 적과 교전하거나 적이 이 유닛과 교전할 때 발동합니다. 같은 적 유닛에는 활성화당 한 번만 적용합니다.",
       "timingEn": "Triggers when this unit engages an enemy or an enemy engages it; each affected unit is subject to it only once per activation.",
-      "useKo": "상대 유닛이 의지(WP)를 굴립니다. 성공 기호가 N개보다 부족하면 부족한 하나마다 스트레스 1을 받습니다. 별도의 행동이나 전환 기호 비용 없이 발동하며, 피어리스·골렘·맨드 등 적용을 무시하는 규칙을 먼저 확인합니다.",
+      "useKo": "상대 유닛이 의지(WP)를 굴립니다. 성공 기호가 N개보다 부족하면 부족한 하나마다 스트레스 1을 받습니다. 별도의 행동이나 스위치 기호 비용 없이 발동하며, 피어리스·골렘·맨드 등 적용을 무시하는 규칙을 먼저 확인합니다.",
       "useEn": "The enemy makes a WP roll and suffers 1 stress for each success missing from N. No separate action or switch symbols are required. Check rules such as Fearless, Golem, and Manned that ignore this effect."
     },
     "join": {
@@ -94,7 +94,7 @@
     "raging": {
       "timingKo": "이 유닛이 돌격하며 공격 굴림을 할 때 적용합니다.",
       "timingEn": "Applies to the attack roll when this unit charges.",
-      "useKo": "공격 굴림에 성공 기호 1개를 추가합니다. 별도의 행동이나 전환 기호 비용이 없으며, 버서커 레이지의 자해로 기호를 얻는 처리와는 별개입니다.",
+      "useKo": "공격 굴림에 성공 기호 1개를 추가합니다. 별도의 행동이나 스위치 기호 비용이 없으며, 버서커 레이지의 자해로 기호를 얻는 처리와는 별개입니다.",
       "useEn": "Add 1 success to the attack roll. There is no separate action or switch cost. This is separate from Berserker Rage’s self-damage for a symbol."
     },
     "scout": {
@@ -116,25 +116,25 @@
       "useEn": "Distinguish gaining or spending tokens, making a Tinge roll, and checking effects for the current total. Do not check the table after every token gained. A joined Tinge character passes its round-start token to its unit. Scions of Yaldabaoth use their own effects table."
     },
     "place": {
-      "timingKo": "카드의 능력·전환 효과 등이 Place(X)를 지시하는 시점에 처리합니다. 자체적으로 고르는 일반 행동은 아닙니다.",
+      "timingKo": "카드의 능력·스위치 등이 Place(X)를 지시하는 시점에 처리합니다. 자체적으로 고르는 일반 행동은 아닙니다.",
       "timingEn": "Resolve when a skill, switch, or other effect instructs Place (X); it is not a normal action by itself.",
       "useKo": "대상의 병력 지휘자를 효과를 사용하는 유닛으로부터 X보폭 이내의 유효한 위치에 놓습니다. 대상의 원래 위치에서 거리를 재지 않으며 시야선은 필요하지 않습니다. 나머지는 대형을 이루어 놓고, 지휘자가 접촉한 유닛에만 함께 접촉할 수 있습니다. 다른 모델·통과 불가·불안정 지형 위나 전장 밖에는 놓을 수 없고 기회 공격을 유발하지 않습니다. 기호나 토큰 비용은 이 효과를 지시한 문구를 따릅니다.",
       "useEn": "Place the target’s troop leader at a legal position within X strides of the unit using the effect, not X from the target’s old position; no LoS is needed. Place remaining troops in formation, contacting another unit only if their leader contacts it. Do not place on models, Impassable or Unstable terrain, or outside the battlefield. It causes no opportunity attacks. Pay only the costs specified by the originating effect."
     },
     "displace": {
-      "timingKo": "카드의 능력·전환 효과 등이 Displace(X)를 지시할 때 처리합니다. 별도의 일반 행동은 아닙니다.",
+      "timingKo": "카드의 능력·스위치 등이 Displace(X)를 지시할 때 처리합니다. 별도의 일반 행동은 아닙니다.",
       "timingEn": "Resolve when a skill, switch, or other effect instructs Displace (X); it is not a separate normal action.",
-      "useKo": "효과를 발동한 플레이어가 방향과 거리를 정하여 대상을 최대 X보폭 이동시킵니다. 다른 유닛이나 통과 불가 지형에 접촉하면 멈추고 충돌합니다. 전장 밖으로 보낼 수 없고 기회 공격을 유발하지 않으며, 적과 접촉하면 교전합니다. 발동에 필요한 비용은 원래 능력이나 전환 효과를 따릅니다. X 없이 특정 위치나 교전 상태가 되도록 이동하라고 적혔다면 그 지시를 따르며, 임의의 고정 거리를 붙이지 않습니다.",
+      "useKo": "효과를 발동한 플레이어가 방향과 거리를 정하여 대상을 최대 X보폭 이동시킵니다. 다른 유닛이나 통과 불가 지형에 접촉하면 멈추고 충돌합니다. 전장 밖으로 보낼 수 없고 기회 공격을 유발하지 않으며, 적과 접촉하면 교전합니다. 발동에 필요한 비용은 원래 능력이나 스위치를 따릅니다. X 없이 특정 위치나 교전 상태가 되도록 이동하라고 적혔다면 그 지시를 따르며, 임의의 고정 거리를 붙이지 않습니다.",
       "useEn": "The player triggering the effect chooses direction and distance, moving the target up to X strides. Stop and collide on contact with another unit or Impassable terrain. It cannot move a unit off the battlefield, causes no opportunity attacks, and engages on enemy contact. Use the originating skill or switch’s costs. If no X is given and the effect instead specifies a destination or engagement, follow that instruction without inventing a fixed distance."
     },
     "shove": {
-      "timingKo": "카드의 능력·전환 효과 등이 Shove(X)를 지시할 때 즉시 처리합니다.",
+      "timingKo": "카드의 능력·스위치 등이 Shove(X)를 지시할 때 즉시 처리합니다.",
       "timingEn": "Resolve immediately when a skill, switch, or other effect instructs Shove (X).",
-      "useKo": "두 병력 지휘자 베이스의 중심을 잇는 직선을 따라 대상을 효과 유닛에서 멀어지는 방향으로 정확히 X보폭 이동시킵니다. 임의로 거리를 줄이지 못하지만 다른 유닛·통과 불가 지형에 닿으면 멈추고 충돌합니다. 전장 밖으로 보낼 수 없고 기회 공격을 유발하지 않습니다. 독립 행동이 아니므로 기호 비용은 발동한 전환 효과 등에 따릅니다.",
+      "useKo": "두 병력 지휘자 베이스의 중심을 잇는 직선을 따라 대상을 효과 유닛에서 멀어지는 방향으로 정확히 X보폭 이동시킵니다. 임의로 거리를 줄이지 못하지만 다른 유닛·통과 불가 지형에 닿으면 멈추고 충돌합니다. 전장 밖으로 보낼 수 없고 기회 공격을 유발하지 않습니다. 독립 행동이 아니므로 기호 비용은 발동한 스위치 등에 따릅니다.",
       "useEn": "Move the target exactly X strides away from the effect’s unit along the line through their troop leaders’ base centers. You cannot voluntarily shorten it; stop and collide on contact with another unit or Impassable terrain. It cannot move a unit off the battlefield and causes no opportunity attacks. It is an effect instruction, with costs set by its source."
     },
     "attract": {
-      "timingKo": "카드의 능력·전환 효과 등이 Attract(X)를 지시할 때 즉시 처리합니다.",
+      "timingKo": "카드의 능력·스위치 등이 Attract(X)를 지시할 때 즉시 처리합니다.",
       "timingEn": "Resolve immediately when a skill, switch, or other effect instructs Attract (X).",
       "useKo": "두 병력 지휘자 베이스의 중심을 잇는 직선을 따라 대상을 효과 유닛에 가까워지는 방향으로 정확히 X보폭 이동시킵니다. 임의로 거리를 줄이지 못하지만 다른 유닛·통과 불가 지형에 닿으면 멈추고 충돌합니다. 기회 공격을 유발하지 않으며 적과 접촉하면 교전합니다. 별도 행동이나 공통 기호 비용은 없고 원래 효과의 비용을 따릅니다.",
       "useEn": "Move the target exactly X strides toward the effect’s unit along the line through their troop leaders’ base centers. You cannot voluntarily shorten it; stop and collide on contact with another unit or Impassable terrain. It causes no opportunity attacks and engages on enemy contact. Its action and costs come from the originating effect."
@@ -142,7 +142,7 @@
     "disarmed": {
       "timingKo": "상태를 받으면 즉시 적용합니다. 주사위 취소는 이후 공격·방어 굴림의 주사위·기호 취소 단계에 처리합니다.",
       "timingEn": "Applies immediately on receipt. Cancel a die in a subsequent attack or defense roll’s Cancel Dice and Symbols step.",
-      "useKo": "상대가 이 유닛의 공격용 주사위 1개를 취소하며, 이 유닛은 공격 수정치를 추가할 수 없습니다. 이 상태로 주사위가 실제 취소된 굴림을 해결한 뒤 제거합니다. 전환 효과로 받았다면 이미 취소 단계가 지난 현재 굴림에는 영향을 주지 않습니다.",
+      "useKo": "상대가 이 유닛의 공격용 주사위 1개를 취소하며, 이 유닛은 공격 수정치를 추가할 수 없습니다. 이 상태로 주사위가 실제 취소된 굴림을 해결한 뒤 제거합니다. 스위치로 받았다면 이미 취소 단계가 지난 현재 굴림에는 영향을 주지 않습니다.",
       "useEn": "The opponent cancels one of this unit’s offensive dice, and the unit cannot add an attack modifier. Remove the state after resolving a roll in which it actually cancelled a die. If inflicted by a switch, it does not affect the current roll because its cancellation step has passed."
     },
     "frightened": {
@@ -160,13 +160,13 @@
     "vulnerable": {
       "timingKo": "상태를 받으면 즉시 적용합니다. 주사위 취소는 이후 공격·방어 굴림의 주사위·기호 취소 단계에 처리합니다.",
       "timingEn": "Applies immediately on receipt. Cancel a die in a subsequent attack or defense roll’s Cancel Dice and Symbols step.",
-      "useKo": "상대가 이 유닛의 방어용 주사위 1개를 취소하며, 이 유닛은 방어 수정치를 추가할 수 없습니다. 이 상태로 주사위가 실제 취소된 굴림을 해결한 뒤 제거합니다. 전환 효과로 받았다면 이미 취소 단계가 지난 현재 굴림에는 영향을 주지 않습니다.",
+      "useKo": "상대가 이 유닛의 방어용 주사위 1개를 취소하며, 이 유닛은 방어 수정치를 추가할 수 없습니다. 이 상태로 주사위가 실제 취소된 굴림을 해결한 뒤 제거합니다. 스위치로 받았다면 이미 취소 단계가 지난 현재 굴림에는 영향을 주지 않습니다.",
       "useEn": "The opponent cancels one of this unit’s defensive dice, and the unit cannot add a defense modifier. Remove the state after resolving a roll in which it actually cancelled a die. If inflicted by a switch, it does not affect the current roll because its cancellation step has passed."
     },
     "cancel-symbol": {
-      "timingKo": "굴림의 주사위·기호 취소 단계에 처리합니다. 전환 효과 자체가 취소를 지시했다면 그 효과를 해결할 때 처리합니다.",
+      "timingKo": "굴림의 주사위·기호 취소 단계에 처리합니다. 스위치 자체가 취소를 지시했다면 그 효과를 해결할 때 처리합니다.",
       "timingEn": "Resolve in the Cancel Dice and Symbols step, or when resolving a switch that specifically instructs cancellation.",
-      "useKo": "효과가 허용한 기호 하나를 골라 처음부터 없었던 것처럼 무시합니다. 주사위에서 나온 기호뿐 아니라 자동 기호도 취소할 수 있습니다. 원하는 때 자유롭게 취소하는 권한이 아니라 능력·상태·전환 효과가 허용하는 수와 종류를 따르는 처리입니다.",
+      "useKo": "효과가 허용한 기호 하나를 골라 처음부터 없었던 것처럼 무시합니다. 주사위에서 나온 기호뿐 아니라 자동 기호도 취소할 수 있습니다. 원하는 때 자유롭게 취소하는 권한이 아니라 능력·상태·스위치가 허용하는 수와 종류를 따르는 처리입니다.",
       "useEn": "Choose an allowed symbol and ignore it as though it were never obtained. Automatic symbols can be cancelled as well as rolled ones. The granting skill, state, or switch determines which and how many symbols may be cancelled."
     },
     "fix-die": {
@@ -182,7 +182,7 @@
       "useEn": "Use both MOV values along the shortest route toward your deployment zone; if already inside it, head toward the nearest battlefield edge. Reaching your deployment-zone edge while fleeing removes the unit as destroyed. Fleeing causes no opportunity attacks."
     },
     "heal": {
-      "timingKo": "능력·전환 효과 등에서 피해 회복을 지시하는 시점에 처리합니다.",
+      "timingKo": "능력·스위치 등에서 피해 회복을 지시하는 시점에 처리합니다.",
       "timingEn": "Resolve at the timing specified by the skill, switch, or other effect granting healing.",
       "useKo": "피해 X를 회복하면 프로필의 피해 토큰을 최대 X개 제거합니다. 이미 제거된 병력을 되돌리지는 않습니다. 자체적인 일반 행동이나 공통 기호 비용이 있는 것이 아니라, 회복을 제공하는 효과의 사용 조건과 비용을 따릅니다.",
       "useEn": "Heal X removes up to X damage tokens from the profile; it does not return out-of-combat troops. This has no independent normal action or universal symbol cost: follow the granting effect’s requirements and costs."
@@ -200,9 +200,9 @@
       "useEn": "Units cannot move through it or end movement on it. If terrain gains Impassable while a unit is inside, that unit must move adjacent to it. Shove, Attract, and Displace stop on contact with it."
     },
     "repeat-die": {
-      "timingKo": "최초 굴림 뒤, 전환 효과를 적용하기 전에 처리합니다.",
+      "timingKo": "최초 굴림 뒤, 스위치를 적용하기 전에 처리합니다.",
       "timingEn": "Resolve after the initial roll and before applying switches.",
-      "useKo": "허용된 주사위만 선택해 다시 굴립니다. 선택 사항인지 반드시 다시 굴려야 하는지는 해당 효과의 문구를 따릅니다. 각 주사위는 같은 굴림에서 한 번만 다시 굴릴 수 있고 고정한 주사위는 다시 굴릴 수 없습니다. 전환 효과 비용은 이 효과를 발동한 문구에만 따릅니다.",
+      "useKo": "허용된 주사위만 선택해 다시 굴립니다. 선택 사항인지 반드시 다시 굴려야 하는지는 해당 효과의 문구를 따릅니다. 각 주사위는 같은 굴림에서 한 번만 다시 굴릴 수 있고 고정한 주사위는 다시 굴릴 수 없습니다. 스위치 비용은 이 효과를 발동한 문구에만 따릅니다.",
       "useEn": "Reroll only the dice allowed by the effect, optionally or mandatorily as worded. Each die may be rerolled only once per roll; fixed dice cannot be rerolled. Any switch cost comes from the effect granting the reroll."
     },
     "rugged": {
@@ -224,15 +224,15 @@
       "useEn": "Place the corresponding token on the profile; a unit cannot hold duplicate tokens of the same state. States do not universally expire at activation, turn, or round end. Use each state’s removal condition, Rest or skill removal, or immediate removal on gaining immunity."
     },
     "switches": {
-      "timingKo": "해당 굴림의 전환 효과 적용 단계에, 최종 결과를 결정하기 전에 선택합니다.",
+      "timingKo": "해당 굴림의 스위치 적용 단계에, 최종 결과를 결정하기 전에 선택합니다.",
       "timingEn": "Choose during that roll’s Apply Switches step, before determining its final result.",
-      "useKo": "전환 효과 왼쪽의 기호와 명시된 팅지 비용을 소비하여 오른쪽 효과를 적용합니다. 그 굴림에 연결된 전환 효과만 사용하며, 소비한 기호는 다른 전환 효과나 최종 결과에 다시 쓸 수 없습니다. 비용이 충분하면 같은 전환 효과를 여러 번 발동할 수 있습니다. 키워드 자체의 무료 효과와 구분합니다.",
+      "useKo": "스위치 왼쪽의 기호와 명시된 팅지 비용을 소비하여 오른쪽 효과를 적용합니다. 그 굴림에 연결된 스위치만 사용하며, 소비한 기호는 다른 스위치나 최종 결과에 다시 쓸 수 없습니다. 비용이 충분하면 같은 스위치를 여러 번 발동할 수 있습니다. 키워드 자체의 무료 효과와 구분합니다.",
       "useEn": "Spend the symbols and any Tinge cost shown on the left to apply the effect on the right. Use only switches linked to that roll. Spent symbols cannot fund another switch or count toward the final result. A switch may be activated repeatedly if its costs can be paid. Distinguish this from a keyword’s cost-free effect."
     },
     "cast-spell": {
       "timingKo": "마법 능력 수행 행동을 선언할 때 시작합니다. 자동 요건이 없는 주문은 선언·차단·의지 굴림·효과·팅지 처리 순서로 진행합니다.",
       "timingEn": "Starts when declaring a magic skill action. A non-Automatic spell proceeds through declaration, blocking, WP roll, effects, and Tinge consequences.",
-      "useKo": "주문·강화·대상을 선언하고 상대의 차단 선언 뒤 의지(WP)를 굴립니다. 전환 효과 단계 중 한 번 팅지 1개를 받아 성공 1개를 추가할 수 있습니다. 성공하면 팅지 강화 비용을 소비하고 효과를 적용합니다. 검은색 주사위 강화를 썼다면 팅지 굴림을 하며, 시전·차단 중 팅지를 받은 해당 유닛은 정해진 단계에 팅지 효과를 확인합니다.",
+      "useKo": "주문·강화·대상을 선언하고 상대의 차단 선언 뒤 의지(WP)를 굴립니다. 스위치 단계 중 한 번 팅지 1개를 받아 성공 1개를 추가할 수 있습니다. 성공하면 팅지 강화 비용을 소비하고 효과를 적용합니다. 검은색 주사위 강화를 썼다면 팅지 굴림을 하며, 시전·차단 중 팅지를 받은 해당 유닛은 정해진 단계에 팅지 효과를 확인합니다.",
       "useEn": "Declare the spell, alterations, and target, then make the WP roll after any block declaration. Once during switches, you may gain 1 Tinge to add 1 success. On success, spend Tinge alteration costs and apply effects. Black-die alterations require a Tinge roll; units that gained Tinge through the casting or blocking procedure check its consequences at the specified step."
     },
     "block-spell": {
@@ -278,7 +278,7 @@
       "useEn": "Overrides the demoralized restriction for that skill. It does not remove demoralized or frightened or grant normal actions. All other requirements and costs of the skill still apply."
     },
     "repeat-roll": {
-      "timingKo": "최초 굴림 뒤, 전환 효과를 적용하기 전에 처리합니다.",
+      "timingKo": "최초 굴림 뒤, 스위치를 적용하기 전에 처리합니다.",
       "timingEn": "Resolve after the initial roll and before applying switches.",
       "useKo": "해당 굴림의 주사위 전체를 다시 굴립니다. 각 주사위는 같은 굴림에서 한 번만 다시 굴릴 수 있으며 고정한 주사위는 다시 굴릴 수 없습니다. 다시 굴릴 수 있는지 반드시 해야 하는지는 효과의 문구를 따릅니다.",
       "useEn": "Reroll all dice in that roll. Each die can be rerolled only once per roll, and fixed dice cannot be rerolled. Follow the granting effect to determine whether the reroll is optional or mandatory."
@@ -290,7 +290,7 @@
       "useEn": "Select an allowed rolled die and ignore every symbol on it. This differs from cancelling a single symbol. A skill, state, or other rule must grant the cancellation; it is not a free option to remove an opponent’s die."
     },
     "recover": {
-      "timingKo": "능력·전환 효과 등이 병력 회복을 지시하는 시점에 처리합니다.",
+      "timingKo": "능력·스위치 등이 병력 회복을 지시하는 시점에 처리합니다.",
       "timingEn": "Resolve when a skill, switch, or other effect instructs recovery of troops.",
       "useKo": "지정된 수까지 전투 불능 병력을 되돌리고 대형을 이루어 놓습니다. 유닛의 초기 병력 수를 넘을 수 없으며, 합류 캐릭터가 초기 병력 수 한도를 늘리지 않습니다. 피해 토큰을 제거하는 Heal과는 다른 효과입니다.",
       "useEn": "Return up to the specified number of out-of-combat troops in formation, without exceeding the unit’s initial troop count. A joined character does not increase that limit. This is distinct from Heal, which removes damage tokens."
@@ -298,7 +298,7 @@
     "modifier": {
       "timingKo": "공격·방어 주사위 묶음을 구성할 때 적용 여부를 선택합니다. 근접·원거리 공격에서는 방어자가 먼저 정합니다.",
       "timingEn": "Choose when building attack or defense dice pools; the defender chooses first in melee and ranged attacks.",
-      "useKo": "스트레스 1을 받아 프로필의 해당 수정치를 추가합니다. 스트레스가 사기(MOR)에 도달했다면 자발적으로 이 비용을 낼 수 없습니다. 기회 공격에는 사용할 수 없으며, 무장 해제·취약의 수정치 제한도 적용합니다. 전환 효과처럼 결과 기호를 소비하는 절차가 아닙니다.",
+      "useKo": "스트레스 1을 받아 프로필의 해당 수정치를 추가합니다. 스트레스가 사기(MOR)에 도달했다면 자발적으로 이 비용을 낼 수 없습니다. 기회 공격에는 사용할 수 없으며, 무장 해제·취약의 수정치 제한도 적용합니다. 스위치처럼 결과 기호를 소비하는 절차가 아닙니다.",
       "useEn": "Suffer 1 stress to add the relevant profile modifier. You cannot voluntarily pay that stress at MOR. Modifiers cannot be used for opportunity attacks; disarmed and vulnerable also restrict them. This is not a switch paid with result symbols."
     },
     "character": {

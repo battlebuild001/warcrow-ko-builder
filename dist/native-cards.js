@@ -23,8 +23,8 @@ function nativeRuleCopy(koText,enText){
   return language==='en'?`<div class="native-rule-copy" lang="en">${ruleText(enText)}</div>`:`<div class="native-rule-copy" lang="ko">${ruleText(koText)}</div>${language==='bi'?`<div class="native-rule-copy native-english" lang="en">${ruleText(enText)}</div>`:''}`;
 }
 function nativeEffect(effect,index,row){
-  const attack=row.attacks[effect.columnRole==='attack-2'?1:0],column=effect.columnRole==='defense'?ui('방어 효과','Defense switch'):attack?.kind==='ranged'?ui('원거리 공격 효과','Ranged attack switch'):attack?.kind==='melee'?ui('근접 공격 효과','Melee attack switch'):ui('공격 효과','Attack switch');
-  return `<section class="native-effect" data-effect-index="${index}" data-column-role="${escapeHtml(effect.columnRole)}"><div class="native-trigger" aria-label="${ui('발동에 소비하는 기호','Symbols spent to activate')}">${(effect.triggerCost||effect.trigger||[]).map(s=>nativeGlyph(s,true)).join('')}</div><div><small>${column}</small><span class="native-switch-timing">${ui('기호 소비 · 전환 효과 단계','Spend symbols · Switches step')}</span>${nativeRuleCopy(effect.korean,effect.english)}</div></section>`;
+  const attack=row.attacks[effect.columnRole==='attack-2'?1:0],column=effect.columnRole==='defense'?ui('방어 스위치','Defense switch'):attack?.kind==='ranged'?ui('원거리 공격 스위치','Ranged attack switch'):attack?.kind==='melee'?ui('근접 공격 스위치','Melee attack switch'):ui('공격 스위치','Attack switch');
+  return `<section class="native-effect" data-effect-index="${index}" data-column-role="${escapeHtml(effect.columnRole)}"><div class="native-trigger" aria-label="${ui('발동에 소비하는 기호','Symbols spent to activate')}">${(effect.triggerCost||effect.trigger||[]).map(s=>nativeGlyph(s,true)).join('')}</div><div><small>${column}</small><span class="native-switch-timing">${ui('기호 소비 · 스위치 단계','Spend symbols · Switches step')}</span>${nativeRuleCopy(effect.korean,effect.english)}</div></section>`;
 }
 function nativeCombat(row,effects){
   const attacks=row.attacks||[],scope=row.section==='enhancement'?'enhancement':'base';
