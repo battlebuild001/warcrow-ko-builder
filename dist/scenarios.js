@@ -30,7 +30,6 @@ function filteredScenarios(){
   const query=(document.querySelector('#scenarioSearch')?.value||'').toLocaleLowerCase().replace(/\s/g,'');
   return (scenarioData?.entries||[]).filter(e=>(scenarioCategory==='all'||e.type===scenarioCategory)&&(!query||e.searchText.includes(query)));
 }
-function clearScenarioRandomStatus(){const status=document.querySelector('#scenarioRandomStatus');if(status){status.hidden=true;status.textContent=''}}
 function focusScenarioCategory(){document.querySelector(`[data-scenario-category="${scenarioCategory}"]`)?.focus({preventScroll:true})}
 function renderScenarioList(){
   const list=document.querySelector('#scenarioList');if(!list||!scenarioData)return;
@@ -38,12 +37,6 @@ function renderScenarioList(){
   list.innerHTML=`<p class="scenario-result-count">${entries.length}개 · WTS 시즌 2 · ${scenarioEsc(scenarioData.version)}</p>${entries.map(e=>`<button type="button" class="scenario-entry${scenarioActive===e.id?' is-active':''}" data-scenario-entry="${scenarioEsc(e.id)}" aria-pressed="${scenarioActive===e.id}"><span>${scenarioLabels[e.type]}</span><strong>${scenarioEsc(e.nameKo)}</strong><small lang="en">${scenarioEsc(e.nameEn)}</small><p>${scenarioEsc(e.summary||'')}</p></button>`).join('')||'<p class="scenario-empty">검색 결과가 없습니다. 이름이나 규칙 용어로 검색해 보세요.</p>'}`;
   document.querySelectorAll('[data-scenario-category]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.scenarioCategory===scenarioCategory)));
   document.querySelectorAll('[data-scenario-type-row]').forEach(row=>row.classList.toggle('is-current',row.dataset.scenarioTypeRow===scenarioCategory));
-  const random=document.querySelector('[data-scenario-random]');if(random){
-    random.disabled=!entries.length;
-    random.querySelector('span').textContent=scenarioCategory==='all'?'랜덤 선택':`${scenarioLabels[scenarioCategory]} 랜덤`;
-    random.setAttribute('aria-label',`${scenarioLabels[scenarioCategory]} ${entries.length}개 중 랜덤 선택`);
-    random.title=`현재 목록 ${entries.length}개 중 하나를 무작위로 선택합니다.`;
-  }
 }
 function renderScenarioDetail(id,focus=false){
   const entry=scenarioData?.entries.find(e=>e.id===id),detail=document.querySelector('#scenarioDetail');if(!entry||!detail)return;
@@ -58,7 +51,7 @@ function renderScenarioDetail(id,focus=false){
 async function openScenarios(){
   const dialog=document.querySelector('#scenarioDialog');if(!dialog)return;
   if(!dialog.open){dialog.showModal();document.querySelector('#scenarioDialogTitle')?.focus({preventScroll:true})}
-  clearScenarioRandomStatus();
+
   try{await loadScenarios();renderScenarioList();const game=scenarioGame();if(game?.scenarioId)renderScenarioDetail(game.scenarioId);else document.querySelector('#scenarioBrowser').classList.remove('has-detail')}catch{document.querySelector('#scenarioList').innerHTML='<p class="scenario-empty">시나리오 자료를 불러오지 못했습니다. <button type="button" data-scenario-retry>다시 시도</button></p>'}
 }
 function chooseScenarioEntry(entry,focus=false){
@@ -68,24 +61,16 @@ function chooseScenarioEntry(entry,focus=false){
   persistGames();renderGame();renderScenarioDetail(entry.id,focus);toast(entry.type==='feat'&&!game.scenarioId?'업적을 선택했습니다. 함께 사용할 시나리오도 선택하세요.':entry.type==='scenario'&&!game.featId?'시나리오를 선택했습니다. 함께 사용할 업적도 선택하세요.':'모험을 선택했습니다.');
   return true;
 }
-function pickRandomScenario(){
-  const entries=filteredScenarios();if(!entries.length)return;
-  const pool=entries.length>1?entries.filter(e=>e.id!==scenarioActive):entries;
-  const entry=pool[Math.floor(Math.random()*pool.length)];
-  if(!chooseScenarioEntry(entry,true))renderScenarioDetail(entry.id,true);
-  const status=document.querySelector('#scenarioRandomStatus');if(status){status.hidden=false;status.textContent=`${scenarioLabels[entry.type]} 랜덤 선택: ${entry.nameKo}${scenarioGame()?' · 플레이에 적용됨':''}`}
-}
 document.addEventListener('click',async event=>{
   if(event.target.closest('[data-open-scenarios],[data-scenario-retry]')){event.preventDefault();await openScenarios();return}
-  if(event.target.closest('[data-scenario-random]')){event.preventDefault();pickRandomScenario();return}
-  const category=event.target.closest('[data-scenario-category]');if(category){scenarioCategory=category.dataset.scenarioCategory;clearScenarioRandomStatus();document.querySelector('#scenarioBrowser').classList.remove('has-detail');renderScenarioList();focusScenarioCategory();return}
-  const entry=event.target.closest('[data-scenario-entry]');if(entry){clearScenarioRandomStatus();renderScenarioDetail(entry.dataset.scenarioEntry,true);return}
+  const category=event.target.closest('[data-scenario-category]');if(category){scenarioCategory=category.dataset.scenarioCategory;document.querySelector('#scenarioBrowser').classList.remove('has-detail');renderScenarioList();focusScenarioCategory();return}
+  const entry=event.target.closest('[data-scenario-entry]');if(entry){renderScenarioDetail(entry.dataset.scenarioEntry,true);return}
   if(event.target.closest('[data-scenario-back]')){document.querySelector('#scenarioBrowser').classList.remove('has-detail');focusScenarioCategory();return}
   const use=event.target.closest('[data-scenario-use]');if(use){
-    const entry=scenarioData?.entries.find(e=>e.id===use.dataset.scenarioUse);if(entry){clearScenarioRandomStatus();chooseScenarioEntry(entry)}
+    const entry=scenarioData?.entries.find(e=>e.id===use.dataset.scenarioUse);if(entry){chooseScenarioEntry(entry)}
   }
 });
-document.addEventListener('input',event=>{if(event.target.id==='scenarioSearch'){clearScenarioRandomStatus();document.querySelector('#scenarioBrowser')?.classList.remove('has-detail');renderScenarioList()}});
+document.addEventListener('input',event=>{if(event.target.id==='scenarioSearch'){document.querySelector('#scenarioBrowser')?.classList.remove('has-detail');renderScenarioList()}});
 document.addEventListener('DOMContentLoaded',async()=>{
   if(!document.querySelector('#scenarioBrowser[data-inline]'))return;
   try{await loadScenarios();renderScenarioList();const id=location.hash.slice(1);if(id)renderScenarioDetail(id)}catch{document.querySelector('#scenarioList').textContent='시나리오 자료를 불러오지 못했습니다. 페이지를 새로 고침하세요.'}

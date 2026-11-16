@@ -1,4 +1,4 @@
-const CACHE_NAME = 'warcrow-ko-pwa-v48';
+const CACHE_NAME = 'warcrow-ko-pwa-v49';
 const CORE_FILES = [
   "./",
   "./index.html",
@@ -7,9 +7,9 @@ const CORE_FILES = [
   "./glossary.css?v=26",
   "./native-cards.css?v=36",
   "./play-tools.css?v=28",
-  "./scenarios.css?v=48",
+  "./scenarios.css?v=49",
   "./joins.css?v=43",
-  "./app.js?v=46",
+  "./app.js?v=49",
   "./rosters.js?v=44",
   "./rosters.css?v=44",
   "./keyword-guide.js?v=45",
@@ -19,7 +19,9 @@ const CORE_FILES = [
   "./keyword-timing.json?v=46",
   "./glossary.js?v=47",
   "./native-cards.js?v=40",
-  "./scenarios.js?v=48",
+  "./scenarios.js?v=49",
+  "./adventure-start.js?v=49",
+  "./adventure-start.css?v=49",
   "./joins.js?v=42",
   "./fonts/Warcrow.woff2",
   "./app-data.json?v=46",

@@ -174,12 +174,19 @@ function renderArmy(){
   $('#rulesSummary').textContent=`${state.mode==='wts'?'WTS':ui('일반전','Standard')} · ${state.limit}${ui('점',' pts')}`;
 
 }
-function confirmRoster(){
+function captureRosterForPlay(){
   const units=selectedUnits().map(u=>({...JSON.parse(JSON.stringify(u)),quantity:count(u)}));
-  if(!units.length)return toast(ui('플레이할 유닛을 먼저 골라 주세요.','Add a unit first.'));
-  const joins=validateJoins(state,data).validJoins;
-  const game={id:`${Date.now()}-${Math.random().toString(36).slice(2,8)}`,name:$('#listName').value.trim()||ui('내 유닛 카드','My unit cards'),faction:state.faction,sourceVersion:data.version,mode:state.mode,limit:state.limit,commander:state.commander,savedRosterId:state.savedRosterId||'',confirmedAt:new Date().toISOString(),units,joins:JSON.parse(JSON.stringify(joins)),instances:[],cardIndex:0};
-  setArmyDrawer(false);gameSessions.unshift(game);activeGameId=game.id;persistGames();screen='game';render();window.scrollTo(0,0);
+  const joins=units.length?validateJoins(state,data).validJoins:[];
+  return {name:$('#listName').value.trim()||ui('내 유닛 카드','My unit cards'),faction:state.faction,sourceVersion:data.version,mode:state.mode,limit:state.limit,commander:state.commander,savedRosterId:state.savedRosterId||'',units,joins:JSON.parse(JSON.stringify(joins))};
+}
+function confirmRoster(source=null,adventure=null){
+  const draft=source?.units?JSON.parse(JSON.stringify(source)):captureRosterForPlay();
+  if(!draft.units.length){toast(ui('플레이할 유닛을 먼저 골라 주세요.','Add a unit first.'));return null;}
+  const game={...draft,id:`${Date.now()}-${Math.random().toString(36).slice(2,8)}`,confirmedAt:new Date().toISOString(),instances:[],cardIndex:0,...(adventure||{})};
+  const previousSessions=gameSessions,previousId=activeGameId;
+  gameSessions=[game,...gameSessions];activeGameId=game.id;
+  try{persistGames()}catch{gameSessions=previousSessions;activeGameId=previousId;try{persistGames()}catch{}return null;}
+  setArmyDrawer(false);screen='game';render();window.scrollTo(0,0);return game;
 }
 function playDisplayUnits(game){return game?gameJoinGroups(game):[]}
 function playCardMarkup(display,game){return `${renderJoinedGroup(display)}${renderPlayJoinControls(display,game)}`}
@@ -270,7 +277,7 @@ function applyStaticLanguage(){
   leaf('#rosterLibraryShortcut span','로스터','Rosters');
   leaf('#rosterLibrarySave','현재 로스터 저장','Save current');leaf('#rosterLibraryExport','파일 백업','Export file');leaf('#rosterLibraryImport','파일 불러오기','Import file');
   leaf('#confirmRosterButton','플레이 시작','Start playing');leaf('#resumeGameButton','플레이 모드로 돌아가기','Return to play mode');
-  leaf('.roster-confirm-note','선택한 유닛의 카드를 좌우로 넘겨 봅니다.','Browse the selected unit cards left and right.');
+  leaf('.roster-confirm-note','모험을 고른 뒤 선택한 유닛 카드로 플레이합니다.','Choose an adventure, then play with your unit cards.');
   leaf('#strategyGuideLink','팩션 가이드','Faction guide');$('#strategyGuideLink').href='./strategy.html#'+state.faction;
   leaf('.guide-strip>span','게임 가이드','Game guide');leaf('.guide-strip a[href="./rules.html"]','룰북 전문','Full rulebook');leaf('.guide-strip a[href="./quick-sheet.html"]','퀵시트','Quick sheet');leaf('.guide-strip a[href="./tutorial.html"]','입문 튜토리얼','Tutorial');
   leaf('.guide-strip a[href="./scenarios.html"]','시나리오','Scenarios');$('.dock-roster>span').textContent=language==='bi'?'편성 · Army':language==='en'?'My army':'내 편성';$('.dock-play').textContent=language==='bi'?'플레이 · Play':language==='en'?'Play →':'플레이 시작 →';
@@ -309,7 +316,7 @@ function reset(){state.quantities={};state.joins=[];state.commander='';state.sav
 document.addEventListener('click',(event)=>{
   if(event.target.closest('[data-open-army]')){setArmyDrawer(true);return}
   if(event.target.closest('[data-close-army]')){setArmyDrawer(false);return}
-  if(event.target.closest('[data-play-now]')){confirmRoster();return}
+  if(event.target.closest('[data-play-now]')){beginAdventureSetup();return}
   if(event.target.closest('[data-action="load"]')){showSaved();return}
   if(event.target.closest('[data-clear-filters]')){state.query='';state.type='all';state.availableOnly=false;$('#searchInput').value='';$('#typeFilter').value='all';$('#availableOnly').checked=false;renderCatalog();return}
   const languageButton=event.target.closest('button[data-language]');if(languageButton){language=languageButton.dataset.language;localStorage.setItem(languageStorageKey,language);render();if($('#cardDialog').open&&openCardUnit)openKoreanCard(openCardUnit);return}
@@ -330,7 +337,7 @@ $('#sortSelect').addEventListener('change',e=>{state.sort=e.target.value;renderC
 $('#typeFilter').addEventListener('change',e=>{state.type=e.target.value;renderCatalog()});
 $('#availableOnly').addEventListener('change',e=>{state.availableOnly=e.target.checked;renderCatalog()});
 $('#commanderSelect').addEventListener('change',e=>{state.commander=e.target.value;renderValidation()});
-$('#confirmRosterButton').addEventListener('click',confirmRoster);
+$('#confirmRosterButton').addEventListener('click',beginAdventureSetup);
 $('#resumeGameButton').addEventListener('click',()=>{if(activeGame()){screen='game';render();window.scrollTo(0,0)}});
 $('#saveButton').addEventListener('click',openRosterSaveDialog);$('#exportButton').addEventListener('click',exportList);
 $('#loadButton').addEventListener('click',showSaved);$('#resetButton').addEventListener('click',reset);
