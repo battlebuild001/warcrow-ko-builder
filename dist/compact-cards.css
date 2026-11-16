@@ -95,7 +95,7 @@
 .joined-banner h3{margin:2px 0;font-size:14px;line-height:1.4}
 .joined-banner p{margin-top:3px;font-size:11px;line-height:1.5}
 .joined-contribution{margin:5px 0;border-radius:7px}
-.joined-contribution>summary{padding:7px 9px;font-size:11px;line-height:1.5}
+.joined-contribution-heading{padding:7px 9px;font-size:11px;line-height:1.5}
 .joined-contribution-body{padding:0 6px 6px}
 .join-explanation{padding:5px 7px;font-size:11px;line-height:1.5}
 .join-explanation p{margin:4px 0}

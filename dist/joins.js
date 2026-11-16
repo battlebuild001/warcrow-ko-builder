@@ -94,9 +94,9 @@ function joinTokenRules(leaving=false){
 }
 function renderJoinedContribution(character){
   const p=nativeCards[character.cardKey]||{},abilities=cardAbilities[character.cardKey]||[],effects=cardEffects[character.cardKey]||[],rows=(p.combat||[]).filter(r=>r.section==='enhancement');
-  if(!rows.length&&!p.enhancement&&!abilities.some(a=>a.section==='enhancement'))return '';
+  const available=!!(rows.length||p.enhancement||abilities.some(a=>a.section==='enhancement'));
   const stats=(p.enhancement?.stats||[]).map(stat=>nativeStat(stat.label,stat.dice?.length?`${stat.mode==='add'?'+ ':''}${stat.dice.map(c=>`<span class="native-glyph die-${joinEscape(c)}"><span>${nativeGlyphs[c]}</span></span>`).join('')}`:joinEscape(stat.value??'—'),'enhancement',true)).join('');
-  return `<details class="joined-contribution" data-rule-unit="${joinEscape(character.id)}"><summary>${joinEscape(joinName(character))} · ${joinUi('합류 프로필 원형 보기','Printed joined contribution')}</summary><div class="joined-contribution-body">${stats?`<div class="native-enhancement-stats">${stats}</div>`:''}${rows.map((row,i)=>nativeCombat(row,effects.map((effect,index)=>({effect,index})).filter(({effect})=>effect.section==='enhancement'&&effect.row===i))).join('')}${abilities.map((a,i)=>a.section==='enhancement'?nativeAbility(a,i):'').join('')}</div></details>`;
+  return `<section class="joined-contribution" data-rule-unit="${joinEscape(character.id)}" aria-label="${joinEscape(joinName(character))} ${joinUi('합류 프로필','joined profile')}"><header class="joined-contribution-heading">${joinEscape(joinName(character))} · ${joinUi('합류 프로필','Joined profile')}</header><div class="joined-contribution-body">${available?'':`<p class="join-warning">${joinUi('공식 합류 프로필 자료가 제공되지 않아 세부 정보를 표시할 수 없습니다.','The official joined profile is unavailable; its details cannot be shown.')}</p>`}${stats?`<div class="native-enhancement-stats">${stats}</div>`:''}${rows.map((row,i)=>nativeCombat(row,effects.map((effect,index)=>({effect,index})).filter(({effect})=>effect.section==='enhancement'&&effect.row===i))).join('')}${abilities.map((a,i)=>a.section==='enhancement'?nativeAbility(a,i):'').join('')}</div></section>`;
 }
 function renderJoinedGroup(group){
   if(!group?.character)return nativeUnitCard(group?.unit||group);
