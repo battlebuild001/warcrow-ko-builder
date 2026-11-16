@@ -94,9 +94,14 @@ function joinTokenRules(leaving=false){
 }
 function renderJoinedContribution(character){
   const p=nativeCards[character.cardKey]||{},abilities=cardAbilities[character.cardKey]||[],effects=cardEffects[character.cardKey]||[],rows=(p.combat||[]).filter(r=>r.section==='enhancement');
-  const available=!!(rows.length||p.enhancement||abilities.some(a=>a.section==='enhancement'));
-  const stats=(p.enhancement?.stats||[]).map(stat=>nativeStat(stat.label,stat.dice?.length?`${stat.mode==='add'?'+ ':''}${stat.dice.map(c=>`<span class="native-glyph die-${joinEscape(c)}"><span>${nativeGlyphs[c]}</span></span>`).join('')}`:joinEscape(stat.value??'—'),'enhancement',true)).join('');
-  return `<section class="joined-contribution" data-rule-unit="${joinEscape(character.id)}" aria-label="${joinEscape(joinName(character))} ${joinUi('합류 프로필','joined profile')}"><header class="joined-contribution-heading">${joinEscape(joinName(character))} · ${joinUi('합류 프로필','Joined profile')}</header><div class="joined-contribution-body">${available?'':`<p class="join-warning">${joinUi('공식 합류 프로필 자료가 제공되지 않아 세부 정보를 표시할 수 없습니다.','The official joined profile is unavailable; its details cannot be shown.')}</p>`}${stats?`<div class="native-enhancement-stats">${stats}</div>`:''}${rows.map((row,i)=>nativeCombat(row,effects.map((effect,index)=>({effect,index})).filter(({effect})=>effect.section==='enhancement'&&effect.row===i))).join('')}${abilities.map((a,i)=>a.section==='enhancement'?nativeAbility(a,i):'').join('')}</div></section>`;
+  const available=!!(rows.length||p.enhancement||abilities.some(a=>a.section==='enhancement')),printedStats=p.enhancement?.stats||[];
+  const stats=printedStats.length?['MOV','W','WP','MOR','AVB'].map(label=>{
+    const stat=printedStats.find(s=>s.label===label);
+    const value=stat?(stat.dice?.length?`${stat.mode==='add'?'+ ':''}${stat.dice.map(c=>`<span class="native-glyph die-${joinEscape(c)}"><span>${nativeGlyphs[c]}</span></span>`).join('')}`:joinEscape(stat.value??'—')):'—';
+    return `<div class="joined-stat-slot" data-joined-stat="${label}" data-stat-mode="${stat?joinEscape(stat.mode):'unchanged'}">${nativeStat(label,value,'enhancement',true)}</div>`;
+  }).join(''):'';
+  const name=language==='en'?character.name:localizedName(character),skills=abilities.map((a,i)=>a.section==='enhancement'?nativeAbility(a,i):'').join('');
+  return `<section class="native-card joined-contribution" data-rule-unit="${joinEscape(character.id)}" aria-label="${joinEscape(joinName(character))} ${joinUi('합류 프로필','joined profile')}"><header class="native-card-head joined-contribution-heading"><div class="native-portrait">${modelPhoto(character,true)}</div><div class="native-title"><h2>${joinEscape(name)}</h2>${language==='bi'?`<small lang="en">${joinEscape(character.name)}</small>`:''}<small>${joinUi('합류 프로필','Joined profile')}${stats?` · ${joinUi('— 보정 없음','— unchanged')}`:''}</small></div></header><div class="joined-contribution-body">${available?'':`<p class="join-warning">${joinUi('공식 합류 프로필 자료가 제공되지 않아 세부 정보를 표시할 수 없습니다.','The official joined profile is unavailable; its details cannot be shown.')}</p>`}${stats?`<div class="native-stats joined-contribution-stats">${stats}</div>`:''}${rows.map((row,i)=>nativeCombat(row,effects.map((effect,index)=>({effect,index})).filter(({effect})=>effect.section==='enhancement'&&effect.row===i))).join('')}${skills?`<div class="native-abilities">${skills}</div>`:''}</div></section>`;
 }
 function renderJoinedGroup(group){
   if(!group?.character)return nativeUnitCard(group?.unit||group);
