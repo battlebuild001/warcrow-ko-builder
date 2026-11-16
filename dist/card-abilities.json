@@ -1424,15 +1424,16 @@
     {
       "top": 0.376,
       "bottom": 0.439,
-      "english": "LEAF ON THE WIND. Automatic\nPlace yourself (12). You may attack an enemy unit you engage in combat with.",
-      "korean": "리프 온 더 윈드.\n자동\n자신을 배치(12)합니다. 이로 인해 자신과 교전하게 된 적 유닛을 공격할 수 있습니다.",
+      "english": "LEAF ON THE WIND. Long action. Automatic\nPlace yourself (12). You may attack an enemy unit you engage in combat with.",
+      "korean": "리프 온 더 윈드.\n긴 행동.\n자동\n자신을 배치(12)합니다. 이로 인해 자신과 교전하게 된 적 유닛을 공격할 수 있습니다.",
       "translationReviewed": true,
       "translationReviewRequired": false,
       "translationReviewSource": "official-card-image",
       "titleKo": "리프 온 더 윈드",
-      "rulesKo": "자동\n자신을 배치(12)합니다. 이로 인해 자신과 교전하게 된 적 유닛을 공격할 수 있습니다.",
+      "rulesKo": "긴 행동.\n자동\n자신을 배치(12)합니다. 이로 인해 자신과 교전하게 된 적 유닛을 공격할 수 있습니다.",
       "section": "base",
-      "iconType": "spell"
+      "iconType": "spell",
+      "actionCost": "long"
     },
     {
       "top": 0.4537,
@@ -1638,7 +1639,21 @@
       "iconType": "passive"
     }
   ],
-  "mk-os_automata": [],
+  "mk-os_automata": [
+    {
+      "top": 0.218,
+      "bottom": 0.421,
+      "english": "RULES OF THE AUTOMATA:\n- You can have up to 3 Automata on the battlefield.\n- When you move, the Automata within 7 strides from you can move using your MOV value.\n- Automata occupy a space and block LoS.\n- Automata can be taken as targets and be destroyed by either you or your opponent.\n- When an Automaton is destroyed, roll 1 orange die. All units (allied, enemy and neutral) within 3 strides of the Automaton suffer 1 damage if you roll ★.",
+      "korean": "룰즈 오브 디 오토마타.\n- 전장에는 오토마타를 최대 3개까지 둘 수 있습니다.\n- 자신이 이동할 때, 자신으로부터 7보폭 이내의 오토마타는 자신의 이동(MOV) 수치로 이동할 수 있습니다.\n- 오토마타는 공간을 차지하며 시야선(LoS)을 차단합니다.\n- 자신과 상대 모두 오토마타를 대상으로 삼아 파괴할 수 있습니다.\n- 오토마톤이 파괴되면 주황 주사위 1개를 굴립니다. 성공(★)을 얻으면 그 오토마톤으로부터 3보폭 이내의 모든 유닛(아군·적·중립)은 피해 1을 받습니다.",
+      "titleKo": "룰즈 오브 디 오토마타",
+      "rulesKo": "- 전장에는 오토마타를 최대 3개까지 둘 수 있습니다.\n- 자신이 이동할 때, 자신으로부터 7보폭 이내의 오토마타는 자신의 이동(MOV) 수치로 이동할 수 있습니다.\n- 오토마타는 공간을 차지하며 시야선(LoS)을 차단합니다.\n- 자신과 상대 모두 오토마타를 대상으로 삼아 파괴할 수 있습니다.\n- 오토마톤이 파괴되면 주황 주사위 1개를 굴립니다. 성공(★)을 얻으면 그 오토마톤으로부터 3보폭 이내의 모든 유닛(아군·적·중립)은 피해 1을 받습니다.",
+      "section": "base",
+      "iconType": "passive",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image"
+    }
+  ],
   "mounted_hetman": [
     {
       "top": 0.3237,
@@ -2239,7 +2254,7 @@
     {
       "top": 0.6284,
       "bottom": 0.7975,
-      "english": "»> VOLCANIC ERUPTION. No LoS. Target: an enemy unit within 18 strides\nResolve a ranged attack against the target.\nWhen the attack finishes, all units within 7 strides of the target suffer | @.",
+      "english": "»> VOLCANIC ERUPTION. Long action. No LoS. Target: an enemy unit within 18 strides\nResolve a ranged attack against the target.\nWhen the attack finishes, all units within 7 strides of the target suffer | @.",
       "korean": "볼캐닉 이럽션.\n긴 행동.\n시야선 불필요 · 대상: 18보폭 이내의 적 유닛\n대상을 상대로 원거리 공격을 해결합니다. 공격이 끝나면 대상으로부터 7보폭 이내의 모든 유닛이 피해 1을 받습니다.",
       "translationReviewed": true,
       "translationReviewRequired": false,
@@ -2247,7 +2262,8 @@
       "titleKo": "볼캐닉 이럽션",
       "rulesKo": "긴 행동.\n시야선 불필요 · 대상: 18보폭 이내의 적 유닛\n대상을 상대로 원거리 공격을 해결합니다. 공격이 끝나면 대상으로부터 7보폭 이내의 모든 유닛이 피해 1을 받습니다.",
       "section": "base",
-      "iconType": "action"
+      "iconType": "action",
+      "actionCost": "long"
     },
     {
       "top": 0.8142,
@@ -3754,7 +3770,7 @@
     {
       "top": 0.3746,
       "bottom": 0.4693,
-      "english": ">> Bow OF CLAWS. Target: an enemy unit within | 8 strides.\n\nThe target and up to 2 enemy units within 7 strides of the target receive the slowed\nstate.\n\nResolve a ranged attack against the target.",
+      "english": ">> Bow OF CLAWS. Long action. Target: an enemy unit within | 8 strides.\n\nThe target and up to 2 enemy units within 7 strides of the target receive the slowed\nstate.\n\nResolve a ranged attack against the target.",
       "korean": "보 오브 클로즈.\n긴 행동.\n대상: 18보폭 이내의 적 유닛\n대상과 대상으로부터 7보폭 이내의 적 유닛 최대 2개에게 둔화 상태를 부여합니다. 대상을 상대로 원거리 공격을 해결합니다.",
       "translationReviewed": true,
       "translationReviewRequired": false,
@@ -3762,7 +3778,8 @@
       "titleKo": "보 오브 클로즈",
       "rulesKo": "긴 행동.\n대상: 18보폭 이내의 적 유닛\n대상과 대상으로부터 7보폭 이내의 적 유닛 최대 2개에게 둔화 상태를 부여합니다. 대상을 상대로 원거리 공격을 해결합니다.",
       "section": "base",
-      "iconType": "action"
+      "iconType": "action",
+      "actionCost": "long"
     },
     {
       "top": 0.7463,
@@ -3976,13 +3993,14 @@
     {
       "top": 0.4323,
       "bottom": 0.5127,
-      "english": "BONE AND SINEW. Target: an enemy unit within 7 strides\nRoll 2 orange dice. If you succeed, place the target engaged in combat with you and then attack. You may repeat your attack roll.",
-      "korean": "본 앤드 시뉴.\n대상: 7보폭 이내의 적 유닛\n주황색 주사위 2개를 굴립니다. 성공하면 대상을 자신과 교전하도록 배치한 뒤 공격합니다. 자신의 공격 굴림을 다시 굴릴 수 있습니다.",
+      "english": "BONE AND SINEW. Long action. Target: an enemy unit within 7 strides\nRoll 2 orange dice. If you succeed, place the target engaged in combat with you and then attack. You may repeat your attack roll.",
+      "korean": "본 앤드 시뉴.\n긴 행동.\n대상: 7보폭 이내의 적 유닛\n주황색 주사위 2개를 굴립니다. 성공하면 대상을 자신과 교전하도록 배치한 뒤 공격합니다. 자신의 공격 굴림을 다시 굴릴 수 있습니다.",
       "translationReviewRequired": false,
       "titleKo": "본 앤드 시뉴",
-      "rulesKo": "대상: 7보폭 이내의 적 유닛\n주황색 주사위 2개를 굴립니다. 성공하면 대상을 자신과 교전하도록 배치한 뒤 공격합니다. 자신의 공격 굴림을 다시 굴릴 수 있습니다.",
+      "rulesKo": "긴 행동.\n대상: 7보폭 이내의 적 유닛\n주황색 주사위 2개를 굴립니다. 성공하면 대상을 자신과 교전하도록 배치한 뒤 공격합니다. 자신의 공격 굴림을 다시 굴릴 수 있습니다.",
       "section": "base",
-      "iconType": "action"
+      "iconType": "action",
+      "actionCost": "long"
     },
     {
       "top": 0.5289,
@@ -4175,13 +4193,14 @@
     {
       "top": 0.4182,
       "bottom": 0.5317,
-      "english": ">> Howl. Target: all enemy units within 12 strides\n\nThe targets must make a WP test (2K). If they don't succeed:\n\n- If they didn't have the frightened state, they receive it.\n\n- If Saad already had the frightened state, they become demoralized and must flee\nimmediately.",
-      "korean": "하울.\n대상: 12보폭 이내의 모든 적 유닛\n대상들은 의지(WP) 판정에서 ★ 2개를 얻어 성공해야 합니다. 실패한 대상에게 다음을 적용합니다.\n• 공포 상태가 아니었다면 공포 상태를 받습니다.\n• 이미 공포 상태였다면 사기 붕괴 상태가 되어 즉시 도주합니다.",
+      "english": ">> Howl. Long action. Target: all enemy units within 12 strides\n\nThe targets must make a WP test (2K). If they don't succeed:\n\n- If they didn't have the frightened state, they receive it.\n\n- If Saad already had the frightened state, they become demoralized and must flee\nimmediately.",
+      "korean": "하울.\n긴 행동.\n대상: 12보폭 이내의 모든 적 유닛\n대상들은 의지(WP) 판정에서 ★ 2개를 얻어 성공해야 합니다. 실패한 대상에게 다음을 적용합니다.\n• 공포 상태가 아니었다면 공포 상태를 받습니다.\n• 이미 공포 상태였다면 사기 붕괴 상태가 되어 즉시 도주합니다.",
       "translationReviewRequired": false,
       "titleKo": "하울",
-      "rulesKo": "대상: 12보폭 이내의 모든 적 유닛\n대상들은 의지(WP) 판정에서 ★ 2개를 얻어 성공해야 합니다. 실패한 대상에게 다음을 적용합니다.\n• 공포 상태가 아니었다면 공포 상태를 받습니다.\n• 이미 공포 상태였다면 사기 붕괴 상태가 되어 즉시 도주합니다.",
+      "rulesKo": "긴 행동.\n대상: 12보폭 이내의 모든 적 유닛\n대상들은 의지(WP) 판정에서 ★ 2개를 얻어 성공해야 합니다. 실패한 대상에게 다음을 적용합니다.\n• 공포 상태가 아니었다면 공포 상태를 받습니다.\n• 이미 공포 상태였다면 사기 붕괴 상태가 되어 즉시 도주합니다.",
       "section": "base",
-      "iconType": "action"
+      "iconType": "action",
+      "actionCost": "long"
     },
     {
       "top": 0.548,
@@ -4199,13 +4218,14 @@
     {
       "top": 0.342,
       "bottom": 0.4226,
-      "english": "»> Bone AND SINEW. Target: an enemy unit within 7 strides\nRoll “@®. If you succeed, place the target engaged in combat with you and then attack.\nYou may repeat your attack roll.",
-      "korean": "본 앤드 시뉴.\n대상: 7보폭 이내의 적 유닛\n주황 주사위 2개를 굴립니다. 성공하면 대상을 자신과 교전하도록 배치한 뒤 공격합니다. 자신의 공격 굴림을 다시 굴릴 수 있습니다.",
+      "english": "»> Bone AND SINEW. Long action. Target: an enemy unit within 7 strides\nRoll “@®. If you succeed, place the target engaged in combat with you and then attack.\nYou may repeat your attack roll.",
+      "korean": "본 앤드 시뉴.\n긴 행동.\n대상: 7보폭 이내의 적 유닛\n주황 주사위 2개를 굴립니다. 성공하면 대상을 자신과 교전하도록 배치한 뒤 공격합니다. 자신의 공격 굴림을 다시 굴릴 수 있습니다.",
       "translationReviewRequired": false,
       "titleKo": "본 앤드 시뉴",
-      "rulesKo": "대상: 7보폭 이내의 적 유닛\n주황 주사위 2개를 굴립니다. 성공하면 대상을 자신과 교전하도록 배치한 뒤 공격합니다. 자신의 공격 굴림을 다시 굴릴 수 있습니다.",
+      "rulesKo": "긴 행동.\n대상: 7보폭 이내의 적 유닛\n주황 주사위 2개를 굴립니다. 성공하면 대상을 자신과 교전하도록 배치한 뒤 공격합니다. 자신의 공격 굴림을 다시 굴릴 수 있습니다.",
       "section": "base",
-      "iconType": "action"
+      "iconType": "action",
+      "actionCost": "long"
     },
     {
       "top": 0.6982,
@@ -4468,13 +4488,14 @@
     {
       "top": 0.3753,
       "bottom": 0.4537,
-      "english": "P> Roar, IRKALLA!\". Target: an enemy unit within | 2 strides\nPlace the target engaged with you and then attack. You may repeat your attack roll. The\ntarget receives the frightened state. If it already has it, it suffers 1 stress.",
-      "korean": "로어, 이르칼라.\n대상: 12보폭 이내의 적 유닛\n대상을 자신과 교전하도록 배치한 뒤 공격합니다. 자신의 공격 굴림을 다시 굴릴 수 있습니다. 대상은 공포 상태를 받으며, 이미 공포 상태라면 스트레스 1을 받습니다.",
+      "english": "P> Roar, IRKALLA!\". Long action. Target: an enemy unit within | 2 strides\nPlace the target engaged with you and then attack. You may repeat your attack roll. The\ntarget receives the frightened state. If it already has it, it suffers 1 stress.",
+      "korean": "로어, 이르칼라.\n긴 행동.\n대상: 12보폭 이내의 적 유닛\n대상을 자신과 교전하도록 배치한 뒤 공격합니다. 자신의 공격 굴림을 다시 굴릴 수 있습니다. 대상은 공포 상태를 받으며, 이미 공포 상태라면 스트레스 1을 받습니다.",
       "translationReviewRequired": false,
       "titleKo": "로어, 이르칼라",
-      "rulesKo": "대상: 12보폭 이내의 적 유닛\n대상을 자신과 교전하도록 배치한 뒤 공격합니다. 자신의 공격 굴림을 다시 굴릴 수 있습니다. 대상은 공포 상태를 받으며, 이미 공포 상태라면 스트레스 1을 받습니다.",
+      "rulesKo": "긴 행동.\n대상: 12보폭 이내의 적 유닛\n대상을 자신과 교전하도록 배치한 뒤 공격합니다. 자신의 공격 굴림을 다시 굴릴 수 있습니다. 대상은 공포 상태를 받으며, 이미 공포 상태라면 스트레스 1을 받습니다.",
       "section": "base",
-      "iconType": "action"
+      "iconType": "action",
+      "actionCost": "long"
     },
     {
       "top": 0.47,
@@ -5360,13 +5381,14 @@
     {
       "top": 0.3625,
       "bottom": 0.457,
-      "english": "WALK BETWEEN REALMS\nPlace yourself (10). Resolve a ranged attack. Place yourself (10).",
-      "korean": "워크 비트윈 렐름스.\n자신을 배치(10)합니다. 원거리 공격을 해결한 뒤 자신을 다시 배치(10)합니다.",
+      "english": "WALK BETWEEN REALMS\nPlace yourself (10). Long action. Resolve a ranged attack. Place yourself (10).",
+      "korean": "워크 비트윈 렐름스.\n긴 행동.\n자신을 배치(10)합니다. 원거리 공격을 해결한 뒤 자신을 다시 배치(10)합니다.",
       "translationReviewRequired": false,
       "titleKo": "워크 비트윈 렐름스",
-      "rulesKo": "자신을 배치(10)합니다. 원거리 공격을 해결한 뒤 자신을 다시 배치(10)합니다.",
+      "rulesKo": "긴 행동.\n자신을 배치(10)합니다. 원거리 공격을 해결한 뒤 자신을 다시 배치(10)합니다.",
       "section": "base",
-      "iconType": "action"
+      "iconType": "action",
+      "actionCost": "long"
     },
     {
       "top": 0.4725,
@@ -6051,13 +6073,14 @@
     {
       "top": 0.3237,
       "bottom": 0.4041,
-      "english": "p> deat FROM THE SKIES. No LoS. Target: an enemy unit within |2 strides\nIf you are not engaged, place yourself engaged with the target and attack adding | to\nyour attack roll.",
-      "korean": "데스 프롬 더 스카이스.\n시야선 불필요. 대상: 12보폭 이내의 적 유닛\n자신이 교전 중이 아니라면 대상과 교전하도록 자신을 배치한 뒤, 공격 굴림에 노랑 주사위 하나를 추가해 공격합니다.",
+      "english": "p> deat FROM THE SKIES. Long action. No LoS. Target: an enemy unit within |2 strides\nIf you are not engaged, place yourself engaged with the target and attack adding | to\nyour attack roll.",
+      "korean": "데스 프롬 더 스카이스.\n긴 행동.\n시야선 불필요. 대상: 12보폭 이내의 적 유닛\n자신이 교전 중이 아니라면 대상과 교전하도록 자신을 배치한 뒤, 공격 굴림에 노랑 주사위 하나를 추가해 공격합니다.",
       "translationReviewRequired": false,
       "titleKo": "데스 프롬 더 스카이스",
-      "rulesKo": "시야선 불필요. 대상: 12보폭 이내의 적 유닛\n자신이 교전 중이 아니라면 대상과 교전하도록 자신을 배치한 뒤, 공격 굴림에 노랑 주사위 하나를 추가해 공격합니다.",
+      "rulesKo": "긴 행동.\n시야선 불필요. 대상: 12보폭 이내의 적 유닛\n자신이 교전 중이 아니라면 대상과 교전하도록 자신을 배치한 뒤, 공격 굴림에 노랑 주사위 하나를 추가해 공격합니다.",
       "section": "base",
-      "iconType": "action"
+      "iconType": "action",
+      "actionCost": "long"
     },
     {
       "top": 0.4203,
@@ -6080,6 +6103,299 @@
       "rulesKo": "자신이 참여한 전투를 해결하는 동안\n피해 1을 무시합니다. 현재 활성화 종료 시 의지(WP) 판정을 할 수 있습니다. 성공하면 “투 더 스카이”를 무료로 수행합니다. 이 경우 자신을 배치하면 활성화가 끝납니다.",
       "section": "base",
       "iconType": "passive"
+    }
+  ],
+  "amaury_boissonade": [
+    {
+      "top": 0.377,
+      "bottom": 0.479,
+      "english": "EXPEDITA. Long action. Target: an enemy unit within 12 strides\nPlace yourself (12) engaged in combat with the target and attack it using 1 red die and 2 orange dice. Your target needs 2 Block symbols to cancel each of your Success symbols.\n◆: Add 1 Success symbol to your roll.",
+      "korean": "엑스페디타.\n긴 행동.\n대상: 12보폭 이내의 적 유닛\n자신에게 배치(12)를 적용하여 대상과 교전한 뒤, 빨강 주사위 1개·주황 주사위 2개로 대상을 공격합니다. 대상은 자신의 성공(★) 1개를 취소하려면 방어(방패) 2개가 필요합니다.\n◆: 자신의 굴림에 성공(★) 1개를 추가합니다.",
+      "titleKo": "엑스페디타",
+      "rulesKo": "긴 행동.\n대상: 12보폭 이내의 적 유닛\n자신에게 배치(12)를 적용하여 대상과 교전한 뒤, 빨강 주사위 1개·주황 주사위 2개로 대상을 공격합니다. 대상은 자신의 성공(★) 1개를 취소하려면 방어(방패) 2개가 필요합니다.\n◆: 자신의 굴림에 성공(★) 1개를 추가합니다.",
+      "section": "base",
+      "iconType": "spell",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image",
+      "actionCost": "long"
+    },
+    {
+      "top": 0.494,
+      "bottom": 0.559,
+      "english": "THE VOICE. At the beginning of your activation if you at least have 1 Tinge\nYou must suffer stress or suffer 1 damage. Then, place yourself (10).",
+      "korean": "더 보이스.\n자신의 활성화 시작 시, 팅지가 1개 이상 있다면\n스트레스를 받거나 피해 1을 받아야 합니다. 그 뒤 자신에게 배치(10)를 적용합니다.",
+      "titleKo": "더 보이스",
+      "rulesKo": "자신의 활성화 시작 시, 팅지가 1개 이상 있다면\n스트레스를 받거나 피해 1을 받아야 합니다. 그 뒤 자신에게 배치(10)를 적용합니다.",
+      "section": "base",
+      "iconType": "passive",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image"
+    },
+    {
+      "top": 0.574,
+      "bottom": 0.626,
+      "english": "SCORN AND RESENTMENT. At the beginning of your activation\nReceive 1 Tinge. Until the end of your activation, you may fix 1 die from all your rolls.",
+      "korean": "스콘 앤드 리젠트먼트.\n자신의 활성화 시작 시\n팅지 1을 받습니다. 자신의 활성화가 끝날 때까지, 자신이 수행하는 모든 굴림에서 주사위 1개의 결과를 고정할 수 있습니다.",
+      "titleKo": "스콘 앤드 리젠트먼트",
+      "rulesKo": "자신의 활성화 시작 시\n팅지 1을 받습니다. 자신의 활성화가 끝날 때까지, 자신이 수행하는 모든 굴림에서 주사위 1개의 결과를 고정할 수 있습니다.",
+      "section": "base",
+      "iconType": "command",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image"
+    },
+    {
+      "top": 0.858,
+      "bottom": 0.925,
+      "english": "\"BASTARD...\". At the end of the round\nDuring the \"No one is left behind\" step, you must make a WP roll. If you do not succeed, the Character must either abandon the unit immediately or make it suffer 1 stress.",
+      "korean": "배스터드....\n라운드 종료 시, 「노 원 이즈 레프트 비하인드」 단계 중\n의지(WP) 굴림을 해야 합니다. 실패하면 캐릭터가 즉시 유닛을 떠나거나, 그 유닛이 스트레스 1을 받도록 해야 합니다.",
+      "titleKo": "배스터드...",
+      "rulesKo": "라운드 종료 시, 「노 원 이즈 레프트 비하인드」 단계 중\n의지(WP) 굴림을 해야 합니다. 실패하면 캐릭터가 즉시 유닛을 떠나거나, 그 유닛이 스트레스 1을 받도록 해야 합니다.",
+      "section": "enhancement",
+      "iconType": "passive",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image"
+    }
+  ],
+  "ismail_the_eighth_pillar": [
+    {
+      "top": 0.28,
+      "bottom": 0.399,
+      "english": "THE EIGHTH PILLAR. Target: an enemy unit within 12 strides\nReceive 1 Tinge. Choose one of the target's attacks and resolve a ranged attack of that value against another enemy unit within 10 strides of the target (with LoS between the spell's target and the other enemy unit).\nBlack-dice alteration (2 black dice): Add 1 success (★) to the attack roll for every 2 Tinge you have (when you gather the attack roll).",
+      "korean": "디 에이트 필러.\n대상: 12보폭 이내의 적 유닛 1개\n팅지 1을 받습니다. 대상이 가진 공격 중 하나를 선택합니다. 그 공격 수치로, 대상으로부터 10보폭 이내의 다른 적 유닛을 상대로 원거리 공격을 해결합니다. 주문의 대상과 다른 적 유닛 사이에 시야선이 있어야 합니다.\n검정 주사위 2개 변형: 공격 굴림의 주사위 풀을 구성할 때, 자신이 보유한 팅지 2개마다 공격 굴림에 성공(★) 기호 1개를 추가합니다.",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image",
+      "titleKo": "디 에이트 필러",
+      "rulesKo": "대상: 12보폭 이내의 적 유닛 1개\n팅지 1을 받습니다. 대상이 가진 공격 중 하나를 선택합니다. 그 공격 수치로, 대상으로부터 10보폭 이내의 다른 적 유닛을 상대로 원거리 공격을 해결합니다. 주문의 대상과 다른 적 유닛 사이에 시야선이 있어야 합니다.\n검정 주사위 2개 변형: 공격 굴림의 주사위 풀을 구성할 때, 자신이 보유한 팅지 2개마다 공격 굴림에 성공(★) 기호 1개를 추가합니다.",
+      "section": "base",
+      "iconType": "spell",
+      "alterations": [
+        {
+          "kind": "black-dice",
+          "dice": [
+            "black",
+            "black"
+          ],
+          "count": 2,
+          "effect": "Add 1 success to the attack roll for every 2 Tinge held when assembling that attack roll.",
+          "sourceVerified": true
+        }
+      ]
+    },
+    {
+      "top": 0.413,
+      "bottom": 0.498,
+      "english": "BLUE-FLAMES BUTTERFLY. Target: you and up to one unit within 7 strides\nPlace yourself (20), as if deploying as an Ambusher.\nPlace (5) the other target unit.\nEach target receives 1 Tinge.",
+      "korean": "블루 플레임스 버터플라이.\n대상: 자신 및 7보폭 이내의 다른 유닛 최대 1개\n매복으로 배치하는 것처럼 자신을 배치(20)합니다.\n다른 대상 유닛을 배치(5)합니다.\n각 대상은 팅지 1을 받습니다.",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image",
+      "titleKo": "블루 플레임스 버터플라이",
+      "rulesKo": "대상: 자신 및 7보폭 이내의 다른 유닛 최대 1개\n매복으로 배치하는 것처럼 자신을 배치(20)합니다.\n다른 대상 유닛을 배치(5)합니다.\n각 대상은 팅지 1을 받습니다.",
+      "section": "base",
+      "iconType": "spell"
+    },
+    {
+      "top": 0.513,
+      "bottom": 0.564,
+      "english": "BLESSINGS OF DUST. At the beginning of your activation\nYou can make a WP test, remove as much Tinge from your profile as success (★) symbols you get.",
+      "korean": "블레싱스 오브 더스트.\n자신의 활성화 시작 시\n의지(WP) 굴림을 할 수 있습니다. 나온 성공(★) 기호 수만큼 자신의 프로필에서 팅지를 제거합니다.",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image",
+      "titleKo": "블레싱스 오브 더스트",
+      "rulesKo": "자신의 활성화 시작 시\n의지(WP) 굴림을 할 수 있습니다. 나온 성공(★) 기호 수만큼 자신의 프로필에서 팅지를 제거합니다.",
+      "section": "base",
+      "iconType": "passive"
+    },
+    {
+      "top": 0.577,
+      "bottom": 0.63,
+      "english": "I'M NOT ALONE. During the resolution of a combat\nYou may ignore up to 2 damage you are about to suffer. Receive 1 Tinge for each damage you ignore.",
+      "korean": "아임 낫 얼론.\n전투 해결 중\n자신이 받으려는 피해를 최대 2까지 무시할 수 있습니다. 무시한 피해 1마다 팅지 1을 받습니다.",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image",
+      "titleKo": "아임 낫 얼론",
+      "rulesKo": "전투 해결 중\n자신이 받으려는 피해를 최대 2까지 무시할 수 있습니다. 무시한 피해 1마다 팅지 1을 받습니다.",
+      "section": "base",
+      "iconType": "passive"
+    }
+  ],
+  "ludivine_corbin": [
+    {
+      "top": 0.3738,
+      "bottom": 0.481,
+      "english": "PIETY OF SELAS. Target: allied units within your Aura.\nThe targets heal 1 damage.\n[1 black die alteration]: The targets reduce 1 stress.\n[1 black die alteration]: The targets heal 1 additional damage.\n[2 black dice alteration]: The targets can perform the movement action.",
+      "korean": "파이어티 오브 셀라스.\n대상: 자신의 오라 범위 내 아군 유닛들.\n대상들의 피해 1을 회복합니다.\n변형 · 검정 주사위 1개: 대상들의 스트레스를 1 줄입니다.\n변형 · 검정 주사위 1개: 대상들의 피해 1을 추가로 회복합니다.\n변형 · 검정 주사위 2개: 대상들은 이동 행동을 수행할 수 있습니다.",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image",
+      "titleKo": "파이어티 오브 셀라스",
+      "rulesKo": "대상: 자신의 오라 범위 내 아군 유닛들.\n대상들의 피해 1을 회복합니다.\n변형 · 검정 주사위 1개: 대상들의 스트레스를 1 줄입니다.\n변형 · 검정 주사위 1개: 대상들의 피해 1을 추가로 회복합니다.\n변형 · 검정 주사위 2개: 대상들은 이동 행동을 수행할 수 있습니다.",
+      "section": "base",
+      "iconType": "spell",
+      "alterations": [
+        {
+          "dice": [
+            "black"
+          ],
+          "english": "The targets reduce 1 stress.",
+          "korean": "대상들의 스트레스를 1 줄입니다."
+        },
+        {
+          "dice": [
+            "black"
+          ],
+          "english": "The targets heal 1 additional damage.",
+          "korean": "대상들의 피해 1을 추가로 회복합니다."
+        },
+        {
+          "dice": [
+            "black",
+            "black"
+          ],
+          "english": "The targets can perform the movement action.",
+          "korean": "대상들은 이동 행동을 수행할 수 있습니다."
+        }
+      ]
+    },
+    {
+      "top": 0.4965,
+      "bottom": 0.5846,
+      "english": "EXPLOSION OF LIGHT. Target: enemy units within your Aura.\nThe targets receive the vulnerable or disarmed state.\n[2 black dice alteration]: The targets suffer 1 stress.\n[1 black die alteration]: Shove (3) the targets.",
+      "korean": "익스플로전 오브 라이트.\n대상: 자신의 오라 범위 내 적 유닛들.\n대상들은 취약 또는 무장 해제 상태를 받습니다.\n변형 · 검정 주사위 2개: 대상들은 스트레스 1을 받습니다.\n변형 · 검정 주사위 1개: 대상들에게 밀치기(3)를 적용합니다.",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image",
+      "titleKo": "익스플로전 오브 라이트",
+      "rulesKo": "대상: 자신의 오라 범위 내 적 유닛들.\n대상들은 취약 또는 무장 해제 상태를 받습니다.\n변형 · 검정 주사위 2개: 대상들은 스트레스 1을 받습니다.\n변형 · 검정 주사위 1개: 대상들에게 밀치기(3)를 적용합니다.",
+      "section": "base",
+      "iconType": "spell",
+      "alterations": [
+        {
+          "dice": [
+            "black",
+            "black"
+          ],
+          "english": "The targets suffer 1 stress.",
+          "korean": "대상들은 스트레스 1을 받습니다."
+        },
+        {
+          "dice": [
+            "black"
+          ],
+          "english": "Shove (3) the targets.",
+          "korean": "대상들에게 밀치기(3)를 적용합니다."
+        }
+      ]
+    },
+    {
+      "top": 0.5973,
+      "bottom": 0.6474,
+      "english": "RESURGENT STRENGTH. At the end of your activation.\nYou may suffer 1 stress to cast a spell.",
+      "korean": "리서전트 스트렝스.\n자신의 활성화 종료 시.\n자신이 스트레스 1을 받아 주문 하나를 시전할 수 있습니다.",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image",
+      "titleKo": "리서전트 스트렝스",
+      "rulesKo": "자신의 활성화 종료 시.\n자신이 스트레스 1을 받아 주문 하나를 시전할 수 있습니다.",
+      "section": "base",
+      "iconType": "passive"
+    },
+    {
+      "top": 0.6615,
+      "bottom": 0.7313,
+      "english": "SOUL O’MINE.\nYour WP rolls gain the switch:\n[1 success symbol]: Reduce your stress by 1.",
+      "korean": "소울 오 마인.\n자신의 의지(WP) 굴림이 다음 스위치를 얻습니다.\n성공(★) 기호 1개: 자신의 스트레스를 1 줄입니다.",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image",
+      "titleKo": "소울 오 마인",
+      "rulesKo": "자신의 의지(WP) 굴림이 다음 스위치를 얻습니다.\n성공(★) 기호 1개: 자신의 스트레스를 1 줄입니다.",
+      "section": "base",
+      "iconType": "passive",
+      "grantedSwitches": [
+        {
+          "roll": "wp",
+          "triggerCost": [
+            "success"
+          ],
+          "english": "Reduce your stress by 1.",
+          "korean": "자신의 스트레스를 1 줄입니다."
+        }
+      ]
+    },
+    {
+      "top": 0.7447,
+      "bottom": 0.8646,
+      "english": "AURA.\nPlace 1 Aura token on you when you deploy and at the beginning of your activations (max. 3).\nEach token gives a range of 5 strides (cumulative) to your Aura.\nWhen you gather your attack or defense roll, you can spend 1 Aura token to add 1 success symbol or 1 block symbol to your roll.",
+      "korean": "오라.\n자신이 배치될 때와 자신의 활성화 시작마다 자신에게 오라 토큰 1개를 놓습니다(최대 3개).\n토큰 하나마다 자신의 오라 범위가 5보폭 늘어납니다. 이 범위는 누적됩니다.\n자신의 공격 또는 방어 굴림을 구성할 때 오라 토큰 1개를 소비하여 굴림에 성공(★) 기호 1개 또는 방어 기호 1개를 추가할 수 있습니다.",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image",
+      "titleKo": "오라",
+      "rulesKo": "자신이 배치될 때와 자신의 활성화 시작마다 자신에게 오라 토큰 1개를 놓습니다(최대 3개).\n토큰 하나마다 자신의 오라 범위가 5보폭 늘어납니다. 이 범위는 누적됩니다.\n자신의 공격 또는 방어 굴림을 구성할 때 오라 토큰 1개를 소비하여 굴림에 성공(★) 기호 1개 또는 방어 기호 1개를 추가할 수 있습니다.",
+      "section": "base",
+      "iconType": "passive"
+    }
+  ],
+  "neakail_oen_fhiahra": [
+    {
+      "section": "base",
+      "top": 0.376,
+      "bottom": 0.447,
+      "iconType": "tinge",
+      "titleKo": "페인 톨러런스",
+      "english": "PAIN TOLERANCE.\nHeal all the damage. If you are engaged when you activate this skill, you may ignore 1 damage you suffer each activation you remain engaged with the same enemy.",
+      "rulesKo": "피해를 모두 회복합니다. 이 능력을 사용할 때 교전 중이라면, 같은 적과 계속 교전하는 동안 활성화마다 자신이 받는 피해 1을 무시할 수 있습니다.",
+      "korean": "페인 톨러런스.\n피해를 모두 회복합니다. 이 능력을 사용할 때 교전 중이라면, 같은 적과 계속 교전하는 동안 활성화마다 자신이 받는 피해 1을 무시할 수 있습니다.",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "original-card-image-V1.1"
+    },
+    {
+      "section": "base",
+      "top": 0.458,
+      "bottom": 0.526,
+      "iconType": "passive",
+      "titleKo": "윈드 그리브스",
+      "english": "WIND GREAVES. When you charge or assault, or when you are the target of a charge or an assault.\nYour target (or attacker) cannot activate its switches.",
+      "rulesKo": "자신이 돌격하거나 급습할 때, 또는 돌격·급습의 대상이 되었을 때\n대상 또는 공격자는 자신의 스위치를 발동할 수 없습니다.",
+      "korean": "윈드 그리브스.\n자신이 돌격하거나 급습할 때, 또는 돌격·급습의 대상이 되었을 때\n대상 또는 공격자는 자신의 스위치를 발동할 수 없습니다.",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "original-card-image-V1.1"
+    },
+    {
+      "section": "enhancement",
+      "top": 0.756,
+      "bottom": 0.825,
+      "iconType": "tinge",
+      "titleKo": "페인 톨러런스",
+      "english": "PAIN TOLERANCE.\nHeal all the damage. If you are engaged when you activate this skill, you may ignore 1 damage you suffer each activation you remain engaged with the same enemy.",
+      "rulesKo": "피해를 모두 회복합니다. 이 능력을 사용할 때 교전 중이라면, 같은 적과 계속 교전하는 동안 활성화마다 자신이 받는 피해 1을 무시할 수 있습니다.",
+      "korean": "페인 톨러런스.\n피해를 모두 회복합니다. 이 능력을 사용할 때 교전 중이라면, 같은 적과 계속 교전하는 동안 활성화마다 자신이 받는 피해 1을 무시할 수 있습니다.",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "original-card-image-V1.1"
+    },
+    {
+      "section": "enhancement",
+      "top": 0.84,
+      "bottom": 0.925,
+      "iconType": "passive",
+      "titleKo": "윈드 그리브스",
+      "english": "WIND GREAVES. When you charge or assault, or when you are the target of a charge or an assault.\nYour target (or attacker) cannot activate its switches.",
+      "rulesKo": "자신이 돌격하거나 급습할 때, 또는 돌격·급습의 대상이 되었을 때\n대상 또는 공격자는 자신의 스위치를 발동할 수 없습니다.",
+      "korean": "윈드 그리브스.\n자신이 돌격하거나 급습할 때, 또는 돌격·급습의 대상이 되었을 때\n대상 또는 공격자는 자신의 스위치를 발동할 수 없습니다.",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "original-card-image-V1.1"
     }
   ]
 }

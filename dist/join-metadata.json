@@ -16,8 +16,8 @@
   "units": {
     "amaury-boissonade": {
       "isCharacter": true,
-      "role": null,
-      "roleSource": "unavailable",
+      "role": "officer",
+      "roleSource": "official-card-icon",
       "joinText": [
         "Join (Infantry)"
       ],
@@ -37,7 +37,7 @@
         "Spellcaster"
       ],
       "name": "Amaury Boissonade",
-      "source": "official-builder-structured-data"
+      "source": "official-card-image"
     },
     "armelle-of-northsby": {
       "isCharacter": true,
@@ -215,22 +215,22 @@
     },
     "ismail-the-eighth-pillar": {
       "isCharacter": true,
-      "role": null,
-      "roleSource": "unavailable",
+      "role": "support",
+      "roleSource": "official-card-icon",
       "joinText": [],
       "joinGroups": [],
       "traits": [
-        "Character",
         "Colossal Company",
         "Human",
-        "Mercenary"
+        "Mercenary",
+        "Character"
       ],
       "keywords": [
-        "Fearless",
-        "Spellcaster"
+        "Spellcaster",
+        "Fearless"
       ],
       "name": "Ismail, the Eighth Pillar",
-      "source": "official-builder-structured-data"
+      "source": "official-card-image"
     },
     "jacques-hellion": {
       "isCharacter": true,
@@ -280,8 +280,8 @@
     },
     "ludivine-corbin": {
       "isCharacter": true,
-      "role": null,
-      "roleSource": "unavailable",
+      "role": "support",
+      "roleSource": "official-card-icon",
       "joinText": [],
       "joinGroups": [],
       "traits": [
@@ -296,7 +296,7 @@
         "Spellcaster"
       ],
       "name": "Ludivine Corbin",
-      "source": "official-builder-structured-data"
+      "source": "official-builder-card-image-reviewed"
     },
     "mace-escort": {
       "isCharacter": false,
@@ -3078,8 +3078,8 @@
     },
     "neakail-oen-fhiahra": {
       "isCharacter": true,
-      "role": null,
-      "roleSource": "unavailable",
+      "role": "officer",
+      "roleSource": "official-card-icon",
       "joinText": [
         "Join (Grove Curtailers)"
       ],
@@ -3100,7 +3100,7 @@
         "Tinge"
       ],
       "name": "Neakail Oen Fhiahra",
-      "source": "official-builder-structured-data"
+      "source": "official-card-image-V1.1"
     },
     "oona": {
       "isCharacter": true,

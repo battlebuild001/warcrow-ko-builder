@@ -1,0 +1,782 @@
+{
+  "checkedAt": "2026-11-16",
+  "scope": "전체 로컬 카탈로그·네이티브 카드·번역·이미지·합류·키워드·룰북·모험·가이드의 구조·렌더링 및 공식 공개 카탈로그 비교",
+  "status": "확인된 기존 수록 데이터 누락 일부 수정; 최신 카탈로그 전체 동기화와 별도 기능 미지원은 아래 잔여 항목으로 구분",
+  "currentApp": {
+    "catalogVersion": "0.13.51",
+    "counts": {
+      "factions": 6,
+      "unitFactionRows": 177,
+      "uniqueUnitIds": 162,
+      "nativeProfiles": 162,
+      "profilesWithSource": 162,
+      "abilityBoxes": 485,
+      "switches": 464,
+      "combatRows": 266,
+      "localOriginalCardImages": 162,
+      "modelMappings": 162,
+      "modelIllustrationFallbackUnits": 28,
+      "ruleDictionaryEntries": 149,
+      "coreTranslatedPages": 119,
+      "wtsTranslatedPages": 14,
+      "wtsOriginalPages": 14,
+      "adventures": {
+        "patrol": 5,
+        "scenario": 7,
+        "feat": 8
+      },
+      "scenarioMaps": 12,
+      "strategyPracticeRosters": 12
+    }
+  },
+  "officialCatalogComparison": {
+    "sourceUrl": "https://www.warcrowarmybuilder.com/builder",
+    "publicBundleUrl": "https://www.warcrowarmybuilder.com/assets/index-BvRCQua4.js",
+    "bundleSha256": "1fe38833113f41a9faf3d778cc11a71c72419b9e67f632a1adfc0cc80d069176",
+    "version": "0.13.63",
+    "factions": [
+      "feudom",
+      "hegemony-of-embersig",
+      "mounthaven",
+      "northern-tribes",
+      "red-caps",
+      "scions-of-yaldabaoth",
+      "syenann"
+    ],
+    "unitFactionRows": 187,
+    "uniqueUnitIds": 169,
+    "newUniqueUnits": [
+      {
+        "id": "memorialist",
+        "name": "Memorialist",
+        "name_es": "Memorialista",
+        "faction": "mounthaven",
+        "faction_id": "mounthaven",
+        "pointsCost": 25,
+        "availability": 1,
+        "command": 1,
+        "keywords": [
+          {
+            "name": "Join (Dwarf, Infantry)"
+          }
+        ],
+        "characteristics": [
+          "Character",
+          "Dwarf"
+        ],
+        "specialRules": [],
+        "highCommand": false,
+        "tournamentLegal": true,
+        "type": "Character",
+        "imageUrl": "/art/card/memorialist_card.jpg"
+      },
+      {
+        "id": "sylvia-waurda",
+        "name": "Sylvia Waurda",
+        "name_es": "Sylvia Waurda",
+        "faction": "mounthaven",
+        "faction_id": "mounthaven",
+        "pointsCost": 25,
+        "availability": 1,
+        "command": 1,
+        "keywords": [
+          {
+            "name": "Join (Dwarf, Infantry)"
+          },
+          {
+            "name": "Preferred Terrain (Rugged)"
+          },
+          {
+            "name": "Scout"
+          }
+        ],
+        "characteristics": [
+          "Character",
+          "Dwarf"
+        ],
+        "specialRules": [
+          "Place (2)"
+        ],
+        "highCommand": false,
+        "tournamentLegal": true,
+        "type": "Named Character",
+        "imageUrl": "/art/card/sylvia_waurda_card.jpg"
+      },
+      {
+        "id": "anayram-blacksmith-apprentice",
+        "name": "Anayram, blacksmith apprentice",
+        "name_es": "Anayram, aprendiz de herrero",
+        "faction": "red-caps",
+        "faction_id": "red-caps",
+        "pointsCost": 15,
+        "availability": 1,
+        "command": 0,
+        "keywords": [
+          {
+            "name": "Join (Nuada)"
+          }
+        ],
+        "characteristics": [
+          "Alven",
+          "Character",
+          "Elf"
+        ],
+        "specialRules": [],
+        "highCommand": false,
+        "tournamentLegal": true,
+        "type": "Named Character",
+        "imageUrl": "/art/card/anayram_blacksmith_apprentice_card.jpg"
+      },
+      {
+        "id": "choppers",
+        "name": "Choppers",
+        "name_es": "Pinchudos",
+        "faction": "red-caps",
+        "faction_id": "red-caps",
+        "pointsCost": 25,
+        "availability": 3,
+        "command": 0,
+        "keywords": [],
+        "characteristics": [
+          "Infantry",
+          "Projectile",
+          "Red Cap"
+        ],
+        "specialRules": [],
+        "highCommand": false,
+        "tournamentLegal": true,
+        "type": "Troop",
+        "imageUrl": "/art/card/choppers_card.jpg"
+      },
+      {
+        "id": "plaf-the-enraptured",
+        "name": "Plaf, the Enraptured",
+        "name_es": "Plaf, la Enamorada",
+        "faction": "red-caps",
+        "faction_id": "red-caps",
+        "pointsCost": 20,
+        "availability": 1,
+        "command": 1,
+        "keywords": [
+          {
+            "name": "Join (Red Cap, Infantry)"
+          }
+        ],
+        "characteristics": [
+          "Character",
+          "Red Cap"
+        ],
+        "specialRules": [
+          "Slowed"
+        ],
+        "highCommand": false,
+        "tournamentLegal": true,
+        "type": "Named Character",
+        "imageUrl": "/art/card/plaf_the_enraptured_card.jpg"
+      },
+      {
+        "id": "plum-the-slugger",
+        "name": "Plum, the Slugger",
+        "name_es": "Plum, el Cañonero",
+        "faction": "red-caps",
+        "faction_id": "red-caps",
+        "pointsCost": 25,
+        "availability": 1,
+        "command": 0,
+        "keywords": [],
+        "characteristics": [
+          "Character",
+          "Red Cap"
+        ],
+        "specialRules": [
+          "Place (7)",
+          "Shove (5)",
+          "Vulnerable"
+        ],
+        "highCommand": false,
+        "tournamentLegal": true,
+        "type": "Named Character",
+        "imageUrl": "/art/card/plum_the_slugger_card.jpg"
+      },
+      {
+        "id": "rac-the-greedy",
+        "name": "Rac, the Greedy",
+        "name_es": "Rac, el Codicioso",
+        "faction": "red-caps",
+        "faction_id": "red-caps",
+        "pointsCost": 15,
+        "availability": 1,
+        "command": 0,
+        "keywords": [
+          {
+            "name": "Join (Red Cap, Infantry)"
+          }
+        ],
+        "characteristics": [
+          "Cavalry",
+          "Character",
+          "Red Cap"
+        ],
+        "specialRules": [],
+        "highCommand": false,
+        "tournamentLegal": true,
+        "type": "Named Character",
+        "imageUrl": "/art/card/rac_the_greedy_card.jpg"
+      }
+    ],
+    "removedScionsRows": [
+      "bugbowls",
+      "crucible",
+      "flamecobs",
+      "gobblers",
+      "nuada",
+      "osseous",
+      "overseer",
+      "rumpy-ride",
+      "sightless",
+      "stompers"
+    ],
+    "movedRedCapProfiles": [
+      {
+        "id": "bugbowls",
+        "oldFaction": "scions-of-yaldabaoth",
+        "newFaction": "red-caps",
+        "changes": {
+          "pointsCost": {
+            "local": 30,
+            "official": 25
+          },
+          "availability": {
+            "local": 1,
+            "official": 2
+          },
+          "keywords": {
+            "local": [
+              {
+                "name": "Cover (BLU)"
+              }
+            ],
+            "official": [
+              {
+                "name": "Scout"
+              }
+            ]
+          },
+          "specialRules": {
+            "local": [
+              "Shove (2)",
+              "Slowed",
+              "Displace (8)"
+            ],
+            "official": [
+              "Displace (3)",
+              "Shove (2)",
+              "Slowed"
+            ]
+          }
+        }
+      },
+      {
+        "id": "crucible",
+        "oldFaction": "scions-of-yaldabaoth",
+        "newFaction": "red-caps",
+        "changes": {
+          "specialRules": {
+            "local": [
+              "Vulnerable",
+              "Place (10)"
+            ],
+            "official": [
+              "Place (10)",
+              "Vulnerable"
+            ]
+          }
+        }
+      },
+      {
+        "id": "flamecobs",
+        "oldFaction": "scions-of-yaldabaoth",
+        "newFaction": "red-caps",
+        "changes": {
+          "pointsCost": {
+            "local": 20,
+            "official": 30
+          },
+          "characteristics": {
+            "local": [
+              "Infantry",
+              "Projectile",
+              "Red Cap"
+            ],
+            "official": [
+              "Infantry",
+              "Red Cap"
+            ]
+          }
+        }
+      },
+      {
+        "id": "gobblers",
+        "oldFaction": "scions-of-yaldabaoth",
+        "newFaction": "red-caps",
+        "changes": {}
+      },
+      {
+        "id": "nuada",
+        "oldFaction": "scions-of-yaldabaoth",
+        "newFaction": "red-caps",
+        "changes": {
+          "pointsCost": {
+            "local": 55,
+            "official": 40
+          },
+          "characteristics": {
+            "local": [
+              "Alven",
+              "Character",
+              "Elf",
+              "High Commander"
+            ],
+            "official": [
+              "Alven",
+              "Character",
+              "Elf",
+              "High Command"
+            ]
+          },
+          "specialRules": {
+            "local": [
+              "Heal",
+              "Bloodlust",
+              "Fearless",
+              "Slowed"
+            ],
+            "official": [
+              "Raging",
+              "Fearless",
+              "Repeat a Die"
+            ]
+          }
+        }
+      },
+      {
+        "id": "osseous",
+        "oldFaction": "scions-of-yaldabaoth",
+        "newFaction": "red-caps",
+        "changes": {}
+      },
+      {
+        "id": "overseer",
+        "oldFaction": "scions-of-yaldabaoth",
+        "newFaction": "red-caps",
+        "changes": {
+          "keywords": {
+            "local": [
+              {
+                "name": "Join (Gobblers)"
+              },
+              {
+                "name": "Join (Bugbowls)"
+              },
+              {
+                "name": "Join (Osseous)"
+              }
+            ],
+            "official": [
+              {
+                "name": "Join (Gobblers | Bugbowls | Osseous)"
+              }
+            ]
+          },
+          "specialRules": {
+            "local": [
+              "Shove (4)",
+              "Slowed",
+              "Place (10)"
+            ],
+            "official": [
+              "Place (10)",
+              "Slowed",
+              "Shove"
+            ]
+          }
+        }
+      },
+      {
+        "id": "rumpy-ride",
+        "oldFaction": "scions-of-yaldabaoth",
+        "newFaction": "red-caps",
+        "changes": {
+          "keywords": {
+            "local": [
+              {
+                "name": "Dispel (BLU BLK)"
+              },
+              {
+                "name": "Elite"
+              },
+              {
+                "name": "Join (Red Cap Infantry)"
+              },
+              {
+                "name": "Spellcaster"
+              }
+            ],
+            "official": [
+              {
+                "name": "Dispel (BLU BLK)"
+              },
+              {
+                "name": "Elite"
+              },
+              {
+                "name": "Join (Red Cap, Infantry)"
+              },
+              {
+                "name": "Spellcaster"
+              }
+            ]
+          },
+          "specialRules": {
+            "local": [],
+            "official": [
+              "Recover"
+            ]
+          }
+        }
+      },
+      {
+        "id": "sightless",
+        "oldFaction": "scions-of-yaldabaoth",
+        "newFaction": "red-caps",
+        "changes": {
+          "keywords": {
+            "local": [
+              {
+                "name": "Dispel (BLU)"
+              },
+              {
+                "name": "Join (Red Cap Infantry)"
+              }
+            ],
+            "official": [
+              {
+                "name": "Dispel (BLU)"
+              },
+              {
+                "name": "Join (Red Cap, Infantry)"
+              }
+            ]
+          },
+          "specialRules": {
+            "local": [],
+            "official": [
+              "Heal"
+            ]
+          }
+        }
+      },
+      {
+        "id": "stompers",
+        "oldFaction": "scions-of-yaldabaoth",
+        "newFaction": "red-caps",
+        "changes": {
+          "keywords": {
+            "local": [
+              {
+                "name": "Preferred Terrain (Rugged)"
+              },
+              {
+                "name": "Intimidating (1)"
+              }
+            ],
+            "official": [
+              {
+                "name": "Intimidating (1)"
+              },
+              {
+                "name": "Preferred Terrain (Rugged)"
+              }
+            ]
+          },
+          "characteristics": {
+            "local": [
+              "Infantry",
+              "Projectile",
+              "Red Cap"
+            ],
+            "official": [
+              "Projectile",
+              "Red Cap"
+            ]
+          }
+        }
+      }
+    ],
+    "metadataDifferenceRowsWithSameFactionAndId": 56,
+    "sameFactionNumericDifferenceRows": 0,
+    "notes": [
+      "7개 신규 고유 유닛은 마운트헤이븐2종과 레드 캡5종이다.",
+      "레드 캡은 독립18행이며 기존10종 이동·변경과 공용용병3종·신규5종을 포함한다.",
+      "동일 진영·ID로 비교한 기존행의 비용·AVB·COM 차이는 없지만, 이동된 레드 캡 프로필에는 비용 등의 변경이 있어 별도로 기록했다.",
+      "수록 카탈로그는0.13.51을 유지했다. 이번 카드 수집 복구를 전체0.13.63 업데이트로 표기하지 않는다."
+    ]
+  },
+  "fixed": {
+    "restoredCards": [
+      {
+        "cardKey": "amaury_boissonade",
+        "sourceUrl": "https://www.warcrowarmybuilder.com/art/card/amaury_boissonade_card_en.webp",
+        "printedVersion": "2.0",
+        "abilityCount": 4,
+        "switchCount": 3,
+        "affectedFactionRows": 1,
+        "printedAmbiguities": [
+          {
+            "field": "abilities[1].rulesKo / THE VOICE stress amount",
+            "evidence": "The source prints \"You must suffer stress or suffer 1 [damage]\" with no numeral before \"stress\".",
+            "handling": "Preserved unspecified stress amount in English and Korean; did not assume 1 stress."
+          }
+        ]
+      },
+      {
+        "cardKey": "ismail_the_eighth_pillar",
+        "sourceUrl": "https://www.warcrowarmybuilder.com/art/card/ismail_the_eighth_pillar_card_en.webp",
+        "printedVersion": "V.1.0",
+        "abilityCount": 4,
+        "switchCount": 0,
+        "affectedFactionRows": 6,
+        "printedAmbiguities": []
+      },
+      {
+        "cardKey": "ludivine_corbin",
+        "sourceUrl": "https://www.warcrowarmybuilder.com/art/card/ludivine_corbin_card_en.webp",
+        "printedVersion": null,
+        "abilityCount": 5,
+        "switchCount": 4,
+        "affectedFactionRows": 1,
+        "printedAmbiguities": []
+      },
+      {
+        "cardKey": "neakail_oen_fhiahra",
+        "sourceUrl": "https://www.warcrowarmybuilder.com/art/card/neakail_oen_fhiahra_card_en.webp",
+        "printedVersion": "V1.1",
+        "abilityCount": 4,
+        "switchCount": 4,
+        "affectedFactionRows": 1,
+        "printedAmbiguities": []
+      }
+    ],
+    "mkOsAutomataRules": {
+      "status": "fixed",
+      "abilityBoxesAdded": 1,
+      "printedClauses": 5,
+      "sourceUrl": "https://www.warcrowarmybuilder.com/art/card/mk-os_automata_card_en.webp"
+    },
+    "sightlessJoinedSwitch": {
+      "status": "fixed",
+      "effectIndex": 2,
+      "oldRole": "defense",
+      "correctRole": "attack-2",
+      "verification": "적법 합류 투영에서 스위치 보존 확인"
+    },
+    "longActionCosts": {
+      "status": "fixed",
+      "verifiedCount": 10,
+      "abilities": [
+        {
+          "cardKey": "gale_falchion",
+          "index": 0,
+          "titleKo": "리프 온 더 윈드"
+        },
+        {
+          "cardKey": "bombardier",
+          "index": 0,
+          "titleKo": "볼캐닉 이럽션"
+        },
+        {
+          "cardKey": "selika",
+          "index": 0,
+          "titleKo": "보 오브 클로즈"
+        },
+        {
+          "cardKey": "anointed",
+          "index": 0,
+          "titleKo": "본 앤드 시뉴"
+        },
+        {
+          "cardKey": "feadhalu",
+          "index": 0,
+          "titleKo": "하울"
+        },
+        {
+          "cardKey": "first_anointed",
+          "index": 0,
+          "titleKo": "본 앤드 시뉴"
+        },
+        {
+          "cardKey": "irkalla_the_maw",
+          "index": 0,
+          "titleKo": "로어, 이르칼라"
+        },
+        {
+          "cardKey": "aileen_cethir_wynn",
+          "index": 0,
+          "titleKo": "워크 비트윈 렐름스"
+        },
+        {
+          "cardKey": "ynyr_dara_lainn",
+          "index": 0,
+          "titleKo": "데스 프롬 더 스카이스"
+        },
+        {
+          "cardKey": "amaury_boissonade",
+          "index": 0,
+          "titleKo": "엑스페디타"
+        }
+      ],
+      "verification": "원본 제목의 긴 행동 표식 확인; 카드와 키워드 팝업 비용 명시"
+    },
+    "canonicalMetadataUi": {
+      "status": "fixed",
+      "scope": "특성 표시와 키워드·특성 검색을 정정 메타데이터 기준으로 통일",
+      "checks": "특성36검사·검색45검사 및 fallback 검증"
+    },
+    "wtsOriginalText": {
+      "status": "fixed",
+      "printedPages": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "sourceUrl": "https://experience.corvusbelli.com/en/resources/7bedf3e5-526f-5da1-9f46-2d0e14e6baf9?l=712b6686-47e5-479e-a729-80c7af9ce90a"
+    },
+    "keywordProseReferences": {
+      "status": "fixed",
+      "rules": [
+        "repeat-die",
+        "cancel-symbol"
+      ],
+      "verification": "기존 연결 소실·중복 없이 수량이 끼어드는 실제 카드 문구 인식 보완"
+    }
+  },
+  "remaining": [
+    {
+      "id": "latest-catalog-not-synchronized",
+      "severity": "high",
+      "status": "open",
+      "detail": "독립 레드 캡 팩션과 신규7종, 레드 캡10종의 진영 이동·프로필 변경 및 최신 메타데이터 차이는 전체 동기화 대상으로 남아 있다.",
+      "sourceUrl": "https://www.warcrowarmybuilder.com/builder"
+    },
+    {
+      "id": "biwa-additional-cards",
+      "severity": "high",
+      "status": "open",
+      "missingCardKeys": [
+        "the_fox",
+        "the_skilja",
+        "the_almiraj"
+      ],
+      "detail": "비와가 참조하는 추가 카드3종의 프로필·능력·스위치와 연결 기능이 빠져 있다.",
+      "sourceUrls": [
+        "https://www.warcrowarmybuilder.com/art/card/the_fox_card_en.webp",
+        "https://www.warcrowarmybuilder.com/art/card/the_skilja_card_en.webp",
+        "https://www.warcrowarmybuilder.com/art/card/the_almiraj_card_en.webp"
+      ]
+    },
+    {
+      "id": "folder-additional-card-model",
+      "severity": "medium",
+      "status": "open",
+      "cardKeys": [
+        "the_bear",
+        "the_owl"
+      ],
+      "detail": "추가·강화 카드가 독립0점Troop로 모델링되어 있다. 비와 추가 카드와 함께 강화 참조·적용 구조를 정리해야 한다."
+    },
+    {
+      "id": "coal-companion-join",
+      "severity": "high",
+      "status": "open",
+      "detail": "콜의 Join(Iriavik)은 원본에 있으나 현재 캐릭터 전용 합류 로직에서는 동반자→캐릭터 합류를 지원하지 않는다.",
+      "sourceUrl": "https://www.warcrowarmybuilder.com/art/card/coal_card_en.webp"
+    },
+    {
+      "id": "english-ocr-review",
+      "severity": "medium",
+      "status": "requires-source-review",
+      "detail": "기존 영문·한영 모드의 OCR 원문에 숫자·기호·철자 인식 오류 후보가 남아 있다. 한국어 본문 누락 및 의도된 원본 빈값과 별개다.",
+      "examples": [
+        "Master Keorl WP (33x) 같은 OCR 수치 문자열",
+        "아오하루의 기호가 숫자·문자로 인식된 영문",
+        "일부 영문 수량의 |,@@ 등 OCR 잔여"
+      ]
+    }
+  ],
+  "passedChecks": [
+    "기존162모델 매핑과145개 실제 모델·일러스트 파일 존재·이미지 형식 검증",
+    "기존158원본 카드URL 및 복구4원본 카드HTTP200·이미지 검증",
+    "Core2–120 인쇄쪽119개·WTS5–18쪽14개·모험20개·배치도12개 범위와 자산 확인",
+    "기존 카드 능력·스위치·키워드칩과 적법 합류 투영 대조",
+    "6팩션 가이드·연습 로스터12개 점수·AVB·지휘관·합류 조건과 참조 링크 대조"
+  ],
+  "imageVersionComparison": {
+    "checkedExistingOriginals": 158,
+    "byteChangedCardKeys": [
+      "vercana",
+      "ahlwardt_ice_bear",
+      "bugbowls",
+      "crucible",
+      "flamecobs",
+      "gobblers",
+      "nuada",
+      "osseous",
+      "overseer",
+      "rumpy_ride",
+      "sightless",
+      "stompers",
+      "alula"
+    ],
+    "meaningUnchangedAfterVisualComparison": [
+      "vercana",
+      "ahlwardt_ice_bear",
+      "alula"
+    ],
+    "notes": [
+      "이미지 해시 변경만으로 규칙 변경을 단정하지 않았다.",
+      "나머지10개는 레드 캡 프로필 갱신과 함께 별도 동기화 대상으로 분류했다."
+    ]
+  },
+  "limits": [
+    "모든 영문 OCR 문장을 새로 전사한 감사는 아니다.",
+    "공식 원본에 스트레스 수량이나 병력수 등이 인쇄되지 않은 경우 임의 값을 만들지 않았다.",
+    "검증은 데이터·실제 DOM 동작 기준이며 모바일 실기기 화면 검증은 수행하지 않았다."
+  ],
+  "verification": {
+    "restoredCardLanguageRenders": 12,
+    "restoredAbilities": 17,
+    "restoredSwitches": 11,
+    "allLocalUnitRowsRendered": 177,
+    "allRowAbilityBoxes": 540,
+    "allRowSwitches": 484,
+    "allRowCombatRows": 286,
+    "unavailableLocalSourceProfiles": 0,
+    "restoredJoinCases": [
+      "Amaury + Mace Escort",
+      "Neakail + Grove Curtailers"
+    ],
+    "longActionCardAndPopupChecks": 10,
+    "runtimeErrors": 0
+  }
+}

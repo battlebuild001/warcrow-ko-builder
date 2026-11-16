@@ -32,6 +32,22 @@ function keywordScanTerms(text){
       }
     }
   }
+  // Card prose inserts counts between the rule's words (including OCR's | for 1).
+  // Match the object of the instruction, so rerolling a whole roll is not a die reroll.
+  const proseRules={
+    'repeat-die':[
+      /주사위(?:를|는)?\s*(?:중\s*)?(?:최대\s*)?(?:(?:[1-9]\d*|한|하나|두|둘|세|셋)\s*(?:개|개씩)?\s*(?:를|을)?\s*)?(?:만\s*)?(?:골라\s*)?다시\s*굴[릴려리립]/g,
+      /(?<![a-z])(?:repeat|re-?roll)\s+(?:(?:up\s+to|any\s+of|any\s+number\s+of)\s+)?(?:(?:[1-9]\d*|\||one|two|three|a|the|any)\s+)?(?:of\s+(?:your|the)\s+)?(?:die|dice)(?![a-z])/gi
+    ],
+    'cancel-symbol':[
+      /기호\s*(?:최대\s*)?(?:(?:[1-9]\d*|한|하나|두|둘|세|셋)\s*개?\s*)?(?:를|을)?\s*취소/g,
+      /(?<![a-z])cancel\s+(?:up\s+to\s+)?(?:(?:[1-9]\d*|\||one|two|three|a|any)\s+)?(?:(?:hollow\s+)?(?:success|block|special)\s+)?symbols?(?![a-z])/gi
+    ]
+  };
+  for(const [id,patterns] of Object.entries(proseRules)){
+    const entry=ruleById.get(id);if(!entry||!keywordTiming.rules[id])continue;
+    for(const pattern of patterns)for(const match of raw.matchAll(pattern))result.push({id,start:match.index,end:match.index+match[0].length,raw:entry.english});
+  }
   const selected=[];for(const term of result.sort((a,b)=>a.start-b.start||(b.end-b.start)-(a.end-a.start))){if(!selected.some(t=>term.start<t.end&&term.end>t.start))selected.push(term);}return selected;
 }
 function keywordSourceTerms(item){const koTerms=keywordScanTerms(item.rulesKo??item.korean??''),enTerms=keywordScanTerms(item.english||''),terms=[...koTerms,...enTerms.filter(e=>!koTerms.some(k=>k.id===e.id))];return terms.filter(t=>t.value||!terms.some(other=>other.id===t.id&&other.value));}
@@ -66,11 +82,11 @@ function keywordTermLabel(term,unit=null){
   return traitName(term.raw);
 }
 function keywordSkillTiming(item){
-  const type=item.iconType||'passive',long=/^\s*긴 행동[.\n·]/.test(item.rulesKo??item.korean??'');
+  const type=item.iconType||'passive',long=item.actionCost==='long'||/^\s*긴 행동[.\n·]/.test(item.rulesKo??item.korean??'');
   const action=long?['긴 행동','a long action']:['능력 수행 단순 행동 1개','one simple skill action'];
   const copy={
     action:['자신의 활성화 중 '+action[0]+'으로 사용합니다. 아래에 적힌 대상·조건을 충족해야 합니다.','During your activation, use '+action[1]+' and meet the printed target and conditions.'],
-    spell:['자신의 활성화 중 마법 능력 수행 행동으로 시전합니다. 주문 시전자 요건과 아래 주문의 대상·조건을 따릅니다.','During your activation, perform a Magic skill action. Follow Spellcaster requirements and the printed target and conditions.'],
+    spell:long?['자신의 활성화 중 긴 행동 1회로 시전합니다. 주문 시전자 요건과 아래 주문의 대상·조건을 따릅니다.','During your activation, spend one long action to cast this spell. Follow Spellcaster requirements and the printed target and conditions.']:['자신의 활성화 중 마법 능력 수행 행동으로 시전합니다. 주문 시전자 요건과 아래 주문의 대상·조건을 따릅니다.','During your activation, perform a Magic skill action. Follow Spellcaster requirements and the printed target and conditions.'],
     tinge:['자신의 활성화 중 팅지 1개를 소비하고 팅지 능력 수행 행동으로 사용합니다. 아래 조건도 충족해야 합니다.','During your activation, spend 1 Tinge and perform a Tinge skill action, meeting the printed conditions.'],
     command:['아래에 적힌 시점·조건에 지휘 토큰 1개를 소비해 사용합니다. 행동은 소비하지 않습니다.','At the printed timing and conditions, spend 1 Command token. No action is spent.'],
     passive:['아래에 적힌 시점·조건을 충족하면 적용합니다. 별도의 능력 수행 행동이나 지휘 토큰은 필요하지 않습니다.','Apply at the printed timing and conditions. No skill action or Command token is required.']

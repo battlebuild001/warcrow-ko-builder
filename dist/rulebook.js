@@ -52,7 +52,7 @@
   $('#bookSearch').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(search,100)});
   window.addEventListener('hashchange',()=>{const m=location.hash.match(/^#(core|wts)-(\d+)$/);if(m)goTo(m[1],Number(m[2]),false)});
   window.addEventListener('afterprint',()=>{if(printAll){printAll=false;renderChapter()}});
-  Promise.all(['rulebook-core-a.json','rulebook-core-b.json','rulebook-core-c.json','rulebook-core-d.json','rulebook-wts.json','rulebook-source.json','rulebook-figures.json'].map(f=>fetch(`./${f}?v=35`).then(r=>{if(!r.ok)throw Error(f);return r.json()}))).then(([a,b,c,d,wts,english,art])=>{
+  Promise.all(['rulebook-core-a.json','rulebook-core-b.json','rulebook-core-c.json','rulebook-core-d.json','rulebook-wts.json','rulebook-source.json','rulebook-figures.json'].map(f=>fetch(`./${f}?v=${f==='rulebook-source.json'?'50':'35'}`).then(r=>{if(!r.ok)throw Error(f);return r.json()}))).then(([a,b,c,d,wts,english,art])=>{
     books={core:[...a,...b,...c,...d].sort((x,y)=>x.page-y.page),wts};source=english;figures=art;
     for(const pages of Object.values(books))for(const p of pages){p.plain=text(p.html);p.search=[p.title,p.plain,source[pages===books.core?'core':'wts']?.[p.page]?.text||''].join(' ').toLocaleLowerCase().replace(/\s/g,'')}
     $('#bookLoading').hidden=true;$('#bookReader').hidden=false;
