@@ -79,12 +79,12 @@ function renderSavedRosters(){
   const undo=rosterElement('rosterUndo');if(undo){undo.hidden=!rosterUndoRecord;undo.innerHTML=rosterUndoRecord?`<span>${rosterEscape(rosterUndoRecord.item.name||rosterText('로스터','Roster'))} ${rosterText('삭제됨','deleted')}</span> <button type="button" class="roster-undo-action" data-roster-undo>${rosterText('실행 취소','Undo')}</button>`:'';}
   updateRosterActions();
 }
-function saveList(){
+function saveList(nameOverride,source=null){
   const library=rosterReadLibrary();if(library.error)return false;
-  let snapshot;try{snapshot=validateRosterPayload(getRosterSnapshot());}catch(error){rosterReport(error.message,'error');return false;}
+  let snapshot;try{const current=source?.snapshot||getRosterSnapshot();snapshot=validateRosterPayload(typeof nameOverride==='string'?{...current,name:nameOverride}:current);}catch(error){rosterReport(error.message,'error');return false;}
   const previous=library.items.find(item=>item.id===snapshot.id),now=new Date().toISOString();snapshot.id=previous?.id||rosterId();snapshot.name=snapshot.name||rosterAutomaticName(snapshot.faction,library.items);snapshot.createdAt=previous?.createdAt||snapshot.createdAt||now;snapshot.updatedAt=now;
   const next=[snapshot,...library.items.filter(item=>item.id!==snapshot.id)];if(!rosterWriteLibrary(next))return false;
-  const game=rosterCurrentGame();if(game){game.savedRosterId=snapshot.id;game.name=snapshot.name;try{if(typeof persistGames==='function')persistGames();}catch{rosterReport(rosterText('로스터는 저장했습니다. 플레이 세션의 저장 연결은 유지하지 못했습니다.','Roster saved, but its play-session link could not be persisted.'),'error');renderSavedRosters();return snapshot;}}
+  const game=source?source.game:rosterCurrentGame();if(game){game.savedRosterId=snapshot.id;game.name=snapshot.name;try{if(typeof persistGames==='function')persistGames();}catch{rosterReport(rosterText('로스터는 저장했습니다. 플레이 세션의 저장 연결은 유지하지 못했습니다.','Roster saved, but its play-session link could not be persisted.'),'error');renderSavedRosters();return snapshot;}}
   else if(typeof state!=='undefined'){state.savedRosterId=snapshot.id;state.listName=snapshot.name;if(rosterElement('listName'))rosterElement('listName').value=snapshot.name;}
   renderSavedRosters();rosterReport(previous?rosterText('저장한 로스터를 업데이트했습니다.','Saved roster updated.'):rosterText('로스터를 이 브라우저에 저장했습니다.','Roster saved in this browser.'),'success');return snapshot;
 }
@@ -124,7 +124,7 @@ function deleteSavedRoster(id){const library=rosterReadLibrary();if(library.erro
 function undoRosterDeletion(){if(!rosterUndoRecord)return false;const library=rosterReadLibrary();if(library.error)return false;if(library.items.some(x=>x.id===rosterUndoRecord.item.id)){rosterReport(rosterText('같은 ID의 로스터가 이미 있습니다. 복원하지 않았습니다.','A roster with that ID already exists. Nothing was restored.'),'error');return false;}const next=[...library.items];next.splice(Math.min(rosterUndoRecord.index,next.length),0,rosterUndoRecord.item);if(!rosterWriteLibrary(next))return false;rosterUndoRecord=null;renderSavedRosters();rosterReport(rosterText('삭제한 로스터를 복원했습니다.','Deleted roster restored.'),'success');return true;}
 document.addEventListener('click',event=>{
   const button=event.target.closest?.('button');if(!button)return;
-  if(button.matches('[data-roster-save]')&&button.id!=='saveButton'){saveList();return;}
+  if(button.matches('[data-roster-save]')&&button.id!=='saveButton'){openRosterSaveDialog();return;}
   if(button.matches('[data-roster-export]')&&button.id!=='exportButton'){exportList();return;}
   if(button.matches('[data-roster-import]')){rosterElement('rosterImportInput')?.click();return;}
   if(button.hasAttribute('data-export-roster')){exportSavedRoster(button.dataset.exportRoster);return;}
@@ -132,3 +132,28 @@ document.addEventListener('click',event=>{
   if(button.matches('[data-roster-undo]'))undoRosterDeletion();
 });
 document.addEventListener('change',async event=>{if(event.target.id!=='rosterImportInput')return;const file=event.target.files?.[0];if(file)await importRosterFile(file);event.target.value='';});
+
+function openRosterSaveDialog(){
+  let snapshot;try{snapshot=validateRosterPayload(getRosterSnapshot());}catch(error){rosterReport(error.message,'error');return false;}
+  let dialog=rosterElement('rosterSaveDialog');if(dialog?.open)return false;
+  const source={snapshot,game:rosterCurrentGame()},opener=document.activeElement;
+  if(!dialog){dialog=document.createElement('dialog');dialog.id='rosterSaveDialog';dialog.className='roster-save-dialog';document.body.append(dialog);}
+  dialog.setAttribute('aria-labelledby','rosterSaveTitle');
+  dialog.innerHTML='<form class="roster-name-form" novalidate><header class="roster-name-header"><h2 id="rosterSaveTitle">'+rosterText('로스터 저장','Save roster')+'</h2><button type="button" class="roster-name-close" data-cancel-roster-name aria-label="'+rosterText('닫기','Close')+'">×</button></header><label for="rosterSaveName">'+rosterText('로스터 이름','Roster name')+'</label><input id="rosterSaveName" name="rosterName" type="text" maxlength="60" required autocomplete="off" enterkeyhint="done" aria-describedby="rosterNameHint rosterNameError"><p id="rosterNameHint" class="roster-name-hint">'+rosterText('최대 60자','Up to 60 characters')+'</p><p id="rosterNameError" class="roster-name-error" role="alert" hidden></p><div class="roster-name-actions"><button type="button" data-cancel-roster-name>'+rosterText('취소','Cancel')+'</button><button type="submit" id="rosterNameConfirm">'+rosterText('저장','Save')+'</button></div></form>';
+  const input=dialog.querySelector('#rosterSaveName'),error=dialog.querySelector('#rosterNameError');
+  input.value=snapshot.name;input.placeholder=rosterText('예: 주말 게임 250점','e.g. Weekend army 250 pts');
+  const showError=message=>{error.textContent=message;error.hidden=false;input.setAttribute('aria-invalid','true');input.focus({preventScroll:true});};
+  input.addEventListener('input',()=>{error.hidden=true;error.textContent='';input.removeAttribute('aria-invalid');});
+  dialog.querySelectorAll('[data-cancel-roster-name]').forEach(button=>button.addEventListener('click',()=>dialog.close()));
+  dialog.querySelector('form').addEventListener('submit',event=>{
+    event.preventDefault();const name=input.value.trim();
+    if(!name){showError(rosterText('로스터 이름을 입력하세요.','Enter a roster name.'));return;}
+    if(name.length>60){showError(rosterText('이름은 60자 이내로 입력하세요.','Use 60 characters or fewer.'));return;}
+    const saved=saveList(name,source);
+    if(!saved){error.textContent=rosterElement('rosterStatus')?.textContent||rosterText('저장하지 못했습니다. 다시 시도하세요.','Could not save. Please try again.');error.hidden=false;return;}
+    if(source.game&&source.game===rosterCurrentGame()&&typeof renderGame==='function')renderGame();
+    dialog.close();
+  });
+  dialog.addEventListener('close',()=>{if(opener?.isConnected&&typeof opener.focus==='function')opener.focus({preventScroll:true});},{once:true});
+  dialog.showModal();input.focus({preventScroll:true});input.select();return true;
+}

@@ -329,7 +329,7 @@ $('#availableOnly').addEventListener('change',e=>{state.availableOnly=e.target.c
 $('#commanderSelect').addEventListener('change',e=>{state.commander=e.target.value;renderValidation()});
 $('#confirmRosterButton').addEventListener('click',confirmRoster);
 $('#resumeGameButton').addEventListener('click',()=>{if(activeGame()){screen='game';render();window.scrollTo(0,0)}});
-$('#saveButton').addEventListener('click',saveList);$('#exportButton').addEventListener('click',exportList);
+$('#saveButton').addEventListener('click',openRosterSaveDialog);$('#exportButton').addEventListener('click',exportList);
 $('#loadButton').addEventListener('click',showSaved);$('#resetButton').addEventListener('click',reset);
 document.addEventListener('change',event=>{if(event.target.id==='playUnitSelect'){const game=activeGame();if(game)movePlayCard(Number(event.target.value)-(Number(game.cardIndex)||0))}});
 let playSwipe=null;
