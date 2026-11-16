@@ -6268,12 +6268,12 @@
       "top": 0.4965,
       "bottom": 0.5846,
       "english": "EXPLOSION OF LIGHT. Target: enemy units within your Aura.\nThe targets receive the vulnerable or disarmed state.\n[2 black dice alteration]: The targets suffer 1 stress.\n[1 black die alteration]: Shove (3) the targets.",
-      "korean": "익스플로전 오브 라이트.\n대상: 자신의 오라 범위 내 적 유닛들.\n대상들은 취약 또는 무장 해제 상태를 받습니다.\n변형 · 검정 주사위 2개: 대상들은 스트레스 1을 받습니다.\n변형 · 검정 주사위 1개: 대상들에게 밀치기(3)를 적용합니다.",
+      "korean": "익스플로전 오브 라이트.\n대상: 자신의 오라 범위 내 적 유닛들.\n대상들은 취약 또는 무장 해제 상태를 받습니다.\n변형 · 검정 주사위 2개: 대상들은 스트레스 1을 받습니다.\n변형 · 검정 주사위 1개: 대상들에게 밀어내기(3)를 적용합니다.",
       "translationReviewed": true,
       "translationReviewRequired": false,
       "translationReviewSource": "official-card-image",
       "titleKo": "익스플로전 오브 라이트",
-      "rulesKo": "대상: 자신의 오라 범위 내 적 유닛들.\n대상들은 취약 또는 무장 해제 상태를 받습니다.\n변형 · 검정 주사위 2개: 대상들은 스트레스 1을 받습니다.\n변형 · 검정 주사위 1개: 대상들에게 밀치기(3)를 적용합니다.",
+      "rulesKo": "대상: 자신의 오라 범위 내 적 유닛들.\n대상들은 취약 또는 무장 해제 상태를 받습니다.\n변형 · 검정 주사위 2개: 대상들은 스트레스 1을 받습니다.\n변형 · 검정 주사위 1개: 대상들에게 밀어내기(3)를 적용합니다.",
       "section": "base",
       "iconType": "spell",
       "alterations": [
@@ -6290,7 +6290,7 @@
             "black"
           ],
           "english": "Shove (3) the targets.",
-          "korean": "대상들에게 밀치기(3)를 적용합니다."
+          "korean": "대상들에게 밀어내기(3)를 적용합니다."
         }
       ]
     },
