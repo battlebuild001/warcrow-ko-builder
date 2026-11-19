@@ -65,7 +65,16 @@ function joinAbilityKey(ability){return String(ability.titleKo||ability.english?
 function joinClone(value){return JSON.parse(JSON.stringify(value));}
 function joinHasPool(pool){return !!((pool?.dice||[]).length||(pool?.symbols||[]).length);}
 function joinCapDice(dice){const counts={};return dice.filter(c=>(counts[c]=(counts[c]||0)+1)<=3);}
-function joinMergePool(target,extra){target.dice=joinCapDice([...(target.dice||[]),...(extra?.dice||[])]);target.symbols=[...(target.symbols||[]),...(extra?.symbols||[])];}
+function joinMergePool(target,extra){
+  const beforeDice=joinCapDice(target.dice||[]),addedSymbols=extra?.symbols||[];
+  const dice=joinCapDice([...beforeDice,...(extra?.dice||[])]),addedDice=dice.slice(beforeDice.length);
+  if(addedDice.length||addedSymbols.length){
+    target.joinedBasePool??={dice:[...beforeDice],symbols:[...(target.symbols||[])]};
+    target.joinedAddedPool??={dice:[],symbols:[]};
+    target.joinedAddedPool.dice.push(...addedDice);target.joinedAddedPool.symbols.push(...addedSymbols);
+  }
+  target.dice=dice;target.symbols=[...(target.symbols||[]),...addedSymbols];
+}
 function joinAddModifier(target,extra,targetLabel,extraLabel){
   if(!joinHasPool(extra?.modifier))return;
   const options=target.modifierOptions||(joinHasPool(target.modifier)?[{...joinClone(target.modifier),label:targetLabel}]:[]);
@@ -75,13 +84,35 @@ function joinedCardData(group){
   const target=group.unit,character=group.character,base=joinClone(nativeCards[target.cardKey]||{}),targetAbilities=cardAbilities[target.cardKey]||[],targetEffects=cardEffects[target.cardKey]||[];
   if(!character)return {profile:base,abilities:targetAbilities,effects:targetEffects};
   const extra=nativeCards[character.cardKey]||{},extraRows=(extra.combat||[]).filter(r=>r.section==='enhancement'),extraAbilities=cardAbilities[character.cardKey]||[],extraEffects=cardEffects[character.cardKey]||[];
-  for(const stat of extra.enhancement?.stats||[]){const field={MOV:'mov',W:'w',MOR:'mor'}[stat.label];if(stat.label==='WP'){base.wpDice=joinCapDice(stat.mode==='add'?[...(base.wpDice||[]),...(stat.dice||[])]:[...(stat.dice||[])]);}else if(field){if(stat.mode==='add'){const n=Number(stat.value);if(Number.isFinite(n)&&Number.isFinite(Number(base[field])))base[field]=Number(base[field])+n;}else if(stat.value!==null&&stat.value!==undefined)base[field]=stat.label==='MOV'?stat.value:Number(stat.value);}}
+  base.joinedStats={};
+  for(const stat of extra.enhancement?.stats||[]){
+    const field={MOV:'mov',W:'w',MOR:'mor'}[stat.label];
+    if(stat.label==='WP'){
+      const previous=joinCapDice(base.wpDice||[]);
+      base.wpDice=joinCapDice(stat.mode==='add'?[...previous,...(stat.dice||[])]:[...(stat.dice||[])]);
+      if(stat.mode==='add'){
+        const added=base.wpDice.slice(previous.length);
+        if(added.length){base.joinedStats.WP??={base:[...previous],added:[]};base.joinedStats.WP.added.push(...added);}
+      }else delete base.joinedStats.WP;
+    }else if(field){
+      if(stat.mode==='add'){
+        const n=Number(stat.value),previous=Number(base[field]);
+        if(Number.isFinite(n)&&Number.isFinite(previous)){
+          base[field]=previous+n;
+          if(n){base.joinedStats[stat.label]??={base:previous,added:0};base.joinedStats[stat.label].added+=n;}
+        }
+      }else if(stat.value!==null&&stat.value!==undefined){base[field]=stat.label==='MOV'?stat.value:Number(stat.value);delete base.joinedStats[stat.label];}
+    }
+  }
   const effects=joinClone(targetEffects),rows=(base.combat||[]).filter(r=>(r.section||'base')==='base');
   rows.forEach((row,rowIndex)=>{
     for(const erow of extraRows){
       for(const addition of erow.attacks||[]){const matching=(row.attacks||[]).map((a,i)=>({a,i})).filter(({a})=>addition.kind==='all'||a.kind===addition.kind);for(const {a,i}of matching){joinMergePool(a,addition);joinAddModifier(a,addition,joinName(target),joinName(character));for(const ef of extraEffects.filter(e=>e.section==='enhancement'&&e.row===extraRows.indexOf(erow)&&e.columnRole===`attack-${(erow.attacks||[]).indexOf(addition)+1}`))effects.push({...joinClone(ef),section:'base',row:rowIndex,rowKey:row.key,columnRole:`attack-${i+1}`,joinedFrom:character.cardKey});}}
       if(erow.defense&&!erow.defense.hidden&&row.defense){joinMergePool(row.defense,erow.defense);joinAddModifier(row.defense,erow.defense,joinName(target),joinName(character));for(const ef of extraEffects.filter(e=>e.section==='enhancement'&&e.row===extraRows.indexOf(erow)&&e.columnRole==='defense'))effects.push({...joinClone(ef),section:'base',row:rowIndex,rowKey:row.key,columnRole:'defense',joinedFrom:character.cardKey});}
-      if(erow.conquest!==null&&erow.conquest!==undefined)row.conquest=erow.conquestMode==='replace'?erow.conquest:(row.conquest??0)+erow.conquest;
+      if(erow.conquest!==null&&erow.conquest!==undefined){
+        if(erow.conquestMode==='replace'){row.conquest=erow.conquest;delete row.joinedConquest;}
+        else{row.joinedConquest??={base:row.conquest??0,added:0};row.joinedConquest.added+=erow.conquest;row.conquest=(row.conquest??0)+erow.conquest;}
+      }
     }
   });
   if(Number.isFinite(base.initialTroops))base.initialTroops+=1;

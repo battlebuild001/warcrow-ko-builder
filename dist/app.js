@@ -190,6 +190,12 @@ function confirmRoster(source=null,adventure=null){
   setArmyDrawer(false);screen='game';render();window.scrollTo(0,0);return game;
 }
 function playDisplayUnits(game){return game?gameJoinGroups(game):[]}
+function gameTotalCommand(game){
+  // Joined Characters still contribute as original roster instances.
+  return joinRosterInstances(joinGameRoster(game),game?.units||[]).reduce((sum,{unit})=>{
+    const command=Number(unit.command);return sum+(Number.isFinite(command)?Math.max(0,command):0);
+  },0);
+}
 function playCardMarkup(display,game){return `${renderJoinedGroup(display)}${renderPlayJoinControls(display,game)}`}
 function movePlayCard(delta){
   const game=activeGame(),units=playDisplayUnits(game);if(!units.length)return;
@@ -210,6 +216,7 @@ function renderGame(){
   const index=Math.max(0,Math.min(units.length-1,Number(game.cardIndex)||0));game.cardIndex=index;
   const display=units[index],unit=display.unit||display;
   const card=playCardMarkup(display,game);
+  const command=gameTotalCommand(game),commandBadge=`<button type="button" class="play-command-total" data-rule="command-token" data-rule-raw aria-haspopup="dialog" aria-label="${escapeHtml(ui(`총 COM ${command} · 지휘 토큰 규칙 보기`,`Total COM ${command} · View Command token rules`))}"><span>${ui('총 COM','Total COM')}</span> <strong>${command}</strong></button>`;
   const searchIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 6 6"/></svg>';
   const scenarioIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 5 5-2 6 3 5-2v15l-5 2-6-3-5 2Z"/><path d="M9 3v15m6-12v15"/></svg>';
   const backIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 5-7 7 7 7m-7-7h18"/></svg>';
@@ -220,7 +227,8 @@ function renderGame(){
     return `<button type="button" role="tab" class="play-unit-tab${i===index?' is-active':''}" id="playUnitTab${i}" data-play-index="${i}" aria-selected="${i===index}" aria-controls="playCardStage" tabindex="${i===index?'0':'-1'}"><span class="play-tab-thumb" aria-hidden="true">${photo?`<img src="${escapeHtml(photo)}" alt="" loading="lazy" />`:'<span>NO IMAGE</span>'}</span><span class="play-tab-copy"><span class="play-tab-name">${escapeHtml(label)}</span>${badge?`<small class="play-tab-quantity">${badge}</small>`:''}</span></button>`;
   }).join('');
   const chevron='<svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg>';
-  view.innerHTML=`<header class="game-heading play-header"><div class="play-roster-title"><span class="section-kicker">${ui('플레이 모드','PLAY MODE')}</span><h2>${escapeHtml(game.name)}</h2><p>${ui(`${units.length}개 유닛`,`${units.length} units`)}<span aria-hidden="true">·</span>${ui('카드를 좌우로 넘겨 보세요.','Swipe to browse cards.')}</p></div>${playTools}</header>${typeof scenarioPlaySummary==='function'?scenarioPlaySummary(game):''}<nav class="play-navigation play-unit-navigation" aria-label="${ui('유닛 카드 이동','Unit card navigation')}"><button type="button" class="play-page-arrow play-page-previous" data-play-step="-1" aria-label="${ui('이전 유닛 카드','Previous unit card')}" ${units.length===1?'disabled':''}>${chevron}</button><div class="play-tabs" id="playUnitTabs" role="tablist" aria-label="${ui('선택한 유닛','Selected units')}" aria-orientation="horizontal">${tabs}</div><button type="button" class="play-page-arrow" data-play-step="1" aria-label="${ui('다음 유닛 카드','Next unit card')}" ${units.length===1?'disabled':''}>${chevron}</button><select id="playUnitSelect" hidden aria-hidden="true" tabindex="-1">${units.map((entry,i)=>`<option value="${i}" ${i===index?'selected':''}>${escapeHtml(entry.label||unitName(entry.unit||entry))}</option>`).join('')}</select><span class="sr-only" role="status" aria-live="polite">${index+1} / ${units.length} · ${escapeHtml(display.label||unitName(unit))}</span></nav><div id="playCardStage" class="play-card-stage" role="tabpanel" aria-labelledby="playUnitTab${index}" tabindex="0" data-rule-unit="${escapeHtml(unit.id)}">${card}</div>`;
+  view.innerHTML=`<header class="game-heading play-header"><div class="play-roster-title"><span class="section-kicker">${ui('플레이 모드','PLAY MODE')}</span><div class="play-roster-heading"><h2>${escapeHtml(game.name)}</h2>${commandBadge}</div><p>${ui(`${units.length}개 유닛`,`${units.length} units`)}<span aria-hidden="true">·</span>${ui('카드를 좌우로 넘겨 보세요.','Swipe to browse cards.')}</p></div>${playTools}</header>${typeof scenarioPlaySummary==='function'?scenarioPlaySummary(game):''}<nav class="play-navigation play-unit-navigation" aria-label="${ui('유닛 카드 이동','Unit card navigation')}"><button type="button" class="play-page-arrow play-page-previous" data-play-step="-1" aria-label="${ui('이전 유닛 카드','Previous unit card')}" ${units.length===1?'disabled':''}>${chevron}</button><div class="play-tabs" id="playUnitTabs" role="tablist" aria-label="${ui('선택한 유닛','Selected units')}" aria-orientation="horizontal">${tabs}</div><button type="button" class="play-page-arrow" data-play-step="1" aria-label="${ui('다음 유닛 카드','Next unit card')}" ${units.length===1?'disabled':''}>${chevron}</button><select id="playUnitSelect" hidden aria-hidden="true" tabindex="-1">${units.map((entry,i)=>`<option value="${i}" ${i===index?'selected':''}>${escapeHtml(entry.label||unitName(entry.unit||entry))}</option>`).join('')}</select><span class="sr-only" role="status" aria-live="polite">${index+1} / ${units.length} · ${escapeHtml(display.label||unitName(unit))}</span></nav><div id="playCardStage" class="play-card-stage" role="tabpanel" aria-labelledby="playUnitTab${index}" tabindex="0" data-rule-unit="${escapeHtml(unit.id)}">${card}</div>`;
+  view.querySelector('.play-command-total').addEventListener('click',event=>{event.stopPropagation();openRule('command-token',{raw:true,resetContext:true})});
   bindKeywordCard($('#playCardStage .native-card[data-card-key]'),unit,display.character?joinedCardData(display):{});
   requestAnimationFrame(()=>{
     const rail=$('#playUnitTabs'),tab=rail?.querySelector('[aria-selected="true"]');

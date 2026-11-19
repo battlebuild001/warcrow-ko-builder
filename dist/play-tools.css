@@ -2,6 +2,15 @@
 #gameView{--play-sticky-top:68px;max-width:820px;margin:22px auto 0}
 #gameView .play-header{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 17px;padding:0 1px}
 .play-roster-title{min-width:0}
+.play-roster-heading{display:flex;align-items:center;gap:12px;min-width:0;max-width:100%}
+#gameView .play-roster-heading h2{flex:1;min-width:0}
+.play-command-total{display:inline-flex;align-items:center;justify-content:center;gap:8px;flex:0 0 auto;min-width:88px;max-width:140px;min-height:44px;margin:0;padding:7px 11px;border:1px solid #b6a0de66;border-radius:8px;background:#b6a0de14;color:var(--accent,#b6a0de);font-family:inherit;text-align:left;line-height:1.35;cursor:pointer;touch-action:manipulation}
+.play-command-total>span{min-width:0;overflow-wrap:anywhere;font-size:10px;font-weight:750}
+.play-command-total>strong{flex:none;color:var(--text,#f4f0f8);font-size:22px;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
+.play-command-total:hover{border-color:var(--accent,#b6a0de);background:#b6a0de24}
+.play-command-total:active{background:#b6a0de30}
+.play-command-total:focus-visible{outline:2px solid var(--accent,#b6a0de);outline-offset:3px}
+@media(max-width:650px){.play-roster-heading{gap:8px}.play-command-total{max-width:128px;padding:7px 9px;gap:7px}.play-command-total>strong{font-size:21px}}
 #gameView .play-roster-title .section-kicker{display:block;margin:0 0 5px;color:var(--sage,#94b9ac);font-size:9px;font-weight:750;line-height:1.4;letter-spacing:.15em}
 #gameView .play-roster-title h2{margin:0;color:var(--text,#f4f0f8);font-size:23px;font-weight:800;line-height:1.45;letter-spacing:-.035em;overflow-wrap:anywhere}
 #gameView .play-roster-title p{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:5px 0 0;color:var(--muted,#c1b7ca);font-size:11px;line-height:1.6}

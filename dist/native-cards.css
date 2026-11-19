@@ -30,6 +30,17 @@
 .native-stat strong{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:3px;width:100%;margin-top:4px;font-size:22px;font-weight:800;line-height:1.4;letter-spacing:-.03em;overflow-wrap:anywhere}
 .native-stat .native-dice{justify-content:center;gap:2px}
 .native-stat .native-glyph{--native-glyph-size:23px}
+.native-original-value,.native-added-value,.native-pool-original,.native-pool-addition{display:inline-flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:3px;max-width:100%}
+.native-added-value,.native-pool-addition{color:#80521b}
+.native-stat-joined-add strong{font-size:20px;column-gap:4px}
+.native-stat-joined-add .native-plus{font-size:16px;color:inherit}
+.native-pool-original,.native-pool-addition{justify-content:flex-start;gap:5px}
+.native-pool-addition .native-plus{color:#80521b}
+.native-conquest strong:has(.native-added-value){display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:2px}
+.native-conquest .native-plus{font-size:15px;color:inherit}
+.native-conquest .native-added-value{gap:2px}
+.native-conquest strong .native-original-value,.native-conquest strong .native-added-value{font-size:inherit;font-weight:inherit;line-height:inherit}
+@media(max-width:420px){.native-stat-joined-add strong{font-size:18px;column-gap:3px}.native-stat-joined-add .native-glyph{--native-glyph-size:21px}}
 .native-traits{display:flex;flex-wrap:wrap;align-items:center;gap:4px 7px;padding:1px 18px 13px;color:#6c5b44;font-size:12px;line-height:1.7;word-break:keep-all;overflow-wrap:anywhere}
 .native-traits>*{max-width:100%}
 .native-section{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:19px 16px 9px;padding:0 0 7px;border-bottom:1px solid #c7ad7f;color:#73542e;font-size:12px;font-weight:800;line-height:1.6;letter-spacing:.04em}

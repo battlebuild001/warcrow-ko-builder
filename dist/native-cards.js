@@ -8,11 +8,26 @@ function nativeGlyph(kind,trigger=false){
   return `<button type="button" class="native-glyph ${isDie?'die-':'symbol-'}${escapeHtml(kind)}${trigger?' native-cost':''}" data-rule="${rule}" aria-label="${escapeHtml(ui(...label))}" title="${escapeHtml(ui(...label))}"><span aria-hidden="true">${nativeGlyphs[kind]||'?'}</span></button>`;
 }
 function nativePoolSymbols(pool,add=false){
+  if(pool?.joinedBasePool&&((pool.joinedAddedPool?.dice||[]).length||(pool.joinedAddedPool?.symbols||[]).length)){
+    return `<span class="native-pool-original">${nativePoolSymbols(pool.joinedBasePool)||'<span class="native-empty-pool">—</span>'}</span><span class="native-pool-addition" data-join-addition><span class="native-plus" aria-label="${escapeHtml(ui('합류 추가','Joined addition'))}">+</span>${nativePoolSymbols(pool.joinedAddedPool)}</span>`;
+  }
   const dice=(pool?.dice||[]).map(c=>nativeGlyph(c)).join(''),symbols=(pool?.symbols||[]).map(c=>nativeGlyph(c)).join('');
   return `${add&&(dice||symbols)?'<span class="native-plus" aria-label="add">+</span>':''}${dice}${symbols?`${dice?'<span class="native-pool-divider" aria-hidden="true"></span>':''}${symbols}`:''}`;
 }
-function nativeStat(label,value,scope='base',html=false){
-  return `<button type="button" class="native-stat" data-rule="${ruleStatIds[label]}" data-rule-stat-scope="${scope}" aria-haspopup="dialog"><small>${label}</small><strong>${html?value:escapeHtml(value??'—')}</strong></button>`;
+function nativeStat(label,value,scope='base',html=false,joinedAdd=false){
+  return `<button type="button" class="native-stat${joinedAdd?' native-stat-joined-add':''}"${joinedAdd?' data-join-mode="add"':''} data-rule="${ruleStatIds[label]}" data-rule-stat-scope="${scope}" aria-haspopup="dialog"><small>${label}</small><strong>${html?value:escapeHtml(value??'—')}</strong></button>`;
+}
+function nativeStatDice(dice){
+  return dice.length?dice.map(c=>`<span class="native-glyph die-${escapeHtml(c)}" aria-label="${escapeHtml(ui(...nativeGlyphLabels[c]))}"><span aria-hidden="true">${nativeGlyphs[c]}</span></span>`).join(''):'—';
+}
+function nativeAdditiveValue(base,added,html=false){
+  const negative=!html&&Number(added)<0,bonus=negative?Math.abs(Number(added)):added;
+  return `<span class="native-original-value">${html?base:escapeHtml(base??'—')}</span><span class="native-added-value" data-join-addition><span class="native-plus" aria-label="${escapeHtml(ui('합류 보정','Joined modifier'))}">${negative?'−':'+'}</span>${html?bonus:escapeHtml(bonus)}</span>`;
+}
+function nativeProfileStat(label,value,profile){
+  const change=profile.joinedStats?.[label];
+  if(change)return nativeStat(label,label==='WP'?nativeAdditiveValue(nativeStatDice(change.base),nativeStatDice(change.added),true):nativeAdditiveValue(change.base,change.added),'base',true,true);
+  return nativeStat(label,label==='WP'?nativeStatDice(value):value,'base',label==='WP');
 }
 function nativeModifier(modifier){
   if(!modifier||(!(modifier.dice||[]).length&&!(modifier.symbols||[]).length))return '';
@@ -34,7 +49,8 @@ function nativeCombat(row,effects){
     return `<div class="native-pool" data-pool="attack-${index+1}"><div class="native-pool-title">${ruleTerm(rule,label)}${attack.range!==null&&attack.range!==undefined?`<span class="native-range">${ruleTerm('range',String(attack.range))}</span>`:''}</div><div class="native-dice">${nativePoolSymbols(attack,row.mode==='add')||'<span class="native-empty-pool">—</span>'}</div>${nativeModifiers(attack)}</div>`;
   });
   if(row.defense&&!row.defense.hidden)pools.push(`<div class="native-pool" data-pool="defense"><div class="native-pool-title">${ruleTerm('defense',ui('방어','Defense'))}</div><div class="native-dice">${nativePoolSymbols(row.defense,row.mode==='add')||'<span class="native-empty-pool">—</span>'}</div>${nativeModifiers(row.defense)}</div>`);
-  return `<article class="native-combat" data-combat-key="${escapeHtml(row.key)}" data-section="${scope}"><div class="native-combat-heading">${row.members?`<span class="native-members">${ruleTerm('troop',`${row.members} ${language==='en'?'troops':'병력'}`)}</span>`:`<span>${ui('전투 프로필','Combat profile')}</span>`}${effects.length?`<span class="native-switch-help">${ruleTerm('switches',ui('스위치 · 기호 소비','Switches · spend symbols'))}</span>`:''}${row.conquest!==null&&row.conquest!==undefined?`<button type="button" data-rule="conquest" class="native-conquest" aria-label="${ui('점령값','Conquest')} ${row.conquestMode==='add'?'+':''}${row.conquest}"><span>${ui('점령','Conquest')}</span><strong>${row.conquestMode==='add'?'+':''}${row.conquest}</strong></button>`:''}</div><div class="native-combat-grid" style="--pool-count:${Math.max(1,pools.length)}">${pools.join('')}</div>${effects.length?`<div class="native-effects">${effects.map(({effect,index})=>nativeEffect(effect,index,row)).join('')}</div>`:''}</article>`;
+  const conquest=row.joinedConquest?.added?nativeAdditiveValue(row.joinedConquest.base,row.joinedConquest.added):`${row.conquestMode==='add'?'+':''}${row.conquest}`;
+  return `<article class="native-combat" data-combat-key="${escapeHtml(row.key)}" data-section="${scope}"><div class="native-combat-heading">${row.members?`<span class="native-members">${ruleTerm('troop',`${row.members} ${language==='en'?'troops':'병력'}`)}</span>`:`<span>${ui('전투 프로필','Combat profile')}</span>`}${effects.length?`<span class="native-switch-help">${ruleTerm('switches',ui('스위치 · 기호 소비','Switches · spend symbols'))}</span>`:''}${row.conquest!==null&&row.conquest!==undefined?`<button type="button" data-rule="conquest" class="native-conquest" aria-label="${ui('점령값','Conquest')} ${row.conquestMode==='add'?'+':''}${row.conquest}"><span>${ui('점령','Conquest')}</span><strong>${conquest}</strong></button>`:''}</div><div class="native-combat-grid" style="--pool-count:${Math.max(1,pools.length)}">${pools.join('')}</div>${effects.length?`<div class="native-effects">${effects.map(({effect,index})=>nativeEffect(effect,index,row)).join('')}</div>`:''}</article>`;
 }
 function nativeAbility(box,index){
   const type=box.iconType||'passive',typeNames={spell:['마법 능력','Magic skill'],action:['전투 능력','Combat skill'],command:['지휘 능력','Command skill'],passive:['패시브 능력','Passive skill'],tinge:['팅지 능력','Tinge skill']},glyph={spell:'?',action:'2',command:'@',automatic:'@',passive:'%',tinge:'['}[type]||'%';
@@ -44,7 +60,7 @@ function nativeAbility(box,index){
 }
 function nativeUnitCard(u,options={}){
   const profile=options.profile||nativeCards[u.cardKey]||{},abilities=options.abilities||cardAbilities[u.cardKey]||[],effects=options.effects||cardEffects[u.cardKey]||[];
-  const dice=profile.wpDice||[],stats=[nativeStat('MOV',profile.mov),nativeStat('W',profile.w),nativeStat('WP',dice.length?dice.map(c=>`<span class="native-glyph die-${escapeHtml(c)}" aria-label="${escapeHtml(ui(...nativeGlyphLabels[c]))}"><span aria-hidden="true">${nativeGlyphs[c]}</span></span>`).join(''):'—','base',true),nativeStat('MOR',profile.mor),nativeStat('AVB',u.availability)].join('');
+  const stats=[nativeProfileStat('MOV',profile.mov,profile),nativeProfileStat('W',profile.w,profile),nativeProfileStat('WP',profile.wpDice||[],profile),nativeProfileStat('MOR',profile.mor,profile),nativeStat('AVB',u.availability)].join('');
   const renderSection=section=>{
     let rowIndex=0;
     const rows=(profile.combat||[]).filter(r=>(r.section||'base')===section);
