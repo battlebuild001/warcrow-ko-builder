@@ -1,0 +1,1002 @@
+{
+  "checked": "2026-11-20",
+  "rulesVersion": "2026.11.03",
+  "languagePrecedence": "es",
+  "scope": {
+    "patrol": 5,
+    "scenario": 7,
+    "feat": 8
+  },
+  "durationFinding": "All five Patrols and seven Scenarios explicitly use 3 rounds of 5 turns in both official editions; Feats inherit Scenario duration. No duration numbers were changed.",
+  "sources": [
+    {
+      "language": "en",
+      "url": "https://experience.corvusbelli.com/en/resources/7bedf3e5-526f-5da1-9f46-2d0e14e6baf9?l=712b6686-47e5-479e-a729-80c7af9ce90a",
+      "bytes": 1930930,
+      "sha256": "698fbe4641f092825b921278b3b0d24759b30bb5d7462183e79444dfc19c8435",
+      "pages": 54,
+      "first_page": "Season 2: The Hungry Tide\nVersion 2026.11.03\nLast updated: November 3, 2026\nCurrent digital version:\nexperience.corvusbelli.com/en/warcrow/wts-rules\n© Corvus Belli S.L.\n"
+    },
+    {
+      "language": "es",
+      "url": "https://experience.corvusbelli.com/es/resources/7bedf3e5-526f-5da1-9f46-2d0e14e6baf9?l=e658c2b0-2aea-4d46-baab-83f34465ba03",
+      "bytes": 1936594,
+      "sha256": "787d2205faf524005f5f8345ebd67e6b1dc1936767540de073691315bd92fc7b",
+      "pages": 56,
+      "first_page": "Temporada 2: The Hungry Tide\nVersion 2026.11.03\nÚltima actualización: 3 de noviembre de 2026\nVersión digital actual:\nexperience.corvusbelli.com/es/warcrow/wts-rules\n© Corvus Belli S.L.\n"
+    }
+  ],
+  "corrections": [
+    {
+      "id": "patrol-consolidated-progress",
+      "field": "html",
+      "before": "왼쪽 위 목표까지 왼쪽 변과 위쪽 변에서 각각 18보폭을 표시한 공식 도식처럼 네 목표를 대칭 배치합니다.",
+      "after": "왼쪽 위 목표의 왼쪽 가장자리까지 왼쪽 전장 가장자리에서 18보폭, 목표의 위쪽 가장자리까지 위쪽 전장 가장자리에서 18보폭이 되도록 놓습니다. 나머지 세 목표는 대칭 배치합니다.",
+      "reason": "공식 도식 화살표는 목표의 가장자리를 가리키며, 표식 중심이나 중앙선 좌표가 아닙니다.",
+      "englishPages": [
+        19,
+        20
+      ],
+      "spanishPages": [
+        20,
+        21
+      ]
+    },
+    {
+      "id": "patrol-the-artifact",
+      "field": "html",
+      "before": "위쪽 빨강·아래쪽 파랑 목표와 가운데 수평선의 갈색 목표 3개를 공식 배치도대로 놓습니다. 위쪽 목표는 위쪽 변에서 12보폭, 중앙 세로축은 왼쪽 변에서 29보폭으로 표시됩니다. 왼쪽 갈색 목표는 왼쪽 변에서 12보폭, 다음 목표까지 간격은 15보폭이며 나머지는 대칭입니다.",
+      "after": "위쪽 빨강 목표는 위쪽 전장 가장자리에서 목표의 위쪽 가장자리까지 12보폭, 왼쪽 전장 가장자리에서 목표의 왼쪽 가장자리까지 29보폭이 되도록 놓습니다. 왼쪽 갈색 목표는 왼쪽 전장 가장자리에서 목표의 왼쪽 가장자리까지 12보폭입니다. 이웃한 갈색 목표의 서로 마주 보는 가장자리 사이 간격은 15보폭입니다. 위쪽 빨강 목표의 아래쪽 가장자리와 중앙 갈색 목표의 위쪽 가장자리 사이도 15보폭이며, 나머지는 대칭 배치합니다. 표식의 중심을 지나는 세로 중앙선은 왼쪽 전장 가장자리에서 30보폭입니다.",
+      "reason": "공식 도식 화살표는 목표의 가장자리를 가리키며, 표식 중심이나 중앙선 좌표가 아닙니다.",
+      "englishPages": [
+        21,
+        22
+      ],
+      "spanishPages": [
+        22,
+        23
+      ]
+    },
+    {
+      "id": "patrol-battlefront",
+      "field": "html",
+      "before": "갈색 목표 3개를 전장 중앙 수평선에 배치합니다. 왼쪽 목표는 왼쪽 변에서 12보폭, 다음 목표까지 간격은 15보폭이며, 가운데 줄은 위쪽 변에서 29보폭으로 표시됩니다.",
+      "after": "갈색 목표 3개를 가로로 배치합니다. 왼쪽 목표는 왼쪽 전장 가장자리에서 목표의 왼쪽 가장자리까지 12보폭, 위쪽 전장 가장자리에서 목표의 위쪽 가장자리까지 29보폭입니다. 이웃한 목표의 서로 마주 보는 가장자리 사이 간격은 15보폭이며, 나머지는 대칭 배치합니다. 목표의 중심을 지나는 가로줄은 위쪽 전장 가장자리에서 30보폭입니다.",
+      "reason": "공식 도식 화살표는 목표의 가장자리를 가리키며, 표식 중심이나 중앙선 좌표가 아닙니다.",
+      "englishPages": [
+        25,
+        26
+      ],
+      "spanishPages": [
+        26,
+        27
+      ]
+    },
+    {
+      "id": "patrol-magic-nodes",
+      "field": "html",
+      "before": "중앙 수평선에 목표 3개를 놓되 가운데는 파랑, 양쪽은 갈색입니다. 왼쪽 목표는 왼쪽 변에서 12보폭, 목표 사이 간격은 15보폭, 목표 줄은 위쪽 변에서 29보폭으로 표시됩니다.",
+      "after": "가운데는 파랑, 양옆은 갈색인 목표 3개를 가로로 배치합니다. 왼쪽 갈색 목표는 왼쪽 전장 가장자리에서 목표의 왼쪽 가장자리까지 12보폭, 위쪽 전장 가장자리에서 목표의 위쪽 가장자리까지 29보폭입니다. 이웃한 목표의 서로 마주 보는 가장자리 사이 간격은 15보폭이며, 나머지는 대칭 배치합니다. 목표의 중심을 지나는 가로줄은 위쪽 전장 가장자리에서 30보폭입니다.",
+      "reason": "공식 도식 화살표는 목표의 가장자리를 가리키며, 표식 중심이나 중앙선 좌표가 아닙니다.",
+      "englishPages": [
+        27,
+        28
+      ],
+      "spanishPages": [
+        28,
+        29
+      ]
+    },
+    {
+      "id": "take-positions",
+      "field": "html",
+      "before": "빨강 목표 2개와 파랑 목표 2개를 대칭 배치합니다. 왼쪽 위 목표는 왼쪽·위쪽 변에서 각각 18보폭으로 표시됩니다. 나머지도 공식 도식처럼 대칭입니다.",
+      "after": "빨강 목표 2개와 파랑 목표 2개를 대칭 배치합니다. 왼쪽 위 목표의 왼쪽 가장자리는 왼쪽 전장 가장자리에서 18보폭, 위쪽 가장자리는 위쪽 전장 가장자리에서 18보폭입니다. 나머지는 공식 도식처럼 대칭입니다.",
+      "reason": "공식 도식 화살표는 목표의 가장자리를 가리키며, 표식 중심이나 중앙선 좌표가 아닙니다.",
+      "englishPages": [
+        29,
+        30
+      ],
+      "spanishPages": [
+        30,
+        31
+      ]
+    },
+    {
+      "id": "crossroads",
+      "field": "html",
+      "before": "위쪽 빨강 목표는 위쪽 변에서 12보폭, 왼쪽 중앙 빨강 목표는 왼쪽 변에서 12보폭입니다. 세로·가로로 인접한 목표 사이에는 15보폭, 중앙 갈색 목표까지 위쪽 변에서 29보폭이 표시됩니다.",
+      "after": "위쪽 빨강 목표의 위쪽 가장자리는 위쪽 전장 가장자리에서 12보폭, 왼쪽 중앙 빨강 목표의 왼쪽 가장자리는 왼쪽 전장 가장자리에서 12보폭입니다. 도식의 15보폭은 인접 목표의 서로 마주 보는 가장자리 사이 간격입니다. 중앙 갈색 목표의 위쪽 가장자리는 위쪽 전장 가장자리에서 29보폭이며, 그 중심은 전장 중앙인 30보폭 지점입니다.",
+      "reason": "공식 도식 화살표는 목표의 가장자리를 가리키며, 표식 중심이나 중앙선 좌표가 아닙니다.",
+      "englishPages": [
+        31
+      ],
+      "spanishPages": [
+        32
+      ]
+    },
+    {
+      "id": "abandoned-altars",
+      "field": "html",
+      "before": "갈색 목표 3개를 좌상·중앙·우하에 놓습니다. 좌상 목표는 왼쪽 변에서 12보폭, 위쪽 변에서 18보폭입니다. 중앙 목표는 왼쪽·위쪽 변에서 각각 29보폭이며, 우하 목표는 대칭 위치입니다.",
+      "after": "갈색 목표 3개를 좌상·중앙·우하에 놓습니다. 좌상 목표의 왼쪽 가장자리는 왼쪽 전장 가장자리에서 12보폭, 위쪽 가장자리는 위쪽 전장 가장자리에서 18보폭입니다. 중앙 목표의 왼쪽·위쪽 가장자리는 각각 왼쪽·위쪽 전장 가장자리에서 29보폭이며, 중심은 각각 30보폭 지점입니다. 우하 목표는 대칭 위치입니다.",
+      "reason": "공식 도식 화살표는 목표의 가장자리를 가리키며, 표식 중심이나 중앙선 좌표가 아닙니다.",
+      "englishPages": [
+        32,
+        33
+      ],
+      "spanishPages": [
+        33,
+        34
+      ]
+    },
+    {
+      "id": "high-priority-objective",
+      "field": "html",
+      "before": "빨강 목표 2개는 위쪽, 파랑 목표 2개는 아래쪽, 갈색 목표 1개는 중앙에 놓습니다. 왼쪽 위 목표는 왼쪽 변에서 12보폭·위쪽 변에서 18보폭이며, 중앙은 왼쪽·위쪽 변에서 각각 29보폭으로 표시됩니다. 나머지는 도식처럼 대칭입니다.",
+      "after": "빨강 목표 2개는 위쪽, 파랑 목표 2개는 아래쪽, 갈색 목표 1개는 중앙에 놓습니다. 좌상 목표의 왼쪽 가장자리는 왼쪽 전장 가장자리에서 12보폭, 위쪽 가장자리는 위쪽 전장 가장자리에서 18보폭입니다. 중앙 갈색 목표의 왼쪽·위쪽 가장자리는 각각 왼쪽·위쪽 전장 가장자리에서 29보폭이며, 중심은 각각 30보폭 지점입니다. 나머지는 도식처럼 대칭입니다.",
+      "reason": "공식 도식 화살표는 목표의 가장자리를 가리키며, 표식 중심이나 중앙선 좌표가 아닙니다.",
+      "englishPages": [
+        34,
+        35
+      ],
+      "spanishPages": [
+        35,
+        36
+      ]
+    },
+    {
+      "id": "arcane-ruins",
+      "field": "html",
+      "before": "왼쪽 위 목표까지 왼쪽·위쪽 변에서 각각 18보폭으로 표시되어 있으며 나머지는 대칭입니다.",
+      "after": "왼쪽 위 목표의 왼쪽 가장자리는 왼쪽 전장 가장자리에서 18보폭, 위쪽 가장자리는 위쪽 전장 가장자리에서 18보폭입니다. 나머지는 대칭 배치합니다.",
+      "reason": "공식 도식 화살표는 목표의 가장자리를 가리키며, 표식 중심이나 중앙선 좌표가 아닙니다.",
+      "englishPages": [
+        38,
+        39
+      ],
+      "spanishPages": [
+        39,
+        40
+      ]
+    },
+    {
+      "id": "loot",
+      "field": "html",
+      "before": "빨강 전리품 2개·파랑 전리품 2개·갈색 전리품 1개를 공식 배치도에 놓습니다. 위쪽 빨강 목표는 위쪽 변에서 12보폭, 왼쪽 중앙 빨강 목표는 왼쪽 변에서 7보폭입니다.",
+      "after": "빨강 전리품 2개·파랑 전리품 2개·갈색 전리품 1개를 공식 배치도에 놓습니다. 위쪽 빨강 표식의 위쪽 가장자리는 위쪽 전장 가장자리에서 12보폭, 왼쪽 중앙 빨강 표식의 왼쪽 가장자리는 왼쪽 전장 가장자리에서 7보폭입니다.",
+      "reason": "공식 도식 화살표는 목표의 가장자리를 가리키며, 표식 중심이나 중앙선 좌표가 아닙니다.",
+      "englishPages": [
+        40,
+        41
+      ],
+      "spanishPages": [
+        41,
+        42
+      ]
+    },
+    {
+      "id": "loot",
+      "field": "html",
+      "before": "왼쪽 중앙과 중앙 사이 간격은 20보폭, 위쪽과 왼쪽 중앙 사이 간격은 15보폭, 중앙 줄은 위쪽 변에서 29보폭으로 표시됩니다. 우측은 대칭입니다.",
+      "after": "왼쪽 중앙 표식과 중앙 갈색 표식 사이의 가장자리 간격은 20보폭, 위쪽 표식과 왼쪽 중앙 표식 사이의 가장자리 간격은 15보폭입니다. 29보폭은 위쪽 전장 가장자리에서 중앙 갈색 표식의 위쪽 가장자리까지의 거리입니다. 중앙 가로줄에 놓인 표식들의 중심은 위쪽 전장 가장자리에서 30보폭 지점이며, 우측 배치는 대칭입니다.",
+      "reason": "공식 도식 화살표는 목표의 가장자리를 가리키며, 표식 중심이나 중앙선 좌표가 아닙니다.",
+      "englishPages": [
+        40,
+        41
+      ],
+      "spanishPages": [
+        41,
+        42
+      ]
+    },
+    {
+      "id": "loot",
+      "field": "html",
+      "before": "전리품을 운반하는 유닛 수가 상대보다 많으면 추가 1MP를 얻습니다.",
+      "after": "아군 유닛들이 운반하는 전리품 표식의 총수가 상대보다 많으면 추가 1MP를 얻습니다.",
+      "reason": "우선 적용하는 스페인어 41쪽은 운반 유닛 수가 아닌 운반 전리품 표식 수를 비교합니다.",
+      "englishPages": [
+        40,
+        41
+      ],
+      "spanishPages": [
+        41,
+        42
+      ]
+    },
+    {
+      "id": "decapitation",
+      "field": "html",
+      "before": "정찰까지 유닛 배치를 마친 뒤, 배치 순서대로 각 중대는 적 유닛 1개를 계약 표적으로 선택합니다. 적 지휘관은 선택할 수 없습니다.",
+      "after": "정찰까지 유닛 배치를 마친 뒤, 배치 순서대로 각 중대는 배치된 적 유닛 중 지휘관을 제외한 1개를 계약 표적으로 선택합니다.",
+      "reason": "스페인어 45쪽의 최초 계약 표적 조건인 배치된 유닛을 명시합니다.",
+      "englishPages": [
+        43,
+        44
+      ],
+      "spanishPages": [
+        45,
+        46
+      ]
+    },
+    {
+      "id": "patrol-consolidated-progress",
+      "field": "html",
+      "before": "대회의 공통 제한시간·종료 처리는 WTS 일반 규정을 함께 적용합니다.",
+      "after": "공식 대회의 경기 시작 시각과 진행 시간은 주최자의 안내를 따릅니다(WTS 8쪽).",
+      "reason": "WTS가 정하지 않은 공통 시간초과 종료 절차를 암시하지 않도록 정밀화합니다.",
+      "englishPages": [
+        19,
+        20
+      ],
+      "spanishPages": [
+        20,
+        21
+      ]
+    },
+    {
+      "id": "patrol-consolidated-progress",
+      "field": "html",
+      "before": "아래 공식 배치도를 따라 빨강·파랑 배치 구역과 목표를 설치합니다. 양쪽 배치 구역의 깊이는 8보폭입니다. 그림은 축척 계산용 도면이 아니므로 화살표에 적힌 보폭 수를 사용하고, 그림의 픽셀을 자로 재서 거리를 정하지 않습니다.",
+      "after": "공식 배치도에서 양쪽 배치 구역의 깊이는 8보폭입니다. 목표 표식의 유무와 설치 방법은 위 준비 항목을 따릅니다. 목표 위치를 표시하는 거리 화살표는 전장 가장자리와 목표 가장자리 사이, 또는 목표끼리 마주 보는 가장자리 사이의 거리입니다. 이를 표식 중심이나 중앙선의 좌표로 읽지 않습니다. 화살표에 적힌 보폭 수를 사용하고 그림의 픽셀을 자로 재지 않습니다.",
+      "reason": "목표가 없는 쿼드런츠·컨퀘스트의 초기 배치와 충돌하는 공통 문구를 고치고 측정 기준점을 명확히 합니다.",
+      "englishPages": [
+        19,
+        20
+      ],
+      "spanishPages": [
+        20,
+        21
+      ]
+    },
+    {
+      "id": "patrol-the-artifact",
+      "field": "html",
+      "before": "대회의 공통 제한시간·종료 처리는 WTS 일반 규정을 함께 적용합니다.",
+      "after": "공식 대회의 경기 시작 시각과 진행 시간은 주최자의 안내를 따릅니다(WTS 8쪽).",
+      "reason": "WTS가 정하지 않은 공통 시간초과 종료 절차를 암시하지 않도록 정밀화합니다.",
+      "englishPages": [
+        21,
+        22
+      ],
+      "spanishPages": [
+        22,
+        23
+      ]
+    },
+    {
+      "id": "patrol-the-artifact",
+      "field": "html",
+      "before": "아래 공식 배치도를 따라 빨강·파랑 배치 구역과 목표를 설치합니다. 양쪽 배치 구역의 깊이는 8보폭입니다. 그림은 축척 계산용 도면이 아니므로 화살표에 적힌 보폭 수를 사용하고, 그림의 픽셀을 자로 재서 거리를 정하지 않습니다.",
+      "after": "공식 배치도에서 양쪽 배치 구역의 깊이는 8보폭입니다. 목표 표식의 유무와 설치 방법은 위 준비 항목을 따릅니다. 목표 위치를 표시하는 거리 화살표는 전장 가장자리와 목표 가장자리 사이, 또는 목표끼리 마주 보는 가장자리 사이의 거리입니다. 이를 표식 중심이나 중앙선의 좌표로 읽지 않습니다. 화살표에 적힌 보폭 수를 사용하고 그림의 픽셀을 자로 재지 않습니다.",
+      "reason": "목표가 없는 쿼드런츠·컨퀘스트의 초기 배치와 충돌하는 공통 문구를 고치고 측정 기준점을 명확히 합니다.",
+      "englishPages": [
+        21,
+        22
+      ],
+      "spanishPages": [
+        22,
+        23
+      ]
+    },
+    {
+      "id": "patrol-quadrants",
+      "field": "html",
+      "before": "대회의 공통 제한시간·종료 처리는 WTS 일반 규정을 함께 적용합니다.",
+      "after": "공식 대회의 경기 시작 시각과 진행 시간은 주최자의 안내를 따릅니다(WTS 8쪽).",
+      "reason": "WTS가 정하지 않은 공통 시간초과 종료 절차를 암시하지 않도록 정밀화합니다.",
+      "englishPages": [
+        23,
+        24
+      ],
+      "spanishPages": [
+        24,
+        25
+      ]
+    },
+    {
+      "id": "patrol-quadrants",
+      "field": "html",
+      "before": "아래 공식 배치도를 따라 빨강·파랑 배치 구역과 목표를 설치합니다. 양쪽 배치 구역의 깊이는 8보폭입니다. 그림은 축척 계산용 도면이 아니므로 화살표에 적힌 보폭 수를 사용하고, 그림의 픽셀을 자로 재서 거리를 정하지 않습니다.",
+      "after": "공식 배치도에서 양쪽 배치 구역의 깊이는 8보폭입니다. 목표 표식의 유무와 설치 방법은 위 준비 항목을 따릅니다. 목표 위치를 표시하는 거리 화살표는 전장 가장자리와 목표 가장자리 사이, 또는 목표끼리 마주 보는 가장자리 사이의 거리입니다. 이를 표식 중심이나 중앙선의 좌표로 읽지 않습니다. 화살표에 적힌 보폭 수를 사용하고 그림의 픽셀을 자로 재지 않습니다.",
+      "reason": "목표가 없는 쿼드런츠·컨퀘스트의 초기 배치와 충돌하는 공통 문구를 고치고 측정 기준점을 명확히 합니다.",
+      "englishPages": [
+        23,
+        24
+      ],
+      "spanishPages": [
+        24,
+        25
+      ]
+    },
+    {
+      "id": "patrol-battlefront",
+      "field": "html",
+      "before": "대회의 공통 제한시간·종료 처리는 WTS 일반 규정을 함께 적용합니다.",
+      "after": "공식 대회의 경기 시작 시각과 진행 시간은 주최자의 안내를 따릅니다(WTS 8쪽).",
+      "reason": "WTS가 정하지 않은 공통 시간초과 종료 절차를 암시하지 않도록 정밀화합니다.",
+      "englishPages": [
+        25,
+        26
+      ],
+      "spanishPages": [
+        26,
+        27
+      ]
+    },
+    {
+      "id": "patrol-battlefront",
+      "field": "html",
+      "before": "아래 공식 배치도를 따라 빨강·파랑 배치 구역과 목표를 설치합니다. 양쪽 배치 구역의 깊이는 8보폭입니다. 그림은 축척 계산용 도면이 아니므로 화살표에 적힌 보폭 수를 사용하고, 그림의 픽셀을 자로 재서 거리를 정하지 않습니다.",
+      "after": "공식 배치도에서 양쪽 배치 구역의 깊이는 8보폭입니다. 목표 표식의 유무와 설치 방법은 위 준비 항목을 따릅니다. 목표 위치를 표시하는 거리 화살표는 전장 가장자리와 목표 가장자리 사이, 또는 목표끼리 마주 보는 가장자리 사이의 거리입니다. 이를 표식 중심이나 중앙선의 좌표로 읽지 않습니다. 화살표에 적힌 보폭 수를 사용하고 그림의 픽셀을 자로 재지 않습니다.",
+      "reason": "목표가 없는 쿼드런츠·컨퀘스트의 초기 배치와 충돌하는 공통 문구를 고치고 측정 기준점을 명확히 합니다.",
+      "englishPages": [
+        25,
+        26
+      ],
+      "spanishPages": [
+        26,
+        27
+      ]
+    },
+    {
+      "id": "patrol-magic-nodes",
+      "field": "html",
+      "before": "대회의 공통 제한시간·종료 처리는 WTS 일반 규정을 함께 적용합니다.",
+      "after": "공식 대회의 경기 시작 시각과 진행 시간은 주최자의 안내를 따릅니다(WTS 8쪽).",
+      "reason": "WTS가 정하지 않은 공통 시간초과 종료 절차를 암시하지 않도록 정밀화합니다.",
+      "englishPages": [
+        27,
+        28
+      ],
+      "spanishPages": [
+        28,
+        29
+      ]
+    },
+    {
+      "id": "patrol-magic-nodes",
+      "field": "html",
+      "before": "아래 공식 배치도를 따라 빨강·파랑 배치 구역과 목표를 설치합니다. 양쪽 배치 구역의 깊이는 8보폭입니다. 그림은 축척 계산용 도면이 아니므로 화살표에 적힌 보폭 수를 사용하고, 그림의 픽셀을 자로 재서 거리를 정하지 않습니다.",
+      "after": "공식 배치도에서 양쪽 배치 구역의 깊이는 8보폭입니다. 목표 표식의 유무와 설치 방법은 위 준비 항목을 따릅니다. 목표 위치를 표시하는 거리 화살표는 전장 가장자리와 목표 가장자리 사이, 또는 목표끼리 마주 보는 가장자리 사이의 거리입니다. 이를 표식 중심이나 중앙선의 좌표로 읽지 않습니다. 화살표에 적힌 보폭 수를 사용하고 그림의 픽셀을 자로 재지 않습니다.",
+      "reason": "목표가 없는 쿼드런츠·컨퀘스트의 초기 배치와 충돌하는 공통 문구를 고치고 측정 기준점을 명확히 합니다.",
+      "englishPages": [
+        27,
+        28
+      ],
+      "spanishPages": [
+        28,
+        29
+      ]
+    },
+    {
+      "id": "take-positions",
+      "field": "html",
+      "before": "대회의 공통 제한시간·종료 처리는 WTS 일반 규정을 함께 적용합니다.",
+      "after": "공식 대회의 경기 시작 시각과 진행 시간은 주최자의 안내를 따릅니다(WTS 8쪽).",
+      "reason": "WTS가 정하지 않은 공통 시간초과 종료 절차를 암시하지 않도록 정밀화합니다.",
+      "englishPages": [
+        29,
+        30
+      ],
+      "spanishPages": [
+        30,
+        31
+      ]
+    },
+    {
+      "id": "take-positions",
+      "field": "html",
+      "before": "아래 공식 배치도를 따라 빨강·파랑 배치 구역과 목표를 설치합니다. 양쪽 배치 구역의 깊이는 8보폭입니다. 그림은 축척 계산용 도면이 아니므로 화살표에 적힌 보폭 수를 사용하고, 그림의 픽셀을 자로 재서 거리를 정하지 않습니다.",
+      "after": "공식 배치도에서 양쪽 배치 구역의 깊이는 8보폭입니다. 목표 표식의 유무와 설치 방법은 위 준비 항목을 따릅니다. 목표 위치를 표시하는 거리 화살표는 전장 가장자리와 목표 가장자리 사이, 또는 목표끼리 마주 보는 가장자리 사이의 거리입니다. 이를 표식 중심이나 중앙선의 좌표로 읽지 않습니다. 화살표에 적힌 보폭 수를 사용하고 그림의 픽셀을 자로 재지 않습니다.",
+      "reason": "목표가 없는 쿼드런츠·컨퀘스트의 초기 배치와 충돌하는 공통 문구를 고치고 측정 기준점을 명확히 합니다.",
+      "englishPages": [
+        29,
+        30
+      ],
+      "spanishPages": [
+        30,
+        31
+      ]
+    },
+    {
+      "id": "crossroads",
+      "field": "html",
+      "before": "대회의 공통 제한시간·종료 처리는 WTS 일반 규정을 함께 적용합니다.",
+      "after": "공식 대회의 경기 시작 시각과 진행 시간은 주최자의 안내를 따릅니다(WTS 8쪽).",
+      "reason": "WTS가 정하지 않은 공통 시간초과 종료 절차를 암시하지 않도록 정밀화합니다.",
+      "englishPages": [
+        31
+      ],
+      "spanishPages": [
+        32
+      ]
+    },
+    {
+      "id": "crossroads",
+      "field": "html",
+      "before": "아래 공식 배치도를 따라 빨강·파랑 배치 구역과 목표를 설치합니다. 양쪽 배치 구역의 깊이는 8보폭입니다. 그림은 축척 계산용 도면이 아니므로 화살표에 적힌 보폭 수를 사용하고, 그림의 픽셀을 자로 재서 거리를 정하지 않습니다.",
+      "after": "공식 배치도에서 양쪽 배치 구역의 깊이는 8보폭입니다. 목표 표식의 유무와 설치 방법은 위 준비 항목을 따릅니다. 목표 위치를 표시하는 거리 화살표는 전장 가장자리와 목표 가장자리 사이, 또는 목표끼리 마주 보는 가장자리 사이의 거리입니다. 이를 표식 중심이나 중앙선의 좌표로 읽지 않습니다. 화살표에 적힌 보폭 수를 사용하고 그림의 픽셀을 자로 재지 않습니다.",
+      "reason": "목표가 없는 쿼드런츠·컨퀘스트의 초기 배치와 충돌하는 공통 문구를 고치고 측정 기준점을 명확히 합니다.",
+      "englishPages": [
+        31
+      ],
+      "spanishPages": [
+        32
+      ]
+    },
+    {
+      "id": "abandoned-altars",
+      "field": "html",
+      "before": "대회의 공통 제한시간·종료 처리는 WTS 일반 규정을 함께 적용합니다.",
+      "after": "공식 대회의 경기 시작 시각과 진행 시간은 주최자의 안내를 따릅니다(WTS 8쪽).",
+      "reason": "WTS가 정하지 않은 공통 시간초과 종료 절차를 암시하지 않도록 정밀화합니다.",
+      "englishPages": [
+        32,
+        33
+      ],
+      "spanishPages": [
+        33,
+        34
+      ]
+    },
+    {
+      "id": "abandoned-altars",
+      "field": "html",
+      "before": "아래 공식 배치도를 따라 빨강·파랑 배치 구역과 목표를 설치합니다. 양쪽 배치 구역의 깊이는 8보폭입니다. 그림은 축척 계산용 도면이 아니므로 화살표에 적힌 보폭 수를 사용하고, 그림의 픽셀을 자로 재서 거리를 정하지 않습니다.",
+      "after": "공식 배치도에서 양쪽 배치 구역의 깊이는 8보폭입니다. 목표 표식의 유무와 설치 방법은 위 준비 항목을 따릅니다. 목표 위치를 표시하는 거리 화살표는 전장 가장자리와 목표 가장자리 사이, 또는 목표끼리 마주 보는 가장자리 사이의 거리입니다. 이를 표식 중심이나 중앙선의 좌표로 읽지 않습니다. 화살표에 적힌 보폭 수를 사용하고 그림의 픽셀을 자로 재지 않습니다.",
+      "reason": "목표가 없는 쿼드런츠·컨퀘스트의 초기 배치와 충돌하는 공통 문구를 고치고 측정 기준점을 명확히 합니다.",
+      "englishPages": [
+        32,
+        33
+      ],
+      "spanishPages": [
+        33,
+        34
+      ]
+    },
+    {
+      "id": "high-priority-objective",
+      "field": "html",
+      "before": "대회의 공통 제한시간·종료 처리는 WTS 일반 규정을 함께 적용합니다.",
+      "after": "공식 대회의 경기 시작 시각과 진행 시간은 주최자의 안내를 따릅니다(WTS 8쪽).",
+      "reason": "WTS가 정하지 않은 공통 시간초과 종료 절차를 암시하지 않도록 정밀화합니다.",
+      "englishPages": [
+        34,
+        35
+      ],
+      "spanishPages": [
+        35,
+        36
+      ]
+    },
+    {
+      "id": "high-priority-objective",
+      "field": "html",
+      "before": "아래 공식 배치도를 따라 빨강·파랑 배치 구역과 목표를 설치합니다. 양쪽 배치 구역의 깊이는 8보폭입니다. 그림은 축척 계산용 도면이 아니므로 화살표에 적힌 보폭 수를 사용하고, 그림의 픽셀을 자로 재서 거리를 정하지 않습니다.",
+      "after": "공식 배치도에서 양쪽 배치 구역의 깊이는 8보폭입니다. 목표 표식의 유무와 설치 방법은 위 준비 항목을 따릅니다. 목표 위치를 표시하는 거리 화살표는 전장 가장자리와 목표 가장자리 사이, 또는 목표끼리 마주 보는 가장자리 사이의 거리입니다. 이를 표식 중심이나 중앙선의 좌표로 읽지 않습니다. 화살표에 적힌 보폭 수를 사용하고 그림의 픽셀을 자로 재지 않습니다.",
+      "reason": "목표가 없는 쿼드런츠·컨퀘스트의 초기 배치와 충돌하는 공통 문구를 고치고 측정 기준점을 명확히 합니다.",
+      "englishPages": [
+        34,
+        35
+      ],
+      "spanishPages": [
+        35,
+        36
+      ]
+    },
+    {
+      "id": "conquest",
+      "field": "html",
+      "before": "대회의 공통 제한시간·종료 처리는 WTS 일반 규정을 함께 적용합니다.",
+      "after": "공식 대회의 경기 시작 시각과 진행 시간은 주최자의 안내를 따릅니다(WTS 8쪽).",
+      "reason": "WTS가 정하지 않은 공통 시간초과 종료 절차를 암시하지 않도록 정밀화합니다.",
+      "englishPages": [
+        36,
+        37
+      ],
+      "spanishPages": [
+        37,
+        38
+      ]
+    },
+    {
+      "id": "conquest",
+      "field": "html",
+      "before": "아래 공식 배치도를 따라 빨강·파랑 배치 구역과 목표를 설치합니다. 양쪽 배치 구역의 깊이는 8보폭입니다. 그림은 축척 계산용 도면이 아니므로 화살표에 적힌 보폭 수를 사용하고, 그림의 픽셀을 자로 재서 거리를 정하지 않습니다.",
+      "after": "공식 배치도에서 양쪽 배치 구역의 깊이는 8보폭입니다. 목표 표식의 유무와 설치 방법은 위 준비 항목을 따릅니다. 목표 위치를 표시하는 거리 화살표는 전장 가장자리와 목표 가장자리 사이, 또는 목표끼리 마주 보는 가장자리 사이의 거리입니다. 이를 표식 중심이나 중앙선의 좌표로 읽지 않습니다. 화살표에 적힌 보폭 수를 사용하고 그림의 픽셀을 자로 재지 않습니다.",
+      "reason": "목표가 없는 쿼드런츠·컨퀘스트의 초기 배치와 충돌하는 공통 문구를 고치고 측정 기준점을 명확히 합니다.",
+      "englishPages": [
+        36,
+        37
+      ],
+      "spanishPages": [
+        37,
+        38
+      ]
+    },
+    {
+      "id": "arcane-ruins",
+      "field": "html",
+      "before": "대회의 공통 제한시간·종료 처리는 WTS 일반 규정을 함께 적용합니다.",
+      "after": "공식 대회의 경기 시작 시각과 진행 시간은 주최자의 안내를 따릅니다(WTS 8쪽).",
+      "reason": "WTS가 정하지 않은 공통 시간초과 종료 절차를 암시하지 않도록 정밀화합니다.",
+      "englishPages": [
+        38,
+        39
+      ],
+      "spanishPages": [
+        39,
+        40
+      ]
+    },
+    {
+      "id": "arcane-ruins",
+      "field": "html",
+      "before": "아래 공식 배치도를 따라 빨강·파랑 배치 구역과 목표를 설치합니다. 양쪽 배치 구역의 깊이는 8보폭입니다. 그림은 축척 계산용 도면이 아니므로 화살표에 적힌 보폭 수를 사용하고, 그림의 픽셀을 자로 재서 거리를 정하지 않습니다.",
+      "after": "공식 배치도에서 양쪽 배치 구역의 깊이는 8보폭입니다. 목표 표식의 유무와 설치 방법은 위 준비 항목을 따릅니다. 목표 위치를 표시하는 거리 화살표는 전장 가장자리와 목표 가장자리 사이, 또는 목표끼리 마주 보는 가장자리 사이의 거리입니다. 이를 표식 중심이나 중앙선의 좌표로 읽지 않습니다. 화살표에 적힌 보폭 수를 사용하고 그림의 픽셀을 자로 재지 않습니다.",
+      "reason": "목표가 없는 쿼드런츠·컨퀘스트의 초기 배치와 충돌하는 공통 문구를 고치고 측정 기준점을 명확히 합니다.",
+      "englishPages": [
+        38,
+        39
+      ],
+      "spanishPages": [
+        39,
+        40
+      ]
+    },
+    {
+      "id": "loot",
+      "field": "html",
+      "before": "대회의 공통 제한시간·종료 처리는 WTS 일반 규정을 함께 적용합니다.",
+      "after": "공식 대회의 경기 시작 시각과 진행 시간은 주최자의 안내를 따릅니다(WTS 8쪽).",
+      "reason": "WTS가 정하지 않은 공통 시간초과 종료 절차를 암시하지 않도록 정밀화합니다.",
+      "englishPages": [
+        40,
+        41
+      ],
+      "spanishPages": [
+        41,
+        42
+      ]
+    },
+    {
+      "id": "loot",
+      "field": "html",
+      "before": "아래 공식 배치도를 따라 빨강·파랑 배치 구역과 목표를 설치합니다. 양쪽 배치 구역의 깊이는 8보폭입니다. 그림은 축척 계산용 도면이 아니므로 화살표에 적힌 보폭 수를 사용하고, 그림의 픽셀을 자로 재서 거리를 정하지 않습니다.",
+      "after": "공식 배치도에서 양쪽 배치 구역의 깊이는 8보폭입니다. 목표 표식의 유무와 설치 방법은 위 준비 항목을 따릅니다. 목표 위치를 표시하는 거리 화살표는 전장 가장자리와 목표 가장자리 사이, 또는 목표끼리 마주 보는 가장자리 사이의 거리입니다. 이를 표식 중심이나 중앙선의 좌표로 읽지 않습니다. 화살표에 적힌 보폭 수를 사용하고 그림의 픽셀을 자로 재지 않습니다.",
+      "reason": "목표가 없는 쿼드런츠·컨퀘스트의 초기 배치와 충돌하는 공통 문구를 고치고 측정 기준점을 명확히 합니다.",
+      "englishPages": [
+        40,
+        41
+      ],
+      "spanishPages": [
+        41,
+        42
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "id": "patrol-consolidated-progress",
+      "type": "patrol",
+      "englishPages": [
+        19,
+        20
+      ],
+      "spanishPages": [
+        20,
+        21
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "rounds": 3,
+      "turnsPerRound": 5,
+      "durationVerifiedInBothLanguages": true,
+      "maps": [
+        {
+          "asset": "./scenarios-assets/wts-s2-map-p19.png",
+          "rgbSha256": "4ce020b1b142ad0ccd8368ef7b2706647c57f7247bf6edc55e843ea8da250a93",
+          "officialImageMatch": {
+            "en": true,
+            "es": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "patrol-the-artifact",
+      "type": "patrol",
+      "englishPages": [
+        21,
+        22
+      ],
+      "spanishPages": [
+        22,
+        23
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "rounds": 3,
+      "turnsPerRound": 5,
+      "durationVerifiedInBothLanguages": true,
+      "maps": [
+        {
+          "asset": "./scenarios-assets/wts-s2-map-p21.png",
+          "rgbSha256": "a0c5652ed58ebd14a1017ac3cd02232721baf9fcef6fd4a035f6f1a818eaa430",
+          "officialImageMatch": {
+            "en": true,
+            "es": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "patrol-quadrants",
+      "type": "patrol",
+      "englishPages": [
+        23,
+        24
+      ],
+      "spanishPages": [
+        24,
+        25
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "rounds": 3,
+      "turnsPerRound": 5,
+      "durationVerifiedInBothLanguages": true,
+      "maps": [
+        {
+          "asset": "./scenarios-assets/wts-s2-map-p23.png",
+          "rgbSha256": "39a6790e733ee08f90d9b5955aa29052405a114bd3bae68be866469599b8ee81",
+          "officialImageMatch": {
+            "en": true,
+            "es": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "patrol-battlefront",
+      "type": "patrol",
+      "englishPages": [
+        25,
+        26
+      ],
+      "spanishPages": [
+        26,
+        27
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "rounds": 3,
+      "turnsPerRound": 5,
+      "durationVerifiedInBothLanguages": true,
+      "maps": [
+        {
+          "asset": "./scenarios-assets/wts-s2-map-p25.png",
+          "rgbSha256": "23adca5a92bc6c212886c0c533334931d8cb2494cda853f91e97206bdd7b8d69",
+          "officialImageMatch": {
+            "en": true,
+            "es": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "patrol-magic-nodes",
+      "type": "patrol",
+      "englishPages": [
+        27,
+        28
+      ],
+      "spanishPages": [
+        28,
+        29
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "rounds": 3,
+      "turnsPerRound": 5,
+      "durationVerifiedInBothLanguages": true,
+      "maps": [
+        {
+          "asset": "./scenarios-assets/wts-s2-map-p27.png",
+          "rgbSha256": "6828a181cb1e7aac184354adce7e3a7b59d6a2743447352874db305615a05336",
+          "officialImageMatch": {
+            "en": true,
+            "es": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "take-positions",
+      "type": "scenario",
+      "englishPages": [
+        29,
+        30
+      ],
+      "spanishPages": [
+        30,
+        31
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "rounds": 3,
+      "turnsPerRound": 5,
+      "durationVerifiedInBothLanguages": true,
+      "maps": [
+        {
+          "asset": "./scenarios-assets/wts-s2-map-p29.png",
+          "rgbSha256": "4ce020b1b142ad0ccd8368ef7b2706647c57f7247bf6edc55e843ea8da250a93",
+          "officialImageMatch": {
+            "en": true,
+            "es": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "crossroads",
+      "type": "scenario",
+      "englishPages": [
+        31
+      ],
+      "spanishPages": [
+        32
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "rounds": 3,
+      "turnsPerRound": 5,
+      "durationVerifiedInBothLanguages": true,
+      "maps": [
+        {
+          "asset": "./scenarios-assets/wts-s2-map-p31.png",
+          "rgbSha256": "23c2fb1a8624fa94b98c54c94992cc7c15d6f7974e88572c05187572e8842960",
+          "officialImageMatch": {
+            "en": true,
+            "es": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "abandoned-altars",
+      "type": "scenario",
+      "englishPages": [
+        32,
+        33
+      ],
+      "spanishPages": [
+        33,
+        34
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "rounds": 3,
+      "turnsPerRound": 5,
+      "durationVerifiedInBothLanguages": true,
+      "maps": [
+        {
+          "asset": "./scenarios-assets/wts-s2-map-p32.png",
+          "rgbSha256": "1d9d4bf14468c86bf9a260d0e4fefec7287a3511b38a7a71003668f36c971472",
+          "officialImageMatch": {
+            "en": true,
+            "es": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "high-priority-objective",
+      "type": "scenario",
+      "englishPages": [
+        34,
+        35
+      ],
+      "spanishPages": [
+        35,
+        36
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "rounds": 3,
+      "turnsPerRound": 5,
+      "durationVerifiedInBothLanguages": true,
+      "maps": [
+        {
+          "asset": "./scenarios-assets/wts-s2-map-p34.png",
+          "rgbSha256": "9e3235d2edd5ab011583ce5e5c5bcbe1145b5b296753fffeb552dcceeb7467bc",
+          "officialImageMatch": {
+            "en": true,
+            "es": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "conquest",
+      "type": "scenario",
+      "englishPages": [
+        36,
+        37
+      ],
+      "spanishPages": [
+        37,
+        38
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "rounds": 3,
+      "turnsPerRound": 5,
+      "durationVerifiedInBothLanguages": true,
+      "maps": [
+        {
+          "asset": "./scenarios-assets/wts-s2-map-p36.png",
+          "rgbSha256": "0907e571e04f874ecd8957634379fc998e9539b685f4756556aea321b301189b",
+          "officialImageMatch": {
+            "en": true,
+            "es": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "arcane-ruins",
+      "type": "scenario",
+      "englishPages": [
+        38,
+        39
+      ],
+      "spanishPages": [
+        39,
+        40
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "rounds": 3,
+      "turnsPerRound": 5,
+      "durationVerifiedInBothLanguages": true,
+      "maps": [
+        {
+          "asset": "./scenarios-assets/wts-s2-map-p38.png",
+          "rgbSha256": "66b830e60f1e670d08f5594a87cd3dda8ac35d1d57b04f1048fdb529b9d52dd9",
+          "officialImageMatch": {
+            "en": true,
+            "es": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "loot",
+      "type": "scenario",
+      "englishPages": [
+        40,
+        41
+      ],
+      "spanishPages": [
+        41,
+        42
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "rounds": 3,
+      "turnsPerRound": 5,
+      "durationVerifiedInBothLanguages": true,
+      "maps": [
+        {
+          "asset": "./scenarios-assets/wts-s2-map-p40.png",
+          "rgbSha256": "5cb2b3e0b250610b87ece3db70c53fe6a1a68848f535843307a9e2ff0f57c5f5",
+          "officialImageMatch": {
+            "en": true,
+            "es": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "track",
+      "type": "feat",
+      "englishPages": [
+        42
+      ],
+      "spanishPages": [
+        43,
+        44
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "duration": "Inherits selected scenario; no independent duration in the feat"
+    },
+    {
+      "id": "decapitation",
+      "type": "feat",
+      "englishPages": [
+        43,
+        44
+      ],
+      "spanishPages": [
+        45,
+        46
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "duration": "Inherits selected scenario; no independent duration in the feat"
+    },
+    {
+      "id": "the-rift",
+      "type": "feat",
+      "englishPages": [
+        45,
+        46
+      ],
+      "spanishPages": [
+        47,
+        48
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "duration": "Inherits selected scenario; no independent duration in the feat"
+    },
+    {
+      "id": "banner",
+      "type": "feat",
+      "englishPages": [
+        47,
+        48
+      ],
+      "spanishPages": [
+        49,
+        50
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "duration": "Inherits selected scenario; no independent duration in the feat"
+    },
+    {
+      "id": "resources",
+      "type": "feat",
+      "englishPages": [
+        49
+      ],
+      "spanishPages": [
+        51
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "duration": "Inherits selected scenario; no independent duration in the feat"
+    },
+    {
+      "id": "pitched-battle",
+      "type": "feat",
+      "englishPages": [
+        50
+      ],
+      "spanishPages": [
+        52
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "duration": "Inherits selected scenario; no independent duration in the feat"
+    },
+    {
+      "id": "catch-the-courier",
+      "type": "feat",
+      "englishPages": [
+        51,
+        52
+      ],
+      "spanishPages": [
+        53,
+        54
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "duration": "Inherits selected scenario; no independent duration in the feat"
+    },
+    {
+      "id": "chain-of-command",
+      "type": "feat",
+      "englishPages": [
+        53,
+        54
+      ],
+      "spanishPages": [
+        55,
+        56
+      ],
+      "manualContentReview": "EN and authoritative ES text, scoring conditions, timing, caps and special rules checked",
+      "duration": "Inherits selected scenario; no independent duration in the feat"
+    }
+  ],
+  "verificationLimits": [
+    "Managed CUA browser tool unavailable; DOM integration checks used for both scenario readers and adventure setup, without physical device visual QA."
+  ]
+}
