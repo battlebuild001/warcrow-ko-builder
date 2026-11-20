@@ -16,7 +16,7 @@ function strategyEnhanceRules(root){
   }}),nodes=[];
   while(walker.nextNode())nodes.push(walker.currentNode);
   for(const node of nodes){
-    const text=node.nodeValue,markup=ruleText(text);if(!markup.includes('data-rule='))continue;
+    const text=node.nodeValue,markup=ruleText(text);if(!markup.includes('data-rule=')&&!markup.includes('class="prose-dice"'))continue;
     const template=document.createElement('template');template.innerHTML=markup;
     for(const term of template.content.querySelectorAll('[data-rule]')){
       const word=term.textContent,tail=term.nextSibling?.nodeType===Node.TEXT_NODE?term.nextSibling:null;

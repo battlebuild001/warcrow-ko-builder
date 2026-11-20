@@ -81,6 +81,13 @@ function keywordTermLabel(term,unit=null){
   const entry=ruleById.get(term.id);if(language!=='en'&&ko(term.raw)===term.raw&&entry)return ui(entry.label,entry.english);
   return traitName(term.raw);
 }
+function keywordTermDisplay(term,unit){
+  const label=keywordTermLabel(term,unit);
+  if(!['dispel','cover'].includes(term.id))return escapeHtml(label);
+  const parameter=keywordParameterText(term.raw);
+  if(!parameter||!label.endsWith(`(${parameter})`))return escapeHtml(label);
+  return escapeHtml(label.slice(0,-parameter.length-1))+diceProse.parameter(parameter)+')';
+}
 function keywordSkillTiming(item){
   const type=item.iconType||'passive',long=item.actionCost==='long'||/^\s*긴 행동[.\n·]/.test(item.rulesKo??item.korean??'');
   const action=long?['긴 행동','a long action']:['능력 수행 단순 행동 1개','one simple skill action'];
@@ -108,7 +115,7 @@ function keywordSourceMarkup(source){
     '해당 전투 행의 굴림에서, 다시 굴림을 마친 뒤 스위치 단계에 표시된 기호를 소비합니다. 소비한 기호는 결과 계산이나 다른 효과에 다시 쓰지 않습니다. 원거리 공격의 방어자와 기회 공격에서는 스위치를 사용할 수 없습니다.',
     'In the matching combat row, after rerolls, spend the shown symbols during the Switches step. Spent symbols cannot be reused. Ranged defenders and both sides of opportunity attacks cannot use switches.'
   ];
-  return '<li class="keyword-source"><strong>'+escapeHtml(keywordSourceLabel(source))+'</strong><p>'+keywordCopy(...timing)+'</p>'+(source.kind==='effect'?'<div class="keyword-source-cost"><span>'+ui('소비 기호','Spend')+'</span>'+cost.map(s=>nativeGlyph(s,true)).join('')+'</div>':'')+'<blockquote>'+nativeRuleCopy(item.rulesKo??item.korean??'',item.english||'')+'</blockquote><button type="button" class="keyword-jump" data-keyword-jump="'+source.kind+':'+source.index+'">'+ui('카드의 해당 효과로 이동','Go to this effect on the card')+' ↓</button></li>';
+  return '<li class="keyword-source"><strong>'+escapeHtml(keywordSourceLabel(source))+'</strong><p>'+keywordCopy(...timing)+'</p>'+(source.kind==='effect'?'<div class="keyword-source-cost"><span>'+ui('소비 기호','Spend')+'</span>'+cost.map(s=>nativeGlyph(s,true)).join('')+'</div>':'')+'<blockquote>'+nativeRuleCopy(item.rulesKoDisplay??item.rulesKo??item.korean??'',(item.englishDisplay??item.english??''))+'</blockquote><button type="button" class="keyword-jump" data-keyword-jump="'+source.kind+':'+source.index+'">'+ui('카드의 해당 효과로 이동','Go to this effect on the card')+' ↓</button></li>';
 }
 function keywordTermMarkup(term,unit){
   const entry=ruleById.get(term.id),definition=keywordTiming.rules[term.id],timing=definition?[definition.timingKo,definition.timingEn]:['키워드의 조건을 충족하는 시점에 적용합니다.','Apply when the keyword’s conditions are met.'];
@@ -126,7 +133,7 @@ function keywordTermMarkup(term,unit){
 }
 function cardKeywordGuide(unit,options={}){
   const model=keywordGuideModel(unit,options),owned=model.terms.filter(t=>t.owned),references=model.terms.filter(t=>!t.owned);
-  const chips=(terms,caption)=>terms.length?'<div class="keyword-chip-group"><span class="card-keyword-caption">'+caption+'</span>'+terms.map(term=>'<button type="button" class="card-keyword-chip" data-keyword-open="'+escapeHtml(term.key)+'" aria-haspopup="dialog" aria-label="'+escapeHtml(keywordTermLabel(term,unit))+' '+ui('설명 보기','explanation')+'">'+escapeHtml(keywordTermLabel(term,unit))+'</button>').join('')+'</div>':'';
+  const chips=(terms,caption)=>terms.length?'<div class="keyword-chip-group"><span class="card-keyword-caption">'+caption+'</span>'+terms.map(term=>'<button type="button" class="card-keyword-chip" data-keyword-open="'+escapeHtml(term.key)+'" aria-haspopup="dialog" aria-label="'+escapeHtml(keywordTermLabel(term,unit))+' '+ui('설명 보기','explanation')+'">'+keywordTermDisplay(term,unit)+'</button>').join('')+'</div>':'';
   return owned.length||references.length?'<section class="card-keyword-guide"><div class="card-keyword-chips">'+chips(owned,ui('보유 키워드','Printed keywords'))+chips(references,ui('능력·스위치에서 참조하는 규칙','Rules referenced by skills and switches'))+'</div></section>':'';
 }
 const keywordCardContexts=new WeakMap();
@@ -148,7 +155,7 @@ function openKeywordPopup(opener){
   if(dialog.open)return;
   const current={...context,opener,restoreFocus:true};keywordPopupContext=current;
   dialog.dataset.ruleUnit=context.unit.id;
-  dialog.innerHTML='<header class="keyword-popup-head"><div><p>'+escapeHtml(unitName(context.unit))+'</p><h2 id="keywordPopupTitle" tabindex="-1">'+escapeHtml(keywordTermLabel(term,context.unit))+'</h2></div><button type="button" class="keyword-popup-close" data-close-keyword aria-label="'+ui('키워드 설명 닫기','Close keyword explanation')+'">×</button></header><div class="keyword-popup-body">'+keywordTermMarkup(term,context.unit)+'</div>';
+  dialog.innerHTML='<header class="keyword-popup-head"><div><p>'+escapeHtml(unitName(context.unit))+'</p><h2 id="keywordPopupTitle" tabindex="-1">'+keywordTermDisplay(term,context.unit)+'</h2></div><button type="button" class="keyword-popup-close" data-close-keyword aria-label="'+ui('키워드 설명 닫기','Close keyword explanation')+'">×</button></header><div class="keyword-popup-body">'+keywordTermMarkup(term,context.unit)+'</div>';
   dialog.querySelector('[data-close-keyword]').addEventListener('click',()=>dialog.close());
   dialog.addEventListener('close',()=>{
     if(keywordPopupContext===current)keywordPopupContext=null;

@@ -12,10 +12,16 @@ function configureRules(data){
   });
   rulePattern=new RegExp(`(?:피해\\s*\\d+\\s*(?:을|를)?\\s*회복|병력\\s*\\d+\\s*(?:명|개)?\\s*(?:을|를)?\\s*회복|${aliases.join('|')})`,'gi');
 }
-function ruleTerm(id,text){
-  return `<button type="button" class="rule-term" data-rule="${escapeHtml(id)}" aria-haspopup="dialog" aria-label="${escapeHtml(text)} 규칙 설명">${escapeHtml(text)}</button>`;
+function ruleTerm(id,text,content=escapeHtml(text)){
+  return `<button type="button" class="rule-term" data-rule="${escapeHtml(id)}" aria-haspopup="dialog" aria-label="${escapeHtml(text)} 규칙 설명">${content}</button>`;
 }
 function ruleText(value,excludeId=''){
+  return diceProse.inline(value,text=>linkRuleText(text,excludeId),(markup,original,isAlteration)=>{
+    const id=isAlteration?'spell-alterations':'dice';
+    return id===excludeId?markup:ruleTerm(id,original,markup);
+  });
+}
+function linkRuleText(value,excludeId){
   const raw=String(value??'');if(!rulePattern)return escapeHtml(raw);
   rulePattern.lastIndex=0;let cursor=0,result='',match;
   while((match=rulePattern.exec(raw))){
@@ -73,11 +79,13 @@ function renderRuleDetail(){
   const statInfo=stat?`<div class="rule-current-stat"><span>현재 카드의 수치</span><strong>${stat.label} · ${escapeHtml(stat.value)}</strong></div>`:ruleContextValue?`<div class="rule-current-stat"><span>선택한 문구의 값</span><strong>${escapeHtml(entry.english.match(/\(([XN])/i)?.[1]||'X')} = ${escapeHtml(ruleContextValue)}</strong></div>`:'';
   const context=ruleContextUnit?`<p class="rule-card-context">${ui('현재 카드','Current card')} · ${escapeHtml(unitName(ruleContextUnit))}</p>`:'';
   $('#ruleDetail').innerHTML=`${context}<div class="rule-detail-heading"><span>${escapeHtml(entry.english)}</span><h2 id="ruleDetailTitle" tabindex="-1">${escapeHtml(entry.label)}</h2></div>${statInfo}<p class="rule-summary">${ruleText(entry.summary,entry.id)}</p>${entry.table?table(entry.table):''}${(entry.tables||[]).map(t=>table(t,t.heading)).join('')}${entry.sections.map(section=>{let text=section.text;if(stat?.movement&&section.heading==='수치 읽기'){const [,a,b,c]=stat.movement;text=`이 카드의 MOV는 ${stat.value}입니다. 한 번의 일반 이동 행동에서 최대 ${a}보폭 구간과 최대 ${b}보폭 구간을 모두 사용할 수 있으며, 두 구간의 순서는 선택합니다. 앞 구간에서 남긴 거리를 다음 구간에 더할 수는 없습니다. 괄호 안 ${c}는 별도로 사용하는 돌격 거리입니다.`}return `<section><h3>${escapeHtml(section.heading)}</h3><p>${ruleText(text,entry.id)}</p></section>`}).join('')}<nav class="rule-related" aria-label="관련 규칙">${entry.related.filter(id=>ruleById.has(id)).map(id=>`<button type="button" data-rule="${id}" data-rule-raw>${escapeHtml(ruleById.get(id).label)} →</button>`).join('')}</nav><p class="rule-source">${entry.pages.length?`공식 룰북 1.6.1 · ${entry.pages.join(', ')}쪽 (인쇄 쪽수)`:'공식 1.6.1의 독립 정의 없음 · 해당 카드·모험의 문구를 확인하세요.'}<br><a href="${escapeHtml(ruleData.sourceUrl)}" target="_blank" rel="noopener noreferrer">${ui('공식 원문 열기','Open official rules')} ↗</a> · <a href="./rules.html#core-${entry.pages[0]||2}" target="_blank" rel="noopener noreferrer">${ui('한국어 룰북 전문','Full Korean rulebook')} ↗</a></p>`;
+  diceProse.enhance($('#ruleDetail'));
 }
 function renderRuleSearch(query){
   const q=String(query).toLocaleLowerCase().replace(/\s/g,'');
   const entries=ruleData.entries.filter(e=>!q||[e.label,e.english,...e.aliases,e.summary,...e.sections.map(s=>s.heading+' '+s.text),...(e.table?.rows||[]).flat(),...(e.tables||[]).flatMap(t=>t.rows.flat())].some(v=>String(v).toLocaleLowerCase().replace(/\s/g,'').includes(q)));
   $('#ruleSearchResults').innerHTML=`<p class="rule-result-count">${entries.length}개 규칙</p>${entries.length?entries.map(e=>`<button type="button" class="rule-search-result" data-rule="${e.id}"><strong>${escapeHtml(e.label)}</strong><span>${escapeHtml(e.english)}</span><small>${escapeHtml(e.summary)}</small></button>`).join(''):'<p class="rule-empty">검색 결과가 없습니다. 한국어 용어나 영문 이름으로 검색해 보세요.</p>'}`;
+  diceProse.enhance($('#ruleSearchResults'));
 }
 document.addEventListener('click',event=>{
   const term=event.target.closest('[data-rule]');

@@ -1,4 +1,3 @@
-@font-face{font-family:Warcrow;src:url('./fonts/Warcrow.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 /* Rules are ordinary, flowing text. Only the official symbol font is used for game artwork. */
 .native-card{--native-paper:#f5efdf;--native-ink:#241d16;--native-muted:#74624a;--native-green:#064d3e;--native-gold:#c99a49;--native-rule:#cba777;box-sizing:border-box;width:100%;min-width:0;margin:0;background:linear-gradient(105deg,#f2e9d7 0%,#fbf8ef 46%,#f3ebd9 100%);color:var(--native-ink);border:1px solid #b6996f;border-radius:10px;box-shadow:0 12px 32px #0c0a1030;font-family:'Noto Sans KR',system-ui,sans-serif;font-size:15px;line-height:1.75;text-align:left;overflow-wrap:anywhere;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .native-card *{box-sizing:border-box;min-width:0}
@@ -91,12 +90,7 @@
 /* Keep glyphs separate from the Korean font so every printed game symbol retains its own shape. */
 .native-glyph{--native-glyph-size:26px;position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;flex:none;width:var(--native-glyph-size);height:calc(var(--native-glyph-size) + 2px);min-width:0;padding:0;border:0;border-radius:0;background:transparent;color:#1e241c;font-family:Warcrow!important;font-size:var(--native-glyph-size)!important;font-style:normal!important;font-weight:400!important;line-height:1!important;letter-spacing:0;vertical-align:-.18em;white-space:nowrap;text-indent:0;text-decoration:none;box-shadow:none;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
 button.native-glyph{cursor:help;touch-action:manipulation}
-.native-glyph.die-red{color:#d63542}
-.native-glyph.die-orange{color:#ef861d}
-.native-glyph.die-yellow{color:#f0cd1e}
-.native-glyph.die-green{color:#70c84e}
-.native-glyph.die-blue{color:#43aeca}
-.native-glyph.die-black{color:#151a17}
+.native-glyph[class*="die-"]{color:var(--die-color)}
 .native-glyph:is(.die-red,.die-orange,.die-yellow,.die-green,.die-blue,.die-black):before{content:'';position:absolute;z-index:-1;width:47%;height:47%;left:26.5%;top:26.5%;transform:rotate(45deg);background:#1a2119;border-radius:1px}
 .native-glyph.die-black:before{background:#f9f8ee}
 .native-glyph[class*="symbol-"]{color:#192017}

@@ -63,6 +63,7 @@ function strategySearch(value){
   const q=value.trim().toLocaleLowerCase().replace(/\s/g,''),box=st$('#strategySearchResults');box.hidden=!q;if(!q){box.innerHTML='';return;}
   const results=strategySearchIndex.filter(e=>(e.title+' '+e.guideTitle+' '+e.text).toLocaleLowerCase().replace(/\s/g,'').includes(q));
   box.innerHTML='<p>'+results.length+'개 검색 결과'+(results.length>35?' · 앞의 35개 표시':'')+'</p>'+results.slice(0,35).map(e=>{const pos=e.text.toLocaleLowerCase().indexOf(value.trim().toLocaleLowerCase()),start=Math.max(0,pos-35),snippet=e.text.slice(start,start+170);return '<a class="strategy-search-result" href="#'+stEscape(e.guide+'/'+e.id)+'"><strong>'+stEscape(e.guideTitle)+' · '+stEscape(e.title)+'</strong><span>'+stEscape(snippet)+(snippet.length===170?'…':'')+'</span></a>';}).join('');
+  diceProse.enhance(box);
 }
 let strategyLastDownload=null;
 function strategyDownload(index){
@@ -76,7 +77,7 @@ async function loadStrategy(){
   const fetchJSON=async path=>{const r=await fetch(path);if(!r.ok)throw Error(path);return r.json();};
   try{
     strategyCommon=await fetchJSON('./strategy-common.json?v=46');
-    const [units,names,rules,...guides]=await Promise.all([fetchJSON('./app-data.json?v=50'),fetchJSON('./card-ko.json?v=50'),fetchJSON('./rules-glossary.json?v=46'),...strategyCommon.factions.map(id=>fetchJSON('./strategy-factions/'+id+'.json?v=50'))]);
+    const [units,names,rules,...guides]=await Promise.all([fetchJSON('./app-data.json?v=50'),fetchJSON('./card-ko.json?v=50'),fetchJSON('./rules-glossary.json?v=50'),...strategyCommon.factions.map(id=>fetchJSON('./strategy-factions/'+id+'.json?v=53'))]);
     strategyUnits=units.units;strategyNames=names.names;strategyGuides=[strategyCommon,...guides];strategyConfigureRules(rules);
     st$('#strategyEdition').innerHTML='<span>룰북 '+stEscape(strategyCommon.rulesVersion)+'</span><span>예시 명단 검산: 프로필 '+stEscape(strategyCommon.builderVersion)+'</span><span>자료 확인 '+stEscape(strategyCommon.reviewedAt)+'</span>';
     st$('#strategyFactions').innerHTML=strategyGuides.map(g=>'<a href="#'+stEscape(g.id)+'" data-strategy-guide="'+stEscape(g.id)+'">'+(g.id==='general'?'': '<img src="./faction-art/'+stEscape(g.id)+'.webp" alt="">')+stEscape(g.id==='general'?'공통 운영':g.title)+'</a>').join('')+'<a href="#sources" data-strategy-guide="sources">출처·버전</a>';

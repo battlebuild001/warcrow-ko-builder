@@ -22,6 +22,7 @@
     $('#bookChapterTitle').textContent=printAll?(book==='core'?'기본 룰북 전체':'WTS 운영 규정 전체'):title;
     $('#bookChapterRange').textContent=printAll?`${pages.length}쪽`:`${start}–${end}쪽`;
     $('#bookContent').innerHTML=pages.map(p=>pageHtml(p)).join('');
+    diceProse.enhance($('#bookContent'));
     $('#bookPrev').disabled=chapter===0;$('#bookNext').disabled=chapter===chapters[book].length-1;
     $('#bookPageSelect').value=String(target||start);renderToc();$('#bookPageSelect').value=String(target||start);
     if(target)requestAnimationFrame(()=>document.getElementById(`${book}-${target}`)?.scrollIntoView({block:'start'}));
@@ -38,6 +39,7 @@
     const results=[];for(const b of ['core','wts'])for(const page of books[b])if(page.search.includes(query))results.push({b,page});
     $('#bookReading').hidden=true;$('#bookSearchResults').hidden=false;
     $('#bookSearchResults').innerHTML=`<p class="book-result-count">${results.length}개 쪽에서 찾았습니다.</p>${results.map(({b,page})=>{const compact=page.plain.replace(/\s/g,''),idx=compact.toLocaleLowerCase().indexOf(query),snippet=compact.slice(Math.max(0,idx-35),Math.max(0,idx-35)+150);return `<button type="button" data-book-result="${b}-${page.page}"><small>${b==='core'?'기본 룰북':'WTS'} · ${page.page}쪽</small><strong>${esc(page.title)}</strong><p>${esc(snippet)}${compact.length>150?'…':''}</p></button>`}).join('')||'<p>검색 결과가 없습니다. 짧은 용어나 영문 키워드로 다시 검색해 보세요.</p>'}`;
+    diceProse.enhance($('#bookSearchResults'));
   }
   document.addEventListener('click',event=>{
     if(event.target.closest('[data-book-retry]')){location.reload();return}

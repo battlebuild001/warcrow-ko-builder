@@ -11,7 +11,8 @@
       "titleKo": "실드 오브 더 문 가디시스",
       "rulesKo": "대상: 자신. 지속: 4턴.\n7보폭 이내의 모든 아군 유닛은 주문 해제(파랑 주사위 1개·검정 주사위 1개)를 얻습니다.\n◆: 영향을 받는 아군 유닛은 방어 굴림에 정예를 적용합니다.\n◆◆: 영향을 받는 아군 유닛은 각 활성화 중 처음 받는 피해 1을 무시합니다.",
       "section": "base",
-      "iconType": "spell"
+      "iconType": "spell",
+      "englishDisplay": "SHIELD OF THE MOON GODDESSES. Target: yourself. Duration: 4 turns\n\nAll allied units within 7 strides gain Dispel (1 blue die and 1 black die).\n\n@:The affected allied units apply Elite to their defense rolls\n\n@ @:The affected allied units ignore the first @ they suffer during each activation"
     },
     {
       "top": 0.4612,
@@ -192,7 +193,8 @@
       "titleKo": "포 실렘!",
       "rulesKo": "시야선 불필요. 자신의 활성화 종료 시. 대상: 12보폭 이내의 다른 아군 유닛\n대상이 활성화하여 이동·돌격·급습 중 하나를 수행합니다. 대상이 의지(WP) 판정에 성공하면 해당 대상의 활성화가 끝날 때까지 공격 굴림에 주황 주사위 1개를 추가합니다.",
       "section": "enhancement",
-      "iconType": "command"
+      "iconType": "command",
+      "englishDisplay": "\"FOR SILEM!\". No LoS.At the end of your activation. Target: another allied unit within | 2 strides\nThe target activates to perform one of the following actions: move, charge or assault.\nIf the target passes a WP test, it adds 1 orange die to its attack rolls until the end of its activation."
     },
     {
       "top": 0.7263,
@@ -818,7 +820,8 @@
       "titleKo": "바우 오브 사일런스",
       "rulesKo": "전투에서 이탈하기 직전\n주황 주사위 1개를 굴립니다. 성공(★)을 얻으면 기회 공격을 유발하지 않습니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "Vow OF SILENCE\nWhen you are about to disengage from combat, roll 1 orange die. If you obtain XK, you do not\ncreate an opportunity attack."
     },
     {
       "top": 0.764,
@@ -831,7 +834,8 @@
       "titleKo": "스로잉 나이브스",
       "rulesKo": "적 유닛이 자신과 교전할 때\n그 적 유닛은 무장 해제 상태가 됩니다. 스트레스를 받지 않고 빨강 주사위 1개·노랑 주사위 3개로 「대기 사격」을 수행할 수 있습니다.",
       "section": "enhancement",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "THROWING KNIVES When an enemy unit engages with you\nThe enemy unit receives the disarmed state. You may \"Hold and shoot\" without suffering\nstress, rolling 1 red die and 3 yellow dice."
     },
     {
       "top": 0.8459,
@@ -900,7 +904,9 @@
       "titleKo": "프리스틀리 다이어뎀",
       "rulesKo": "대상: 12보폭 이내의 적 유닛\n빨강 주사위 1개·주황 주사위 2개·노랑 주사위 1개로 원거리 공격합니다. 대상이 자신의 성공(★) 1개를 취소하려면 방어(방패) 2개가 필요합니다.\n◆: 대상에게 팅지가 있거나 팅지 키워드가 있으면, 대상은 방어(방패)를 얻은 주사위를 다시 굴려야 합니다.\n◆: 주문 사거리가 18보폭이 됩니다.\n◆◆: 공격 굴림에 성공(★) 1개를 추가합니다. 대상이 피해를 받으면 스트레스 1도 받습니다.",
       "section": "base",
-      "iconType": "spell"
+      "iconType": "spell",
+      "englishDisplay": "PRIESTLY DIADEM. Target: an enemy unit within | 2 strides\n\nResolve a ranged attack against the target with 1 red die, 2 orange dice and 1 yellow die. Your target needs 29 to\ncancel each of your .\n\n1 black die alteration: If the target has tinge or the keyword Tinge, it must repeat the dice where it\nobtained B\n\n1 black die alteration: The spell has a range of 18 strides\n\n2 black dice alteration: Add 1% to your attack. If the target suffers damage, it suffers 1 stress",
+      "rulesKoDisplay": "대상: 12보폭 이내의 적 유닛\n빨강 주사위 1개·주황 주사위 2개·노랑 주사위 1개로 원거리 공격합니다. 대상이 자신의 성공(★) 1개를 취소하려면 방어(방패) 2개가 필요합니다.\n검정 주사위 1개 변형: 대상에게 팅지가 있거나 팅지 키워드가 있으면, 대상은 방어(방패)를 얻은 주사위를 다시 굴려야 합니다.\n검정 주사위 1개 변형: 주문 사거리가 18보폭이 됩니다.\n검정 주사위 2개 변형: 공격 굴림에 성공(★) 1개를 추가합니다. 대상이 피해를 받으면 스트레스 1도 받습니다."
     },
     {
       "top": 0.4386,
@@ -969,7 +975,8 @@
       "titleKo": "에테리얼 소드",
       "rulesKo": "자동. 대상: 12보폭 이내의 적 유닛\n대상과 교전하도록 자신을 배치하고 빨강 주사위 1개·주황 주사위 2개로 공격합니다. 대상이 자신의 성공(★) 1개를 취소하려면 방어(방패) 2개가 필요합니다.",
       "section": "base",
-      "iconType": "spell"
+      "iconType": "spell",
+      "englishDisplay": "AETHEREAL SWORD. Automatic. Target: an enemy unit within | 2 strides. |\nPlace yourself engaged with the target and resolve an attack with 1 red die and 2 orange dice against it.\nThe target needs 2 to cancel each of your &."
     },
     {
       "top": 0.4066,
@@ -1010,7 +1017,8 @@
       "titleKo": "시스터스 오브 파이어",
       "rulesKo": "라운드당 1회. 대상: 10보폭 이내의 아군 유닛\n대상은 근접 또는 원거리 공격 굴림을 구성할 때 주황 주사위 1개를 추가합니다.",
       "section": "base",
-      "iconType": "command"
+      "iconType": "command",
+      "englishDisplay": "SISTERS OF FIRE. Once per round. Target: allied unit within | 0 strides\nThe target adds 1 orange die when gathering their melee or ranged attack roll."
     },
     {
       "top": 0.4055,
@@ -1103,7 +1111,8 @@
       "titleKo": "로지스틱스 앤드 테크니컬 탤런트",
       "rulesKo": "해당 유닛에 따라 다음 효과를 얻습니다.\n- 아르케뷔지어스: 조준을 얻습니다.\n- 파이오니어스: 「모타르」의 대상은 스트레스 1을 받습니다.\n- 버클러맨·불워크스·어그레서스: 무장 해제와 취약 상태에 면역입니다.\n- 워 리그: 이동(MOV) 2-3 [8]을 얻고 공격 굴림에 노랑 주사위 1개를 추가합니다.",
       "section": "enhancement",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "LOGISTICS AND TECHNICAL TALENT\n\nYou gain the following effects as corresponding:\n\n-Arquebusiers. Gain Aim.\n\n-Pioneers. The targets of \"Mortar\" suffer 1 stress.\n\n-Bucklermen, Bulwarks and Aggressors. You are immune to the Disarmed and\nvulnerable states.\n\n-War Rig. Gain MOV 2-3 (8) and add 1 yellow die to your attack."
     },
     {
       "top": 0.8124,
@@ -1131,7 +1140,8 @@
       "titleKo": "초즌 오브 토그룰",
       "rulesKo": "돌격 또는 급습을 선언할 때\n자신의 활성화 종료까지 위압(2)을 얻고 공격 굴림에 주황 주사위 1개를 추가합니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "CHOSEN OF TOGRUL When you declare a charge or an assault\nYou gain Intimidating (2) and add 1 orange die to your attack roll until the end of the activation."
     }
   ],
   "black_legion_arquebusiers": [
@@ -1337,7 +1347,8 @@
       "titleKo": "익스플로시브스",
       "rulesKo": "라운드당 1회. 대상: 7보폭 이내의 지형 요소. 지속: 2턴.\n지속시간이 끝나면 대상이 폭발합니다. 5보폭 이내의 모든 유닛은 자신을 구성하는 병력 2명당 빨강 주사위 1개로 수행하는 원거리 공격의 대상이 됩니다. 병력 수는 올림합니다. 해당 지형에 통과 불가 키워드가 없었다면, 험지와 엄폐(검정 주사위 1개) 키워드를 가진 폐허로 변합니다.",
       "section": "base",
-      "iconType": "action"
+      "iconType": "action",
+      "englishDisplay": "EXPLOSIVES. Once per round. Target: a terrain element within 7 strides. Duration: 2 turns.\nWhen the duration finishes, the target explodes.All units within 5 strides are the target\nof a ranged attack equivalent to 1 red die for each two troops in the unit (rounding up). If the\nterrain element\n\ndidn’t have the Impassable keyword, it turns into Ruins with the keywords Rugged and\nCover(1 black die)."
     },
     {
       "top": 0.612,
@@ -1378,7 +1389,8 @@
       "titleKo": "파이어 블레이즈",
       "rulesKo": "대상: 12보폭 이내의 적 유닛\n빨강 주사위 1개·주황 주사위 3개·노랑 주사위 1개로 원거리 공격합니다.\n◆: 주문 사거리가 18보폭이 됩니다.\n◆: 공격은 「특수(!) 1개: 대상의 방어(방패) 1개를 취소한다」 스위치를 얻습니다.\n◆: 공격 종료 시 대상은 지속 1턴의 효과를 받습니다. 그 효과가 끝날 때 대상은 주황 주사위 1개를 굴립니다. 성공(★)을 얻으면 피해 1을 받고, 특수(!)를 얻으면 효과 토큰을 턴 계수기에서 제거하는 대신 한 칸 앞으로 옮깁니다.",
       "section": "base",
-      "iconType": "spell"
+      "iconType": "spell",
+      "englishDisplay": "FIRE BLAZE. Target: an enemy unit within | 2 strides\n\nResolve a ranged attack with 1 red die, 3 orange dice and 1 yellow die against the target.\n\n@ :The spell has a range of 18 strides.\n\n@ :Your attack gains the switch: J : Cancel |W from your target\n\n@ :At the end of the attack, the target receives a duration | turn effect. When the effect\nends the target must roll 1 orange die:\n\n- If it gets &K it suffers 1 damage.\n\n- if it gets J advance | position the effect token instead of removing it from the turn\ncounter."
     },
     {
       "top": 0.4739,
@@ -1610,7 +1622,8 @@
       "titleKo": "스펙트럴 소드 오브 마르하엘",
       "rulesKo": "자동. 대상: 12보폭 이내의 적 유닛\n대상과 교전하도록 자신을 배치하고 빨강 주사위 1개·주황 주사위 2개로 공격합니다. 대상이 자신의 성공(★) 1개를 취소하려면 방어(방패) 2개가 필요합니다. 스위치 단계 중 팅지 1을 받고 자신의 굴림에 성공(★) 1개를 추가할 수 있습니다. 그렇게 했다면 활성화 종료 시 팅지의 효과를 적용합니다.",
       "section": "base",
-      "iconType": "spell"
+      "iconType": "spell",
+      "englishDisplay": "SPECTRAL SWORD OF MARHAEL. Automatic. Target: an enemy unit within | 2 strides\n\nPlace yourself engaged with the target and resolve an attack with 1 red die and 2 orange dice against it.\nThe target needs 2 to cancel each of your #. During switches step, you may receive\n| to add 1 to your roll, if you do so apply the effects of the tinge at the end of the\nactivation."
     },
     {
       "top": 0.4413,
@@ -1867,7 +1880,8 @@
       "titleKo": "에스타리 브로치",
       "rulesKo": "라운드 종료 시\n노랑 주사위 1개를 굴립니다. 성공(★)을 얻으면 5보폭 이내의 아군 유닛 하나에서 팅지 1을 제거할 수 있습니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "AESTARI BROOCH. At the end of the round\nRoll 1 yellow die. If you obtain 4, you may remove | from an allied unit within 5 strides."
     }
   ],
   "pioneers": [
@@ -1882,7 +1896,8 @@
       "titleKo": "모타르",
       "rulesKo": "시야선 불필요. 대상: 12보폭 이내의 교전 중이 아닌 적 유닛\n빨강 주사위 2개로 대상에게 원거리 공격합니다. 대상의 병력 하나마다 주황 주사위 1개를 추가합니다.",
       "section": "base",
-      "iconType": "action"
+      "iconType": "action",
+      "englishDisplay": "Mortar. No LoS. Target: an enemy unit within | 2 strides that is not engaged\nResolve a ranged attack against the target with 2 red dice.\nAdd 1 orange die for each troop in your target."
     },
     {
       "top": 0.6622,
@@ -1895,7 +1910,8 @@
       "titleKo": "트렌치 유어셀브스!",
       "rulesKo": "스트레스가 없는 동안 자신의 방어 굴림에 초록 주사위 1개를 추가합니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "\"TRENCH YOURSELVES!\"\nWhile you don't have stress add 1 green die to your defense roll."
     },
     {
       "top": 0.7279,
@@ -1949,7 +1965,8 @@
       "titleKo": "스트래터지 스칼러",
       "rulesKo": "상시. 「선제권 결정」 단계 중\n자신의 굴림에 파랑 주사위 1개를 추가합니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "STRATEGY SCHOLAR. Permanent. During the \"Decide who has the initiative\" step.\nAdd 1 blue die to your roll."
     },
     {
       "top": 0.6973,
@@ -2003,7 +2020,8 @@
       "titleKo": "붐!",
       "rulesKo": "자신의 활성화 중\n오토마톤 하나를 선택하고 주황 주사위 1개·노랑 주사위 1개를 굴립니다. 얻은 성공(★) 기호 하나마다 그 오토마톤에서 3보폭 이내의 모든 적 유닛은 피해 1을 받습니다. 이어서 오토마톤 토큰을 제거합니다.",
       "section": "base",
-      "iconType": "command"
+      "iconType": "command",
+      "englishDisplay": "Boom! During your activation\nSelect an Automaton and roll 1 orange die and 1 yellow die. All enemy units within 3 strides of the Automaton\nsuffer |@ for each you roll. Remove the Automaton token."
     },
     {
       "top": 0.4316,
@@ -2029,7 +2047,8 @@
       "titleKo": "어나더 슬레프먼드 클렁커",
       "rulesKo": "자신으로부터 7보폭 이내에 있으며 자신의 대상이나 공격자에게 시야선을 확보한 오토마톤 하나마다, 자신의 공격 및 방어 굴림에 주황 주사위 1개를 추가합니다.\n또한 모든 아군 유닛은 자신으로부터 7보폭 이내에 있으며 자신의 공격 대상에게 시야선을 확보한 오토마톤 하나마다 근접 및 원거리 공격 굴림의 주사위 1개를 다시 굴릴 수 있습니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "ANOTHER SLEPMUND CLUNKER\n\nAdd 1 orange die to your attack and defense rolls for each Automaton within 7 strides from you\nwith LoS towards your target or attacker. All allied units may repeat a die from their\nmelee and ranged attack rolls for each Automaton within 7 strides from them with LoS\ntowards their target."
     },
     {
       "top": 0.8018,
@@ -2057,7 +2076,8 @@
       "titleKo": "플레임 스피터",
       "rulesKo": "대상: 7보폭 이내의 적 유닛\n빨강 주사위 1개·노랑 주사위 1개로 대상에게 원거리 공격합니다. 대상의 병력 하나마다 주황 주사위 1개를 추가합니다. 이 공격은 다음 스위치를 얻습니다.\n특수(!) 2개: 대상의 방어(방패) 1개를 취소합니다.",
       "section": "base",
-      "iconType": "action"
+      "iconType": "action",
+      "englishDisplay": "FLAME SPITTER. Target: an enemy unit within 7 strides\nResolve a ranged attack with 1 red die and 1 yellow die against the target.\nAdd 1 orange die to your attack for each troop in the target.\nYour attack gains the switch:\n\nHI: Cancel |W from your target"
     },
     {
       "top": 0.4745,
@@ -2098,7 +2118,8 @@
       "titleKo": "퍼스트 에이드",
       "rulesKo": "대상: 7보폭 이내의 아군 유닛\n대상의 스트레스를 1 줄입니다. 빨강 주사위 1개·주황 주사위 1개를 굴립니다. 얻은 성공(★) 기호 하나마다 대상의 피해 1을 회복할 수 있습니다. 이 굴림은 다음 스위치를 얻습니다.\n특수(!) 1개: 대상의 스트레스를 1 줄입니다.",
       "section": "base",
-      "iconType": "action"
+      "iconType": "action",
+      "englishDisplay": "First AID. Target: an allied unit within 7 strides\nReduce by | the target's stress. Roll 1 red die and 1 orange die.You may heal | @ from the target per each x\nobtained. This roll gains the switch:\n\nI : Reduce by | the target's stress"
     },
     {
       "top": 0.3805,
@@ -2577,7 +2598,8 @@
       "titleKo": "패밀리 렐릭",
       "rulesKo": "지속 효과\n배치할 때 유물 하나를 선택합니다.\n- 미시컬 아머: 자신의 유닛의 방어에 초록색 주사위 1개를 추가합니다.\n- 앤세스트럴 웨폰: 자신의 유닛의 공격에 빨간색 주사위 1개를 추가합니다.\n- 세이크리드 애뮬렛츠: 자신의 유닛이 주문 해제(초록색 주사위 1개)를 얻습니다.\n- 매지컬 부츠: 자신의 유닛의 두 이동(MOV) 수치를 각각 2 늘립니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "FAMILY RELIC. Permanent\nWhen you deploy, choose a relic:\n- Mythical armor:Add 1 green die to your unit's defense\n- Ancestral weapon: Add 1 red die to your unit's attack\n- Sacred amulets: Your unit gains Dispel (1 green die)\n- Magical boots: Increase by 2 both of your unit's MOV values"
     }
   ],
   "mounthaven_warriors": [
@@ -2989,7 +3011,8 @@
       "titleKo": "소드 오브 더 선",
       "rulesKo": "피해가 있는 동안 다음 효과를 얻습니다.\n- 주문 해제(D)를 얻습니다. D는 자신이 받은 피해 수만큼의 파란색 주사위입니다(최대 3개).\n- 공격과 방어 굴림에 노란색 주사위 1개를 추가합니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "SWORD OF THE SUN\n\nWhile you have @:\n\n- You gain Dispel (D), where D are as many blue dice as @ you have (max. 3).\n- Add 1 yellow die to your attack and defense rolls."
     },
     {
       "top": 0.89,
@@ -3071,7 +3094,8 @@
       "titleKo": "후즈 어 굿 보이?",
       "rulesKo": "라운드 종료 시\n스트레스 감소 단계에서 스트레스를 추가로 1 줄입니다. 주황색 주사위 1개를 굴려 [빈 느낌표]가 나오면 자신의 유닛의 피해 1을 회복합니다.",
       "section": "enhancement",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "\"WHO's A GooD Boy?’. At the end of the round\nDuring the step of stress reduction, remove | additional level. Roll 1 orange die. If you obtain f,\nheal |@ from your unit."
     }
   ],
   "contender": [
@@ -3507,7 +3531,8 @@
       "titleKo": "토템 오브 더 캐번 라이언",
       "rulesKo": "불굴\n자신이 받은 총 피해에 따라 다음 특성을 추가로 얻습니다.\n- 피해 1: 격노와 공포 무시를 얻습니다.\n- 피해 3: 공격과 방어 굴림에 빨간색 주사위 1개를 추가합니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "TOTEM OF THE CAVERN LION. Dauntless\n\nYou gain additional properties according to the total damage suffered:\n- 1 damage. Gain Raging and Fearless.\n\n- 3 damage.Add 1 red die to your attack and defense rolls."
     },
     {
       "top": 0.5406,
@@ -3520,7 +3545,8 @@
       "titleKo": "타투 오브 더 블러드 이글",
       "rulesKo": "라운드당 1회 · 피해를 받기 직전\n주황색 주사위 2개를 굴립니다. 나온 ★ 하나마다 받으려는 피해 중 1을 무시합니다.",
       "section": "base",
-      "iconType": "command"
+      "iconType": "command",
+      "englishDisplay": "TATTOO OF THE BLOOD EAGLE. Once per round.When you are about to suffer damage\nRoll 2 orange dice and ignore |@ for each *& obtained."
     },
     {
       "top": 0.824,
@@ -3642,7 +3668,8 @@
       "titleKo": "피어섬 컴배턴트",
       "rulesKo": "자신의 스트레스 1마다 다음 효과를 적용합니다.\n- 공격 굴림에 노란색 주사위 1개를 추가합니다.\n- 돌격 이동 거리에 3보폭을 더합니다.\n- 점령 수치에 1을 더합니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "FEARSOME COMBATANT\n\nFor each level of stress on you:\n\n- Add 1 yellow die to your attack roll.\n\n- Add 3 strides to your charge movement.\n- Add | to your conquest value."
     },
     {
       "top": 0.5682,
@@ -3668,7 +3695,8 @@
       "titleKo": "피어섬 컴배턴트",
       "rulesKo": "자신의 스트레스 1마다 다음 효과를 적용합니다.\n- 공격 굴림에 노란색 주사위 1개를 추가합니다.\n- 돌격 이동 거리에 3보폭을 더합니다.\n- 점령 수치에 1을 더합니다.",
       "section": "enhancement",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "FEARSOME COMBATANT\n\nFor each level of stress on you:\n\n- Add 1 yellow die to your attack roll.\n\n- Add 3 strides to your charge movement.\n- Add | to your conquest value."
     }
   ],
   "revenant": [
@@ -3709,7 +3737,8 @@
       "titleKo": "몬스터슬레이어",
       "rulesKo": "대형 또는 기병 유닛을 상대로 한 공격 굴림에 빨간색 주사위 1개와 [속 빈 별] 1개를 추가합니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "MONSTERSLAYER.\nAdd 1 red die and xx to your attack roll against Large and Cavalry units."
     }
   ],
   "rock_troll": [
@@ -3724,7 +3753,8 @@
       "titleKo": "러블",
       "rulesKo": "근접 공격 해결 중\n이번 전투에서 받은 피해 수만큼 노란색 주사위를 굴립니다(최대 3개). 나온 ★ 하나마다 대상(또는 공격자)이 피해 1을 받습니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "RUBBLE. During the resolution of a melee attack.\nRoll as many yellow dice as @ suffered during combat (max 3), your target (or attacker) suffers |\n@ for each *."
     },
     {
       "top": 0.477,
@@ -3861,7 +3891,8 @@
       "titleKo": "브리드 더 스피릿 오브 더 토템",
       "rulesKo": "지속 효과 · 시야선 불필요 · 대상: 모든 아군 바랑크 유닛\n대상들은 주문 해제(파란색 주사위 1개)를 얻습니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "BREATHE THE SPIRIT OF THE TOTEM. Permanent. No LoS. Target: all allied Varank units.\nThe targets gain Dispel (1 blue die)."
     },
     {
       "top": 0.7822,
@@ -4225,7 +4256,8 @@
       "rulesKo": "긴 행동.\n대상: 7보폭 이내의 적 유닛\n주황 주사위 2개를 굴립니다. 성공하면 대상을 자신과 교전하도록 배치한 뒤 공격합니다. 자신의 공격 굴림을 다시 굴릴 수 있습니다.",
       "section": "base",
       "iconType": "action",
-      "actionCost": "long"
+      "actionCost": "long",
+      "englishDisplay": "»> Bone AND SINEW. Long action. Target: an enemy unit within 7 strides\nRoll 2 orange dice. If you succeed, place the target engaged in combat with you and then attack.\nYou may repeat your attack roll."
     },
     {
       "top": 0.6982,
@@ -4236,7 +4268,8 @@
       "titleKo": "브링 미 데어 헤드",
       "rulesKo": "대상: 자신과 교전 중인 모든 적 유닛. 자신의 활성화 시작 시\n주황 주사위 하나를 굴립니다. 성공하면 각 대상은 자신이 가진 스트레스 1마다 피해 1을 받습니다.",
       "section": "enhancement",
-      "iconType": "command"
+      "iconType": "command",
+      "englishDisplay": "\"BRING ME THEIR HEAD\". Target: all the enemy units you are engaged with. At the beginning 0;\nyour activation\nRoll 1 orange die. If you succeed, each target suffers |@ for each level of stress on them."
     },
     {
       "top": 0.7816,
@@ -4694,7 +4727,8 @@
       "titleKo": "골든 스레드",
       "rulesKo": "대상: 12보폭 이내의 적 유닛\n빨강 주사위 2개와 노랑 주사위 2개로 대상에게 원거리 공격을 해결합니다. 대상은 자신의 ★를 검은 방패 대신 빈 방패로만 취소할 수 있습니다.\n◆: 대상으로부터 5보폭 이내의 적 유닛들은 공포 상태를 받습니다.\n◆◆: 대상으로부터 5보폭 이내의 다른 적 유닛 하나를 추가 대상으로 지정합니다.",
       "section": "base",
-      "iconType": "spell"
+      "iconType": "spell",
+      "englishDisplay": "GOLDEN THREAD. Target: an enemy unit within | 2 strides\n\nResolve a ranged attack of value 2 red dice and 2 yellow dice against the target. The target can only cance\nyour & with () (instead of J).\n\n@ :The enemy units within 5 strides from the target receive the frightened state\n\n@@ :Take another enemy unit within 5 strides from the target as an additional target"
     },
     {
       "top": 0.8554,
@@ -4705,7 +4739,8 @@
       "titleKo": "헤드 오브 더 패밀리",
       "rulesKo": "취약 상태에 면역이며 주문 해제(초록 주사위 1개)를 얻습니다.",
       "section": "enhancement",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "HEAD OF THE FaniLy.\nYou are immune to the vulnerable state and gain Dispel (1 green die)."
     }
   ],
   "master_maiele": [
@@ -5120,7 +5155,8 @@
       "titleKo": "프로디지",
       "rulesKo": "대상: 7보폭 이내의 적 유닛\n빨강 주사위 하나와 노랑 주사위 2개로 대상에게 원거리 공격을 해결합니다. 대상은 자신의 ★ 하나를 취소할 때 검은 방패 2개가 필요합니다.\n팅지 기호 1개: 대상이 공포 상태라면 스트레스 1을 받습니다.\n팅지 기호 2개: 대상으로부터 5보폭 이내의 아군 유닛 하나마다 자신의 굴림에 ★ 하나를 추가합니다.",
       "section": "base",
-      "iconType": "spell"
+      "iconType": "spell",
+      "englishDisplay": "PRODIGY. Target: an enemy unit within 7 strides\nResolve a ranged attack of value 1 red die and 2 yellow dice against your target. The target needs 29 to\ncancel each of your xx.\nXX : If your target is frightened, it suffers 1 stress\n3K :Add as many to your roll as allied units within 5 strides from the target"
     },
     {
       "top": 0.7962,
@@ -5131,7 +5167,8 @@
       "titleKo": "헤드 오브 더 패밀리",
       "rulesKo": "불굴.\n취약 상태에 면역이며 주문 해제(초록 주사위 1개)를 얻습니다.",
       "section": "enhancement",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "HEAD OFTHE FAMILY. Dauntless\nYou are immune to the vulnerable state and gain Dispel (1 green die)."
     },
     {
       "top": 0.867,
@@ -5263,7 +5300,8 @@
       "titleKo": "어 뉴 암",
       "rulesKo": "대상: 12보폭 이내의 적 유닛\n빨강 주사위 2개와 주황 주사위 2개로 대상에게 원거리 공격을 해결합니다. 대상은 자신의 ★ 하나를 취소할 때 검은 방패 2개가 필요합니다.\n팅지 기호: 주문 효과를 해결한 후 7보폭 이내의 아군 유닛 하나를 강제 이동(3)시킬 수 있습니다.",
       "section": "base",
-      "iconType": "spell"
+      "iconType": "spell",
+      "englishDisplay": "A New Arm. Target: an enemy unit within | 2 strides\n\nResolve a ranged attack of value 2 red dice and 2 orange dice against the target. The target needs 2H to\ncancel each of your x.\n\n :After resolving the effects of the spell, an allied unit within 7 strides may displace (3)"
     },
     {
       "top": 0.4838,
@@ -5341,7 +5379,8 @@
       "titleKo": "언터처블",
       "rulesKo": "시야선 불필요. 대상: 7보폭 이내의 모든 아군 유닛\n대상의 공격 굴림과 방어 굴림에 파랑 주사위 하나를 추가합니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "UNTOUCHABLE. No LoS. Target: all allied units within 7 strides\nThe targets add 1 blue die to their attack and defense rolls."
     },
     {
       "top": 0.5866,
@@ -5363,7 +5402,8 @@
       "titleKo": "더 핸즈 오브 디 아키텍트",
       "rulesKo": "주문 해제(파랑 주사위 1개)를 얻습니다. 자신이 돌격 또는 강습의 대상이 되면 자신의 공격 굴림을 사용해 대기 사격을 할 수 있습니다.",
       "section": "enhancement",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "THE HANDS OF THE ARCHITECT\nGain Dispel (1 blue die).When you are the target of a charge or an assault, you may Hold and\nshoot using your attack roll."
     },
     {
       "top": 0.7703,
@@ -5374,7 +5414,8 @@
       "titleKo": "언터처블",
       "rulesKo": "시야선 불필요. 대상: 7보폭 이내의 모든 아군 유닛\n대상의 공격 굴림과 방어 굴림에 파랑 주사위 하나를 추가합니다.",
       "section": "enhancement",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": "UNTOUCHABLE. No LoS. Target: all allied units within 7 strides\nThe targets add 1 blue die to their attack and defense rolls."
     }
   ],
   "aileen_cethir_wynn": [
@@ -5539,7 +5580,8 @@
       "titleKo": "헌터스 마크",
       "rulesKo": "자신의 활성화 중 한 번\n18보폭 이내의 적 유닛 하나에 헌터스 마크을 놓을 수 있습니다. 적 유닛당 토큰 하나이며 전체 최대 3개까지 놓을 수 있습니다. 표식이 있는 대상을 향한 자신의 근접 및 원거리 공격은 노랑 주사위 하나를 추가하고 다음 스위치를 얻습니다.\n!!!: 대상의 검은 방패 하나를 취소합니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "englishDisplay": ") HUNTER’S MARK. Once during your activation\nYou can place a Hunter's Mark on an enemy unit within 18 strides (one token\nper enemy, max. 3 tokens). Your melee and ranged attacks against targets with\nthe Hunter's Mark add 1 yellow die and gain the switch:\nG00 Cancel IW from your target"
     }
   ],
   "druid": [
@@ -5552,7 +5594,8 @@
       "titleKo": "퍼니시 디 인트루더",
       "rulesKo": "대상: 18보폭 이내의 적 유닛\n빨강 주사위 2개·노랑 주사위 1개와 ★ 1개로 대상에게 원거리 공격을 해결합니다.\n◆: 대상은 스트레스 1과 둔화 상태를 받습니다.\n◆◆: 대상으로부터 7보폭 이내의 숲 또는 다른 아군 네모러스 유닛 하나마다 이 원거리 공격에 주황 주사위 하나를 추가합니다.",
       "section": "base",
-      "iconType": "spell"
+      "iconType": "spell",
+      "englishDisplay": "PUNISH THE INTRUDER. Target: an enemy unit within |8 strides\n\nResolve a ranged attack of value 2 red dice and 1 yellow die plus & against the target.\n\n@:The target receives 1 stress and the slowed state.\n\n@@:Add 1 orange die to the ranged attack for each forest or another allied Nemorous unit withir\n7 strides of the target."
     },
     {
       "top": 0.4007,
@@ -5563,7 +5606,8 @@
       "titleKo": "이그졸팅 더 트룹스",
       "rulesKo": "대상: 12보폭 이내의 숲 또는 아군 네모러스 유닛. 지속: 4턴\n대상으로부터 7보폭 이내의 모든 아군 유닛은 근접 공격 굴림에 주황 주사위 하나를 추가할 수 있습니다.\n◆: 영향을 받는 유닛은 자신의 활성화 종료 시 스트레스 1을 제거합니다.\n◆◆: 영향을 받는 유닛은 주황 주사위 대신 빨강 또는 노랑 주사위 하나를 추가합니다.\n이 주문의 대상 둘 이상으로부터 범위 내에 있더라도 효과는 중첩되지 않습니다.",
       "section": "base",
-      "iconType": "spell"
+      "iconType": "spell",
+      "englishDisplay": "EXALTING THE TROOPS. Target: a forest or a Nemorous allied unit within | 2 strides.\nDuration: 4 turns.\n\nAll allied units within 7 strides of the target may add 1 orange die to their melee attack rolls.\n@:The affected units remove 1 stress at the end of their activation.\n\n@ @:The affected units add 1 red die or 1 yellow die instead of 1 orange die\n\n(Allied units within range of 2 or more targets of this spell do not stack its effects)"
     },
     {
       "top": 0.5364,
@@ -5587,7 +5631,8 @@
       "titleKo": "더 웨이브레이커",
       "rulesKo": "대상: 12보폭 이내의 적 유닛\n주황 주사위 3개와 ★ 1개로 대상에게 원거리 공격을 해결합니다. 대상으로부터 3보폭 이내의 모든 유닛을 밀어내기(3)합니다.",
       "section": "base",
-      "iconType": "action"
+      "iconType": "action",
+      "englishDisplay": "THE WAYBREAKER. Target: an enemy unit within |2 strides\nResolve a ranged attack of value 3 orange dice plus « against the target.\nShove (3) all units within 3 strides of the target."
     },
     {
       "top": 0.4238,
@@ -5845,7 +5890,8 @@
       "titleKo": "히든 트랩스",
       "rulesKo": "시야선 불필요. 대상: 12보폭 이내의 적 유닛. 대상이 돌격 또는 강습을 선언했을 때\n빨강 주사위 하나와 주황 주사위 2개로 대상에게 원거리 공격을 해결합니다. 이 공격은 다음 스위치를 얻습니다.\n!: 대상은 스트레스 1을 받습니다.",
       "section": "base",
-      "iconType": "command"
+      "iconType": "command",
+      "englishDisplay": "HIDDEN TRAPS. No LoS. Target: an enemy unit within | 2 strides.When the target declares a\ncharge or assault.\nResolve a ranged attack of value 1 red die and 2 orange dice against the target.\nThis attack gains the switch:\n! :Your target suffers 1 stress"
     },
     {
       "top": 0.4738,
@@ -6080,7 +6126,8 @@
       "rulesKo": "긴 행동.\n시야선 불필요. 대상: 12보폭 이내의 적 유닛\n자신이 교전 중이 아니라면 대상과 교전하도록 자신을 배치한 뒤, 공격 굴림에 노랑 주사위 하나를 추가해 공격합니다.",
       "section": "base",
       "iconType": "action",
-      "actionCost": "long"
+      "actionCost": "long",
+      "englishDisplay": "p> deat FROM THE SKIES. Long action. No LoS. Target: an enemy unit within |2 strides\nIf you are not engaged, place yourself engaged with the target and attack adding 1 yellow die to\nyour attack roll."
     },
     {
       "top": 0.4203,

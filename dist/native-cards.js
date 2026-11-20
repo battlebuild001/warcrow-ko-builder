@@ -1,6 +1,6 @@
 /* Cards are rendered from reviewed game data. No source-card image is used here. */
 let nativeCards={};
-const nativeGlyphs={red:'w',orange:'q',yellow:'0',green:'9',blue:'8',black:'7',success:'1','hollow-success':'2',block:'3','hollow-block':'4',special:'5','hollow-special':'6',tinge:'[',lightning:'f',damage:'L'};
+const nativeGlyphs={...diceProse.glyphs,success:'1','hollow-success':'2',block:'3','hollow-block':'4',special:'5','hollow-special':'6',tinge:'[',lightning:'f',damage:'L'};
 const nativeGlyphLabels={red:['빨강 주사위','Red die'],orange:['주황 주사위','Orange die'],yellow:['노랑 주사위','Yellow die'],green:['초록 주사위','Green die'],blue:['파랑 주사위','Blue die'],black:['검정 주사위','Black die'],success:['성공 기호','Success'],block:['방어 기호','Block'],special:['특수 기호','Special'],'hollow-success':['빈 성공 기호','Hollow success'],'hollow-block':['빈 방어 기호','Hollow block'],'hollow-special':['빈 특수 기호','Hollow special'],tinge:['팅지','Tinge'],lightning:['수정치','Modifier'],damage:['피해','Damage']};
 function nativeGlyph(kind,trigger=false){
   const label=nativeGlyphLabels[kind]||[kind,kind],isDie=['red','orange','yellow','green','blue','black'].includes(kind);
@@ -54,9 +54,9 @@ function nativeCombat(row,effects){
 }
 function nativeAbility(box,index){
   const type=box.iconType||'passive',typeNames={spell:['마법 능력','Magic skill'],action:['전투 능력','Combat skill'],command:['지휘 능력','Command skill'],passive:['패시브 능력','Passive skill'],tinge:['팅지 능력','Tinge skill']},glyph={spell:'?',action:'2',command:'@',automatic:'@',passive:'%',tinge:'['}[type]||'%';
-  const title=box.titleKo||'',body=box.rulesKo??box.korean??'';
+  const title=box.titleKo||'',body=box.rulesKoDisplay??box.rulesKo??box.korean??'',english=box.englishDisplay??box.english;
   const cost=box.actionCost==='long'?ruleTerm('long-action',ui('긴 행동 1회','1 long action')):type==='command'?ui('지휘 토큰 1개','1 Command token'):type==='passive'?ui('조건 충족 시 적용','Apply at the printed condition'):type==='tinge'?ui('행동 + 팅지 1개','Action + 1 Tinge'):ui('행동 사용','Uses an action');
-  return `<section class="native-ability" data-ability-index="${index}" data-section="${box.section||'base'}"><button type="button" class="native-ability-mark native-ability-${type}" data-rule="skills" aria-label="${escapeHtml(ui(...(typeNames[type]||['능력 종류','Skill types'])))}" title="${escapeHtml(ui(...(typeNames[type]||['능력 종류','Skill types'])))}"><span aria-hidden="true">${glyph}</span></button><div><div class="native-ability-heading"><p class="native-ability-kind">${ui(...(typeNames[type]||['능력','Skill']))} · ${cost}</p>${language!=='en'?`<h3 class="native-ability-title">${escapeHtml(title)}</h3>`:''}</div>${nativeRuleCopy(body,box.english)}</div></section>`;
+  return `<section class="native-ability" data-ability-index="${index}" data-section="${box.section||'base'}"><button type="button" class="native-ability-mark native-ability-${type}" data-rule="skills" aria-label="${escapeHtml(ui(...(typeNames[type]||['능력 종류','Skill types'])))}" title="${escapeHtml(ui(...(typeNames[type]||['능력 종류','Skill types'])))}"><span aria-hidden="true">${glyph}</span></button><div><div class="native-ability-heading"><p class="native-ability-kind">${ui(...(typeNames[type]||['능력','Skill']))} · ${cost}</p>${language!=='en'?`<h3 class="native-ability-title">${escapeHtml(title)}</h3>`:''}</div>${nativeRuleCopy(body,english)}</div></section>`;
 }
 function nativeUnitCard(u,options={}){
   const profile=options.profile||nativeCards[u.cardKey]||{},abilities=options.abilities||cardAbilities[u.cardKey]||[],effects=options.effects||cardEffects[u.cardKey]||[];
