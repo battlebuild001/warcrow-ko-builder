@@ -4128,83 +4128,71 @@
   ],
   "bugbowls": [
     {
-      "top": 0.531,
-      "bottom": 0.6142,
-      "english": "TINY! Target: all the enemy units\nYou can force the targets to reroll one die from their attack rolls against you, in which they obtain any ★. When you disengage from combat, your enemies cannot perform an opportunity attack against you.",
-      "korean": "타이니.\n대상: 모든 적 유닛\n대상이 자신을 상대로 한 공격 굴림에서 ★를 얻은 주사위 중 1개를 다시 굴리도록 강제할 수 있습니다. 자신이 교전에서 이탈할 때 적은 자신에게 기회 공격을 할 수 없습니다.",
-      "translationReviewRequired": false,
-      "titleKo": "타이니",
-      "rulesKo": "대상: 모든 적 유닛\n대상이 자신을 상대로 한 공격 굴림에서 ★를 얻은 주사위 중 1개를 다시 굴리도록 강제할 수 있습니다. 자신이 교전에서 이탈할 때 적은 자신에게 기회 공격을 할 수 없습니다.",
-      "section": "base",
-      "iconType": "passive"
-    },
-    {
-      "top": 0.6305,
-      "bottom": 0.6946,
-      "english": "RED WAVE. When you are destroyed\nIf there is an allied Crucible on the battlefield, place this card under the Crucible's\nprofile.",
-      "korean": "레드 웨이브.\n자신이 파괴되었을 때\n전장에 아군 크루서블이 있다면 이 카드를 해당 크루서블의 프로필 아래에 놓습니다.",
-      "translationReviewRequired": false,
-      "titleKo": "레드 웨이브",
-      "rulesKo": "자신이 파괴되었을 때\n전장에 아군 크루서블이 있다면 이 카드를 해당 크루서블의 프로필 아래에 놓습니다.",
-      "section": "base",
-      "iconType": "passive"
-    },
-    {
-      "top": 0.7116,
-      "bottom": 0.7595,
-      "english": "ANXIOUS MOB. At the start of the round\nYou may displace (8).",
-      "korean": "앵크셔스 몹.\n라운드 시작 시\n자신을 강제 이동(8)시킬 수 있습니다.",
-      "translationReviewRequired": false,
-      "titleKo": "앵크셔스 몹",
-      "rulesKo": "라운드 시작 시\n자신을 강제 이동(8)시킬 수 있습니다.",
-      "section": "base",
-      "iconType": "passive"
-    },
-    {
-      "top": 0.7757,
-      "bottom": 0.8244,
-      "english": "ROLLING ONSLAUGHT\nIgnore the effects of any terrain element you traverse when charging or assaulting.",
-      "korean": "롤링 온슬로트.\n돌격하거나 강습할 때\n통과하는 모든 지형 요소의 효과를 무시합니다.",
-      "translationReviewRequired": false,
+      "top": 0.572,
+      "bottom": 0.641,
+      "english": "Rolling Onslaught.\nRoll 3 yellow dice. Displace (3) for each special until you collide.\nIf you collide against an enemy unit, inflict 1 damage on it for each success.",
+      "korean": "롤링 온슬로트.\n노란색 주사위 3개를 굴립니다. 충돌할 때까지 느낌표(!) 기호 하나마다 자신을 강제 이동(3)시킵니다. 적 유닛과 충돌했다면 별(★) 기호 하나마다 그 적 유닛에 피해 1을 줍니다.",
       "titleKo": "롤링 온슬로트",
-      "rulesKo": "돌격하거나 강습할 때\n통과하는 모든 지형 요소의 효과를 무시합니다.",
+      "rulesKo": "노란색 주사위 3개를 굴립니다. 충돌할 때까지 느낌표(!) 기호 하나마다 자신을 강제 이동(3)시킵니다. 적 유닛과 충돌했다면 별(★) 기호 하나마다 그 적 유닛에 피해 1을 줍니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "action",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "official-card-image-2026-11-21"
+    },
+    {
+      "top": 0.655,
+      "bottom": 0.72,
+      "english": "Anxious Mob. When you deploy applying Scout once the game has started.\nYou may use your skill Rolling Onslaught without consuming an action.",
+      "korean": "앵크셔스 몹.\n게임이 시작된 뒤 정찰(Scout)을 적용하여 자신을 배치할 때, 행동을 소비하지 않고 롤링 온슬로트 능력을 사용할 수 있습니다.",
+      "titleKo": "앵크셔스 몹",
+      "rulesKo": "게임이 시작된 뒤 정찰(Scout)을 적용하여 자신을 배치할 때, 행동을 소비하지 않고 롤링 온슬로트 능력을 사용할 수 있습니다.",
+      "section": "base",
+      "iconType": "passive",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "official-card-image-2026-11-21"
     }
   ],
   "crucible": [
     {
-      "top": 0.3993,
-      "bottom": 0.4459,
-      "english": "THROW RED Caps Target: an allied Projectile unit within 5 strides. If you are not engaged\nPlace (10) the target.",
-      "korean": "스로 레드 캡스.\n대상: 5보폭 이내의 아군 투사체 유닛. 자신이 교전 중이 아닐 때\n대상을 배치(10)합니다.",
-      "translationReviewRequired": false,
+      "top": 0.402,
+      "bottom": 0.465,
+      "english": "Throw Red Caps. Target: an allied Projectile unit within 5 strides. If you are not engaged.\nPlace (10) the target.",
+      "korean": "스로 레드 캡스.\n대상: 5보폭 이내의 아군 투사체(Projectile) 유닛 하나. 자신이 교전 중이 아닐 때 사용할 수 있습니다. 대상을 배치(10)합니다.",
       "titleKo": "스로 레드 캡스",
-      "rulesKo": "대상: 5보폭 이내의 아군 투사체 유닛. 자신이 교전 중이 아닐 때\n대상을 배치(10)합니다.",
+      "rulesKo": "대상: 5보폭 이내의 아군 투사체(Projectile) 유닛 하나. 자신이 교전 중이 아닐 때 사용할 수 있습니다. 대상을 배치(10)합니다.",
       "section": "base",
-      "iconType": "action"
+      "iconType": "action",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "official-card-image-2026-11-21"
     },
     {
-      "top": 0.4622,
-      "bottom": 0.5442,
-      "english": "SOURCE OF LIFE. If you are not engaged\nTake one of the Red Cap cards under this profile and place the unit within 10 strides from you. If you place it engaged in combat, resolve a ranged attack against the enemy unit of 2 red dice and 2 orange dice value.",
-      "korean": "소스 오브 라이프.\n자신이 교전 중이 아닐 때\n이 프로필 아래에 있는 레드 캡 카드 하나를 선택하고, 해당 유닛을 자신으로부터 10보폭 이내에 배치합니다. 적과 교전하도록 배치했다면 그 적 유닛을 상대로 빨간색 주사위 2개와 주황색 주사위 2개의 수치로 원거리 공격을 해결합니다.",
-      "translationReviewRequired": false,
+      "top": 0.48,
+      "bottom": 0.578,
+      "english": "Source Of Life. If you are not engaged.\nTake one of the Red Cap cards under this profile and place the unit within 10 strides from you. If you place it engaged in combat, resolve a ranged attack against the enemy unit of 2 red dice and 2 orange dice value.",
+      "korean": "소스 오브 라이프.\n자신이 교전 중이 아닐 때 사용할 수 있습니다. 이 프로필 아래에 있는 레드 캡 카드 하나를 선택하고 해당 유닛을 자신으로부터 10보폭 이내에 배치합니다. 적과 교전하도록 배치했다면 그 적 유닛을 상대로 빨간색 주사위 2개와 주황색 주사위 2개로 원거리 공격을 해결합니다.",
       "titleKo": "소스 오브 라이프",
-      "rulesKo": "자신이 교전 중이 아닐 때\n이 프로필 아래에 있는 레드 캡 카드 하나를 선택하고, 해당 유닛을 자신으로부터 10보폭 이내에 배치합니다. 적과 교전하도록 배치했다면 그 적 유닛을 상대로 빨간색 주사위 2개와 주황색 주사위 2개의 수치로 원거리 공격을 해결합니다.",
+      "rulesKo": "자신이 교전 중이 아닐 때 사용할 수 있습니다. 이 프로필 아래에 있는 레드 캡 카드 하나를 선택하고 해당 유닛을 자신으로부터 10보폭 이내에 배치합니다. 적과 교전하도록 배치했다면 그 적 유닛을 상대로 빨간색 주사위 2개와 주황색 주사위 2개로 원거리 공격을 해결합니다.",
       "section": "base",
-      "iconType": "action"
+      "iconType": "action",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "official-card-image-2026-11-21"
     },
     {
-      "top": 0.5604,
-      "bottom": 0.6261,
-      "english": "BURNING COAL\nAt the end of their activation, all units that are not Red Cap that have been within 3\nstrides of you during their activation suffer 1 damage.",
+      "top": 0.593,
+      "bottom": 0.659,
+      "english": "Burning Coal.\nAt the end of their activation, all units that are not Red Cap that have been within 3 strides of you during their activation suffer 1 damage.",
       "korean": "버닝 콜.\n유닛의 활성화가 끝날 때, 그 활성화 중 자신으로부터 3보폭 이내에 있었던 레드 캡이 아닌 모든 유닛은 피해 1을 받습니다.",
-      "translationReviewRequired": false,
       "titleKo": "버닝 콜",
       "rulesKo": "유닛의 활성화가 끝날 때, 그 활성화 중 자신으로부터 3보폭 이내에 있었던 레드 캡이 아닌 모든 유닛은 피해 1을 받습니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "official-card-image-2026-11-21"
     }
   ],
   "echoes": [
@@ -4285,26 +4273,30 @@
   ],
   "flamecobs": [
     {
-      "top": 0.4697,
-      "bottom": 0.5197,
-      "english": "EXPLOSION. When a troop from your unit is about to be taken out of combat\nAll other units within 5 strides suffer 1 stress and 2 damage.",
-      "korean": "익스플로전.\n자신의 유닛에 속한 병력 하나가 전투에서 제외되기 직전\n5보폭 이내의 다른 모든 유닛은 스트레스 1과 피해 2를 받습니다.",
-      "translationReviewRequired": false,
-      "titleKo": "익스플로전",
-      "rulesKo": "자신의 유닛에 속한 병력 하나가 전투에서 제외되기 직전\n5보폭 이내의 다른 모든 유닛은 스트레스 1과 피해 2를 받습니다.",
+      "top": 0.434,
+      "bottom": 0.516,
+      "english": "Ka-BOOM! Dauntless. When a troop of your unit is about to be taken out of combat. No LoS. Target: all the other units within 3 strides.\nThe targets suffer 1 stress and 1 damage.",
+      "korean": "카붐.\n불굴(Dauntless). 시야선 불필요. 자신의 유닛에 속한 병력 하나가 전투에서 제외되기 직전, 3보폭 이내의 다른 모든 유닛은 스트레스 1과 피해 1을 받습니다.",
+      "titleKo": "카붐",
+      "rulesKo": "불굴(Dauntless). 시야선 불필요. 자신의 유닛에 속한 병력 하나가 전투에서 제외되기 직전, 3보폭 이내의 다른 모든 유닛은 스트레스 1과 피해 1을 받습니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "official-card-image-2026-11-21"
     },
     {
-      "top": 0.536,
-      "bottom": 0.6185,
-      "english": "EMOTION: RAGE Only if Nuada chooses the rage emotion\n\nYou may inflict yourself 1 damage to add 44K to your attack rolls (melee and ranged). You\ncannot inflict yoursell the damage if this destroys the unit. This damage is not accounted\nfor in the resolution of a combat.",
-      "korean": "이모션: 레이지.\n누아다가 레이지 감정을 선택한 경우에만\n자신에게 피해 1을 가해 자신의 근접 및 원거리 공격 굴림에 ★ 2개를 추가할 수 있습니다. 이 피해로 유닛이 파괴된다면 사용할 수 없습니다. 이 피해는 전투 결과를 계산할 때 포함하지 않습니다.",
-      "translationReviewRequired": false,
-      "titleKo": "이모션: 레이지",
-      "rulesKo": "누아다가 레이지 감정을 선택한 경우에만\n자신에게 피해 1을 가해 자신의 근접 및 원거리 공격 굴림에 ★ 2개를 추가할 수 있습니다. 이 피해로 유닛이 파괴된다면 사용할 수 없습니다. 이 피해는 전투 결과를 계산할 때 포함하지 않습니다.",
+      "top": 0.531,
+      "bottom": 0.684,
+      "english": "Incinerate. Once per attack. When you activate the switch \"Incinerate\".\nDuring this attack, your target can only cancel your success with hollow-block (instead of block).\nYour target receives a Duration 1 turn effect. When the effect ends, the target must roll 1 orange die:\n- If it gets success, it suffers 1 damage.\n- If it gets special, advance 1 position the effect token instead of removing it from the turn counter.",
+      "korean": "인시너레이트.\n공격당 한 번. 인시너레이트 스위치를 발동했을 때 적용합니다.\n이번 공격에서 대상은 공격자의 별(★) 기호를 일반 방패 대신 빈 방패 기호로만 취소할 수 있습니다.\n대상에게 지속시간 1턴인 효과를 부여합니다. 효과가 끝날 때 대상은 주황색 주사위 1개를 굴립니다.\n• 별(★) 기호가 나오면 피해 1을 받습니다.\n• 느낌표(!) 기호가 나오면 효과 토큰을 턴 카운터에서 제거하는 대신 1칸 전진시킵니다.",
+      "titleKo": "인시너레이트",
+      "rulesKo": "공격당 한 번. 인시너레이트 스위치를 발동했을 때 적용합니다.\n이번 공격에서 대상은 공격자의 별(★) 기호를 일반 방패 대신 빈 방패 기호로만 취소할 수 있습니다.\n대상에게 지속시간 1턴인 효과를 부여합니다. 효과가 끝날 때 대상은 주황색 주사위 1개를 굴립니다.\n• 별(★) 기호가 나오면 피해 1을 받습니다.\n• 느낌표(!) 기호가 나오면 효과 토큰을 턴 카운터에서 제거하는 대신 1칸 전진시킵니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "official-card-image-2026-11-21"
     }
   ],
   "gitmalu_the_perfect_one": [
@@ -4355,48 +4347,56 @@
   ],
   "gobblers": [
     {
-      "top": 0.469,
-      "bottom": 0.5515,
-      "english": "TINY! Target: all the enemy units\nYou can force the targets to reroll one die from their attack rolls against you, in which they obtain any ★. When you disengage from combat, your enemies cannot perform an opportunity attack against you.",
-      "korean": "타이니.\n대상: 모든 적 유닛\n대상이 자신을 상대로 한 공격 굴림에서 ★를 얻은 주사위 중 1개를 다시 굴리도록 강제할 수 있습니다. 자신이 교전에서 이탈할 때 적은 자신에게 기회 공격을 할 수 없습니다.",
-      "translationReviewRequired": false,
+      "top": 0.471,
+      "bottom": 0.567,
+      "english": "Tiny! Target: all the enemy units.\nYou can force the targets to reroll one die from their attack rolls against you, in which they obtain any success. When you disengage from combat, your enemies cannot perform an opportunity attack against you.",
+      "korean": "타이니.\n대상: 모든 적 유닛\n대상이 자신을 상대로 한 공격 굴림에서 별(★) 기호가 나온 주사위 하나를 다시 굴리도록 강제할 수 있습니다. 자신이 교전에서 이탈할 때 적은 자신에게 기회 공격을 할 수 없습니다.",
       "titleKo": "타이니",
-      "rulesKo": "대상: 모든 적 유닛\n대상이 자신을 상대로 한 공격 굴림에서 ★를 얻은 주사위 중 1개를 다시 굴리도록 강제할 수 있습니다. 자신이 교전에서 이탈할 때 적은 자신에게 기회 공격을 할 수 없습니다.",
+      "rulesKo": "대상: 모든 적 유닛\n대상이 자신을 상대로 한 공격 굴림에서 별(★) 기호가 나온 주사위 하나를 다시 굴리도록 강제할 수 있습니다. 자신이 교전에서 이탈할 때 적은 자신에게 기회 공격을 할 수 없습니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "official-card-image-2026-11-21"
     },
     {
-      "top": 0.5677,
-      "bottom": 0.6157,
-      "english": "FERAL AND PRIMAL\nYou cannot be demoralized.",
+      "top": 0.582,
+      "bottom": 0.631,
+      "english": "Feral And Primal.\nYou cannot be demoralized.",
       "korean": "페럴 앤드 프라이멀.\n자신은 사기 붕괴 상태가 될 수 없습니다.",
-      "translationReviewRequired": false,
       "titleKo": "페럴 앤드 프라이멀",
       "rulesKo": "자신은 사기 붕괴 상태가 될 수 없습니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "official-card-image-2026-11-21"
     },
     {
-      "top": 0.6319,
-      "bottom": 0.6961,
-      "english": "RED Wave. When you are destroyed\nif a is an allied Crucible on the battlefield, place this card under the Crucible's\nprofile.",
-      "korean": "레드 웨이브.\n자신이 파괴되었을 때\n전장에 아군 크루서블이 있다면 이 카드를 해당 크루서블의 프로필 아래에 놓습니다.",
-      "translationReviewRequired": false,
+      "top": 0.647,
+      "bottom": 0.724,
+      "english": "Red Wave. When you are destroyed.\nIf there is an allied Crucible on the battlefield, place this card under the Crucible's profile.",
+      "korean": "레드 웨이브.\n자신이 파괴되었을 때, 전장에 아군 크루서블이 있다면 이 카드를 해당 크루서블의 프로필 아래에 놓습니다.",
       "titleKo": "레드 웨이브",
-      "rulesKo": "자신이 파괴되었을 때\n전장에 아군 크루서블이 있다면 이 카드를 해당 크루서블의 프로필 아래에 놓습니다.",
+      "rulesKo": "자신이 파괴되었을 때, 전장에 아군 크루서블이 있다면 이 카드를 해당 크루서블의 프로필 아래에 놓습니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "official-card-image-2026-11-21"
     },
     {
-      "top": 0.7123,
-      "bottom": 0.7602,
-      "english": "ANXIOUS MOB. At the start of the round\nYou may displace (8).",
-      "korean": "앵크셔스 몹.\n라운드 시작 시\n자신을 강제 이동(8)시킬 수 있습니다.",
-      "translationReviewRequired": false,
+      "top": 0.74,
+      "bottom": 0.804,
+      "english": "Anxious Mob. At the start of the round.\nYou may displace (8).",
+      "korean": "앵크셔스 몹.\n라운드 시작 시 자신을 강제 이동(8)시킬 수 있습니다.",
       "titleKo": "앵크셔스 몹",
-      "rulesKo": "라운드 시작 시\n자신을 강제 이동(8)시킬 수 있습니다.",
+      "rulesKo": "라운드 시작 시 자신을 강제 이동(8)시킬 수 있습니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "official-card-image-2026-11-21"
     }
   ],
   "harvester": [
@@ -4989,37 +4989,43 @@
   ],
   "nuada": [
     {
-      "top": 0.3759,
-      "bottom": 0.4415,
-      "english": "LiQuiD ORICHALCUM. At the beginning of your activation\nHeal all the damage, remove all your stress and remove any state on you. Receive 2K\nand check the tinge effect.",
-      "korean": "리퀴드 오리칼쿰.\n자신의 활성화 시작 시\n자신의 모든 피해를 회복하고 스트레스와 상태를 전부 제거합니다. 팅지 2를 받고 팅지의 효과를 확인합니다.",
-      "translationReviewRequired": false,
-      "titleKo": "리퀴드 오리칼쿰",
-      "rulesKo": "자신의 활성화 시작 시\n자신의 모든 피해를 회복하고 스트레스와 상태를 전부 제거합니다. 팅지 2를 받고 팅지의 효과를 확인합니다.",
-      "section": "base",
-      "iconType": "command"
-    },
-    {
-      "top": 0.4577,
-      "bottom": 0.6051,
-      "english": "| BLOODSUCKER® POIGNARD\n\nEach time you inflict any amount of damage, place a damage token on this skill.At the\nend of your sr petirage ey may remove X tokens once and apply the following effects:\n\n- X between | and 4: Heal up to X@ from all the allied units within |5 strides and/or\nrecover troops from them, paying as many damage tokens from this skill as their W value\n(Le.W2 = damages Maral - =\n\n- X equal or beyond 5: Recover an allied Large unit and deploy it within 5 strides, paying\nas many damage tokens as its W value.",
-      "korean": "블러드서커 포이냐드.\n자신이 피해를 입힐 때마다 이 능력 위에 피해 토큰 하나를 놓습니다. 자신의 활성화 종료 시 한 번, 토큰 X개를 제거하고 다음 효과를 적용할 수 있습니다.\n• X가 1~4: 15보폭 이내의 모든 아군 유닛의 피해를 최대 X까지 회복하거나 병력을 회복합니다. 병력을 회복하려면 해당 병력의 체력(W)만큼 이 능력의 피해 토큰을 지불합니다. 예: W 2는 피해 토큰 2개.\n• X가 5 이상: 아군 대형 유닛 하나를 회복하여 5보폭 이내에 배치합니다. 해당 유닛의 체력(W)만큼 피해 토큰을 지불합니다.",
-      "translationReviewRequired": false,
+      "top": 0.345,
+      "bottom": 0.409,
+      "english": "\"Bloodsucker\" Poignard. Dauntless. When you attack or are the target of an attack.\nIgnore the first damage you would suffer.",
+      "korean": "블러드서커 포이냐드.\n불굴(Dauntless). 자신이 공격하거나 공격의 대상이 되었을 때, 자신이 받을 첫 피해 1을 무시합니다.",
       "titleKo": "블러드서커 포이냐드",
-      "rulesKo": "자신이 피해를 입힐 때마다 이 능력 위에 피해 토큰 하나를 놓습니다. 자신의 활성화 종료 시 한 번, 토큰 X개를 제거하고 다음 효과를 적용할 수 있습니다.\n• X가 1~4: 15보폭 이내의 모든 아군 유닛의 피해를 최대 X까지 회복하거나 병력을 회복합니다. 병력을 회복하려면 해당 병력의 체력(W)만큼 이 능력의 피해 토큰을 지불합니다. 예: W 2는 피해 토큰 2개.\n• X가 5 이상: 아군 대형 유닛 하나를 회복하여 5보폭 이내에 배치합니다. 해당 유닛의 체력(W)만큼 피해 토큰을 지불합니다.",
+      "rulesKo": "불굴(Dauntless). 자신이 공격하거나 공격의 대상이 되었을 때, 자신이 받을 첫 피해 1을 무시합니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "official-card-image-2026-11-21"
     },
     {
-      "top": 0.6206,
-      "bottom": 0.7518,
-      "english": "IDOMINANT EMOTION. At the beginning of the game and your activation\n\nYou must choose which emotion dominates Nuada and apply its effects for all the Red\nCap units:\n\n- ee units may Bos ea their defense and WP rolls.\n\n- Rage. The units add 3 to their charge movement and gain Bloodlust and Fearless.\n\n- Frustration. The units add 40K to their attack rolls if their target has the slowed\nstate.",
-      "korean": "도미넌트 이모션.\n게임 시작 시와 자신의 활성화 시작 시\n누아다를 지배하는 감정을 하나 선택하고 모든 레드 캡 유닛에 적용합니다.\n• 앤티시페이션: 방어 굴림과 의지(WP) 굴림을 다시 굴릴 수 있습니다.\n• 레이지: 돌격 이동에 3을 더하고 피의 갈증과 공포 무시를 얻습니다.\n• 프러스트레이션: 공격 대상이 둔화 상태라면 공격 굴림에 ★ 2개를 추가합니다.",
-      "translationReviewRequired": false,
+      "top": 0.425,
+      "bottom": 0.583,
+      "english": "Dominant Emotion. No LoS. Target: all allied Red Cap units.\nWhen you deploy, choose a dominant emotion.\nAt the beginning of your activation, you must change your dominant emotion.\nThe targets apply the effect of the chosen dominant emotion:\n- Anticipation: The targets may reroll up to 2 dice from their defense rolls.\n- Rage: The targets add 2 to their charge movement and gain Raging.\n- Frustration: The targets gain Fearless and may repeat up to 2 dice from their WP rolls.",
+      "korean": "도미넌트 이모션.\n시야선 불필요. 대상: 모든 아군 레드 캡 유닛\n자신을 배치할 때 지배적인 감정 하나를 선택합니다. 자신의 활성화 시작 시 지배적인 감정을 반드시 다른 감정으로 변경합니다. 대상은 선택한 감정의 효과를 적용합니다.\n• 앤티시페이션: 방어 굴림의 주사위를 최대 2개 다시 굴릴 수 있습니다.\n• 레이지: 돌격 이동에 2를 더하고 레이징(Raging)을 얻습니다.\n• 프러스트레이션: 공포 무시(Fearless)를 얻고 의지(WP) 굴림의 주사위를 최대 2개 다시 굴릴 수 있습니다.",
       "titleKo": "도미넌트 이모션",
-      "rulesKo": "게임 시작 시와 자신의 활성화 시작 시\n누아다를 지배하는 감정을 하나 선택하고 모든 레드 캡 유닛에 적용합니다.\n• 앤티시페이션: 방어 굴림과 의지(WP) 굴림을 다시 굴릴 수 있습니다.\n• 레이지: 돌격 이동에 3을 더하고 피의 갈증과 공포 무시를 얻습니다.\n• 프러스트레이션: 공격 대상이 둔화 상태라면 공격 굴림에 ★ 2개를 추가합니다.",
+      "rulesKo": "시야선 불필요. 대상: 모든 아군 레드 캡 유닛\n자신을 배치할 때 지배적인 감정 하나를 선택합니다. 자신의 활성화 시작 시 지배적인 감정을 반드시 다른 감정으로 변경합니다. 대상은 선택한 감정의 효과를 적용합니다.\n• 앤티시페이션: 방어 굴림의 주사위를 최대 2개 다시 굴릴 수 있습니다.\n• 레이지: 돌격 이동에 2를 더하고 레이징(Raging)을 얻습니다.\n• 프러스트레이션: 공포 무시(Fearless)를 얻고 의지(WP) 굴림의 주사위를 최대 2개 다시 굴릴 수 있습니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "official-card-image-2026-11-21"
+    },
+    {
+      "top": 0.6,
+      "bottom": 0.695,
+      "english": "Master Of The Red Caps. At the end of your activation. Target: an allied Red Cap unit within 12 strides.\nChoose one:\n- The target may perform a simple action.\n- You may suffer 1 stress to activate the target (once per round).",
+      "korean": "마스터 오브 더 레드 캡스.\n자신의 활성화 종료 시. 대상: 12보폭 이내의 아군 레드 캡 유닛 하나\n다음 중 하나를 선택합니다.\n• 대상이 단순 행동 하나를 수행할 수 있습니다.\n• 자신이 스트레스 1을 받아 대상을 활성화할 수 있습니다. 이 선택지는 라운드당 한 번 사용할 수 있습니다.",
+      "titleKo": "마스터 오브 더 레드 캡스",
+      "rulesKo": "자신의 활성화 종료 시. 대상: 12보폭 이내의 아군 레드 캡 유닛 하나\n다음 중 하나를 선택합니다.\n• 대상이 단순 행동 하나를 수행할 수 있습니다.\n• 자신이 스트레스 1을 받아 대상을 활성화할 수 있습니다. 이 선택지는 라운드당 한 번 사용할 수 있습니다.",
+      "section": "base",
+      "iconType": "passive",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "official-card-image-2026-11-21"
     }
   ],
   "orc_husk": [
@@ -5065,84 +5071,84 @@
   ],
   "osseous": [
     {
-      "top": 0.4316,
-      "bottom": 0.5148,
-      "english": "TINY! Target: all enemy units.\nYou can force the targets to reroll one die from their attack rolls against you in which they obtain any ★. When you disengage from combat, your enemies cannot perform an opportunity attack against you.",
-      "korean": "타이니.\n대상: 모든 적 유닛\n대상이 자신을 공격할 때, 그 공격 굴림에서 별(★) 기호가 나온 주사위 하나를 다시 굴리도록 강제할 수 있습니다. 자신이 교전에서 벗어날 때 적은 자신에게 기회공격을 할 수 없습니다.",
-      "translationReviewRequired": false,
-      "translationReviewed": true,
-      "reviewSource": "official-card-image",
+      "top": 0.436,
+      "bottom": 0.533,
+      "english": "Tiny! Target: all the enemy units.\nYou can force the targets to reroll one die from their attack rolls against you, in which they obtain any success. When you disengage from combat, your enemies cannot perform an opportunity attack against you.",
+      "korean": "타이니.\n대상: 모든 적 유닛\n대상이 자신을 상대로 한 공격 굴림에서 별(★) 기호가 나온 주사위 하나를 다시 굴리도록 강제할 수 있습니다. 자신이 교전에서 이탈할 때 적은 자신에게 기회 공격을 할 수 없습니다.",
       "titleKo": "타이니",
-      "rulesKo": "대상: 모든 적 유닛\n대상이 자신을 공격할 때, 그 공격 굴림에서 별(★) 기호가 나온 주사위 하나를 다시 굴리도록 강제할 수 있습니다. 자신이 교전에서 벗어날 때 적은 자신에게 기회공격을 할 수 없습니다.",
+      "rulesKo": "대상: 모든 적 유닛\n대상이 자신을 상대로 한 공격 굴림에서 별(★) 기호가 나온 주사위 하나를 다시 굴리도록 강제할 수 있습니다. 자신이 교전에서 이탈할 때 적은 자신에게 기회 공격을 할 수 없습니다.",
       "section": "base",
-      "iconType": "passive"
-    },
-    {
-      "top": 0.5317,
-      "bottom": 0.579,
-      "english": "ANXIOUS MOB. At the start of the round\nYou may displace (8).",
-      "korean": "앵크셔스 몹.\n라운드 시작 시\n자신을 강제 이동(8)할 수 있습니다.",
+      "iconType": "passive",
       "translationReviewRequired": false,
       "translationReviewed": true,
-      "reviewSource": "official-card-image",
+      "translationReviewSource": "official-card-image-2026-11-21"
+    },
+    {
+      "top": 0.546,
+      "bottom": 0.611,
+      "english": "Anxious Mob. At the start of the round.\nYou may displace (8).",
+      "korean": "앵크셔스 몹.\n라운드 시작 시 자신을 강제 이동(8)시킬 수 있습니다.",
       "titleKo": "앵크셔스 몹",
-      "rulesKo": "라운드 시작 시\n자신을 강제 이동(8)할 수 있습니다.",
+      "rulesKo": "라운드 시작 시 자신을 강제 이동(8)시킬 수 있습니다.",
       "section": "base",
-      "iconType": "passive"
-    },
-    {
-      "top": 0.5952,
-      "bottom": 0.6615,
-      "english": "ORICHALCUM WEAPONS. During a melee combat in which you are the attacker.\nAt the end of the resolution step of the face-to-face roll, if you inflicted any damage to your target, inflict an additional 1 damage.",
-      "korean": "오리칼쿰 웨폰스.\n자신이 공격자인 근접 전투 중\n대결 굴림의 해결 단계가 끝날 때, 대상에게 피해를 줬다면 대상에게 피해 1을 추가로 줍니다.",
+      "iconType": "passive",
       "translationReviewRequired": false,
       "translationReviewed": true,
-      "reviewSource": "official-card-image",
+      "translationReviewSource": "official-card-image-2026-11-21"
+    },
+    {
+      "top": 0.626,
+      "bottom": 0.708,
+      "english": "Orichalcum Weapons. During a melee combat in which you are the attacker.\nAt the end of the \"Resolution step of the face to face roll\", if you inflicted any damage to your target, inflict an additional 1 damage.",
+      "korean": "오리칼쿰 웨폰스.\n자신이 공격자인 근접 전투 중, 대결 굴림의 해결 단계가 끝날 때 대상에게 피해를 줬다면 그 대상에게 피해 1을 추가로 줍니다.",
       "titleKo": "오리칼쿰 웨폰스",
-      "rulesKo": "자신이 공격자인 근접 전투 중\n대결 굴림의 해결 단계가 끝날 때, 대상에게 피해를 줬다면 대상에게 피해 1을 추가로 줍니다.",
+      "rulesKo": "자신이 공격자인 근접 전투 중, 대결 굴림의 해결 단계가 끝날 때 대상에게 피해를 줬다면 그 대상에게 피해 1을 추가로 줍니다.",
       "section": "base",
-      "iconType": "passive"
-    },
-    {
-      "top": 0.6784,
-      "bottom": 0.7419,
-      "english": "EMOTION: ANTICIPATION. Only if Nuada chooses the anticipation emotion\nYou gain Bloodlust and MOV 3-3 (12).When you have charged, shove (5) your target and\nplace yourself engaged in combat with it.",
-      "korean": "이모션: 앤티시페이션.\n누아다가 앤티시페이션 감정을 선택한 경우에만\n피의 갈증 특성을 얻고 이동(MOV)이 3-3 [12]가 됩니다. 돌격했을 때 대상을 밀어내기(5)하고, 그 대상과 교전하도록 자신을 배치합니다.",
+      "iconType": "passive",
       "translationReviewRequired": false,
       "translationReviewed": true,
-      "reviewSource": "official-card-image",
+      "translationReviewSource": "official-card-image-2026-11-21"
+    },
+    {
+      "top": 0.726,
+      "bottom": 0.8,
+      "english": "Emotion: Anticipation. Only if Nuada chooses the anticipation emotion.\nYou gain Bloodlust and MOV 3-3 (12). When you have charged, shove (5) your target and place yourself engaged in combat with it.",
+      "korean": "이모션: 앤티시페이션.\n누아다가 앤티시페이션 감정을 선택한 경우에만 적용합니다.\n피의 갈증(Bloodlust)을 얻고 이동(MOV)이 3-3 [12]가 됩니다. 돌격했을 때 대상을 밀어내기(5)하고 그 대상과 교전하도록 자신을 배치합니다.",
       "titleKo": "이모션: 앤티시페이션",
-      "rulesKo": "누아다가 앤티시페이션 감정을 선택한 경우에만\n피의 갈증 특성을 얻고 이동(MOV)이 3-3 [12]가 됩니다. 돌격했을 때 대상을 밀어내기(5)하고, 그 대상과 교전하도록 자신을 배치합니다.",
+      "rulesKo": "누아다가 앤티시페이션 감정을 선택한 경우에만 적용합니다.\n피의 갈증(Bloodlust)을 얻고 이동(MOV)이 3-3 [12]가 됩니다. 돌격했을 때 대상을 밀어내기(5)하고 그 대상과 교전하도록 자신을 배치합니다.",
       "section": "base",
-      "iconType": "passive"
+      "iconType": "passive",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "official-card-image-2026-11-21"
     }
   ],
   "overseer": [
     {
-      "top": 0.4267,
-      "bottom": 0.4732,
-      "english": "THROW RED Caps Target an allied Projectile unit within 5 strides. If you are not engaged\nPlace (10) the target.",
-      "korean": "스로 레드 캡스.\n대상: 5보폭 이내의 아군 투사체 유닛 하나. 자신이 교전 중이 아닐 때\n대상을 배치(10)합니다.",
+      "top": 0.447,
+      "bottom": 0.511,
+      "english": "Throw Red Caps. Target: an allied Projectile unit within 5 strides. If you are not engaged.\nPlace (10) the target.",
+      "korean": "스로 레드 캡스.\n대상: 5보폭 이내의 아군 투사체(Projectile) 유닛 하나. 자신이 교전 중이 아닐 때 사용할 수 있습니다. 대상을 배치(10)합니다.",
+      "titleKo": "스로 레드 캡스",
+      "rulesKo": "대상: 5보폭 이내의 아군 투사체(Projectile) 유닛 하나. 자신이 교전 중이 아닐 때 사용할 수 있습니다. 대상을 배치(10)합니다.",
+      "section": "base",
+      "iconType": "action",
       "translationReviewRequired": false,
       "translationReviewed": true,
-      "reviewSource": "official-card-image",
-      "titleKo": "스로 레드 캡스",
-      "rulesKo": "대상: 5보폭 이내의 아군 투사체 유닛 하나. 자신이 교전 중이 아닐 때\n대상을 배치(10)합니다.",
-      "section": "base",
-      "iconType": "action"
+      "translationReviewSource": "official-card-image-2026-11-21"
     },
     {
-      "top": 0.708,
-      "bottom": 0.7884,
-      "english": "THROW Your RED Caps\n\nPlace (10) your unit except for yourself (hold your position on the battlefield). It is\nconsidered you leave your unit, so follow the steps from \"Damage, stress, states and\nother tokens” from the \"Characters leaving their unit” section of the rulebook.",
-      "korean": "스로 유어 레드 캡스.\n자신은 전장에서 현재 위치를 유지하고, 자신을 제외한 소속 유닛을 배치(10)합니다. 자신이 유닛을 떠난 것으로 간주하므로 룰북의 “캐릭터가 유닛을 떠날 때” 항목에 있는 “피해·스트레스·상태와 기타 토큰” 절차를 따릅니다.",
+      "top": 0.743,
+      "bottom": 0.818,
+      "english": "Throw Your Red Caps.\nPlace (10) your unit except for yourself (hold your position on the battlefield). It is considered you leave your unit, so follow the steps from \"Damage, stress, states and other tokens\" from the \"Characters leaving their unit\" section of the rulebook.",
+      "korean": "스로 유어 레드 캡스.\n자신은 전장에서 현재 위치를 유지하고 자신을 제외한 소속 유닛을 배치(10)합니다. 자신이 유닛을 떠난 것으로 간주하므로 룰북의 “캐릭터가 유닛을 떠날 때” 항목에 있는 “피해·스트레스·상태와 기타 토큰” 절차를 따릅니다.",
+      "titleKo": "스로 유어 레드 캡스",
+      "rulesKo": "자신은 전장에서 현재 위치를 유지하고 자신을 제외한 소속 유닛을 배치(10)합니다. 자신이 유닛을 떠난 것으로 간주하므로 룰북의 “캐릭터가 유닛을 떠날 때” 항목에 있는 “피해·스트레스·상태와 기타 토큰” 절차를 따릅니다.",
+      "section": "enhancement",
+      "iconType": "action",
       "translationReviewRequired": false,
       "translationReviewed": true,
-      "reviewSource": "official-card-image",
-      "titleKo": "스로 유어 레드 캡스",
-      "rulesKo": "자신은 전장에서 현재 위치를 유지하고, 자신을 제외한 소속 유닛을 배치(10)합니다. 자신이 유닛을 떠난 것으로 간주하므로 룰북의 “캐릭터가 유닛을 떠날 때” 항목에 있는 “피해·스트레스·상태와 기타 토큰” 절차를 따릅니다.",
-      "section": "enhancement",
-      "iconType": "action"
+      "translationReviewSource": "official-card-image-2026-11-21"
     }
   ],
   "progenitor_sculptor": [
@@ -5238,56 +5244,56 @@
   ],
   "rumpy_ride": [
     {
-      "top": 0.3293,
-      "bottom": 0.433,
-      "english": "STIR THE INNER FIRE. No LoS. Target: all allied Red Cap units within 12 strides. Duration: 3 turns.\nThe targets add 1 ! symbol to their attack rolls.\n1 black die: The spell has a duration of 5 turns.\n2 black dice: The targets additionally add 1 ☆ or 1 ! symbol (choose when you cast the spell).",
-      "korean": "스터 디 이너 파이어.\n시야선 불필요. 대상: 12보폭 이내의 모든 아군 레드 캡 유닛. 지속시간: 3턴\n대상은 자신의 공격 굴림에 느낌표(!) 기호 1개를 추가합니다.\n강화(검은 주사위 1개): 주문의 지속시간이 5턴이 됩니다.\n강화(검은 주사위 2개): 대상은 빈 별(☆) 기호 또는 느낌표(!) 기호 1개를 추가로 더합니다. 어느 기호인지는 주문을 시전할 때 선택합니다.",
-      "translationReviewRequired": false,
-      "translationReviewed": true,
-      "reviewSource": "official-card-image",
+      "top": 0.332,
+      "bottom": 0.437,
+      "english": "Stir The Inner Fire. No LoS. Target: all the allied Red Cap units within 12 strides. Duration: 3 turns.\nThe targets add 1 special to their attack rolls.\n1 black die: The spell has a duration of 5 turns.\n2 black dice: The targets add additionally 1 hollow-success or 1 special (choose when you cast a spell).",
+      "korean": "스터 디 이너 파이어.\n시야선 불필요. 대상: 12보폭 이내의 모든 아군 레드 캡 유닛. 지속시간: 3턴\n대상은 자신의 공격 굴림에 느낌표(!) 기호 1개를 추가합니다.\n강화(검은색 주사위 1개): 주문의 지속시간이 5턴이 됩니다.\n강화(검은색 주사위 2개): 대상은 빈 별(☆) 기호 또는 느낌표(!) 기호 1개를 추가로 더합니다. 어느 기호인지는 주문을 시전할 때 선택합니다.",
       "titleKo": "스터 디 이너 파이어",
-      "rulesKo": "시야선 불필요. 대상: 12보폭 이내의 모든 아군 레드 캡 유닛. 지속시간: 3턴\n대상은 자신의 공격 굴림에 느낌표(!) 기호 1개를 추가합니다.\n강화(검은 주사위 1개): 주문의 지속시간이 5턴이 됩니다.\n강화(검은 주사위 2개): 대상은 빈 별(☆) 기호 또는 느낌표(!) 기호 1개를 추가로 더합니다. 어느 기호인지는 주문을 시전할 때 선택합니다.",
+      "rulesKo": "시야선 불필요. 대상: 12보폭 이내의 모든 아군 레드 캡 유닛. 지속시간: 3턴\n대상은 자신의 공격 굴림에 느낌표(!) 기호 1개를 추가합니다.\n강화(검은색 주사위 1개): 주문의 지속시간이 5턴이 됩니다.\n강화(검은색 주사위 2개): 대상은 빈 별(☆) 기호 또는 느낌표(!) 기호 1개를 추가로 더합니다. 어느 기호인지는 주문을 시전할 때 선택합니다.",
       "section": "base",
-      "iconType": "spell"
-    },
-    {
-      "top": 0.4492,
-      "bottom": 0.5296,
-      "english": "BREATH OF MACHAERA. No LoS. Once during your activation. Target: all the allied Red Cap\nunits within 20 strides\n\nThe targets recover a erooe: Deploy a unit of Gobblers or Bugbowls that has been\ndestroyed within 8 strides from you.",
-      "korean": "브레스 오브 마카이라.\n시야선 불필요. 자신의 활성화 중 한 번. 대상: 20보폭 이내의 모든 아군 레드 캡 유닛\n각 대상은 병력 1개를 회복합니다. 파괴된 고블러스 또는 버그볼스 유닛 하나를 자신으로부터 8보폭 이내에 배치합니다.",
+      "iconType": "spell",
       "translationReviewRequired": false,
       "translationReviewed": true,
-      "reviewSource": "official-card-image",
+      "translationReviewSource": "official-card-image-2026-11-21"
+    },
+    {
+      "top": 0.451,
+      "bottom": 0.547,
+      "english": "Breath Of Machaera. No LoS. Once during your activation. Target: all the allied Red Cap units within 20 strides.\nThe targets recover a troop. Deploy a unit of Gobblers or Bugbowls that has been destroyed within 8 strides from you.",
+      "korean": "브레스 오브 마카이라.\n시야선 불필요. 자신의 활성화 중 한 번. 대상: 20보폭 이내의 모든 아군 레드 캡 유닛\n각 대상은 병력 하나를 회복합니다. 파괴된 고블러스 또는 버그볼스 유닛 하나를 자신으로부터 8보폭 이내에 배치합니다.",
       "titleKo": "브레스 오브 마카이라",
-      "rulesKo": "시야선 불필요. 자신의 활성화 중 한 번. 대상: 20보폭 이내의 모든 아군 레드 캡 유닛\n각 대상은 병력 1개를 회복합니다. 파괴된 고블러스 또는 버그볼스 유닛 하나를 자신으로부터 8보폭 이내에 배치합니다.",
+      "rulesKo": "시야선 불필요. 자신의 활성화 중 한 번. 대상: 20보폭 이내의 모든 아군 레드 캡 유닛\n각 대상은 병력 하나를 회복합니다. 파괴된 고블러스 또는 버그볼스 유닛 하나를 자신으로부터 8보폭 이내에 배치합니다.",
       "section": "base",
-      "iconType": "command"
-    },
-    {
-      "top": 0.5458,
-      "bottom": 0.5938,
-      "english": "RED CaP LEADER. Target: other allied Red Cap units within 8 strides\nThe targets add | to their conquest value.",
-      "korean": "레드 캡 리더.\n대상: 8보폭 이내의 다른 아군 레드 캡 유닛\n대상의 정복 수치에 1을 더합니다.",
+      "iconType": "command",
       "translationReviewRequired": false,
       "translationReviewed": true,
-      "reviewSource": "official-card-image",
+      "translationReviewSource": "official-card-image-2026-11-21"
+    },
+    {
+      "top": 0.56,
+      "bottom": 0.627,
+      "english": "Red Cap Leader. Target: other allied Red Cap units within 8 strides.\nThe targets add 1 to their conquest value.",
+      "korean": "레드 캡 리더.\n대상: 8보폭 이내의 다른 아군 레드 캡 유닛\n대상의 점령 수치에 1을 더합니다.",
       "titleKo": "레드 캡 리더",
-      "rulesKo": "대상: 8보폭 이내의 다른 아군 레드 캡 유닛\n대상의 정복 수치에 1을 더합니다.",
+      "rulesKo": "대상: 8보폭 이내의 다른 아군 레드 캡 유닛\n대상의 점령 수치에 1을 더합니다.",
       "section": "base",
-      "iconType": "passive"
-    },
-    {
-      "top": 0.8307,
-      "bottom": 0.9104,
-      "english": "BREATH OF MACHAERA. No LoS. Once during your activation. Target: all the allied Red Cap\nunits within 20 strides\n\nThe targets recover a troop. Deploy a unit of Gobblers or Bugbowls that has been\ndestroyed within 8 strides from you.",
-      "korean": "브레스 오브 마카이라.\n시야선 불필요. 자신의 활성화 중 한 번. 대상: 20보폭 이내의 모든 아군 레드 캡 유닛\n각 대상은 병력 1개를 회복합니다. 파괴된 고블러스 또는 버그볼스 유닛 하나를 자신으로부터 8보폭 이내에 배치합니다.",
+      "iconType": "passive",
       "translationReviewRequired": false,
       "translationReviewed": true,
-      "reviewSource": "official-card-image",
+      "translationReviewSource": "official-card-image-2026-11-21"
+    },
+    {
+      "top": 0.856,
+      "bottom": 0.95,
+      "english": "Breath Of Machaera. No LoS. Once during your activation. Target: all the allied Red Cap units within 20 strides.\nThe targets recover a troop. Deploy a unit of Gobblers or Bugbowls that has been destroyed within 8 strides from you.",
+      "korean": "브레스 오브 마카이라.\n시야선 불필요. 자신의 활성화 중 한 번. 대상: 20보폭 이내의 모든 아군 레드 캡 유닛\n각 대상은 병력 하나를 회복합니다. 파괴된 고블러스 또는 버그볼스 유닛 하나를 자신으로부터 8보폭 이내에 배치합니다.",
       "titleKo": "브레스 오브 마카이라",
-      "rulesKo": "시야선 불필요. 자신의 활성화 중 한 번. 대상: 20보폭 이내의 모든 아군 레드 캡 유닛\n각 대상은 병력 1개를 회복합니다. 파괴된 고블러스 또는 버그볼스 유닛 하나를 자신으로부터 8보폭 이내에 배치합니다.",
+      "rulesKo": "시야선 불필요. 자신의 활성화 중 한 번. 대상: 20보폭 이내의 모든 아군 레드 캡 유닛\n각 대상은 병력 하나를 회복합니다. 파괴된 고블러스 또는 버그볼스 유닛 하나를 자신으로부터 8보폭 이내에 배치합니다.",
       "section": "enhancement",
-      "iconType": "command"
+      "iconType": "command",
+      "translationReviewRequired": false,
+      "translationReviewed": true,
+      "translationReviewSource": "official-card-image-2026-11-21"
     }
   ],
   "samara_dithean": [
@@ -5328,45 +5334,45 @@
   ],
   "sightless": [
     {
-      "top": 0.3625,
-      "bottom": 0.4316,
-      "english": "LAVA EXTRACTED FROM THE CHIMNEY. At the end of the round.\nBefore the reduce stress step, adjacent units that are not Red Cap suffer 1 damage and adjacent allied Red Cap units heal 1 damage.",
-      "korean": "라바 익스트랙티드 프롬 더 침니.\n라운드 종료 시\n스트레스 감소 단계 전에, 자신과 인접한 레드 캡이 아닌 유닛은 피해 1을 받고, 자신과 인접한 아군 레드 캡 유닛은 피해 1을 회복합니다.",
+      "top": 0.366,
+      "bottom": 0.451,
+      "english": "Lava Extracted From The Chimney. At the end of the round.\nBefore the reduce stress step, adjacent units that are not Red Cap suffer 1 damage and the adjacent allied Red Cap units heal 1 damage.",
+      "korean": "라바 익스트랙티드 프롬 더 침니.\n라운드 종료 시 스트레스 감소 단계 전에, 자신과 인접한 레드 캡이 아닌 유닛은 피해 1을 받고 자신과 인접한 아군 레드 캡 유닛은 피해 1을 회복합니다.",
+      "titleKo": "라바 익스트랙티드 프롬 더 침니",
+      "rulesKo": "라운드 종료 시 스트레스 감소 단계 전에, 자신과 인접한 레드 캡이 아닌 유닛은 피해 1을 받고 자신과 인접한 아군 레드 캡 유닛은 피해 1을 회복합니다.",
+      "section": "base",
+      "iconType": "passive",
       "translationReviewRequired": false,
       "translationReviewed": true,
-      "reviewSource": "official-card-image",
-      "titleKo": "라바 익스트랙티드 프롬 더 침니",
-      "rulesKo": "라운드 종료 시\n스트레스 감소 단계 전에, 자신과 인접한 레드 캡이 아닌 유닛은 피해 1을 받고, 자신과 인접한 아군 레드 캡 유닛은 피해 1을 회복합니다.",
-      "section": "base",
-      "iconType": "passive"
+      "translationReviewSource": "official-card-image-2026-11-21"
     },
     {
-      "top": 0.7116,
-      "bottom": 0.78,
-      "english": "LAVA EXTRACTED FROM THE CHIMNEY. At the end of the round.\nBefore the reduce stress step, adjacent units that are not Red Cap suffer 1 damage and adjacent allied Red Cap units heal 1 damage.",
-      "korean": "라바 익스트랙티드 프롬 더 침니.\n라운드 종료 시\n스트레스 감소 단계 전에, 자신과 인접한 레드 캡이 아닌 유닛은 피해 1을 받고, 자신과 인접한 아군 레드 캡 유닛은 피해 1을 회복합니다.",
+      "top": 0.724,
+      "bottom": 0.806,
+      "english": "Lava Extracted From The Chimney. At the end of the round.\nBefore the reduce stress step, adjacent units that are not Red Cap suffer 1 damage and the adjacent allied Red Cap units heal 1 damage.",
+      "korean": "라바 익스트랙티드 프롬 더 침니.\n라운드 종료 시 스트레스 감소 단계 전에, 자신과 인접한 레드 캡이 아닌 유닛은 피해 1을 받고 자신과 인접한 아군 레드 캡 유닛은 피해 1을 회복합니다.",
+      "titleKo": "라바 익스트랙티드 프롬 더 침니",
+      "rulesKo": "라운드 종료 시 스트레스 감소 단계 전에, 자신과 인접한 레드 캡이 아닌 유닛은 피해 1을 받고 자신과 인접한 아군 레드 캡 유닛은 피해 1을 회복합니다.",
+      "section": "enhancement",
+      "iconType": "passive",
       "translationReviewRequired": false,
       "translationReviewed": true,
-      "reviewSource": "official-card-image",
-      "titleKo": "라바 익스트랙티드 프롬 더 침니",
-      "rulesKo": "라운드 종료 시\n스트레스 감소 단계 전에, 자신과 인접한 레드 캡이 아닌 유닛은 피해 1을 받고, 자신과 인접한 아군 레드 캡 유닛은 피해 1을 회복합니다.",
-      "section": "enhancement",
-      "iconType": "passive"
+      "translationReviewSource": "official-card-image-2026-11-21"
     }
   ],
   "stompers": [
     {
-      "top": 0.5176,
-      "bottom": 0.5818,
-      "english": "STOMP ON THE GROUND!\nWhen is charge, your target receives the frightened and slowed states.All enemy units\nwithin 5 strides must pass a WP test or they receive the frightened state.",
-      "korean": "스톰프 온 더 그라운드.\n자신이 돌격할 때\n대상에게 공포 상태와 둔화 상태를 부여합니다. 5보폭 이내의 모든 적 유닛은 의지(WP) 판정에 성공해야 하며, 실패하면 공포 상태를 받습니다.",
+      "top": 0.518,
+      "bottom": 0.597,
+      "english": "Stomp On The Ground!\nWhen you charge, your target receives the frightened and slowed states. All enemy units within 5 strides must pass a WP test or they receive the frightened state.",
+      "korean": "스톰프 온 더 그라운드.\n자신이 돌격할 때 대상에게 공포 상태와 둔화 상태를 부여합니다. 5보폭 이내의 모든 적 유닛은 의지(WP) 판정에 성공해야 하며 실패하면 공포 상태를 받습니다.",
+      "titleKo": "스톰프 온 더 그라운드",
+      "rulesKo": "자신이 돌격할 때 대상에게 공포 상태와 둔화 상태를 부여합니다. 5보폭 이내의 모든 적 유닛은 의지(WP) 판정에 성공해야 하며 실패하면 공포 상태를 받습니다.",
+      "section": "base",
+      "iconType": "passive",
       "translationReviewRequired": false,
       "translationReviewed": true,
-      "reviewSource": "official-card-image",
-      "titleKo": "스톰프 온 더 그라운드",
-      "rulesKo": "자신이 돌격할 때\n대상에게 공포 상태와 둔화 상태를 부여합니다. 5보폭 이내의 모든 적 유닛은 의지(WP) 판정에 성공해야 하며, 실패하면 공포 상태를 받습니다.",
-      "section": "base",
-      "iconType": "passive"
+      "translationReviewSource": "official-card-image-2026-11-21"
     }
   ],
   "tutor": [
@@ -6443,6 +6449,179 @@
       "translationReviewRequired": false,
       "translationReviewed": true,
       "translationReviewSource": "original-card-image-V1.1"
+    }
+  ],
+  "anayram_blacksmith_apprentice": [
+    {
+      "top": 0.4707724425887265,
+      "bottom": 0.5198329853862212,
+      "english": "Always Ready.\nYou may repeat up to 2 dice from your attack, defense and WP rolls.",
+      "korean": "올웨이즈 레디.\n자신의 공격 굴림, 방어 굴림, 의지(WP) 굴림 각각에서 주사위를 최대 2개까지 다시 굴릴 수 있습니다.",
+      "titleKo": "올웨이즈 레디",
+      "rulesKo": "자신의 공격 굴림, 방어 굴림, 의지(WP) 굴림 각각에서 주사위를 최대 2개까지 다시 굴릴 수 있습니다.",
+      "section": "enhancement",
+      "iconType": "passive",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image-2026-11-21",
+      "sourceIcon": "none",
+      "sourceIconVerified": true
+    }
+  ],
+  "choppers": [
+    {
+      "top": 0.435146,
+      "bottom": 0.519874,
+      "english": "COVERED IN SHARDS.\nOnce per activation. When you engage in combat\nRoll 1 yellow die for each troop in the enemy unit. For each success (★) you roll, inflict 1 damage on it.\nIf you roll at least 1 hollow-special symbol, the enemy unit suffers 1 stress.",
+      "korean": "커버드 인 샤즈.\n활성화당 1회 · 자신이 교전 상태가 될 때\n그 적 유닛의 병력 하나마다 노란색 주사위 1개를 굴립니다. 나온 성공(★) 기호 하나마다 그 적 유닛에게 피해 1을 줍니다. 빈 특수(!) 기호가 1개 이상 나오면 그 적 유닛은 스트레스 1을 받습니다.",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image",
+      "titleKo": "커버드 인 샤즈",
+      "rulesKo": "활성화당 1회 · 자신이 교전 상태가 될 때\n그 적 유닛의 병력 하나마다 노란색 주사위 1개를 굴립니다. 나온 성공(★) 기호 하나마다 그 적 유닛에게 피해 1을 줍니다. 빈 특수(!) 기호가 1개 이상 나오면 그 적 유닛은 스트레스 1을 받습니다.",
+      "section": "base",
+      "iconType": "passive",
+      "sourceNote": "No skill-type icon is printed next to this triggered passive ability box.",
+      "sourceIcon": "none",
+      "sourceIconVerified": true
+    }
+  ],
+  "plaf_the_enraptured": [
+    {
+      "top": 0.3444676409185804,
+      "bottom": 0.42484342379958245,
+      "english": "Iron Fist!\nDuring your activation. Target: an allied Red cap unit within 12 strides.\nIf the target is demoralized, it rallies automatically.\nReduce the target's stress by 2.",
+      "korean": "아이언 피스트!.\n자신의 활성화 중 · 대상: 12보폭 이내의 아군 레드 캡 유닛\n대상이 사기 붕괴 상태라면 자동으로 재집결합니다. 대상의 스트레스를 2 줄입니다.",
+      "titleKo": "아이언 피스트!",
+      "rulesKo": "자신의 활성화 중 · 대상: 12보폭 이내의 아군 레드 캡 유닛\n대상이 사기 붕괴 상태라면 자동으로 재집결합니다. 대상의 스트레스를 2 줄입니다.",
+      "section": "base",
+      "iconType": "command",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image-2026-11-21"
+    },
+    {
+      "top": 0.4394572025052192,
+      "bottom": 0.5041753653444676,
+      "english": "\"Nuada, Look At Me!\"\nWhen you gather an attack or defense roll.\nIf Nuada is within 12 strides, add 1 die of your choice to your roll.",
+      "korean": "\"누아다, 룩 앳 미!\".\n공격 굴림이나 방어 굴림의 주사위를 모을 때\n누아다가 12보폭 이내에 있다면, 자신의 굴림에 원하는 주사위 1개를 추가합니다.",
+      "titleKo": "\"누아다, 룩 앳 미!\"",
+      "rulesKo": "공격 굴림이나 방어 굴림의 주사위를 모을 때\n누아다가 12보폭 이내에 있다면, 자신의 굴림에 원하는 주사위 1개를 추가합니다.",
+      "section": "base",
+      "iconType": "passive",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image-2026-11-21",
+      "sourceIcon": "none",
+      "sourceIconVerified": true
+    },
+    {
+      "top": 0.7098121085594989,
+      "bottom": 0.7891440501043842,
+      "english": "Iron Fist!\nDuring your activation. Target: an allied Red cap unit within 12 strides.\nIf the target is demoralized, it rallies automatically.\nReduce the target's stress by 2.",
+      "korean": "아이언 피스트!.\n자신의 활성화 중 · 대상: 12보폭 이내의 아군 레드 캡 유닛\n대상이 사기 붕괴 상태라면 자동으로 재집결합니다. 대상의 스트레스를 2 줄입니다.",
+      "titleKo": "아이언 피스트!",
+      "rulesKo": "자신의 활성화 중 · 대상: 12보폭 이내의 아군 레드 캡 유닛\n대상이 사기 붕괴 상태라면 자동으로 재집결합니다. 대상의 스트레스를 2 줄입니다.",
+      "section": "enhancement",
+      "iconType": "command",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image-2026-11-21"
+    },
+    {
+      "top": 0.8006263048016702,
+      "bottom": 0.8663883089770354,
+      "english": "\"Nuada, Look At Me!\"\nWhen you gather an attack or defense roll.\nIf Nuada is within 12 strides, add 1 die of your choice to your roll.",
+      "korean": "\"누아다, 룩 앳 미!\".\n공격 굴림이나 방어 굴림의 주사위를 모을 때\n누아다가 12보폭 이내에 있다면, 자신의 굴림에 원하는 주사위 1개를 추가합니다.",
+      "titleKo": "\"누아다, 룩 앳 미!\"",
+      "rulesKo": "공격 굴림이나 방어 굴림의 주사위를 모을 때\n누아다가 12보폭 이내에 있다면, 자신의 굴림에 원하는 주사위 1개를 추가합니다.",
+      "section": "enhancement",
+      "iconType": "passive",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image-2026-11-21",
+      "sourceIcon": "none",
+      "sourceIconVerified": true
+    }
+  ],
+  "plum_the_slugger": [
+    {
+      "top": 0.3776150627615063,
+      "bottom": 0.5428870292887029,
+      "english": "Bat Red Caps.\nTarget: an enemy unit within 12 strides and an allied Projectile unit within 3 strides.\nPlace the allied target engaged with the enemy target.\nResolve a ranged attack against the enemy target of value 2 red dice and 1 orange die. During this attack, you gain the switch:\n1 special symbol: Cancel 1 block symbol from your target.\nTo resolve the attack, the allied target does not block LoS and does not suffer stress from being engaged with the enemy target.",
+      "korean": "배트 레드 캡스.\n대상: 12보폭 이내의 적 유닛 1개와 3보폭 이내의 아군 투사체 유닛 1개\n아군 대상을 적 대상과 교전하도록 배치합니다.\n빨강 주사위 2개·주황 주사위 1개로 적 대상에게 원거리 공격합니다. 이 공격은 다음 스위치를 얻습니다.\n특수(!) 기호 1개: 대상의 굴림에서 방어(방패) 기호 1개를 취소합니다.\n이 공격을 해결할 때 아군 대상은 시야선을 가리지 않으며, 적 대상과 교전 중이라는 이유로 스트레스를 받지 않습니다.",
+      "titleKo": "배트 레드 캡스",
+      "rulesKo": "대상: 12보폭 이내의 적 유닛 1개와 3보폭 이내의 아군 투사체 유닛 1개\n아군 대상을 적 대상과 교전하도록 배치합니다.\n빨강 주사위 2개·주황 주사위 1개로 적 대상에게 원거리 공격합니다. 이 공격은 다음 스위치를 얻습니다.\n특수(!) 기호 1개: 대상의 굴림에서 방어(방패) 기호 1개를 취소합니다.\n이 공격을 해결할 때 아군 대상은 시야선을 가리지 않으며, 적 대상과 교전 중이라는 이유로 스트레스를 받지 않습니다.",
+      "section": "base",
+      "iconType": "action",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image-2026-11-21"
+    },
+    {
+      "top": 0.5575313807531381,
+      "bottom": 0.6380753138075314,
+      "english": "\"Plum, Plum, Plum!\".\nAt the end of the target's activation. Target: an allied Projectile unit within 3 strides.\nYou may place (7) the target.",
+      "korean": "\"플럼, 플럼, 플럼!\".\n대상의 활성화 종료 시 · 대상: 3보폭 이내의 아군 투사체 유닛\n대상에게 배치(7)를 적용할 수 있습니다.",
+      "titleKo": "\"플럼, 플럼, 플럼!\"",
+      "rulesKo": "대상의 활성화 종료 시 · 대상: 3보폭 이내의 아군 투사체 유닛\n대상에게 배치(7)를 적용할 수 있습니다.",
+      "section": "base",
+      "iconType": "passive",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image-2026-11-21",
+      "sourceIcon": "none",
+      "sourceIconVerified": true
+    }
+  ],
+  "rac_the_greedy": [
+    {
+      "top": 0.377615,
+      "bottom": 0.442469,
+      "english": "SNATCHER.\nWhen a troop is taken out of combat in a unit within 7 strides. Duration: 2 turns\nAdd 1 to your conquest and MOR values.",
+      "korean": "스내처.\n7보폭 이내의 유닛에서 병력 하나가 제거될 때 · 지속: 2턴\n자신의 점령 수치와 사기(MOR)에 각각 1을 더합니다.",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image",
+      "titleKo": "스내처",
+      "rulesKo": "7보폭 이내의 유닛에서 병력 하나가 제거될 때 · 지속: 2턴\n자신의 점령 수치와 사기(MOR)에 각각 1을 더합니다.",
+      "section": "base",
+      "iconType": "passive",
+      "sourceNote": "No skill-type icon is printed next to this triggered passive ability box.",
+      "sourceIcon": "none",
+      "sourceIconVerified": true
+    },
+    {
+      "top": 0.457113,
+      "bottom": 0.555439,
+      "english": "SACK!\nWhen you gather an attack or defense roll\nIf your target (or attacker) is using their second combat panel, or if it is a Character and it has as many damage as half of its W or more (rounding up), add 2 dice of different colour to your roll.",
+      "korean": "새크!.\n공격 또는 방어 굴림의 주사위 풀을 구성할 때\n대상(또는 공격자)이 두 번째 전투 행을 사용 중이거나, 캐릭터이며 받은 피해가 그 캐릭터의 체력(W)을 절반으로 나눈 뒤 올림한 값 이상이라면, 자신의 굴림에 서로 다른 색의 주사위 2개를 추가합니다.",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image",
+      "titleKo": "새크!",
+      "rulesKo": "공격 또는 방어 굴림의 주사위 풀을 구성할 때\n대상(또는 공격자)이 두 번째 전투 행을 사용 중이거나, 캐릭터이며 받은 피해가 그 캐릭터의 체력(W)을 절반으로 나눈 뒤 올림한 값 이상이라면, 자신의 굴림에 서로 다른 색의 주사위 2개를 추가합니다.",
+      "section": "base",
+      "iconType": "passive",
+      "sourceNote": "No skill-type icon is printed next to this triggered passive ability box.",
+      "sourceIcon": "none",
+      "sourceIconVerified": true
+    },
+    {
+      "top": 0.844142,
+      "bottom": 0.910042,
+      "english": "SNATCHER.\nWhen a troop is taken out of combat in a unit within 7 strides. Duration: 2 turns\nAdd 1 to your conquest and MOR values.",
+      "korean": "스내처.\n7보폭 이내의 유닛에서 병력 하나가 제거될 때 · 지속: 2턴\n자신의 점령 수치와 사기(MOR)에 각각 1을 더합니다.",
+      "translationReviewed": true,
+      "translationReviewRequired": false,
+      "translationReviewSource": "official-card-image",
+      "titleKo": "스내처",
+      "rulesKo": "7보폭 이내의 유닛에서 병력 하나가 제거될 때 · 지속: 2턴\n자신의 점령 수치와 사기(MOR)에 각각 1을 더합니다.",
+      "section": "enhancement",
+      "iconType": "passive",
+      "sourceNote": "No skill-type icon is printed next to this triggered passive ability box.",
+      "sourceIcon": "none",
+      "sourceIconVerified": true
     }
   ]
 }

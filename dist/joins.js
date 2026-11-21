@@ -10,8 +10,9 @@ function joinIsCharacter(unit){const m=joinUnitMetadata(unit);return m?m.isChara
 function joinRole(unit){return joinUnitMetadata(unit)?.role||null;}
 function joinRoleLabel(unit){const r=joinRole(unit);return r==='officer'?joinUi('장교','Officer'):r==='support'?joinUi('지원','Support'):joinUi('유형 미확인','Type unverified');}
 function joinGroups(unit){const m=joinUnitMetadata(unit);if(m)return m.joinGroups||[];return (unit?.keywords||[]).flatMap(k=>{const match=String(k.name||k).match(/^Join\s*\((.*)\)$/i);return match?match[1].split('|').map(g=>g.split(',').map(x=>x.trim()).filter(Boolean)):[];});}
+function joinCanTargetType(character,target){return !joinIsCharacter(target)||Boolean(joinUnitMetadata(character)?.characterJoinTargets?.includes(target.id));}
 function joinTargetMatches(character,target){
-  if(!character||!target||!joinIsCharacter(character)||joinIsCharacter(target)||character.id===target.id)return false;
+  if(!character||!target||!joinIsCharacter(character)||!joinCanTargetType(character,target)||character.id===target.id)return false;
   const m=joinUnitMetadata(target),terms=[...(m?.traits||target.characteristics||[]),...(m?.keywords||(target.keywords||[]).map(k=>k.name||k)),target.name,m?.name,target.id].map(joinNormalize);
   return joinGroups(character).some(group=>group.length&&group.every(term=>{
     const normalized=joinNormalize(term),ids=joinMetadata.unitNameAliases?.[normalized]||[];
@@ -33,7 +34,7 @@ function validateJoins(roster,source){
     else if(!character||!target)reason=joinUi('편성에서 제거된 개체의 합류 배정을 해제했습니다.','A join refers to an instance no longer in the army.');
     else if(!joinIsCharacter(character.unit))reason=joinUi('캐릭터만 이 합류 기능을 사용할 수 있습니다.','Only Characters may use this join assignment.');
     else if(!joinGroups(character.unit).length)reason=joinUi('Join 조건이 없는 캐릭터는 합류할 수 없습니다.','A Character without Join cannot join a unit.');
-    else if(joinIsCharacter(target.unit))reason=joinUi('캐릭터에게 다른 캐릭터를 합류시킬 수 없습니다.','A Character cannot join another Character.');
+    else if(!joinCanTargetType(character.unit,target.unit))reason=joinUi('별도 규칙이 있는 경우에만 다른 캐릭터에 합류할 수 있습니다.','Joining another Character requires an explicit rule.');
     else if(!joinTargetMatches(character.unit,target.unit))reason=joinUi('공식 Join 조건을 충족하지 않는 대상입니다.','The target does not meet the official Join requirements.');
     else if(characters.has(ckey))reason=joinUi('같은 캐릭터 개체를 두 유닛에 합류시킬 수 없습니다.','The same Character instance cannot join two units.');
     else if(targets.has(tkey))reason=joinUi('한 유닛 개체에는 캐릭터 한 명만 합류할 수 있습니다.','A unit instance can include only one Character.');
@@ -44,10 +45,11 @@ function validateJoins(roster,source){
 }
 function joinCopyLabel(instance,all){const n=all.filter(x=>x.unit.id===instance.unit.id).length;return `${joinName(instance.unit)}${n>1?` #${instance.copy+1}`:''}`;}
 function renderJoinPlanner(roster=state,source=data){
-  const all=joinRosterInstances(roster,source),chars=all.filter(i=>joinIsCharacter(i.unit)&&joinGroups(i.unit).length),targets=all.filter(i=>!joinIsCharacter(i.unit));
+  const all=joinRosterInstances(roster,source),chars=all.filter(i=>joinIsCharacter(i.unit)&&joinGroups(i.unit).length);
   if(!chars.length)return '';
   const valid=validateJoins(roster,source).validJoins;
   const rows=chars.map(c=>{
+    const targets=all.filter(t=>t.unit.id!==c.unit.id&&joinCanTargetType(c.unit,t.unit));
     const attached=valid.find(j=>j.characterId===c.unit.id&&j.characterCopy===c.copy),current=attached?joinInstanceKey(attached.targetId,attached.targetCopy):'',label=joinCopyLabel(c,all),inputId=`join-select-${c.unit.id}-${c.copy}`;
     const options=targets.map(t=>{const key=t.instanceKey,occupied=valid.some(j=>joinInstanceKey(j.targetId,j.targetCopy)===key&&!(j.characterId===c.unit.id&&j.characterCopy===c.copy)),legal=joinTargetMatches(c.unit,t.unit),reason=occupied?joinUi('다른 캐릭터가 합류 중','Already has a Character'):!legal?joinUi('Join 조건 불일치','Join requirements not met'):'';return `<option value="${joinEscape(key)}" ${current===key?'selected':''} ${reason?'disabled':''}>${joinEscape(joinCopyLabel(t,all))}${reason?` — ${joinEscape(reason)}`:''}</option>`;}).join('');
     const noLegal=!targets.some(t=>joinTargetMatches(c.unit,t.unit)&&!valid.some(j=>joinInstanceKey(j.targetId,j.targetCopy)===t.instanceKey&&!(j.characterId===c.unit.id&&j.characterCopy===c.copy)));
@@ -155,7 +157,7 @@ function applyPlayJoin(game,key,targetKey=null){
   if(leaving&&!current||!leaving&&current)return false;
   const next=(game.joins||[]).filter(j=>joinInstanceKey(j.characterId,j.characterCopy)!==key);
   if(!leaving){
-    const target=gameJoinGroups(game).find(g=>g.instanceKey===targetKey&&!g.character&&!joinIsCharacter(g.unit)&&joinTargetMatches(ci.unit,g.unit));
+    const target=gameJoinGroups(game).find(g=>g.instanceKey===targetKey&&!g.character&&joinTargetMatches(ci.unit,g.unit));
     if(!target)return false;
     next.push({characterId:ci.unit.id,characterCopy:ci.copy,targetId:target.unit.id,targetCopy:target.copy});
   }
@@ -170,7 +172,7 @@ function openPlayJoinDialog(game,key,action){
   if(action!=='join')return;
   const all=joinRosterInstances(joinGameRoster(game),game.units),ci=all.find(i=>i.instanceKey===key);if(!ci||!joinIsCharacter(ci.unit)||!joinGroups(ci.unit).length)return;
   if(validateJoins(joinGameRoster(game),game.units).validJoins.some(j=>joinInstanceKey(j.characterId,j.characterCopy)===key))return;
-  const available=gameJoinGroups(game).filter(g=>!g.character&&!joinIsCharacter(g.unit)&&joinTargetMatches(ci.unit,g.unit));
+  const available=gameJoinGroups(game).filter(g=>!g.character&&joinTargetMatches(ci.unit,g.unit));
   let dialog=document.getElementById('joinPlayDialog');if(!dialog){dialog=document.createElement('dialog');dialog.id='joinPlayDialog';dialog.className='join-play-dialog';document.body.append(dialog);}
   dialog.innerHTML=`<form method="dialog" class="join-play-form"><header><h2 id="joinPlayTitle" tabindex="-1" autofocus>${joinUi('합류','Join')}</h2><button type="button" data-join-dialog-cancel class="join-dialog-close" aria-label="${joinUi('닫기','Close')}">×</button></header><p>${joinEscape(joinName(ci.unit))}</p><label class="join-target-label" for="joinPlayTarget">${joinUi('합류할 유닛','Target unit')}</label><select id="joinPlayTarget">${available.map(g=>`<option value="${joinEscape(g.instanceKey)}">${joinEscape(g.label)}</option>`).join('')}</select>${available.length?'':`<p class="join-warning">${joinUi('합류할 수 있는 빈 유닛이 없습니다.','There is no eligible unoccupied unit.')}</p>`}<footer><button type="button" class="button button-ghost" data-join-dialog-cancel>${joinUi('취소','Cancel')}</button><button type="submit" class="button" data-join-submit ${available.length?'':'disabled'}>${joinUi('합류','Join')}</button></footer></form>`;
   dialog.setAttribute('aria-labelledby','joinPlayTitle');

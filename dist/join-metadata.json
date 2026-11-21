@@ -2074,7 +2074,7 @@
         "Scout"
       ],
       "name": "Bugbowls",
-      "source": "official-builder-structured-data"
+      "source": "official-card-image-2026-11-21 + official-catalog-0.13.63"
     },
     "crucible": {
       "isCharacter": false,
@@ -2092,7 +2092,7 @@
         "Large"
       ],
       "name": "Crucible",
-      "source": "official-builder-structured-data"
+      "source": "official-card-image-2026-11-21 + official-catalog-0.13.63"
     },
     "flamecobs": {
       "isCharacter": false,
@@ -2106,7 +2106,7 @@
       ],
       "keywords": [],
       "name": "Flamecobs",
-      "source": "official-builder-structured-data"
+      "source": "official-card-image-2026-11-21 + official-catalog-0.13.63"
     },
     "gobblers": {
       "isCharacter": false,
@@ -2124,7 +2124,7 @@
         "Scout"
       ],
       "name": "Gobblers",
-      "source": "official-builder-structured-data"
+      "source": "official-card-image-2026-11-21 + official-catalog-0.13.63"
     },
     "nuada": {
       "isCharacter": true,
@@ -2142,7 +2142,7 @@
         "Elite"
       ],
       "name": "Nuada",
-      "source": "official-builder-structured-data"
+      "source": "official-card-image-2026-11-21 + official-catalog-0.13.63"
     },
     "osseous": {
       "isCharacter": false,
@@ -2157,7 +2157,7 @@
       ],
       "keywords": [],
       "name": "Osseous",
-      "source": "official-builder-structured-data"
+      "source": "official-card-image-2026-11-21 + official-catalog-0.13.63"
     },
     "overseer": {
       "isCharacter": true,
@@ -2185,7 +2185,7 @@
         "Join (Gobblers | Bugbowls | Osseous)"
       ],
       "name": "Overseer",
-      "source": "official-builder-structured-data"
+      "source": "official-card-image-2026-11-21 + official-catalog-0.13.63"
     },
     "rumpy-ride": {
       "isCharacter": true,
@@ -2211,7 +2211,7 @@
         "Spellcaster"
       ],
       "name": "Rumpy Ride",
-      "source": "official-builder-structured-data"
+      "source": "official-card-image-2026-11-21 + official-catalog-0.13.63"
     },
     "sightless": {
       "isCharacter": true,
@@ -2235,7 +2235,7 @@
         "Join (Red Cap, Infantry)"
       ],
       "name": "Sightless",
-      "source": "official-builder-structured-data"
+      "source": "official-card-image-2026-11-21 + official-catalog-0.13.63"
     },
     "stompers": {
       "isCharacter": false,
@@ -2252,7 +2252,7 @@
         "Preferred Terrain (Rugged)"
       ],
       "name": "Stompers",
-      "source": "official-builder-structured-data"
+      "source": "official-card-image-2026-11-21 + official-catalog-0.13.63"
     },
     "anointed": {
       "isCharacter": false,
@@ -3319,6 +3319,108 @@
       ],
       "name": "Ynyr Dara Lainn",
       "source": "official-builder-structured-data"
+    },
+    "anayram-blacksmith-apprentice": {
+      "isCharacter": true,
+      "role": "support",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Nuada)"
+      ],
+      "joinGroups": [
+        [
+          "Nuada"
+        ]
+      ],
+      "traits": [
+        "Alven",
+        "Character",
+        "Elf"
+      ],
+      "keywords": [
+        "Join (Nuada)"
+      ],
+      "name": "Anayram, blacksmith apprentice",
+      "source": "official-card-image-and-official-builder-0.13.63",
+      "characterJoinTargets": [
+        "nuada"
+      ]
+    },
+    "choppers": {
+      "isCharacter": false,
+      "role": null,
+      "roleSource": null,
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Infantry",
+        "Projectile",
+        "Red Cap"
+      ],
+      "keywords": [],
+      "name": "Choppers",
+      "source": "official-card-image"
+    },
+    "plaf-the-enraptured": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Red Cap, Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Red Cap",
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Character",
+        "Red Cap"
+      ],
+      "keywords": [
+        "Join (Red Cap, Infantry)"
+      ],
+      "name": "Plaf, the Enraptured",
+      "source": "official-card-image-and-official-builder-0.13.63"
+    },
+    "plum-the-slugger": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [],
+      "joinGroups": [],
+      "traits": [
+        "Character",
+        "Red Cap"
+      ],
+      "keywords": [],
+      "name": "Plum, the Slugger",
+      "source": "official-card-image-and-official-builder-0.13.63"
+    },
+    "rac-the-greedy": {
+      "isCharacter": true,
+      "role": "officer",
+      "roleSource": "official-card-icon",
+      "joinText": [
+        "Join (Red Cap, Infantry)"
+      ],
+      "joinGroups": [
+        [
+          "Red Cap",
+          "Infantry"
+        ]
+      ],
+      "traits": [
+        "Cavalry",
+        "Character",
+        "Red Cap"
+      ],
+      "keywords": [
+        "Join (Red Cap, Infantry)"
+      ],
+      "name": "Rac, the Greedy",
+      "source": "official-card-image"
     }
   },
   "unitNameAliases": {

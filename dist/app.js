@@ -3,7 +3,8 @@ const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => 
 const factionNames = {
   'northern-tribes':['노던 트라이브스','N'], 'feudom':['퓨덤','F'],
   'hegemony-of-embersig':['헤게모니 오브 엠버시그','H'], 'mounthaven':['마운트헤이븐','M'],
-  'scions-of-yaldabaoth':['사이언즈 오브 얄다바오트','S'], 'syenann':['시예난','S']
+  'scions-of-yaldabaoth':['사이언즈 오브 얄다바오트','S'], 'syenann':['시예난','S'],
+  'red-caps':['레드 캡','R']
 };
 const terms = {
   'Character':'캐릭터','Infantry':'보병','Cavalry':'기병','Companion':'동반자',
@@ -57,6 +58,7 @@ function unitName(u){return language==='en'?u.name:language==='bi'?`${localizedN
 function traitName(value){const translated=terms[value]||ko(value);return ui(translated,value)}
 function localizedName(u){return translations.names[u.name]||u.name}
 function factionDisplay(id){const english=data.factions.find(f=>f.id===id)?.name||id;return ui(factionNames[id]?.[0]||english,english)}
+function factionCatalogVersion(id){return id==='red-caps'?data.redCapsUpdate?.version||data.version:data.version}
 function localCardUrl(u){return translations.cards[u.cardKey]?`./card-art/${encodeURIComponent(u.cardKey)}_card_en.webp`:''}
 function modelPhoto(u,small=false){
   const model=modelImages[u.id];
@@ -178,7 +180,7 @@ function renderArmy(){
 function captureRosterForPlay(){
   const units=selectedUnits().map(u=>({...JSON.parse(JSON.stringify(u)),quantity:count(u)}));
   const joins=units.length?validateJoins(state,data).validJoins:[];
-  return {name:$('#listName').value.trim()||ui('내 유닛 카드','My unit cards'),faction:state.faction,sourceVersion:data.version,mode:state.mode,limit:state.limit,commander:state.commander,savedRosterId:state.savedRosterId||'',units,joins:JSON.parse(JSON.stringify(joins))};
+  return {name:$('#listName').value.trim()||ui('내 유닛 카드','My unit cards'),faction:state.faction,sourceVersion:factionCatalogVersion(state.faction),mode:state.mode,limit:state.limit,commander:state.commander,savedRosterId:state.savedRosterId||'',units,joins:JSON.parse(JSON.stringify(joins))};
 }
 function confirmRoster(source=null,adventure=null){
   const draft=source?.units?JSON.parse(JSON.stringify(source)):captureRosterForPlay();
@@ -287,7 +289,7 @@ function applyStaticLanguage(){
   leaf('#rosterLibrarySave','현재 로스터 저장','Save current');leaf('#rosterLibraryExport','파일 백업','Export file');leaf('#rosterLibraryImport','파일 불러오기','Import file');
   leaf('#confirmRosterButton','플레이 시작','Start playing');leaf('#resumeGameButton','플레이 모드로 돌아가기','Return to play mode');
   leaf('.roster-confirm-note','모험을 고른 뒤 선택한 유닛 카드로 플레이합니다.','Choose an adventure, then play with your unit cards.');
-  leaf('#strategyGuideLink','팩션 가이드','Faction guide');$('#strategyGuideLink').href='./strategy.html#'+state.faction;
+  leaf('#strategyGuideLink','팩션 가이드','Faction guide');$('#strategyGuideLink').href=state.faction==='red-caps'?'./strategy.html':'./strategy.html#'+state.faction;
   leaf('.guide-strip>span','게임 가이드','Game guide');leaf('.guide-strip a[href="./rules.html"]','룰북 전문','Full rulebook');leaf('.guide-strip a[href="./quick-sheet.html"]','퀵시트','Quick sheet');leaf('.guide-strip a[href="./tutorial.html"]','입문 튜토리얼','Tutorial');
   leaf('.guide-strip a[href="./scenarios.html"]','시나리오','Scenarios');$('.dock-roster>span').textContent=language==='bi'?'편성 · Army':language==='en'?'My army':'내 편성';$('.dock-play').textContent=language==='bi'?'플레이 · Play':language==='en'?'Play →':'플레이 시작 →';
   $('#gameView').setAttribute('aria-label',ui('플레이 모드 유닛 카드','Play mode unit cards'));
@@ -295,7 +297,8 @@ function applyStaticLanguage(){
   leaf('.page-shell>footer>span:first-child','비공식 한국어 빌더 초안','Unofficial Warcrow builder draft');
   leaf('#rosterLibraryTitle','내 로스터','My rosters');leaf('.card-source summary','영문 원문과 카드 이미지 대조','Original English text and card image');
   $('.card-dialog .dialog-close').setAttribute('aria-label',ui('닫기','Close'));$('.load-dialog .dialog-close').setAttribute('aria-label',ui('닫기','Close'));
-  $('#sourceVersion').textContent=data.units.length?ui(`유닛 자료 v${data.version} · 한국어 카드 초안`,`Unit data v${data.version} · Card draft`):ui('자료 불러오는 중','Loading data');
+  const version=factionCatalogVersion(screen==='game'?activeGame()?.faction:state.faction);
+  $('#sourceVersion').textContent=data.units.length?ui(`유닛 자료 v${version} · 한국어 카드 초안`,`Unit data v${version} · Card draft`):ui('자료 불러오는 중','Loading data');
 }
 function render(){applyStaticLanguage();renderFactions();renderCatalog();renderArmy();renderGame();$('#modeNote').textContent=state.mode==='wts'?ui('대회 규칙 적용 · 출전 불가 유닛 제외 · 용병 최대 1개','Tournament rules · Ineligible units excluded · Up to 1 mercenary'):ui('기본 편성 규칙 적용 · 출전 불가와 용병 제한은 대회 모드에서 검사','Standard army rules · Tournament eligibility and mercenary limits apply in WTS mode');}
 function restoreUnitFocus(id,action,inArmy){const scope=inArmy?$('#armyPanel'):$('#unitList');const button=scope.querySelector(`[data-${action}="${CSS.escape(id)}"]:not([disabled])`)||scope.querySelector(`[data-${action==='add'?'remove':'add'}="${CSS.escape(id)}"]:not([disabled])`)||(inArmy?$('#listName'):null);button?.focus({preventScroll:true})}
@@ -360,10 +363,41 @@ document.addEventListener('keydown',event=>{
   if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();movePlayCard(event.key==='ArrowLeft'?-1:1)}
   else if(event.target.closest('.play-unit-tab')&&(event.key==='Home'||event.key==='End')){const game=activeGame(),units=playDisplayUnits(game);if(units.length){event.preventDefault();movePlayCard((event.key==='Home'?0:units.length-1)-(Number(game.cardIndex)||0))}}
 });
-function openGuideUnit(){
-  const params=new URLSearchParams(window.location.search),id=params.get('guideUnit');if(!id)return;
-  const faction=params.get('faction'),unit=data.units.find(u=>u.id===id&&(!faction||u.faction===faction));if(!unit)return;
-  screen='builder';state.faction=unit.faction;state.query=unit.name;$('#searchInput').value=unit.name;render();openKoreanCard(unit);
+function openBuilderLink(){
+  const params=new URLSearchParams(window.location.search),id=params.get('guideUnit'),faction=params.get('faction');
+  const unit=id?data.units.find(u=>u.id===id&&(!faction||u.faction===faction)):null;
+  if(!unit&&!data.factions.some(f=>f.id===faction))return;
+  screen='builder';state.faction=unit?.faction||faction;
+  if(unit){state.query=unit.name;$('#searchInput').value=unit.name;}
+  render();
+  $(`#factionGrid [data-faction="${CSS.escape(state.faction)}"]`)?.scrollIntoView?.({block:'nearest',inline:'nearest'});
+  if(unit)openKoreanCard(unit);
 }
 applyStaticLanguage();
-Promise.all(['./app-data.json','./card-ko.json','./card-abilities.json','./card-effects.json','./model-images.json','./rules-glossary.json','./native-cards.json','./join-metadata.json','./keyword-timing.json'].map(url=>fetch(`${url}?v=${url.endsWith('card-abilities.json')?'53':'50'}`).then(response=>{if(!response.ok)throw Error(`${url} request failed`);return response.json()}))).then(([units,translated,abilities,effects,models,glossary,native,joins,timing])=>{data=units;translations=translated;cardProfiles=native;nativeCards=native;cardAbilities=abilities;cardEffects=effects;modelImages=models.units||{};configureRules(glossary);configureJoins(joins);configureKeywordTiming(timing);render();openGuideUnit();if($('#loadDialog').open)renderSavedRosters()}).catch(()=>{toast(ui('유닛 자료를 불러오지 못했습니다.','Could not load unit data.'));$('#unitList').innerHTML=`<div class="empty">${ui('자료를 불러올 수 없습니다. 페이지를 새로고침하세요.','Could not load data. Refresh the page.')}</div>`});
+const catalogFiles=[
+  './app-data.json?v=54', './card-ko.json?v=54', './card-abilities.json?v=54',
+  './card-effects.json?v=54', './model-images.json?v=54', './rules-glossary.json?v=50',
+  './native-cards.json?v=54', './join-metadata.json?v=54', './keyword-timing.json?v=50'
+];
+Promise.all(catalogFiles.map(async url=>{
+  const response=await fetch(url);
+  if(!response.ok)throw Error(`${url} request failed`);
+  return response.json();
+})).then(([units,translated,abilities,effects,models,glossary,native,joins,timing])=>{
+  data=units;
+  translations=translated;
+  cardProfiles=native;
+  nativeCards=native;
+  cardAbilities=abilities;
+  cardEffects=effects;
+  modelImages=models.units||{};
+  configureRules(glossary);
+  configureJoins(joins);
+  configureKeywordTiming(timing);
+  render();
+  openBuilderLink();
+  if($('#loadDialog').open)renderSavedRosters();
+}).catch(()=>{
+  toast(ui('유닛 자료를 불러오지 못했습니다.','Could not load unit data.'));
+  $('#unitList').innerHTML=`<div class="empty">${ui('자료를 불러올 수 없습니다. 페이지를 새로고침하세요.','Could not load data. Refresh the page.')}</div>`;
+});
